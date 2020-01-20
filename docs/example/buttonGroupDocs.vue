@@ -95,7 +95,7 @@
 import docSection from './utils/docSection.vue'
 import docTable from './utils/docTable.js'
 import docCode from './utils/docCode.js'
-import ButtonGroup from 'src/ButtonGroup.vue'
+import ButtonGroup from 'src/buttonGroup.vue'
 import Checkbox from 'src/Checkbox.vue'
 import Radio from 'src/Radio.vue'
 
