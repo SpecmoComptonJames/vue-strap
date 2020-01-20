@@ -33,6 +33,7 @@
             <progressbar-docs></progressbar-docs>
             <radio-docs></radio-docs>
             <select-docs></select-docs>
+            <select-extended-docs></select-extended-docs>
             <spinner-docs></spinner-docs>
             <tabs-docs></tabs-docs>
             <toggle-button-docs></toggle-button-docs>
@@ -85,6 +86,7 @@ import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbarDocs.vue'
 import radioDocs from './example/radioDocs.vue'
 import selectDocs from './example/selectDocs.vue'
+import selectExtendedDocs from './example/selectExtendedDocs.vue'
 import spinnerDocs from './example/spinnerDocs.vue'
 import tabsDocs from './example/tabsDocs.vue'
 import toggleButtonDocs from './example/toggleButtonDocs.vue'
@@ -113,6 +115,7 @@ export default {
     progressbarDocs,
     radioDocs,
     selectDocs,
+    selectExtendedDocs,
     spinnerDocs,
     tabsDocs,
     toggleButtonDocs,

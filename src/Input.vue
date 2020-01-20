@@ -1,6 +1,6 @@
 <!--suppress ALL -->
 <template>
-  <div  :class="[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]">
+  <div :id="controlId"  :class="[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]">
     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
     <div v-if="$slots.before||$slots.after" class="input-group">
       <slot name="before"></slot>
@@ -101,6 +101,7 @@ export default {
     validationDelay: {type: Number, default: 250},
     value: {default: null},
     cssClass: {type: String, default: null},
+    controlId: {default: true}
   },
   data () {
     var val = this.value

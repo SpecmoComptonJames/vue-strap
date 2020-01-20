@@ -25,6 +25,7 @@ import popover from './Popover.vue'
 import progressbar from './Progressbar.vue'
 import radio from './Radio.vue'
 import select from './Select.vue'
+import selectExtended from './SelectExtended.vue'
 import slider from './Slider.vue'
 import spinner from './Spinner.vue'
 import tab from './Tab.vue'
@@ -64,6 +65,7 @@ const VueStrap = {
   progressbar,
   radio,
   select,
+  selectExtended,
   slider,
   spinner,
   tab,
@@ -72,6 +74,6 @@ const VueStrap = {
   toggleButton,
   tooltip,
   typeahead
-}
+};
 
-module.exports = VueStrap
+module.exports = VueStrap;
