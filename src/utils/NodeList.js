@@ -262,8 +262,10 @@ var NodeListJS = function(){
               if (!target) item.callback.call(item.el, e, item.el)
             })
           }
-          document.addEventListener('click', blurEvent, false)
-          document.addEventListener('touchstart', blurEvent, false)
+          document.addEventListener('click', blurEvent, false);
+          //document.addEventListener('touchstart', blurEvent, false)
+          /*https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md chrome scroll wheel issue? */
+          document.addEventListener('touchstart', blurEvent, {passive: true});
         }
         return this
       }
