@@ -1,13 +1,13 @@
 <template>
   <doc-section id="popover" name="Popover">
     <div class="bs-example">
-      <popover v-for="place in placements" effect="fade" :content="text" :placement="place">
-        <button class="btn btn-default">Popover on {{place}}</button>
+      <popover v-for="place in placementValues" :key="place.key" effect="fade" :content="text" :placement="place.value">
+        <button class="btn btn-default">Popover on {{place.value}}</button>
       </popover>
       <hr>
       <h4>Title</h4>
-      <popover v-for="place in placements" effect="fade" header title="Title" :content="text" :placement="place">
-        <button class="btn btn-default">Popover on {{place}}</button>
+      <popover v-for="place in placementValues2" :key="place.key" effect="fade" header title="Title" :content="text" :placement="place.value">
+        <button class="btn btn-default">Popover on {{place.value}}</button>
       </popover>
       <hr>
       <h4>Trigger</h4>
@@ -89,7 +89,8 @@ export default {
   },
   data () {
     return {
-      placements: ['top', 'left', 'right', 'bottom'],
+      placementValues: [{key:0, value:'top'}, {key:1,value:'left'}, {key:2,value:'right'}, {key:3,value:'bottom'}],
+      placementValues2: [{key:5, value:'top'}, {key:7,value:'left'}, {key:8,value:'right'}, {key:9,value:'bottom'}],
       text: 'Lorem ipsum dolor sit amet',
       content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod'
     }
