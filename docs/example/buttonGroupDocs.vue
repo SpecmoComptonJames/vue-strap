@@ -1,41 +1,14 @@
 <template>
-  <doc-section id="button-group" name="***Button Group">
+  <doc-section id="button-group" name="Button Group">
     <div class="bs-example">
-      <h4>Checkbox</h4>
+      <h4>Button Group</h4>
       <button-group v-model="checkboxValue">
         <checkbox true-value="left">Left</checkbox>
         <checkbox true-value="middle">Middle</checkbox>
         <checkbox true-value="right">Right</checkbox>
       </button-group>
       <p>
-        <pre>Checkbox value: {{ checkboxValue }}</pre>
-      </p>
-      <hr>
-      <h4>Radio</h4>
-      <p>
-        <button-group v-model="radioValue" type="primary">
-          <radio true-value="left">Left</radio>
-          <radio true-value="middle">Middle</radio>
-          <radio true-value="right">Right</radio>
-        </button-group>
-      </p>
-      <p>
-        <button-group v-model="radioValue" type="success">
-          <radio true-value="left">Left</radio>
-          <radio true-value="middle">Middle</radio>
-          <radio true-value="right">Right</radio>
-        </button-group>
-      </p>
-      <p>
-        <label>Not buttons:</label>
-        <button-group v-model="radioValue" type="info" buttons="false">
-          <radio true-value="left">Left</radio>
-          <radio true-value="middle">Middle</radio>
-          <radio true-value="right">Right</radio>
-        </button-group>
-      </p>
-      <p>
-        <pre>Radio value: {{ radioValue }}</pre>
+        <pre>Button Group value: {{ checkboxValue }}</pre>
       </p>
     </div>
     <doc-code language="markup">
@@ -72,8 +45,7 @@
         <p><code>Boolean</code></p>
         <p><code>true</code></p>
         <p>
-          <p>Can enable/disable button style.</p>
-          <p>Group normal checks if you want to set the same type color for all.</p>
+          SPC: removed - bootstrap 3 doesn't support this property.
         </p>
       </div>
       <div>
@@ -88,6 +60,13 @@
         <p></p>
       </div>
     </doc-table>
+    <div>
+      <h3>Notes: </h3>
+      <ul>
+        <li>Removed button property as this is not supported by our version of bootstrap</li>
+      </ul>
+    </div>
+
   </doc-section>
 </template>
 
