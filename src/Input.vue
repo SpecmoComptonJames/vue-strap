@@ -1,5 +1,6 @@
+<!--suppress ALL -->
 <template>
-  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
+  <div  :class="[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]">
     <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
     <div v-if="$slots.before||$slots.after" class="input-group">
       <slot name="before"></slot>
@@ -98,7 +99,8 @@ export default {
     url: {type: String, default: null},
     urlMap: {type: Function, default: null},
     validationDelay: {type: Number, default: 250},
-    value: {default: null}
+    value: {default: null},
+    cssClass: {type: String, default: null},
   },
   data () {
     var val = this.value
