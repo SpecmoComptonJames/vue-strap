@@ -28,31 +28,35 @@ export default {
       this.$nextTick(() => {
         var popover = this.$refs.popover;
         var trigger = this.$refs.trigger.children[0];
-        if (!trigger.offsetWidth) {
+        if (!trigger) {
           return;
         }
-        switch (this.placement) {
-          case 'top' :
-            this.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-            this.top = trigger.offsetTop - popover.offsetHeight;
-            break;
-          case 'left':
-            this.left = trigger.offsetLeft - popover.offsetWidth;
-            this.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-            break;
-          case 'right':
-            this.left = trigger.offsetLeft + trigger.offsetWidth;
-            this.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
-            break;
-          case 'bottom':
-            this.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
-            this.top = trigger.offsetTop + trigger.offsetHeight;
-            break;
-          default:
-            console.warn('Wrong placement prop');
+        try {
+          switch (this.placement) {
+            case 'top' :
+              this.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+              this.top = trigger.offsetTop - popover.offsetHeight;
+              break;
+            case 'left':
+              this.left = trigger.offsetLeft - popover.offsetWidth;
+              this.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+              break;
+            case 'right':
+              this.left = trigger.offsetLeft + trigger.offsetWidth;
+              this.top = trigger.offsetTop + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+              break;
+            case 'bottom':
+              this.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+              this.top = trigger.offsetTop + trigger.offsetHeight;
+              break;
+            default:
+              console.warn('Wrong placement prop');
+          }
+          popover.style.top = this.top + 'px';
+          popover.style.left = this.left + 'px';
+        } catch(e) {
+          return;
         }
-        popover.style.top = this.top + 'px';
-        popover.style.left = this.left + 'px';
       })
     },
     toggle (e) {
