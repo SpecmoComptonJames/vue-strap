@@ -150,44 +150,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Slider = __webpack_require__(160);
+	var _SelectExtended = __webpack_require__(160);
+	
+	var _SelectExtended2 = _interopRequireDefault(_SelectExtended);
+	
+	var _Slider = __webpack_require__(165);
 	
 	var _Slider2 = _interopRequireDefault(_Slider);
 	
-	var _Spinner = __webpack_require__(163);
+	var _Spinner = __webpack_require__(168);
 	
 	var _Spinner2 = _interopRequireDefault(_Spinner);
 	
-	var _Tab = __webpack_require__(168);
+	var _Tab = __webpack_require__(173);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
-	var _TabGroup = __webpack_require__(171);
+	var _TabGroup = __webpack_require__(176);
 	
 	var _TabGroup2 = _interopRequireDefault(_TabGroup);
 	
-	var _Tabs = __webpack_require__(176);
+	var _Tabs = __webpack_require__(181);
 	
 	var _Tabs2 = _interopRequireDefault(_Tabs);
 	
-	var _ToggleButton = __webpack_require__(181);
+	var _ToggleButton = __webpack_require__(186);
 	
 	var _ToggleButton2 = _interopRequireDefault(_ToggleButton);
 	
-	var _Tooltip = __webpack_require__(184);
+	var _Tooltip = __webpack_require__(189);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _Typeahead = __webpack_require__(189);
+	var _Typeahead = __webpack_require__(194);
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// Components
-	
-	// Directives
-	// Utils
 	var VueStrap = {
 	  directives: {
 	    ClickOutside: _ClickOutside2.default,
@@ -218,6 +218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  progressbar: _Progressbar2.default,
 	  radio: _Radio2.default,
 	  select: _Select2.default,
+	  selectExtended: _SelectExtended2.default,
 	  slider: _Slider2.default,
 	  spinner: _Spinner2.default,
 	  tab: _Tab2.default,
@@ -227,6 +228,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  tooltip: _Tooltip2.default,
 	  typeahead: _Typeahead2.default
 	};
+	// Components
+	
+	// Directives
+	// Utils
+	
 	
 	module.exports = VueStrap;
 
@@ -5388,7 +5394,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.form-group[data-v-67bb51ab] {\n  position: relative;\n}\nlabel~.close[data-v-67bb51ab] {\n  top: 25px;\n}\n.input-group>.icon[data-v-67bb51ab] {\n  position: relative;\n  display: table-cell;\n  width:0;\n  z-index: 3;\n}\n.close[data-v-67bb51ab] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.has-feedback .close[data-v-67bb51ab] {\n  right: 20px;\n}\n", "", {"version":3,"sources":["/./src/Input.vue?3069d020"],"names":[],"mappings":";AA0QA;EACA,mBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,mBAAA;EACA,oBAAA;EACA,QAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<template>\n  <div class=\"form-group\" :class=\"{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}\">\n    <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\n    <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n        :cols=\"cols\"\n        :disabled=\"disabled\"\n        :list=\"id_datalist\"\n        :max=\"attr(max)\"\n        :maxlength=\"maxlength\"\n        :min=\"attr(min)\"\n        :name=\"name\"\n        :placeholder=\"placeholder\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :rows=\"rows\"\n        :step=\"step\"\n        :title=\"attr(title)\"\n        :type=\"type=='textarea'?null:type\"\n        v-model=\"val\"\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n      <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\n        <span class=\"close\" @click=\"value = ''\">&times;</span>\n      </div>\n      <div v-if=\"icon\" class=\"icon\">\n        <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\n      </div>\n      <slot name=\"after\"></slot>\n    </div>\n    <template v-else>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n        :cols=\"cols\"\n        :disabled=\"disabled\"\n        :list=\"id_datalist\"\n        :max=\"attr(max)\"\n        :maxlength=\"maxlength\"\n        :min=\"attr(min)\"\n        :name=\"name\"\n        :placeholder=\"placeholder\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :rows=\"rows\"\n        :step=\"step\"\n        :title=\"attr(title)\"\n        :type=\"type=='textarea'?null:type\"\n        v-model=\"val\"\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n      <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\n      <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\n    </template>\n    <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\n      <option v-for=\"opc in options\" :value=\"opc\"></option>\n    </datalist>\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n  </div>\n</template>\n\n<script>\nimport {coerce, delayer, translations} from './utils/utils.js'\nimport $ from './utils/NodeList.js'\n\nvar DELAY = 300\n\nexport default {\n  props: {\n    clearButton: {type: Boolean, default: false},\n    cols: {type: Number, default: null},\n    datalist: {type: Array, default: null},\n    disabled: {type: Boolean, default: false},\n    enterSubmit: {type: Boolean, default: false},\n    error: {type: String, default: null},\n    help: {type: String, default: null},\n    hideHelp: {type: Boolean, default: true},\n    icon: {type: Boolean, default: false},\n    label: {type: String, default: null},\n    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:\"zh-CN\"},\n    mask: null,\n    maskDelay: {type: Number, default: 100},\n    match: {type: String, default: null},\n    max: {type: String, default: null},\n    maxlength: {type: Number, default: null},\n    min: {type: String, default: null},\n    minlength: {type: Number, default: 0},\n    name: {type: String, default: null},\n    pattern: {default: null},\n    placeholder: {type: String, default: null},\n    readonly: {type: Boolean, default: false},\n    required: {type: Boolean, default: false},\n    rows: {type: Number, default: 3},\n    step: {type: Number, default: null},\n    type: {type: String, default: 'text'},\n    url: {type: String, default: null},\n    urlMap: {type: Function, default: null},\n    validationDelay: {type: Number, default: 250},\n    value: {default: null}\n  },\n  data () {\n    var val = this.value\n    return {\n      options: this.datalist,\n      val,\n      valid: null,\n      timeout: null\n    }\n  },\n  computed: {\n    canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },\n    errorText () {\n      let value = this.value\n      let error = [this.error]\n      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\n      if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\n      return error.join(' ')\n    },\n    id_datalist () {\n      if (this.type !== 'textarea' && this.datalist instanceof Array) {\n        if (!this._id_datalist) {\n          if (!this.$root.id_datalist) { this.$root.id_datalist = 0 }\n          this._id_datalist = 'input-datalist' + this.$root.id_datalist++\n        }\n        return this._id_datalist\n      }\n      return null\n    },\n    input () { return this.$refs.input },\n    nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },\n    regex () { return coerce.pattern(this.pattern) },\n    showError () { return this.error && this.valid === false },\n    showHelp () { return this.help && (!this.showError || !this.hideHelp) },\n    text () { return translations(this.lang) },\n    title () { return this.errorText || this.help || '' }\n  },\n  watch: {\n    datalist (val, old) {\n      if (val !== old && val instanceof Array) { this.options = val }\n    },\n    match (val) { this.eval() },\n    options (val, old) {\n      if (val !== old) this.$emit('options', val)\n    },\n    url (val) {\n      this._url()\n    },\n    val (val, old) {\n      this.$emit('input', val)\n      if (val !== old) {\n        if (this.mask instanceof Function) {\n          val = this.mask(val || '')\n          if (this.val !== val) {\n            if (this._timeout.mask) clearTimeout(this._timeout.mask)\n            this._timeout.mask = setTimeout(() => {\n              this.val = val\n            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\n          }\n        }\n        this.eval()\n      }\n    },\n    valid (val, old) {\n      this.$emit('isvalid', val)\n      this.$emit(!val ? 'invalid' : 'valid')\n      if (this._parent) this._parent.validate()\n    },\n    value (val) {\n      if (this.val !== val) { this.val = val }\n    }\n  },\n  methods: {\n    attr (value) {\n      return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\n    },\n    emit (e) {\n      this.$emit(e.type, e.type == 'input' ? e.target.value : e)\n      if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }\n    },\n    eval () {\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\n      if (!this.canValidate) {\n        this.valid = true\n      } else {\n        this._timeout.eval = setTimeout(() => {\n          this.valid = this.validate()\n          this._timeout.eval = null\n        }, this.validationDelay)\n      }\n    },\n    focus () { this.input.focus() },\n    submit () {\n      if (this.$parent._formValidator) {\n        return this.$parent.validate()\n      }\n      if (this.input.form) {\n        const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\n        if (invalids.length) {\n          invalids.find('input,textarea,select')[0].focus()\n        } else {\n          this.input.form.submit()\n        }\n      }\n    },\n    validate () {\n      if (!this.canValidate) { return true }\n      let value = (this.val || '').trim()\n      if (!value) { return !this.required }\n      if (this.match !== null) { return this.match === value }\n      if (value.length < this.minlength) { return false }\n      if (this.nativeValidate && !this.input.checkValidity()) { return false }\n      if (this.regex) {\n        if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }\n      }\n      return true\n    },\n    reset() {\n      this.value = ''\n      this.valid = null\n      if (this._timeout.mask) clearTimeout(this._timeout.mask)\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\n    }\n  },\n  created () {\n    this._input = true\n    this._timeout = {}\n    let parent = this.$parent\n    while (parent && !parent._formValidator) { parent = parent.$parent }\n    if (parent && parent._formValidator) {\n      parent.children.push(this)\n      this._parent = parent\n    }\n    this._url = delayer(function () {\n      if (!this.url || !this.$http || this._loading) { return }\n      this._loading = true\n      this.$http.get(this.url).then(response => {\n        var data = response.data instanceof Array ? response.data : []\n        try { data = JSON.parse(data) } catch (e) {}\n        if (this.urlMap) { data = data.map(this.urlMap) }\n        this.options = data\n        this.loading = false\n      }, response => {\n        this.loading = false\n      })\n    }, DELAY)\n    if (this.url) this._url()\n  },\n  mounted () {\n    // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\n    //   if (this.canValidate) { this.valid = this.validate() }\n    //   this.$emit('blur', e)\n    // })\n  },\n  beforeDestroy () {\n    // $(this.input).off()\n    if (this._parent) {\n      var index = this._parent.children.indexOf(this)\n      this._parent.children.splice(index, 1)\n    }\n  }\n}\n</script>\n\n<style scoped>\n.form-group {\n  position: relative;\n}\nlabel~.close {\n  top: 25px;\n}\n.input-group>.icon {\n  position: relative;\n  display: table-cell;\n  width:0;\n  z-index: 3;\n}\n.close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.has-feedback .close {\n  right: 20px;\n}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.form-group[data-v-67bb51ab] {\n  position: relative;\n}\nlabel~.close[data-v-67bb51ab] {\n  top: 25px;\n}\n.input-group>.icon[data-v-67bb51ab] {\n  position: relative;\n  display: table-cell;\n  width:0;\n  z-index: 3;\n}\n.close[data-v-67bb51ab] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.has-feedback .close[data-v-67bb51ab] {\n  right: 20px;\n}\n", "", {"version":3,"sources":["/./src/Input.vue?3b96f8bc"],"names":[],"mappings":";AA6QA;EACA,mBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,mBAAA;EACA,oBAAA;EACA,QAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<!--suppress ALL -->\n<template>\n  <div :id=\"controlId\"  :class=\"[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]\">\n    <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\n    <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n        :cols=\"cols\"\n        :disabled=\"disabled\"\n        :list=\"id_datalist\"\n        :max=\"attr(max)\"\n        :maxlength=\"maxlength\"\n        :min=\"attr(min)\"\n        :name=\"name\"\n        :placeholder=\"placeholder\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :rows=\"rows\"\n        :step=\"step\"\n        :title=\"attr(title)\"\n        :type=\"type=='textarea'?null:type\"\n        v-model=\"val\"\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n      <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\n        <span class=\"close\" @click=\"value = ''\">&times;</span>\n      </div>\n      <div v-if=\"icon\" class=\"icon\">\n        <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\n      </div>\n      <slot name=\"after\"></slot>\n    </div>\n    <template v-else>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n        :cols=\"cols\"\n        :disabled=\"disabled\"\n        :list=\"id_datalist\"\n        :max=\"attr(max)\"\n        :maxlength=\"maxlength\"\n        :min=\"attr(min)\"\n        :name=\"name\"\n        :placeholder=\"placeholder\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :rows=\"rows\"\n        :step=\"step\"\n        :title=\"attr(title)\"\n        :type=\"type=='textarea'?null:type\"\n        v-model=\"val\"\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n      <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\n      <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\n    </template>\n    <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\n      <option v-for=\"opc in options\" :value=\"opc\"></option>\n    </datalist>\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n  </div>\n</template>\n\n<script>\nimport {coerce, delayer, translations} from './utils/utils.js'\nimport $ from './utils/NodeList.js'\n\nvar DELAY = 300\n\nexport default {\n  props: {\n    clearButton: {type: Boolean, default: false},\n    cols: {type: Number, default: null},\n    datalist: {type: Array, default: null},\n    disabled: {type: Boolean, default: false},\n    enterSubmit: {type: Boolean, default: false},\n    error: {type: String, default: null},\n    help: {type: String, default: null},\n    hideHelp: {type: Boolean, default: true},\n    icon: {type: Boolean, default: false},\n    label: {type: String, default: null},\n    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:\"zh-CN\"},\n    mask: null,\n    maskDelay: {type: Number, default: 100},\n    match: {type: String, default: null},\n    max: {type: String, default: null},\n    maxlength: {type: Number, default: null},\n    min: {type: String, default: null},\n    minlength: {type: Number, default: 0},\n    name: {type: String, default: null},\n    pattern: {default: null},\n    placeholder: {type: String, default: null},\n    readonly: {type: Boolean, default: false},\n    required: {type: Boolean, default: false},\n    rows: {type: Number, default: 3},\n    step: {type: Number, default: null},\n    type: {type: String, default: 'text'},\n    url: {type: String, default: null},\n    urlMap: {type: Function, default: null},\n    validationDelay: {type: Number, default: 250},\n    value: {default: null},\n    cssClass: {type: String, default: null},\n    controlId: {default: true}\n  },\n  data () {\n    var val = this.value\n    return {\n      options: this.datalist,\n      val,\n      valid: null,\n      timeout: null\n    }\n  },\n  computed: {\n    canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },\n    errorText () {\n      let value = this.value\n      let error = [this.error]\n      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\n      if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\n      return error.join(' ')\n    },\n    id_datalist () {\n      if (this.type !== 'textarea' && this.datalist instanceof Array) {\n        if (!this._id_datalist) {\n          if (!this.$root.id_datalist) { this.$root.id_datalist = 0 }\n          this._id_datalist = 'input-datalist' + this.$root.id_datalist++\n        }\n        return this._id_datalist\n      }\n      return null\n    },\n    input () { return this.$refs.input },\n    nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },\n    regex () { return coerce.pattern(this.pattern) },\n    showError () { return this.error && this.valid === false },\n    showHelp () { return this.help && (!this.showError || !this.hideHelp) },\n    text () { return translations(this.lang) },\n    title () { return this.errorText || this.help || '' }\n  },\n  watch: {\n    datalist (val, old) {\n      if (val !== old && val instanceof Array) { this.options = val }\n    },\n    match (val) { this.eval() },\n    options (val, old) {\n      if (val !== old) this.$emit('options', val)\n    },\n    url (val) {\n      this._url()\n    },\n    val (val, old) {\n      this.$emit('input', val)\n      if (val !== old) {\n        if (this.mask instanceof Function) {\n          val = this.mask(val || '')\n          if (this.val !== val) {\n            if (this._timeout.mask) clearTimeout(this._timeout.mask)\n            this._timeout.mask = setTimeout(() => {\n              this.val = val\n            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\n          }\n        }\n        this.eval()\n      }\n    },\n    valid (val, old) {\n      this.$emit('isvalid', val)\n      this.$emit(!val ? 'invalid' : 'valid')\n      if (this._parent) this._parent.validate()\n    },\n    value (val) {\n      if (this.val !== val) { this.val = val }\n    }\n  },\n  methods: {\n    attr (value) {\n      return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\n    },\n    emit (e) {\n      this.$emit(e.type, e.type == 'input' ? e.target.value : e)\n      if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }\n    },\n    eval () {\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\n      if (!this.canValidate) {\n        this.valid = true\n      } else {\n        this._timeout.eval = setTimeout(() => {\n          this.valid = this.validate()\n          this._timeout.eval = null\n        }, this.validationDelay)\n      }\n    },\n    focus () { this.input.focus() },\n    submit () {\n      if (this.$parent._formValidator) {\n        return this.$parent.validate()\n      }\n      if (this.input.form) {\n        const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\n        if (invalids.length) {\n          invalids.find('input,textarea,select')[0].focus()\n        } else {\n          this.input.form.submit()\n        }\n      }\n    },\n    validate () {\n      if (!this.canValidate) { return true }\n      let value = (this.val || '').trim()\n      if (!value) { return !this.required }\n      if (this.match !== null) { return this.match === value }\n      if (value.length < this.minlength) { return false }\n      if (this.nativeValidate && !this.input.checkValidity()) { return false }\n      if (this.regex) {\n        if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }\n      }\n      return true\n    },\n    reset() {\n      this.value = ''\n      this.valid = null\n      if (this._timeout.mask) clearTimeout(this._timeout.mask)\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\n    }\n  },\n  created () {\n    this._input = true\n    this._timeout = {}\n    let parent = this.$parent\n    while (parent && !parent._formValidator) { parent = parent.$parent }\n    if (parent && parent._formValidator) {\n      parent.children.push(this)\n      this._parent = parent\n    }\n    this._url = delayer(function () {\n      if (!this.url || !this.$http || this._loading) { return }\n      this._loading = true\n      this.$http.get(this.url).then(response => {\n        var data = response.data instanceof Array ? response.data : []\n        try { data = JSON.parse(data) } catch (e) {}\n        if (this.urlMap) { data = data.map(this.urlMap) }\n        this.options = data\n        this.loading = false\n      }, response => {\n        this.loading = false\n      })\n    }, DELAY)\n    if (this.url) this._url()\n  },\n  mounted () {\n    // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\n    //   if (this.canValidate) { this.valid = this.validate() }\n    //   this.$emit('blur', e)\n    // })\n  },\n  beforeDestroy () {\n    // $(this.input).off()\n    if (this._parent) {\n      var index = this._parent.children.indexOf(this)\n      this._parent.children.splice(index, 1)\n    }\n  }\n}\n</script>\n\n<style scoped>\n.form-group {\n  position: relative;\n}\nlabel~.close {\n  top: 25px;\n}\n.input-group>.icon {\n  position: relative;\n  display: table-cell;\n  width:0;\n  z-index: 3;\n}\n.close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.has-feedback .close {\n  right: 20px;\n}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -5411,6 +5417,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	//
 	//
 	//
 	//
@@ -5508,7 +5515,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    url: { type: String, default: null },
 	    urlMap: { type: Function, default: null },
 	    validationDelay: { type: Number, default: 250 },
-	    value: { default: null }
+	    value: { default: null },
+	    cssClass: { type: String, default: null },
+	    controlId: { default: true }
 	  },
 	  data: function data() {
 	    var val = this.value;
@@ -5733,9 +5742,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
-	    staticClass: "form-group",
-	    class: {
-	      validate: _vm.canValidate, 'has-feedback': _vm.icon, 'has-error': _vm.canValidate && _vm.valid === false, 'has-success': _vm.canValidate && _vm.valid
+	    class: [{
+	      validate: _vm.canValidate,
+	      'has-feedback': _vm.icon,
+	      'has-error': _vm.canValidate && _vm.valid === false,
+	      'has-success': _vm.canValidate && _vm.valid
+	    }, _vm.cssClass],
+	    attrs: {
+	      "id": _vm.controlId
 	    }
 	  }, [_vm._t("label", [(_vm.label) ? _c('label', {
 	    staticClass: "control-label",
@@ -7947,11 +7961,635 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	
+	/* styles */
+	__webpack_require__(161)
+	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(161),
+	  __webpack_require__(163),
 	  /* template */
-	  __webpack_require__(162),
+	  __webpack_require__(164),
+	  /* scopeId */
+	  "data-v-f81f5f78",
+	  /* cssModules */
+	  null
+	)
+	Component.options.__file = "/home/jim/Documents/Projects/node/git/vue-strap/src/SelectExtended.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] SelectExtended.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-f81f5f78", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-f81f5f78", Component.options)
+	  }
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(162);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	if(content.locals) module.exports = content.locals;
+	// add the styles to the DOM
+	var update = __webpack_require__(80)("2ae25df3", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f81f5f78\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectExtended.vue", function() {
+	     var newContent = require("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f81f5f78\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectExtended.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 162 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(79)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.form-control.dropdown-toggle[data-v-f81f5f78]{\n  height: auto;\n  padding-right: 24px;\n}\n.form-control.dropdown-toggle[data-v-f81f5f78]:after{\n  content: ' ';\n  position: absolute;\n  right: 13px;\n  top: 50%;\n  margin: -1px 0 0;\n  border-top: 4px dashed;\n  border-top: 4px solid \\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n.bs-searchbox[data-v-f81f5f78] {\n  position: relative;\n  margin: 4px 8px;\n}\n.bs-searchbox .close[data-v-f81f5f78] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.bs-searchbox input[data-v-f81f5f78]:focus,\n.form-control.dropdown-toggle[data-v-f81f5f78]:focus {\n  outline: 0;\n  border-color: #66afe9 !important;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\n.secret[data-v-f81f5f78] {\n  border: 0;\n  clip: rect(0 0 0 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n.form-control.dropdown-toggle>.close[data-v-f81f5f78] { margin-left: 5px;\n}\n.notify.out[data-v-f81f5f78] { position: relative;\n}\n.notify.in[data-v-f81f5f78],\n.notify>div[data-v-f81f5f78] {\n  position: absolute;\n  width: 96%;\n  margin: 0 2%;\n  min-height: 26px;\n  padding: 3px 5px;\n  background: #f5f5f5;\n  border: 1px solid #e3e3e3;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\n  pointer-events: none;\n}\n.notify>div[data-v-f81f5f78] {\n  top: 5px;\n  z-index: 1;\n}\n.notify.in[data-v-f81f5f78] {\n  opacity: .9;\n  bottom: 5px;\n}\n.btn-group-justified .dropdown-toggle>span[data-v-f81f5f78]:not(.close) {\n  width: calc(100% - 18px);\n  display: inline-block;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  margin-bottom: -4px;\n}\n.btn-group-justified .dropdown-menu[data-v-f81f5f78] { width: 100%;\n}\n", "", {"version":3,"sources":["/./src/SelectExtended.vue?2eb62b49"],"names":[],"mappings":";AA2QA;EACA,aAAA;EACA,oBAAA;CACA;AACA;EACA,aAAA;EACA,mBAAA;EACA,YAAA;EACA,SAAA;EACA,iBAAA;EACA,uBAAA;EACA,yBAAA;EACA,oCAAA;EACA,mCAAA;CACA;AACA;EACA,mBAAA;EACA,gBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;;EAEA,WAAA;EACA,iCAAA;EACA,0EAAA;CACA;AACA;EACA,UAAA;EACA,oBAAA;EACA,YAAA;EACA,aAAA;EACA,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,WAAA;CACA;AACA,wDAAA,iBAAA;CAAA;AACA,+BAAA,mBAAA;CAAA;AACA;;EAEA,mBAAA;EACA,WAAA;EACA,aAAA;EACA,iBAAA;EACA,iBAAA;EACA,oBAAA;EACA,0BAAA;EACA,4CAAA;EACA,qBAAA;CACA;AACA;EACA,SAAA;EACA,WAAA;CACA;AACA;EACA,YAAA;EACA,YAAA;CACA;AACA;EACA,yBAAA;EACA,sBAAA;EACA,iBAAA;EACA,oBAAA;EACA,wBAAA;EACA,oBAAA;CACA;AACA,uDAAA,YAAA;CAAA","file":"SelectExtended.vue","sourcesContent":["<template>\n  <div ref=\"selectExtended\" :class=\"['input-group', classes, cssClass]\" v-click-outside=\"close\">\n    <span v-if=\"groupAddon\" class=\"input-group-addon\">\n      <i v-if=\"groupFaIcon\" :class=\"groupFaIcon\" style=\"margin-right: 3px\"></i>\n      {{groupAddon}}\n    </span>\n    <div ref=\"btn\" class=\"form-control dropdown-toggle\" tabindex=\"1\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\"\n      @blur=\"canSearch ? null : close()\"\n      @click=\"toggle()\"\n      @keydown.esc.stop.prevent=\"close\"\n      @keydown.space.stop.prevent=\"toggle\"\n      @keydown.enter.stop.prevent=\"toggle\"\n    >\n      <span class=\"btn-content\" v-html=\"loading ? text.loading : showPlaceholder || selected\"></span>\n      <span v-if=\"clearButton&&values.length\" class=\"close\" @click=\"clear()\">&times;</span>\n    </div>\n    <select ref=\"sel\" v-model=\"val\" :name=\"name\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\">\n      <option v-if=\"required\" value=\"\"></option>\n      <option v-for=\"option in list\" :value=\"option[optionsValue]\">{{ option[optionsLabel] }}</option>\n    </select>\n    <ul class=\"dropdown-menu\">\n      <template v-if=\"list.length\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\">\n          <input type=\"text\" :placeholder=\"searchText||text.search\" class=\"form-control\" autocomplete=\"off\" ref=\"search\"\n            v-model=\"searchValue\"\n            @keyup.esc=\"close\"\n          />\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\">&times;</span>\n        </li>\n        <li v-if=\"required&&!clearButton\"><a @mousedown.prevent=\"clear() && close()\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in filteredOptions\" :id=\"option[optionsValue]\">\n          <a @mousedown.prevent=\"select(option[optionsValue])\">\n            <span v-html=\"option[optionsLabel]\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue])\"></span>\n          </a>\n        </li>\n      </template>\n      <slot></slot>\n      <transition v-if=\"notify && !closeOnSelect\" name=\"fadein\"><div class=\"notify in\">{{limitText}}</div></transition>\n    </ul>\n    <transition v-if=\"notify && closeOnSelect\" name=\"fadein\"><div class=\"notify out\"><div>{{limitText}}</div></div></transition>\n    <!-- <pre>Options: {{list}}</pre> -->\n  </div>\n</template>\n\n<script>\nimport {translations} from './utils/utils.js'\nimport ClickOutside from './directives/ClickOutside.js'\n\nvar timeout = {};\n\nexport default {\n  directives: {\n    ClickOutside\n  },\n  props: {\n    clearButton: {type: Boolean, default: false},\n    closeOnSelect: {type: Boolean, default: false},\n    disabled: {type: Boolean, default: false},\n    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:\"zh-CN\"},\n    limit: {type: Number, default: 1024},\n    minSearch: {type: Number, default: 0},\n    multiple: {type: Boolean, default: false},\n    name: {type: String, default: null},\n    options: {type: Array, default () { return [] }},\n    optionsLabel: {type: String, default: 'label'},\n    optionsValue: {type: String, default: 'value'},\n    parent: {default: true},\n    placeholder: {type: String, default: null},\n    readonly: {type: Boolean, default: null},\n    required: {type: Boolean, default: null},\n    search: {type: Boolean, default: false},\n    searchText: {type: String, default: null},\n    url: {type: String, default: null},\n    value: null,\n    groupAddon: {type:String, default:null},\n    groupFaIcon: {type:String, default:null},\n    cssClass: {type: String, default: null},\n  },\n  data () {\n    return {\n      list: [],\n      loading: null,\n      searchValue: null,\n      show: false,\n      notify: false,\n      val: null,\n      valid: null\n    }\n  },\n  computed: {\n    canSearch () { return this.minSearch ? this.list.length >= this.minSearch : this.search },\n    classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'] },\n    filteredOptions () {\n      var search = (this.searchValue || '').toLowerCase()\n      return !search ? this.list : this.list.filter(el => {\n        return ~el[this.optionsLabel].toLowerCase().search(search)\n      })\n    },\n    hasParent () { return this.parent instanceof Array ? this.parent.length : this.parent },\n    inInput () { return this.$parent._input },\n    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },\n    limitText () { return this.text.limit.replace('{{limit}}', this.limit) },\n    selected () {\n      if (this.list.length === 0) { return '' }\n      var sel = this.values.map(val => (this.list.find(o => o[this.optionsValue] === val) || {})[this.optionsLabel]).filter(val => val !== undefined)\n      this.$emit('selected', sel)\n      return sel.join(', ')\n    },\n    showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },\n    text () { return translations(this.lang) },\n    values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] },\n    valOptions () { return this.list.map(el => el[this.optionsValue]) }\n  },\n  watch: {\n    options (options) {\n      if (options instanceof Array) this.setOptions(options)\n    },\n    show (val) {\n      if (val) {\n        this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus()\n        // onBlur(this.$refs.select, e => { this.show = false })\n      } else {\n        // offBlur(this.$refs.select)\n      }\n    },\n    url () {\n      this.urlChanged()\n    },\n    valid (val, old) {\n      this.$emit('isvalid', val)\n      this.$emit(!val ? 'invalid' : 'valid')\n      if (val !== old && this._parent) this._parent.validate()\n    },\n    value (val, old) {\n      if (val !== old) { this.val = val }\n    },\n    val (val, old) {\n      if (val === undefined) { this.val = val = null }\n      if (val !== old) {\n        this.$emit('change', val)\n        this.$emit('input', val)\n      }\n      if (val instanceof Array && val.length > this.limit) {\n        this.val = val.slice(0, this.limit)\n        this.notify = true\n        if (timeout.limit) clearTimeout(timeout.limit)\n        timeout.limit = setTimeout(() => {\n          timeout.limit = false\n          this.notify = false\n        }, 1500)\n      }\n      this.valid = this.validate()\n    }\n  },\n  methods: {\n    close () {\n      this.show = false\n    },\n    checkData () {\n      if (this.multiple) {\n        if (this.limit < 1) { this.limit = 1 }\n        if (!(this.val instanceof Array)) {\n          this.val = (this.val === null || this.val === undefined) ? [] : [this.val]\n        }\n        var values = this.valOptions\n        this.val = this.val.filter(el => ~values.indexOf(el))\n        if (this.values.length > this.limit) {\n          this.val = this.val.slice(0, this.limit)\n        }\n      } else {\n        if (!~this.valOptions.indexOf(this.val)) { this.val = null }\n      }\n    },\n    clear () {\n      if (this.disabled || this.readonly) { return }\n      this.val = this.val instanceof Array ? [] : null\n      this.toggle()\n    },\n    clearSearch () {\n      this.searchValue = ''\n      this.$refs.search.focus()\n    },\n    isSelected (v) {\n      return this.values.indexOf(v) > -1\n    },\n    select (v) {\n      if (this.val instanceof Array) {\n        var newVal = this.val.slice(0)\n        if (~newVal.indexOf(v)) {\n          newVal.splice(newVal.indexOf(v), 1)\n        } else {\n          newVal.push(v)\n        }\n        this.val = newVal\n        if (this.closeOnSelect) {\n          this.toggle()\n        }\n      } else {\n        this.val = v\n        this.toggle()\n      }\n    },\n    setOptions (options) {\n      this.list = options.map(el => {\n        if (el instanceof Object) { return el }\n        let obj = {}\n        obj[this.optionsLabel] = el\n        obj[this.optionsValue] = el\n        return obj\n      })\n      this.$emit('options', this.list)\n    },\n    toggle () {\n      this.show = !this.show\n      if (!this.show) this.$refs.btn.focus()\n    },\n    urlChanged () {\n      if (!this.url || !this.$http) { return }\n      this.loading = true\n      this.$http.get(this.url).then(response => {\n        var data = response.data instanceof Array ? response.data : []\n        try { data = JSON.parse(data) } catch (e) {}\n        this.setOptions(data)\n        this.loading = false\n        this.checkData()\n      }, response => {\n        this.loading = false\n      })\n    },\n    validate () {\n      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null\n    }\n  },\n  created () {\n    this.setOptions(this.options)\n    this.val = this.value\n    this._select = true\n    if (this.val === undefined || !this.parent) { this.val = null }\n    if (!this.multiple && this.val instanceof Array) {\n      this.val = this.val[0]\n    }\n    this.checkData()\n    if (this.url) this.urlChanged()\n    let parent = this.$parent\n    while (parent && !parent._formValidator) { parent = parent.$parent }\n    if (parent && parent._formValidator) {\n      parent.children.push(this)\n      this._parent = parent\n    }\n  },\n  mounted () {\n    if (this._parent) this._parent.children.push(this)\n    this.setOptions(this.options)\n    this.val = this.value\n    this.checkData()\n  },\n  beforeDestroy () {\n    if (this._parent) {\n      var index = this._parent.children.indexOf(this)\n      this._parent.children.splice(index, 1)\n    }\n  }\n}\n</script>\n\n<style scoped>\n.form-control.dropdown-toggle{\n  height: auto;\n  padding-right: 24px;\n}\n.form-control.dropdown-toggle:after{\n  content: ' ';\n  position: absolute;\n  right: 13px;\n  top: 50%;\n  margin: -1px 0 0;\n  border-top: 4px dashed;\n  border-top: 4px solid \\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n.bs-searchbox {\n  position: relative;\n  margin: 4px 8px;\n}\n.bs-searchbox .close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.bs-searchbox input:focus,\n.form-control.dropdown-toggle:focus {\n  outline: 0;\n  border-color: #66afe9 !important;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\n.secret {\n  border: 0;\n  clip: rect(0 0 0 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n.form-control.dropdown-toggle>.close { margin-left: 5px;}\n.notify.out { position: relative; }\n.notify.in,\n.notify>div {\n  position: absolute;\n  width: 96%;\n  margin: 0 2%;\n  min-height: 26px;\n  padding: 3px 5px;\n  background: #f5f5f5;\n  border: 1px solid #e3e3e3;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\n  pointer-events: none;\n}\n.notify>div {\n  top: 5px;\n  z-index: 1;\n}\n.notify.in {\n  opacity: .9;\n  bottom: 5px;\n}\n.btn-group-justified .dropdown-toggle>span:not(.close) {\n  width: calc(100% - 18px);\n  display: inline-block;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  margin-bottom: -4px;\n}\n.btn-group-justified .dropdown-menu { width: 100%; }\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ }),
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _utils = __webpack_require__(65);
+	
+	var _ClickOutside = __webpack_require__(66);
+	
+	var _ClickOutside2 = _interopRequireDefault(_ClickOutside);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	
+	var timeout = {};
+	
+	exports.default = {
+	  directives: {
+	    ClickOutside: _ClickOutside2.default
+	  },
+	  props: {
+	    clearButton: { type: Boolean, default: false },
+	    closeOnSelect: { type: Boolean, default: false },
+	    disabled: { type: Boolean, default: false },
+	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
+	    limit: { type: Number, default: 1024 },
+	    minSearch: { type: Number, default: 0 },
+	    multiple: { type: Boolean, default: false },
+	    name: { type: String, default: null },
+	    options: { type: Array, default: function _default() {
+	        return [];
+	      }
+	    },
+	    optionsLabel: { type: String, default: 'label' },
+	    optionsValue: { type: String, default: 'value' },
+	    parent: { default: true },
+	    placeholder: { type: String, default: null },
+	    readonly: { type: Boolean, default: null },
+	    required: { type: Boolean, default: null },
+	    search: { type: Boolean, default: false },
+	    searchText: { type: String, default: null },
+	    url: { type: String, default: null },
+	    value: null,
+	    groupAddon: { type: String, default: null },
+	    groupFaIcon: { type: String, default: null },
+	    cssClass: { type: String, default: null }
+	  },
+	  data: function data() {
+	    return {
+	      list: [],
+	      loading: null,
+	      searchValue: null,
+	      show: false,
+	      notify: false,
+	      val: null,
+	      valid: null
+	    };
+	  },
+	
+	  computed: {
+	    canSearch: function canSearch() {
+	      return this.minSearch ? this.list.length >= this.minSearch : this.search;
+	    },
+	    classes: function classes() {
+	      return [{ open: this.show, disabled: this.disabled }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'];
+	    },
+	    filteredOptions: function filteredOptions() {
+	      var _this = this;
+	
+	      var search = (this.searchValue || '').toLowerCase();
+	      return !search ? this.list : this.list.filter(function (el) {
+	        return ~el[_this.optionsLabel].toLowerCase().search(search);
+	      });
+	    },
+	    hasParent: function hasParent() {
+	      return this.parent instanceof Array ? this.parent.length : this.parent;
+	    },
+	    inInput: function inInput() {
+	      return this.$parent._input;
+	    },
+	    isLi: function isLi() {
+	      return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;
+	    },
+	    limitText: function limitText() {
+	      return this.text.limit.replace('{{limit}}', this.limit);
+	    },
+	    selected: function selected() {
+	      var _this2 = this;
+	
+	      if (this.list.length === 0) {
+	        return '';
+	      }
+	      var sel = this.values.map(function (val) {
+	        return (_this2.list.find(function (o) {
+	          return o[_this2.optionsValue] === val;
+	        }) || {})[_this2.optionsLabel];
+	      }).filter(function (val) {
+	        return val !== undefined;
+	      });
+	      this.$emit('selected', sel);
+	      return sel.join(', ');
+	    },
+	    showPlaceholder: function showPlaceholder() {
+	      return this.values.length === 0 || !this.hasParent ? this.placeholder || this.text.notSelected : null;
+	    },
+	    text: function text() {
+	      return (0, _utils.translations)(this.lang);
+	    },
+	    values: function values() {
+	      return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val];
+	    },
+	    valOptions: function valOptions() {
+	      var _this3 = this;
+	
+	      return this.list.map(function (el) {
+	        return el[_this3.optionsValue];
+	      });
+	    }
+	  },
+	  watch: {
+	    options: function options(_options) {
+	      if (_options instanceof Array) this.setOptions(_options);
+	    },
+	    show: function show(val) {
+	      if (val) {
+	        this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus();
+	        // onBlur(this.$refs.select, e => { this.show = false })
+	      } else {
+	          // offBlur(this.$refs.select)
+	        }
+	    },
+	    url: function url() {
+	      this.urlChanged();
+	    },
+	    valid: function valid(val, old) {
+	      this.$emit('isvalid', val);
+	      this.$emit(!val ? 'invalid' : 'valid');
+	      if (val !== old && this._parent) this._parent.validate();
+	    },
+	    value: function value(val, old) {
+	      if (val !== old) {
+	        this.val = val;
+	      }
+	    },
+	    val: function val(_val, old) {
+	      var _this4 = this;
+	
+	      if (_val === undefined) {
+	        this.val = _val = null;
+	      }
+	      if (_val !== old) {
+	        this.$emit('change', _val);
+	        this.$emit('input', _val);
+	      }
+	      if (_val instanceof Array && _val.length > this.limit) {
+	        this.val = _val.slice(0, this.limit);
+	        this.notify = true;
+	        if (timeout.limit) clearTimeout(timeout.limit);
+	        timeout.limit = setTimeout(function () {
+	          timeout.limit = false;
+	          _this4.notify = false;
+	        }, 1500);
+	      }
+	      this.valid = this.validate();
+	    }
+	  },
+	  methods: {
+	    close: function close() {
+	      this.show = false;
+	    },
+	    checkData: function checkData() {
+	      if (this.multiple) {
+	        if (this.limit < 1) {
+	          this.limit = 1;
+	        }
+	        if (!(this.val instanceof Array)) {
+	          this.val = this.val === null || this.val === undefined ? [] : [this.val];
+	        }
+	        var values = this.valOptions;
+	        this.val = this.val.filter(function (el) {
+	          return ~values.indexOf(el);
+	        });
+	        if (this.values.length > this.limit) {
+	          this.val = this.val.slice(0, this.limit);
+	        }
+	      } else {
+	        if (!~this.valOptions.indexOf(this.val)) {
+	          this.val = null;
+	        }
+	      }
+	    },
+	    clear: function clear() {
+	      if (this.disabled || this.readonly) {
+	        return;
+	      }
+	      this.val = this.val instanceof Array ? [] : null;
+	      this.toggle();
+	    },
+	    clearSearch: function clearSearch() {
+	      this.searchValue = '';
+	      this.$refs.search.focus();
+	    },
+	    isSelected: function isSelected(v) {
+	      return this.values.indexOf(v) > -1;
+	    },
+	    select: function select(v) {
+	      if (this.val instanceof Array) {
+	        var newVal = this.val.slice(0);
+	        if (~newVal.indexOf(v)) {
+	          newVal.splice(newVal.indexOf(v), 1);
+	        } else {
+	          newVal.push(v);
+	        }
+	        this.val = newVal;
+	        if (this.closeOnSelect) {
+	          this.toggle();
+	        }
+	      } else {
+	        this.val = v;
+	        this.toggle();
+	      }
+	    },
+	    setOptions: function setOptions(options) {
+	      var _this5 = this;
+	
+	      this.list = options.map(function (el) {
+	        if (el instanceof Object) {
+	          return el;
+	        }
+	        var obj = {};
+	        obj[_this5.optionsLabel] = el;
+	        obj[_this5.optionsValue] = el;
+	        return obj;
+	      });
+	      this.$emit('options', this.list);
+	    },
+	    toggle: function toggle() {
+	      this.show = !this.show;
+	      if (!this.show) this.$refs.btn.focus();
+	    },
+	    urlChanged: function urlChanged() {
+	      var _this6 = this;
+	
+	      if (!this.url || !this.$http) {
+	        return;
+	      }
+	      this.loading = true;
+	      this.$http.get(this.url).then(function (response) {
+	        var data = response.data instanceof Array ? response.data : [];
+	        try {
+	          data = JSON.parse(data);
+	        } catch (e) {}
+	        _this6.setOptions(data);
+	        _this6.loading = false;
+	        _this6.checkData();
+	      }, function (response) {
+	        _this6.loading = false;
+	      });
+	    },
+	    validate: function validate() {
+	      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null;
+	    }
+	  },
+	  created: function created() {
+	    this.setOptions(this.options);
+	    this.val = this.value;
+	    this._select = true;
+	    if (this.val === undefined || !this.parent) {
+	      this.val = null;
+	    }
+	    if (!this.multiple && this.val instanceof Array) {
+	      this.val = this.val[0];
+	    }
+	    this.checkData();
+	    if (this.url) this.urlChanged();
+	    var parent = this.$parent;
+	    while (parent && !parent._formValidator) {
+	      parent = parent.$parent;
+	    }
+	    if (parent && parent._formValidator) {
+	      parent.children.push(this);
+	      this._parent = parent;
+	    }
+	  },
+	  mounted: function mounted() {
+	    if (this._parent) this._parent.children.push(this);
+	    this.setOptions(this.options);
+	    this.val = this.value;
+	    this.checkData();
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if (this._parent) {
+	      var index = this._parent.children.indexOf(this);
+	      this._parent.children.splice(index, 1);
+	    }
+	  }
+	};
+
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    directives: [{
+	      name: "click-outside",
+	      rawName: "v-click-outside",
+	      value: (_vm.close),
+	      expression: "close"
+	    }],
+	    ref: "selectExtended",
+	    class: ['input-group', _vm.classes, _vm.cssClass]
+	  }, [(_vm.groupAddon) ? _c('span', {
+	    staticClass: "input-group-addon"
+	  }, [(_vm.groupFaIcon) ? _c('i', {
+	    class: _vm.groupFaIcon,
+	    staticStyle: {
+	      "margin-right": "3px"
+	    }
+	  }) : _vm._e(), _vm._v("\n    " + _vm._s(_vm.groupAddon) + "\n  ")]) : _vm._e(), _vm._v(" "), _c('div', {
+	    ref: "btn",
+	    staticClass: "form-control dropdown-toggle",
+	    attrs: {
+	      "tabindex": "1",
+	      "disabled": _vm.disabled || !_vm.hasParent,
+	      "readonly": _vm.readonly
+	    },
+	    on: {
+	      "blur": function($event) {
+	        _vm.canSearch ? null : _vm.close()
+	      },
+	      "click": function($event) {
+	        return _vm.toggle()
+	      },
+	      "keydown": [function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
+	        $event.stopPropagation();
+	        $event.preventDefault();
+	        return _vm.close($event)
+	      }, function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "space", 32, $event.key, [" ", "Spacebar"])) { return null; }
+	        $event.stopPropagation();
+	        $event.preventDefault();
+	        return _vm.toggle($event)
+	      }, function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
+	        $event.stopPropagation();
+	        $event.preventDefault();
+	        return _vm.toggle($event)
+	      }]
+	    }
+	  }, [_c('span', {
+	    staticClass: "btn-content",
+	    domProps: {
+	      "innerHTML": _vm._s(_vm.loading ? _vm.text.loading : _vm.showPlaceholder || _vm.selected)
+	    }
+	  }), _vm._v(" "), (_vm.clearButton && _vm.values.length) ? _c('span', {
+	    staticClass: "close",
+	    on: {
+	      "click": function($event) {
+	        return _vm.clear()
+	      }
+	    }
+	  }, [_vm._v("×")]) : _vm._e()]), _vm._v(" "), _c('select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.val),
+	      expression: "val"
+	    }],
+	    ref: "sel",
+	    staticClass: "secret",
+	    attrs: {
+	      "name": _vm.name,
+	      "multiple": _vm.multiple,
+	      "required": _vm.required,
+	      "readonly": _vm.readonly,
+	      "disabled": _vm.disabled
+	    },
+	    on: {
+	      "change": function($event) {
+	        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+	          return o.selected
+	        }).map(function(o) {
+	          var val = "_value" in o ? o._value : o.value;
+	          return val
+	        });
+	        _vm.val = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+	      }
+	    }
+	  }, [(_vm.required) ? _c('option', {
+	    attrs: {
+	      "value": ""
+	    }
+	  }) : _vm._e(), _vm._v(" "), _vm._l((_vm.list), function(option) {
+	    return _c('option', {
+	      domProps: {
+	        "value": option[_vm.optionsValue]
+	      }
+	    }, [_vm._v(_vm._s(option[_vm.optionsLabel]))])
+	  })], 2), _vm._v(" "), _c('ul', {
+	    staticClass: "dropdown-menu"
+	  }, [(_vm.list.length) ? [(_vm.canSearch) ? _c('li', {
+	    staticClass: "bs-searchbox"
+	  }, [_c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.searchValue),
+	      expression: "searchValue"
+	    }],
+	    ref: "search",
+	    staticClass: "form-control",
+	    attrs: {
+	      "type": "text",
+	      "placeholder": _vm.searchText || _vm.text.search,
+	      "autocomplete": "off"
+	    },
+	    domProps: {
+	      "value": (_vm.searchValue)
+	    },
+	    on: {
+	      "keyup": function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
+	        return _vm.close($event)
+	      },
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.searchValue = $event.target.value
+	      }
+	    }
+	  }), _vm._v(" "), _c('span', {
+	    directives: [{
+	      name: "show",
+	      rawName: "v-show",
+	      value: (_vm.searchValue),
+	      expression: "searchValue"
+	    }],
+	    staticClass: "close",
+	    on: {
+	      "click": _vm.clearSearch
+	    }
+	  }, [_vm._v("×")])]) : _vm._e(), _vm._v(" "), (_vm.required && !_vm.clearButton) ? _c('li', [_c('a', {
+	    on: {
+	      "mousedown": function($event) {
+	        $event.preventDefault();
+	        _vm.clear() && _vm.close()
+	      }
+	    }
+	  }, [_vm._v(_vm._s(_vm.placeholder || _vm.text.notSelected))])]) : _vm._e(), _vm._v(" "), _vm._l((_vm.filteredOptions), function(option) {
+	    return _c('li', {
+	      attrs: {
+	        "id": option[_vm.optionsValue]
+	      }
+	    }, [_c('a', {
+	      on: {
+	        "mousedown": function($event) {
+	          $event.preventDefault();
+	          return _vm.select(option[_vm.optionsValue])
+	        }
+	      }
+	    }, [_c('span', {
+	      domProps: {
+	        "innerHTML": _vm._s(option[_vm.optionsLabel])
+	      }
+	    }), _vm._v(" "), _c('span', {
+	      directives: [{
+	        name: "show",
+	        rawName: "v-show",
+	        value: (_vm.isSelected(option[_vm.optionsValue])),
+	        expression: "isSelected(option[optionsValue])"
+	      }],
+	      staticClass: "glyphicon glyphicon-ok check-mark"
+	    })])])
+	  })] : _vm._e(), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.notify && !_vm.closeOnSelect) ? _c('transition', {
+	    attrs: {
+	      "name": "fadein"
+	    }
+	  }, [_c('div', {
+	    staticClass: "notify in"
+	  }, [_vm._v(_vm._s(_vm.limitText))])]) : _vm._e()], 2), _vm._v(" "), (_vm.notify && _vm.closeOnSelect) ? _c('transition', {
+	    attrs: {
+	      "name": "fadein"
+	    }
+	  }, [_c('div', {
+	    staticClass: "notify out"
+	  }, [_c('div', [_vm._v(_vm._s(_vm.limitText))])])]) : _vm._e()], 1)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-f81f5f78", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Component = __webpack_require__(70)(
+	  /* script */
+	  __webpack_require__(166),
+	  /* template */
+	  __webpack_require__(167),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -7978,7 +8616,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 161 */
+/* 166 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8010,7 +8648,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 162 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8027,18 +8665,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 163 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(164)
+	__webpack_require__(169)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(166),
+	  __webpack_require__(171),
 	  /* template */
-	  __webpack_require__(167),
+	  __webpack_require__(172),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8065,13 +8703,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 164 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(165);
+	var content = __webpack_require__(170);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -8091,7 +8729,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 165 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -8105,7 +8743,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 166 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8220,7 +8858,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 167 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8251,14 +8889,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 168 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(169),
+	  __webpack_require__(174),
 	  /* template */
-	  __webpack_require__(170),
+	  __webpack_require__(175),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8285,7 +8923,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 169 */
+/* 174 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8376,7 +9014,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 170 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8400,18 +9038,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 171 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(172)
+	__webpack_require__(177)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(174),
+	  __webpack_require__(179),
 	  /* template */
-	  __webpack_require__(175),
+	  __webpack_require__(180),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8438,13 +9076,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 172 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(173);
+	var content = __webpack_require__(178);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -8464,7 +9102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 173 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -8478,7 +9116,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 174 */
+/* 179 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8526,7 +9164,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 175 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8541,18 +9179,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 176 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(177)
+	__webpack_require__(182)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(179),
+	  __webpack_require__(184),
 	  /* template */
-	  __webpack_require__(180),
+	  __webpack_require__(185),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8579,13 +9217,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 177 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(178);
+	var content = __webpack_require__(183);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -8605,7 +9243,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 178 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -8619,7 +9257,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 179 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8705,7 +9343,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 180 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8774,14 +9412,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 181 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(182),
+	  __webpack_require__(187),
 	  /* template */
-	  __webpack_require__(183),
+	  __webpack_require__(188),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8808,7 +9446,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 182 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8884,7 +9522,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 183 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8920,18 +9558,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 184 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(185)
+	__webpack_require__(190)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(187),
+	  __webpack_require__(192),
 	  /* template */
-	  __webpack_require__(188),
+	  __webpack_require__(193),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8958,13 +9596,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 185 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(186);
+	var content = __webpack_require__(191);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -8984,7 +9622,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 186 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -8998,7 +9636,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 187 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9035,7 +9673,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 188 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -9067,18 +9705,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 189 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(190)
+	__webpack_require__(195)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(192),
+	  __webpack_require__(197),
 	  /* template */
-	  __webpack_require__(207),
+	  __webpack_require__(212),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -9105,13 +9743,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 190 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(191);
+	var content = __webpack_require__(196);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -9131,7 +9769,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 191 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -9145,7 +9783,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 192 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9154,7 +9792,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _typeof2 = __webpack_require__(193);
+	var _typeof2 = __webpack_require__(198);
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
@@ -9311,7 +9949,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 193 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -9322,7 +9960,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _iterator2 = _interopRequireDefault(_iterator);
 	
-	var _symbol = __webpack_require__(194);
+	var _symbol = __webpack_require__(199);
 	
 	var _symbol2 = _interopRequireDefault(_symbol);
 	
@@ -9337,24 +9975,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 194 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(195), __esModule: true };
+	module.exports = { "default": __webpack_require__(200), __esModule: true };
 
 /***/ }),
-/* 195 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(196);
-	__webpack_require__(204);
-	__webpack_require__(205);
-	__webpack_require__(206);
+	__webpack_require__(201);
+	__webpack_require__(209);
+	__webpack_require__(210);
+	__webpack_require__(211);
 	module.exports = __webpack_require__(7).Symbol;
 
 
 /***/ }),
-/* 196 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9364,16 +10002,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DESCRIPTORS = __webpack_require__(15);
 	var $export = __webpack_require__(5);
 	var redefine = __webpack_require__(29);
-	var META = __webpack_require__(197).KEY;
+	var META = __webpack_require__(202).KEY;
 	var $fails = __webpack_require__(16);
 	var shared = __webpack_require__(43);
 	var setToStringTag = __webpack_require__(47);
 	var uid = __webpack_require__(44);
 	var wks = __webpack_require__(48);
 	var wksExt = __webpack_require__(55);
-	var wksDefine = __webpack_require__(198);
-	var enumKeys = __webpack_require__(199);
-	var isArray = __webpack_require__(202);
+	var wksDefine = __webpack_require__(203);
+	var enumKeys = __webpack_require__(204);
+	var isArray = __webpack_require__(207);
 	var anObject = __webpack_require__(12);
 	var isObject = __webpack_require__(13);
 	var toObject = __webpack_require__(50);
@@ -9382,8 +10020,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var createDesc = __webpack_require__(19);
 	var _create = __webpack_require__(32);
 	var gOPNExt = __webpack_require__(60);
-	var $GOPD = __webpack_require__(203);
-	var $GOPS = __webpack_require__(200);
+	var $GOPD = __webpack_require__(208);
+	var $GOPS = __webpack_require__(205);
 	var $DP = __webpack_require__(11);
 	var $keys = __webpack_require__(34);
 	var gOPD = $GOPD.f;
@@ -9509,7 +10147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  $GOPD.f = $getOwnPropertyDescriptor;
 	  $DP.f = $defineProperty;
 	  __webpack_require__(61).f = gOPNExt.f = $getOwnPropertyNames;
-	  __webpack_require__(201).f = $propertyIsEnumerable;
+	  __webpack_require__(206).f = $propertyIsEnumerable;
 	  $GOPS.f = $getOwnPropertySymbols;
 	
 	  if (DESCRIPTORS && !__webpack_require__(28)) {
@@ -9606,7 +10244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 197 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var META = __webpack_require__(44)('meta');
@@ -9665,7 +10303,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 198 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var global = __webpack_require__(6);
@@ -9680,13 +10318,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 199 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
 	var getKeys = __webpack_require__(34);
-	var gOPS = __webpack_require__(200);
-	var pIE = __webpack_require__(201);
+	var gOPS = __webpack_require__(205);
+	var pIE = __webpack_require__(206);
 	module.exports = function (it) {
 	  var result = getKeys(it);
 	  var getSymbols = gOPS.f;
@@ -9701,21 +10339,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 200 */
+/* 205 */
 /***/ (function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 201 */
+/* 206 */
 /***/ (function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 202 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
@@ -9726,10 +10364,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 203 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var pIE = __webpack_require__(201);
+	var pIE = __webpack_require__(206);
 	var createDesc = __webpack_require__(19);
 	var toIObject = __webpack_require__(36);
 	var toPrimitive = __webpack_require__(18);
@@ -9748,27 +10386,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 204 */
+/* 209 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 205 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(198)('asyncIterator');
+	__webpack_require__(203)('asyncIterator');
 
 
 /***/ }),
-/* 206 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(198)('observable');
+	__webpack_require__(203)('observable');
 
 
 /***/ }),
-/* 207 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
