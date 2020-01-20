@@ -1,8 +1,8 @@
 <template>
   <doc-section id="tooltip" name="Tooltip">
     <div class="bs-example">
-      <tooltip v-for="place in ['top','left','right','bottom']" header content="Lorem ipsum dolor sit amet" :placement="place">
-        <button class="btn btn-default">Popover on {{place}}</button>
+      <tooltip v-for="place in [{key:0, value:'top'},{key:1,value:'left'},{key:2, value:'right'},{key:3, value:'bottom'}]" :key="place.key" header content="Lorem ipsum dolor sit amet" :placement="place.value">
+        <button class="btn btn-default">Popover on {{place.value}}</button>
       </tooltip>
       <hr />
       <h4>Trigger</h4>
