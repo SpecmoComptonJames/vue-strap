@@ -1,13 +1,13 @@
 {
   "name": "vue-strap",
-  "version": "1.1.40",
-  "description": "Bootstrap components built with Vue.js",
+  "version": "1.2.0",
+  "description": "Bootstrap 2 components built with Vue.js",
   "main": "dist/vue-strap.js",
   "repository": {
     "type": "git",
-    "url": "yuche/vue-strap"
+    "url": "SpecmoComptonJames/vue-strap"
   },
-  "homepage": "http://yuche.github.io/vue-strap/",
+  "homepage": "https://github.com/SpecmoComptonJames/vue-strap",
   "directories": {
     "src": "src/"
   },

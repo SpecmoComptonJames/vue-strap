@@ -1,13 +1,13 @@
-require('./assets/docs.css')
-require('./assets/style.css')
-require('prismjs')
-require('./js/showLanguage')
+require('./assets/docs.css');
+require('./assets/style.css');
+require('prismjs');
+require('./js/showLanguage');
 
 import $ from 'src/utils/NodeList.js'
 import bodyDocs from './bodyDocs.vue'
 
-Vue.config.devtools = true
-Vue.config.debug = true
+Vue.config.devtools = true;
+Vue.config.debug = true;
 
 new Vue({
   el: 'body',
