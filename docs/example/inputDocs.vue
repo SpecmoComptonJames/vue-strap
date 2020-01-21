@@ -24,6 +24,7 @@
                                   :clear-button="check.clearButton"
                                   v-model="input"
                                   cssClass="myCssClass myCssClass2"
+                                  @submit_key_pressed="submitKeyPressed"
                         ></bs-input>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -54,9 +55,9 @@
                             <p>
                                 <checkbox v-model="check.icon">icon</checkbox>
                             </p>
-                            <button @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
-                            <button @click="testSetValid()" class="btn btn-success">Set Valid</button>
-                            <button @click="clearValid()" class="btn btn-default">Clear Valid</button>
+                            <button type="button" @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
+                            <button type="button" @click="testSetValid()" class="btn btn-success">Set Valid</button>
+                            <button type="button" @click="clearValid()" class="btn btn-default">Clear Valid</button>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <p>
@@ -318,13 +319,29 @@
                 <p>Method: Progamatically overide the valid flag by setting the has-feedback flags to true/false. <code>null</code> clears the has-feedback flag until next validation event.</p>
             </div>
         </doc-table>
-        <doc-table type="Notes">
-            <h3>SPC Additions Notes:</h3>
-            <ul>
-                <li>Added cssClass property to take a string of custom css styling class names.</li>
-                <li>Added setValidState method - allows the developer to programatically overide the bootstrap validation styling</li>
-            </ul>
+        <doc-table type="Events">
+            <div>
+                <p>submit_key_pressed</p>
+                <p>(<code></code>)</p>
+                <p>Listen to enter key presses if the enterSubmit property is true and the control is valid.</p>
+            </div>
         </doc-table>
+        <doc-table type="Notes">
+            <div>
+                <p>cssClass</p>
+                <p>Added cssClass property to take a string of custom css styling class names</p>
+            </div>
+            <div>
+                <p>setValidState</p>
+                <p>Added setValidState method - allows the developer to programatically overide the bootstrap validation styling</p>
+            </div>
+            <div>
+                <p>submit_key_pressed</p>
+                <p>Added submit_key_pressed event - allows the developer to listen to enter key presses if the enterSubmit property is true and the control is valid</p>
+            </div>
+
+        </doc-table>
+
         <doc-table name="Supported Native Validator" :headers="['Name','Description']">
             <div>
                 <p>type</p>
@@ -388,17 +405,21 @@
             testSetInvalid() {
                 var input = this.$refs['txtUserName'];
                 input.setValidState(false);
-                console.log('set invalid state');
+                console.log(' input.setValidState(false);');
             },
             testSetValid() {
                 var input = this.$refs['txtUserName'];
                 input.setValidState(true);
-                console.log('set invalid state');
+                console.log('input.setValidState(true);');
             },
             clearValid() {
                 var input = this.$refs['txtUserName'];
                 input.setValidState(null);
-                console.log('set invalid state');
+                console.log('clearValid');
+            },
+            submitKeyPressed: function(e) {
+                console.log('submit_key_pressed:', e);
+
             }
         }
     }
