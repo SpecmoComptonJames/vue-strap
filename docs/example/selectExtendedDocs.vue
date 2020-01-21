@@ -12,7 +12,8 @@
                     <pre>Normal select data: {{select.normal}}</pre>
                     </p>
                     <form action="./#select" method="get">
-                        <v-select :options="select.options" options-value="val" v-model="select.normal" name="animal"
+                        <v-select ref="txtNormalSelectData"
+                                  :options="select.options" options-value="val" v-model="select.normal" name="animal"
                                   :search="select.search"
                                   :required="select.required" :clear-button="select.clearButton"
                                   :disabled="select.disabled"
@@ -22,13 +23,14 @@
                                   cssClass="test1 test2"
                                   group-fa-icon="fab fa-vuejs"
                                   control-id="xxx1"
+                                  :error="select.errorText"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <p>
-                        <pre>Multiple select data : {{select.multiple.join(',')}}</pre>
+                    <pre>Multiple select data : {{select.multiple.join(',')}}</pre>
                     </p>
                     <form action="./#select" method="get">
                         <v-select :options="select.options" options-value="val" v-model="select.multiple"
@@ -69,6 +71,9 @@
                         <p>
                             <checkbox v-model="select.clearButton">Clear Button</checkbox>
                         </p>
+                        <button @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
+                        <button @click="testSetValid()" class="btn btn-success">Set Valid</button>
+                        <button @click="clearValid()" class="btn btn-default">Clear Valid</button>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <p>
@@ -107,7 +112,7 @@
             </doc-code>
             <h4>Select with option component:</h4>
             <p>
-                <pre>Selected data : {{single}}</pre>
+            <pre>Selected data : {{single}}</pre>
             </p>
             <v-select v-model="single">
                 <v-option value="apple">Apple</v-option>
@@ -221,13 +226,15 @@
                 <p>groupFaIcon</p>
                 <p>String</p>
                 <p></p>
-                <p>render a font awesome tag (if installed in CSS) place FA tag here.  Renders as part of the group-addon tag</p>
+                <p>render a font awesome tag (if installed in CSS) place FA tag here. Renders as part of the group-addon
+                    tag</p>
             </div>
             <div>
                 <p>groupFaIcon</p>
                 <p>String</p>
                 <p></p>
-                <p>render a font awesome tag (if installed in CSS) place FA tag here.  Renders as part of the group-addon tag</p>
+                <p>render a font awesome tag (if installed in CSS) place FA tag here. Renders as part of the group-addon
+                    tag</p>
             </div>
             <div>
                 <p>cssClass</p>
@@ -240,6 +247,12 @@
                 <p>String</p>
                 <p></p>
                 <p>Create a dom id for this control</p>
+            </div>
+            <div>
+                <p>setValidState</p>
+                <p><code>Boolean or null</code></p>
+                <p></p>
+                <p>Method: Programmatically override the valid flag by setting the has-feedback flags to true/false. <code>null</code> clears the has-feedback flag until next validation event.</p>
             </div>
         </doc-table>
         <doc-table type="Events">
@@ -258,7 +271,20 @@
                 <p>(<code>labels:String</code>)</p>
                 <p>Return a string with the label(s) of the selected item(s).</p>
             </div>
-
+        </doc-table>
+        <doc-table  type="Notes" :headers="['Name','Description']">
+            <div>
+                <p>cssClass</p>
+                <p>Added cssClass property to take a string of custom css styling class names.</p>
+            </div>
+            <div>
+                <p>setValidState</p>
+                <p>Added setValidState method - allows the developer to programmatically override the bootstrap validation styling</p>
+            </div>
+            <div>
+                <p>Add Bootstrap has-feedback support</p>
+                <p>Try to match styling of input box and add fass feedback support.</p>
+            </div>
         </doc-table>
     </doc-section>
 </template>
@@ -304,14 +330,32 @@
                     placeholder: false,
                     required: false,
                     search: true,
-                    groupAddon: null,
-                    groupFaTag: null
+                    groupAddon: 'Field Label',
+                    groupFaTag: null,
+                    errorText: 'It is broken'
                 },
                 ajax: {
                     options: [],
                     value: null
                 },
                 single: []
+            }
+        },
+        methods: {
+            testSetInvalid() {
+                var input = this.$refs['txtNormalSelectData'];
+                input.setValidState(false);
+                console.log('set invalid state');
+            },
+            testSetValid() {
+                var input = this.$refs['txtNormalSelectData'];
+                input.setValidState(true);
+                console.log('set invalid state');
+            },
+            clearValid() {
+                var input = this.$refs['txtNormalSelectData'];
+                input.setValidState(null);
+                console.log('set invalid state');
             }
         }
     }
