@@ -17,13 +17,15 @@
                                   :search="select.search"
                                   :required="select.required" :clear-button="select.clearButton"
                                   :disabled="select.disabled"
-                                  :placeholder="select.placeholder?'Using placeholder':null"
+                                  help="Pick an item from the list (this isn't hard)"
+                                  placeholder="-- SELECT ONE --"
                                   :group-addon="select.groupAddon"
                                   :group-fa-icon="select.groupFaTag"
                                   cssClass="test1 test2"
                                   group-fa-icon="fab fa-vuejs"
                                   control-id="xxx1"
                                   :error="select.errorText"
+
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -35,7 +37,9 @@
                     <form action="./#select" method="get">
                         <v-select :options="select.options" options-value="val" v-model="select.multiple"
                                   name="animals[]" :search="select.search"
-                                  multiple :required="select.required" :clear-button="select.clearButton"
+                                  multiple
+                                  :required="select.required"
+                                  :clear-button="select.clearButton"
                                   :placeholder="select.placeholder?'Using placeholder':null"
                                   :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024"
                                   :group-addon="select.groupAddon"
@@ -207,8 +211,11 @@
             <div>
                 <p>placeholder</p>
                 <p><code>String</code></p>
-                <p>Nothing Selected</p>
-                <p></p>
+                <p>
+                    Nothing Selected</p>
+                <p>
+                    Value displayed in drop down when no value has been chosen by the user.
+                </p>
             </div>
             <div>
                 <p>search-text</p>
@@ -283,7 +290,11 @@
             </div>
             <div>
                 <p>Add Bootstrap has-feedback support</p>
-                <p>Try to match styling of input box and add fass feedback support.</p>
+                <p>Try to match styling of input box and add has feedback support.</p>
+            </div>
+            <div>
+                <p>Add help support</p>
+                <p>Try to match styling of input box and add has feedback support.</p>
             </div>
         </doc-table>
     </doc-section>

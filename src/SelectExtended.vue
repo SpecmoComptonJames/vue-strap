@@ -5,7 +5,10 @@
               <i v-if="groupFaIcon" :class="groupFaIcon" style="margin-right: 3px"></i>
               {{groupAddon}}
             </span>
-            <div ref="btn" class="form-control dropdown-toggle" tabindex="1" :disabled="disabled || !hasParent"
+            <div ref="btn"
+                 class="form-control dropdown-toggle"
+                 tabindex="1"
+                 :disabled="disabled || !hasParent"
                  :readonly="readonly"
                  @blur="canSearch ? null : close()"
                  @click="toggle()"
@@ -16,8 +19,15 @@
                 <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
                 <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
             </div>
-            <select ref="sel" v-model="val" :name="name" class="secret" :multiple="multiple" :required="required"
-                    :readonly="readonly" :disabled="disabled">
+            <select ref="sel"
+                    v-model="val"
+                    :name="name"
+                    class="secret"
+                    :multiple="multiple"
+                    :required="required"
+                    :readonly="readonly"
+                    :disabled="disabled"
+            >
                 <option v-if="required" value=""></option>
                 <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
             </select>

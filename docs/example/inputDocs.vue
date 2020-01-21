@@ -318,13 +318,13 @@
                 <p>Method: Progamatically overide the valid flag by setting the has-feedback flags to true/false. <code>null</code> clears the has-feedback flag until next validation event.</p>
             </div>
         </doc-table>
-        <div>
+        <doc-table type="Notes">
             <h3>SPC Additions Notes:</h3>
             <ul>
                 <li>Added cssClass property to take a string of custom css styling class names.</li>
                 <li>Added setValidState method - allows the developer to programatically overide the bootstrap validation styling</li>
             </ul>
-        </div>
+        </doc-table>
         <doc-table name="Supported Native Validator" :headers="['Name','Description']">
             <div>
                 <p>type</p>
