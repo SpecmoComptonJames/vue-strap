@@ -5,7 +5,9 @@
             <form action="." method="get" accept-charset="utf-8">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <bs-input name="username"
+                        <bs-input
+                                  ref="txtUserName"
+                                  name="username"
                                   :disabled="check.disabled"
                                   :error="check.error ? 'Insert user name' : null"
                                   help="Only allows lowercase letters and numbers."
@@ -52,6 +54,9 @@
                             <p>
                                 <checkbox v-model="check.icon">icon</checkbox>
                             </p>
+                            <button @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
+                            <button @click="testSetValid()" class="btn btn-success">Set Valid</button>
+                            <button @click="clearValid()" class="btn btn-default">Clear Valid</button>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <p>
@@ -306,11 +311,18 @@
                 <p><code>250</code></p>
                 <p>Delay time before apply the validation.</p>
             </div>
+            <div>
+                <p>setValidState</p>
+                <p><code>Boolean or null</code></p>
+                <p></p>
+                <p>Method: Progamatically overide the valid flag by setting the has-feedback flags to true/false. <code>null</code> clears the has-feedback flag until next validation event.</p>
+            </div>
         </doc-table>
         <div>
             <h3>SPC Additions Notes:</h3>
             <ul>
                 <li>Added cssClass property to take a string of custom css styling class names.</li>
+                <li>Added setValidState method - allows the developer to programatically overide the bootstrap validation styling</li>
             </ul>
         </div>
         <doc-table name="Supported Native Validator" :headers="['Name','Description']">
@@ -372,6 +384,21 @@
         methods: {
             mask(value) {
                 return value.toLowerCase().replace(/^[^a-z]+/, '').replace(/[^a-z0-9]/g, '')
+            },
+            testSetInvalid() {
+                var input = this.$refs['txtUserName'];
+                input.setValidState(false);
+                console.log('set invalid state');
+            },
+            testSetValid() {
+                var input = this.$refs['txtUserName'];
+                input.setValidState(true);
+                console.log('set invalid state');
+            },
+            clearValid() {
+                var input = this.$refs['txtUserName'];
+                input.setValidState(null);
+                console.log('set invalid state');
             }
         }
     }

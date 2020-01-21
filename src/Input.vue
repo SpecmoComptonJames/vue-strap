@@ -207,6 +207,9 @@ export default {
         }
       }
     },
+    setValidState (state) {
+      this.valid = state;
+    },
     validate () {
       if (!this.canValidate) { return true }
       let value = (this.val || '').trim()
