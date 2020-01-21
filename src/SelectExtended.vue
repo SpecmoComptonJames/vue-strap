@@ -31,6 +31,7 @@
                 <option v-if="required" value=""></option>
                 <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
             </select>
+            <span :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
             <ul class="dropdown-menu">
                 <template v-if="list.length">
                     <li v-if="canSearch" class="bs-searchbox">

@@ -6,7 +6,7 @@
   "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "SpecmoComptonJames/vue-strap/tree/v2"
+    "url": "SpecmoComptonJames/vue-strap#v2"
   },
   "homepage": "https://github.com/SpecmoComptonJames/vue-strap",
   "directories": {
