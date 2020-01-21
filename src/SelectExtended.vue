@@ -1,6 +1,7 @@
 <template>
-    <div :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
-        <div ref="selectExtended" :class="['input-group', classes, cssClass]" v-click-outside="close">
+    <div :class="['form-group',{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}]">
+        <label v-if="label" class="control-label">{{label}}</label>
+        <div ref="selectExtended" :class="['input-group', classes, cssClass]" v-click-outside="close" :style="{'min-width': minWidth}">
             <span v-if="groupAddon" class="input-group-addon">
               <i v-if="groupFaIcon" :class="groupFaIcon" style="margin-right: 3px"></i>
               {{groupAddon}}
@@ -86,6 +87,7 @@
             help: {type: String, default: null},
             hideHelp: {type: Boolean, default: true},
             icon: {type: Boolean, default: false},
+            label: {type: String, default: null},
             lang: {type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN"},
             limit: {type: Number, default: 1024},
             minSearch: {type: Number, default: 0},
@@ -109,6 +111,7 @@
             groupAddon: {type: String, default: null},
             groupFaIcon: {type: String, default: null},
             cssClass: {type: String, default: null},
+            minWidth: {type: String, default: '0'},
         },
         data() {
             return {

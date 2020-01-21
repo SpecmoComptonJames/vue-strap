@@ -29,6 +29,27 @@
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
+                    <br/>
+                    <p>
+                    <pre>Normal select w/label: {{select.normal}}</pre>
+                    </p>
+                    <form action="./#select" method="get">
+                        <v-select ref="txtNormalSelectData2"
+                                  :options="select.options" options-value="val" v-model="select.normal" name="animal"
+                                  :search="select.search"
+                                  :required="select.required" :clear-button="select.clearButton"
+                                  :disabled="select.disabled"
+                                  help="Pick an item from the list (this isn't hard)"
+                                  placeholder="-- SELECT ONE --"
+                                  cssClass="test1 test2"
+                                  group-fa-icon="fab fa-vuejs"
+                                  control-id="xxx1"
+                                  :error="select.errorText"
+                                  label="This is my label"
+                                  minWidth="300px"
+                        ></v-select>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <p>
@@ -356,16 +377,22 @@
             testSetInvalid() {
                 var input = this.$refs['txtNormalSelectData'];
                 input.setValidState(false);
+                var input2 = this.$refs['txtNormalSelectData2'];
+                input2.setValidState(false);
                 console.log('set invalid state');
             },
             testSetValid() {
                 var input = this.$refs['txtNormalSelectData'];
                 input.setValidState(true);
+                var input2 = this.$refs['txtNormalSelectData2'];
+                input2.setValidState(true);
                 console.log('set invalid state');
             },
             clearValid() {
                 var input = this.$refs['txtNormalSelectData'];
                 input.setValidState(null);
+                var input2 = this.$refs['txtNormalSelectData2'];
+                input2.setValidState(null);
                 console.log('set invalid state');
             }
         }
