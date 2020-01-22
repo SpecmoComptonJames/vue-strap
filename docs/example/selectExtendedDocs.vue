@@ -39,6 +39,7 @@
                                   :search="select.search"
                                   :required="select.required" :clear-button="select.clearButton"
                                   :disabled="select.disabled"
+                                  :readonly="select.readonly"
                                   help="Pick an item from the list (this isn't hard)"
                                   placeholder="-- SELECT ONE --"
                                   cssClass="test1 test2"
@@ -86,6 +87,9 @@
                         </p>
                         <p>
                             <checkbox v-model="select.disabled">Disabled</checkbox>
+                        </p>
+                        <p>
+                            <checkbox v-model="select.readonly">Read Only</checkbox>
                         </p>
                         <p>
                             <checkbox v-model="select.placeholder">Placeholder</checkbox>
@@ -346,6 +350,7 @@
                     clearButton: false,
                     closeOnSelect: false,
                     disabled: false,
+                    readonly: false,
                     justified: true,
                     limit: false,
                     multiple: [],
