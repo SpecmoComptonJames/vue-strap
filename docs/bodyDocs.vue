@@ -24,6 +24,7 @@
             <carousel-docs></carousel-docs>
             <checkbox-docs></checkbox-docs>
             <datepicker-docs></datepicker-docs>
+            <datepicker-extended-docs></datepicker-extended-docs>
             <dropdown-docs></dropdown-docs>
             <form-validator-docs></form-validator-docs>
             <input-docs></input-docs>
@@ -75,6 +76,7 @@ import buttonGroupDocs  from './example/buttonGroupDocs.vue'
 import carouselDocs from './example/carouselDocs.vue'
 import checkboxDocs from './example/checkboxDocs.vue'
 import datepickerDocs from './example/datepickerDocs.vue'
+import datepickerExtendedDocs from './example/datepickerExtendedDocs.vue'
 import dropdownDocs from './example/dropdownDocs.vue'
 import formGroupDocs from './example/formGroupDocs.vue'
 import formValidatorDocs from './example/formValidatorDocs.vue'
@@ -104,6 +106,7 @@ export default {
     carouselDocs,
     checkboxDocs,
     datepickerDocs,
+    datepickerExtendedDocs,
     dropdownDocs,
     formGroupDocs,
     formValidatorDocs,

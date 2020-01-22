@@ -102,92 +102,100 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Datepicker2 = _interopRequireDefault(_Datepicker);
 	
-	var _Dropdown = __webpack_require__(107);
+	var _DatepickerExtended = __webpack_require__(107);
+	
+	var _DatepickerExtended2 = _interopRequireDefault(_DatepickerExtended);
+	
+	var _Dropdown = __webpack_require__(112);
 	
 	var _Dropdown2 = _interopRequireDefault(_Dropdown);
 	
-	var _FormGroup = __webpack_require__(110);
+	var _FormGroup = __webpack_require__(115);
 	
 	var _FormGroup2 = _interopRequireDefault(_FormGroup);
 	
-	var _FormValidator = __webpack_require__(113);
+	var _FormValidator = __webpack_require__(118);
 	
 	var _FormValidator2 = _interopRequireDefault(_FormValidator);
 	
-	var _Input = __webpack_require__(116);
+	var _Input = __webpack_require__(121);
 	
 	var _Input2 = _interopRequireDefault(_Input);
 	
-	var _Modal = __webpack_require__(121);
+	var _Modal = __webpack_require__(126);
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
-	var _Navbar = __webpack_require__(130);
+	var _Navbar = __webpack_require__(135);
 	
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 	
-	var _Option = __webpack_require__(133);
+	var _Option = __webpack_require__(138);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
-	var _Panel = __webpack_require__(136);
+	var _Panel = __webpack_require__(141);
 	
 	var _Panel2 = _interopRequireDefault(_Panel);
 	
-	var _Popover = __webpack_require__(141);
+	var _Popover = __webpack_require__(146);
 	
 	var _Popover2 = _interopRequireDefault(_Popover);
 	
-	var _Progressbar = __webpack_require__(147);
+	var _Progressbar = __webpack_require__(152);
 	
 	var _Progressbar2 = _interopRequireDefault(_Progressbar);
 	
-	var _Radio = __webpack_require__(150);
+	var _Radio = __webpack_require__(155);
 	
 	var _Radio2 = _interopRequireDefault(_Radio);
 	
-	var _Select = __webpack_require__(155);
+	var _Select = __webpack_require__(160);
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _SelectExtended = __webpack_require__(160);
+	var _SelectExtended = __webpack_require__(165);
 	
 	var _SelectExtended2 = _interopRequireDefault(_SelectExtended);
 	
-	var _Slider = __webpack_require__(165);
+	var _Slider = __webpack_require__(170);
 	
 	var _Slider2 = _interopRequireDefault(_Slider);
 	
-	var _Spinner = __webpack_require__(168);
+	var _Spinner = __webpack_require__(173);
 	
 	var _Spinner2 = _interopRequireDefault(_Spinner);
 	
-	var _Tab = __webpack_require__(173);
+	var _Tab = __webpack_require__(178);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
-	var _TabGroup = __webpack_require__(176);
+	var _TabGroup = __webpack_require__(181);
 	
 	var _TabGroup2 = _interopRequireDefault(_TabGroup);
 	
-	var _Tabs = __webpack_require__(181);
+	var _Tabs = __webpack_require__(186);
 	
 	var _Tabs2 = _interopRequireDefault(_Tabs);
 	
-	var _ToggleButton = __webpack_require__(186);
+	var _ToggleButton = __webpack_require__(191);
 	
 	var _ToggleButton2 = _interopRequireDefault(_ToggleButton);
 	
-	var _Tooltip = __webpack_require__(189);
+	var _Tooltip = __webpack_require__(194);
 	
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 	
-	var _Typeahead = __webpack_require__(194);
+	var _Typeahead = __webpack_require__(199);
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// Components
+	
+	// Directives
+	// Utils
 	var VueStrap = {
 	  directives: {
 	    ClickOutside: _ClickOutside2.default,
@@ -206,6 +214,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  carousel: _Carousel2.default,
 	  checkbox: _Checkbox2.default,
 	  datepicker: _Datepicker2.default,
+	  datepickerExtended: _DatepickerExtended2.default,
 	  dropdown: _Dropdown2.default,
 	  formGroup: _FormGroup2.default,
 	  formValidator: _FormValidator2.default,
@@ -228,11 +237,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  tooltip: _Tooltip2.default,
 	  typeahead: _Typeahead2.default
 	};
-	// Components
-	
-	// Directives
-	// Utils
-	
 	
 	module.exports = VueStrap;
 
@@ -4856,11 +4860,651 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	
+	/* styles */
+	__webpack_require__(108)
+	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(108),
+	  __webpack_require__(110),
 	  /* template */
-	  __webpack_require__(109),
+	  __webpack_require__(111),
+	  /* scopeId */
+	  null,
+	  /* cssModules */
+	  null
+	)
+	Component.options.__file = "/home/jim/Documents/Projects/node/git/vue-strap/src/DatepickerExtended.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] DatepickerExtended.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-53663584", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-53663584", Component.options)
+	  }
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(109);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	if(content.locals) module.exports = content.locals;
+	// add the styles to the DOM
+	var update = __webpack_require__(80)("1d60f696", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-53663584\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DatepickerExtended.vue", function() {
+	     var newContent = require("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-53663584\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DatepickerExtended.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(79)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.datepicker {\n  position: relative;\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\n  padding-right: 25px;\n}\n.datepicker > button.close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  outline: none;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.datepicker > button.close:focus {\n  opacity: .2;\n}\n.datepicker-popup {\n  position: absolute;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  background: #fff;\n  margin-top: 2px;\n  z-index: 1000;\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\n  width: 218px;\n}\n.datepicker-body {\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\n.datepicker-ctrl span,\n.datepicker-body span {\n  display: inline-block;\n  width: 28px;\n  line-height: 28px;\n  height: 28px;\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\n  width: 65%;\n}\n.datepicker-ctrl span {\n  position: absolute;\n}\n.datepicker-body span {\n  text-align: center;\n}\n.datepicker-monthRange span {\n  width: 48px;\n  height: 50px;\n  line-height: 45px;\n}\n.datepicker-item-disable {\n  background-color: white!important;\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\n.decadeRange span:last-child,\n.datepicker-item-disable,\n.datepicker-item-gray {\n  color: #999;\n}\n.datepicker-dateRange-item-active:hover,\n.datepicker-dateRange-item-active {\n  background: rgb(50, 118, 177)!important;\n  color: white!important;\n}\n.datepicker-monthRange {\n  margin-top: 10px\n}\n.datepicker-monthRange span,\n.datepicker-ctrl span,\n.datepicker-ctrl p,\n.datepicker-dateRange span {\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\n.datepicker-ctrl p:hover,\n.datepicker-ctrl i:hover,\n.datepicker-dateRange span:hover,\n.datepicker-dateRange-item-hover {\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\n  font-weight: bold;\n}\n.datepicker-label {\n  background-color: #f8f8f8;\n  font-weight: 700;\n  padding: 7px 0;\n  text-align: center;\n}\n.datepicker-ctrl {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  font-weight: bold;\n  text-align: center;\n}\n.month-btn {\n  font-weight: bold;\n  -webkit-user-select:none;\n  -moz-user-select:none;\n  -ms-user-select:none;\n  user-select:none;\n}\n.datepicker-preBtn {\n  left: 2px;\n}\n.datepicker-nextBtn {\n  right: 2px;\n}\n", "", {"version":3,"sources":["/./src/DatepickerExtended.vue?cd409478"],"names":[],"mappings":";AAiVA;EACA,mBAAA;EACA,sBAAA;CACA;AACA;EACA,oBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,cAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iBAAA;EACA,gBAAA;EACA,cAAA;EACA,yCAAA;CACA;AACA;EACA,aAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;;;EAGA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;CACA;AACA;EACA,kCAAA;EACA,8BAAA;CACA;AACA;;;;EAIA,YAAA;CACA;AAEA;;EAEA,wCAAA;EACA,uBAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;;;;EAIA,gBAAA;CACA;AACA;;;;;EAKA,2BAAA;CACA;AACA;EACA,kBAAA;CACA;AACA;EACA,0BAAA;EACA,iBAAA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,kBAAA;EACA,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,WAAA;CACA","file":"DatepickerExtended.vue","sourcesContent":["<template>\n  <div class=\"datepicker\">\n    <input class=\"form-control datepicker-input\" type=\"text\"\n      v-model=\"val\"\n      :class=\"{'with-reset-button': clearButton}\"\n      :placeholder=\"placeholder\"\n      :style=\"{width:width}\"\n      @focus=\"inputClick\"\n    />\n    <button v-if=\"clearButton&&val\" type=\"button\" class=\"close\" @click=\"val = ''\">\n      <span>&times;</span>\n    </button>\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\n      <div class=\"datepicker-inner\">\n        <div class=\"datepicker-body\">\n          <div class=\"datepicker-ctrl\">\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\n          </div>\n          <div class=\"datepicker-weekRange\">\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\n          </div>\n          <div class=\"datepicker-dateRange\">\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d)\">{{d.text}}</span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\n      <div class=\"datepicker-inner\">\n        <div class=\"datepicker-body\">\n          <div class=\"datepicker-ctrl\">\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\n          </div>\n          <div class=\"datepicker-monthRange\">\n            <template v-for=\"(m, index) in text.months\">\n              <span v-text=\"m.substr(0,3)\"\n                :class=\"{'datepicker-dateRange-item-active':\n                  (text.months[parse(val).getMonth()] === m) &&\n                  currDate.getFullYear() === parse(val).getFullYear()}\"\n                @click=\"monthSelect(index)\"\n              ></span>\n            </template>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n      <div class=\"datepicker-inner\">\n        <div class=\"datepicker-body\">\n          <div class=\"datepicker-ctrl\">\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\n          </div>\n          <div class=\"datepicker-monthRange decadeRange\">\n            <template v-for=\"decade in decadeRange\">\n              <span :class=\"{'datepicker-dateRange-item-active':parse(val).getFullYear() === decade.text}\"\n                v-text=\"decade.text\"\n                @click.stop=\"yearSelect(decade.text)\"\n              ></span>\n            </template>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport {translations} from './utils/utils.js'\n// import $ from './utils/NodeList.js'\n\nexport default {\n  props: {\n    value: {type: String},\n    format: {default: 'MM/dd/yyyy'},\n    disabledDaysOfWeek: {type: Array, default () { return [] }},\n    width: {type: String},\n    clearButton: {type: Boolean, default: false},\n    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:\"zh-CN\"},\n    placeholder: {type: String},\n    iconsFont: {type: String, default: 'glyphicon'}\n  },\n  data () {\n    return {\n      currDate: new Date(),\n      dateRange: [],\n      decadeRange: [],\n      displayDayView: false,\n      displayMonthView: false,\n      displayYearView: false,\n      val: this.value\n    }\n  },\n  watch: {\n    currDate () {\n      this.getDateRange()\n    },\n    format () {\n      this.val = this.stringify(this.currDate)\n    },\n    val (val, old) {\n      this.$emit('input', val)\n    },\n    value (val) {\n      if (this.val !== val) { this.val = val }\n    }\n  },\n  computed: {\n    text () {\n      return translations(this.lang)\n    },\n    preBtnClasses () {\n      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`\n    },\n    nextBtnClasses () {\n      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`\n    },\n    disabledDaysArray () {\n      return this.disabledDaysOfWeek.map(d => parseInt(d, 10))\n    }\n  },\n  methods: {\n    close () {\n      this.displayDayView = this.displayMonthView = this.displayYearView = false\n    },\n    inputClick () {\n      this.currDate = this.parse(this.val) || this.parse(new Date())\n      if (this.displayMonthView || this.displayYearView) {\n        this.displayDayView = false\n      } else {\n        this.displayDayView = !this.displayDayView\n      }\n    },\n    preNextDecadeClick (flag) {\n      const year = this.currDate.getFullYear()\n      const months = this.currDate.getMonth()\n      const date = this.currDate.getDate()\n\n      if (flag === 0) {\n        this.currDate = new Date(year - 10, months, date)\n      } else {\n        this.currDate = new Date(year + 10, months, date)\n      }\n    },\n    preNextMonthClick (flag) {\n      const year = this.currDate.getFullYear()\n      const month = this.currDate.getMonth()\n      const date = this.currDate.getDate()\n\n      if (flag === 0) {\n        const preMonth = this.getYearMonth(year, month - 1)\n        this.currDate = new Date(preMonth.year, preMonth.month, date)\n      } else {\n        const nextMonth = this.getYearMonth(year, month + 1)\n        this.currDate = new Date(nextMonth.year, nextMonth.month, date)\n      }\n    },\n    preNextYearClick (flag) {\n      const year = this.currDate.getFullYear()\n      const months = this.currDate.getMonth()\n      const date = this.currDate.getDate()\n\n      if (flag === 0) {\n        this.currDate = new Date(year - 1, months, date)\n      } else {\n        this.currDate = new Date(year + 1, months, date)\n      }\n    },\n    yearSelect (year) {\n      this.displayYearView = false\n      this.displayMonthView = true\n      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())\n    },\n    daySelect (day) {\n      if (day.sclass === 'datepicker-item-disable') {\n        return false\n      } else {\n        this.currDate = day.date\n        this.val = this.stringify(this.currDate)\n        this.displayDayView = false\n      }\n    },\n    switchMonthView () {\n      this.displayDayView = false\n      this.displayMonthView = true\n    },\n    switchDecadeView () {\n      this.displayMonthView = false\n      this.displayYearView = true\n    },\n    monthSelect (index) {\n      this.displayMonthView = false\n      this.displayDayView = true\n      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())\n    },\n    getYearMonth (year, month) {\n      if (month > 11) {\n        year++\n        month = 0\n      } else if (month < 0) {\n        year--\n        month = 11\n      }\n      return {year: year, month: month}\n    },\n    stringifyDecadeHeader (date) {\n      const yearStr = date.getFullYear().toString()\n      const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0\n      const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10\n      return firstYearOfDecade + '-' + lastYearOfDecade\n    },\n    stringifyDayHeader (date) {\n      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()\n    },\n    parseMonth (date) {\n      return this.text.months[date.getMonth()]\n    },\n    stringifyYearHeader (date) {\n      return date.getFullYear()\n    },\n    stringify (date, format = this.format) {\n      if (!date) date = this.parse()\n      if (!date) return ''\n      const year = date.getFullYear()\n      const month = date.getMonth() + 1\n      const day = date.getDate()\n      const monthName = this.parseMonth(date)\n      return format\n        .replace(/yyyy/g, year)\n        .replace(/yy/g, year)\n        .replace(/MMMM/g, monthName)\n        .replace(/MMM/g, monthName.substring(0, 3))\n        .replace(/MM/g, ('0' + month).slice(-2))\n        .replace(/M(?!a)/g, month)\n        .replace(/dd/g, ('0' + day).slice(-2))\n        .replace(/d/g, day)\n    },\n    parse (str) {\n      if (str === undefined || str === null) { str = this.val }\n      let date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ?\n        new Date(str.substring(6, 10), str.substring(3, 5)-1, str.substring(0, 2)) :\n        new Date(str)\n      return isNaN(date.getFullYear()) ? new Date() : date\n    },\n    getDayCount (year, month) {\n      const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\n      if (month === 1) {\n        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {\n          return 29\n        }\n      }\n      return dict[month]\n    },\n    getDateRange () {\n      this.dateRange = []\n      this.decadeRange = []\n      const time = {\n        year: this.currDate.getFullYear(),\n        month: this.currDate.getMonth(),\n        day: this.currDate.getDate()\n      }\n      const yearStr = time.year.toString()\n      const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1\n      for (let i = 0; i < 12; i++) {\n        this.decadeRange.push({\n          text: firstYearOfDecade + i\n        })\n      }\n\n      const currMonthFirstDay = new Date(time.year, time.month, 1)\n      let firstDayWeek = currMonthFirstDay.getDay() + 1\n      if (firstDayWeek === 0) {\n        firstDayWeek = 7\n      }\n      const dayCount = this.getDayCount(time.year, time.month)\n      if (firstDayWeek > 1) {\n        const preMonth = this.getYearMonth(time.year, time.month - 1)\n        const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)\n        for (let i = 1; i < firstDayWeek; i++) {\n          const dayText = prevMonthDayCount - firstDayWeek + i + 1\n          const date = new Date(preMonth.year, preMonth.month, dayText)\n          let sclass = 'datepicker-item-gray'\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n            sclass = 'datepicker-item-disable'\n          }\n          this.dateRange.push({text: dayText, date, sclass })\n        }\n      }\n\n      for (let i = 1; i <= dayCount; i++) {\n        const date = new Date(time.year, time.month, i)\n        let sclass = ''\n        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n          sclass = 'datepicker-item-disable'\n        }\n        if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){\n          sclass = 'datepicker-dateRange-item-active'\n        }\n        this.dateRange.push({text: i, date, sclass})\n      }\n\n      if (this.dateRange.length < 42) {\n        const nextMonthNeed = 42 - this.dateRange.length\n        const nextMonth = this.getYearMonth(time.year, time.month + 1)\n\n        for (let i = 1; i <= nextMonthNeed; i++) {\n          const date = new Date(nextMonth.year, nextMonth.month, i)\n          let sclass = 'datepicker-item-gray'\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n            sclass = 'datepicker-item-disable'\n          }\n          this.dateRange.push({text: i, date, sclass})\n        }\n      }\n    }\n  },\n  mounted () {\n    this.$emit('child-created', this)\n    this.currDate = this.parse(this.val) || this.parse(new Date())\n    this._blur = e => {\n      if (!this.$el.contains(e.target))\n        this.close()\n    }\n    window.addEventListener('click', this._blur);\n  },\n  beforeDestroy () {\n    window.removeEventListener('click', this._blur)\n  }\n}\n</script>\n\n<style>\n.datepicker {\n  position: relative;\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\n  padding-right: 25px;\n}\n.datepicker > button.close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  outline: none;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.datepicker > button.close:focus {\n  opacity: .2;\n}\n.datepicker-popup {\n  position: absolute;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  background: #fff;\n  margin-top: 2px;\n  z-index: 1000;\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\n  width: 218px;\n}\n.datepicker-body {\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\n.datepicker-ctrl span,\n.datepicker-body span {\n  display: inline-block;\n  width: 28px;\n  line-height: 28px;\n  height: 28px;\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\n  width: 65%;\n}\n.datepicker-ctrl span {\n  position: absolute;\n}\n.datepicker-body span {\n  text-align: center;\n}\n.datepicker-monthRange span {\n  width: 48px;\n  height: 50px;\n  line-height: 45px;\n}\n.datepicker-item-disable {\n  background-color: white!important;\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\n.decadeRange span:last-child,\n.datepicker-item-disable,\n.datepicker-item-gray {\n  color: #999;\n}\n\n.datepicker-dateRange-item-active:hover,\n.datepicker-dateRange-item-active {\n  background: rgb(50, 118, 177)!important;\n  color: white!important;\n}\n.datepicker-monthRange {\n  margin-top: 10px\n}\n.datepicker-monthRange span,\n.datepicker-ctrl span,\n.datepicker-ctrl p,\n.datepicker-dateRange span {\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\n.datepicker-ctrl p:hover,\n.datepicker-ctrl i:hover,\n.datepicker-dateRange span:hover,\n.datepicker-dateRange-item-hover {\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\n  font-weight: bold;\n}\n.datepicker-label {\n  background-color: #f8f8f8;\n  font-weight: 700;\n  padding: 7px 0;\n  text-align: center;\n}\n.datepicker-ctrl {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  font-weight: bold;\n  text-align: center;\n}\n.month-btn {\n  font-weight: bold;\n  -webkit-user-select:none;\n  -moz-user-select:none;\n  -ms-user-select:none;\n  user-select:none;\n}\n.datepicker-preBtn {\n  left: 2px;\n}\n.datepicker-nextBtn {\n  right: 2px;\n}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _utils = __webpack_require__(65);
+	
+	// import $ from './utils/NodeList.js'
+	
+	exports.default = {
+	  props: {
+	    value: { type: String },
+	    format: { default: 'MM/dd/yyyy' },
+	    disabledDaysOfWeek: { type: Array, default: function _default() {
+	        return [];
+	      }
+	    },
+	    width: { type: String },
+	    clearButton: { type: Boolean, default: false },
+	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
+	    placeholder: { type: String },
+	    iconsFont: { type: String, default: 'glyphicon' }
+	  },
+	  data: function data() {
+	    return {
+	      currDate: new Date(),
+	      dateRange: [],
+	      decadeRange: [],
+	      displayDayView: false,
+	      displayMonthView: false,
+	      displayYearView: false,
+	      val: this.value
+	    };
+	  },
+	
+	  watch: {
+	    currDate: function currDate() {
+	      this.getDateRange();
+	    },
+	    format: function format() {
+	      this.val = this.stringify(this.currDate);
+	    },
+	    val: function val(_val, old) {
+	      this.$emit('input', _val);
+	    },
+	    value: function value(val) {
+	      if (this.val !== val) {
+	        this.val = val;
+	      }
+	    }
+	  },
+	  computed: {
+	    text: function text() {
+	      return (0, _utils.translations)(this.lang);
+	    },
+	    preBtnClasses: function preBtnClasses() {
+	      return 'datepicker-preBtn ' + this.iconsFont + ' ' + this.iconsFont + '-chevron-left';
+	    },
+	    nextBtnClasses: function nextBtnClasses() {
+	      return 'datepicker-nextBtn ' + this.iconsFont + ' ' + this.iconsFont + '-chevron-right';
+	    },
+	    disabledDaysArray: function disabledDaysArray() {
+	      return this.disabledDaysOfWeek.map(function (d) {
+	        return parseInt(d, 10);
+	      });
+	    }
+	  },
+	  methods: {
+	    close: function close() {
+	      this.displayDayView = this.displayMonthView = this.displayYearView = false;
+	    },
+	    inputClick: function inputClick() {
+	      this.currDate = this.parse(this.val) || this.parse(new Date());
+	      if (this.displayMonthView || this.displayYearView) {
+	        this.displayDayView = false;
+	      } else {
+	        this.displayDayView = !this.displayDayView;
+	      }
+	    },
+	    preNextDecadeClick: function preNextDecadeClick(flag) {
+	      var year = this.currDate.getFullYear();
+	      var months = this.currDate.getMonth();
+	      var date = this.currDate.getDate();
+	
+	      if (flag === 0) {
+	        this.currDate = new Date(year - 10, months, date);
+	      } else {
+	        this.currDate = new Date(year + 10, months, date);
+	      }
+	    },
+	    preNextMonthClick: function preNextMonthClick(flag) {
+	      var year = this.currDate.getFullYear();
+	      var month = this.currDate.getMonth();
+	      var date = this.currDate.getDate();
+	
+	      if (flag === 0) {
+	        var preMonth = this.getYearMonth(year, month - 1);
+	        this.currDate = new Date(preMonth.year, preMonth.month, date);
+	      } else {
+	        var nextMonth = this.getYearMonth(year, month + 1);
+	        this.currDate = new Date(nextMonth.year, nextMonth.month, date);
+	      }
+	    },
+	    preNextYearClick: function preNextYearClick(flag) {
+	      var year = this.currDate.getFullYear();
+	      var months = this.currDate.getMonth();
+	      var date = this.currDate.getDate();
+	
+	      if (flag === 0) {
+	        this.currDate = new Date(year - 1, months, date);
+	      } else {
+	        this.currDate = new Date(year + 1, months, date);
+	      }
+	    },
+	    yearSelect: function yearSelect(year) {
+	      this.displayYearView = false;
+	      this.displayMonthView = true;
+	      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate());
+	    },
+	    daySelect: function daySelect(day) {
+	      if (day.sclass === 'datepicker-item-disable') {
+	        return false;
+	      } else {
+	        this.currDate = day.date;
+	        this.val = this.stringify(this.currDate);
+	        this.displayDayView = false;
+	      }
+	    },
+	    switchMonthView: function switchMonthView() {
+	      this.displayDayView = false;
+	      this.displayMonthView = true;
+	    },
+	    switchDecadeView: function switchDecadeView() {
+	      this.displayMonthView = false;
+	      this.displayYearView = true;
+	    },
+	    monthSelect: function monthSelect(index) {
+	      this.displayMonthView = false;
+	      this.displayDayView = true;
+	      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate());
+	    },
+	    getYearMonth: function getYearMonth(year, month) {
+	      if (month > 11) {
+	        year++;
+	        month = 0;
+	      } else if (month < 0) {
+	        year--;
+	        month = 11;
+	      }
+	      return { year: year, month: month };
+	    },
+	    stringifyDecadeHeader: function stringifyDecadeHeader(date) {
+	      var yearStr = date.getFullYear().toString();
+	      var firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0;
+	      var lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10;
+	      return firstYearOfDecade + '-' + lastYearOfDecade;
+	    },
+	    stringifyDayHeader: function stringifyDayHeader(date) {
+	      return this.text.months[date.getMonth()] + ' ' + date.getFullYear();
+	    },
+	    parseMonth: function parseMonth(date) {
+	      return this.text.months[date.getMonth()];
+	    },
+	    stringifyYearHeader: function stringifyYearHeader(date) {
+	      return date.getFullYear();
+	    },
+	    stringify: function stringify(date) {
+	      var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.format;
+	
+	      if (!date) date = this.parse();
+	      if (!date) return '';
+	      var year = date.getFullYear();
+	      var month = date.getMonth() + 1;
+	      var day = date.getDate();
+	      var monthName = this.parseMonth(date);
+	      return format.replace(/yyyy/g, year).replace(/yy/g, year).replace(/MMMM/g, monthName).replace(/MMM/g, monthName.substring(0, 3)).replace(/MM/g, ('0' + month).slice(-2)).replace(/M(?!a)/g, month).replace(/dd/g, ('0' + day).slice(-2)).replace(/d/g, day);
+	    },
+	    parse: function parse(str) {
+	      if (str === undefined || str === null) {
+	        str = this.val;
+	      }
+	      var date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ? new Date(str.substring(6, 10), str.substring(3, 5) - 1, str.substring(0, 2)) : new Date(str);
+	      return isNaN(date.getFullYear()) ? new Date() : date;
+	    },
+	    getDayCount: function getDayCount(year, month) {
+	      var dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	      if (month === 1) {
+	        if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0) {
+	          return 29;
+	        }
+	      }
+	      return dict[month];
+	    },
+	    getDateRange: function getDateRange() {
+	      this.dateRange = [];
+	      this.decadeRange = [];
+	      var time = {
+	        year: this.currDate.getFullYear(),
+	        month: this.currDate.getMonth(),
+	        day: this.currDate.getDate()
+	      };
+	      var yearStr = time.year.toString();
+	      var firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0 - 1;
+	      for (var i = 0; i < 12; i++) {
+	        this.decadeRange.push({
+	          text: firstYearOfDecade + i
+	        });
+	      }
+	
+	      var currMonthFirstDay = new Date(time.year, time.month, 1);
+	      var firstDayWeek = currMonthFirstDay.getDay() + 1;
+	      if (firstDayWeek === 0) {
+	        firstDayWeek = 7;
+	      }
+	      var dayCount = this.getDayCount(time.year, time.month);
+	      if (firstDayWeek > 1) {
+	        var preMonth = this.getYearMonth(time.year, time.month - 1);
+	        var prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month);
+	        for (var _i = 1; _i < firstDayWeek; _i++) {
+	          var dayText = prevMonthDayCount - firstDayWeek + _i + 1;
+	          var date = new Date(preMonth.year, preMonth.month, dayText);
+	          var sclass = 'datepicker-item-gray';
+	          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+	            sclass = 'datepicker-item-disable';
+	          }
+	          this.dateRange.push({ text: dayText, date: date, sclass: sclass });
+	        }
+	      }
+	
+	      for (var _i2 = 1; _i2 <= dayCount; _i2++) {
+	        var _date = new Date(time.year, time.month, _i2);
+	        var _sclass = '';
+	        if (this.disabledDaysArray.indexOf(_date.getDay()) > -1) {
+	          _sclass = 'datepicker-item-disable';
+	        }
+	        if (_i2 == time.day && _date.getFullYear() == time.year && _date.getMonth() == time.month) {
+	          _sclass = 'datepicker-dateRange-item-active';
+	        }
+	        this.dateRange.push({ text: _i2, date: _date, sclass: _sclass });
+	      }
+	
+	      if (this.dateRange.length < 42) {
+	        var nextMonthNeed = 42 - this.dateRange.length;
+	        var nextMonth = this.getYearMonth(time.year, time.month + 1);
+	
+	        for (var _i3 = 1; _i3 <= nextMonthNeed; _i3++) {
+	          var _date2 = new Date(nextMonth.year, nextMonth.month, _i3);
+	          var _sclass2 = 'datepicker-item-gray';
+	          if (this.disabledDaysArray.indexOf(_date2.getDay()) > -1) {
+	            _sclass2 = 'datepicker-item-disable';
+	          }
+	          this.dateRange.push({ text: _i3, date: _date2, sclass: _sclass2 });
+	        }
+	      }
+	    }
+	  },
+	  mounted: function mounted() {
+	    var _this = this;
+	
+	    this.$emit('child-created', this);
+	    this.currDate = this.parse(this.val) || this.parse(new Date());
+	    this._blur = function (e) {
+	      if (!_this.$el.contains(e.target)) _this.close();
+	    };
+	    window.addEventListener('click', this._blur);
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    window.removeEventListener('click', this._blur);
+	  }
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "datepicker"
+	  }, [_c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.val),
+	      expression: "val"
+	    }],
+	    staticClass: "form-control datepicker-input",
+	    class: {
+	      'with-reset-button': _vm.clearButton
+	    },
+	    style: ({
+	      width: _vm.width
+	    }),
+	    attrs: {
+	      "type": "text",
+	      "placeholder": _vm.placeholder
+	    },
+	    domProps: {
+	      "value": (_vm.val)
+	    },
+	    on: {
+	      "focus": _vm.inputClick,
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.val = $event.target.value
+	      }
+	    }
+	  }), _vm._v(" "), (_vm.clearButton && _vm.val) ? _c('button', {
+	    staticClass: "close",
+	    attrs: {
+	      "type": "button"
+	    },
+	    on: {
+	      "click": function($event) {
+	        _vm.val = ''
+	      }
+	    }
+	  }, [_c('span', [_vm._v("×")])]) : _vm._e(), _vm._v(" "), _c('div', {
+	    directives: [{
+	      name: "show",
+	      rawName: "v-show",
+	      value: (_vm.displayDayView),
+	      expression: "displayDayView"
+	    }],
+	    staticClass: "datepicker-popup"
+	  }, [_c('div', {
+	    staticClass: "datepicker-inner"
+	  }, [_c('div', {
+	    staticClass: "datepicker-body"
+	  }, [_c('div', {
+	    staticClass: "datepicker-ctrl"
+	  }, [_c('span', {
+	    class: _vm.preBtnClasses,
+	    attrs: {
+	      "aria-hidden": "true"
+	    },
+	    on: {
+	      "click": function($event) {
+	        return _vm.preNextMonthClick(0)
+	      }
+	    }
+	  }), _vm._v(" "), _c('span', {
+	    class: _vm.nextBtnClasses,
+	    attrs: {
+	      "aria-hidden": "true"
+	    },
+	    on: {
+	      "click": function($event) {
+	        return _vm.preNextMonthClick(1)
+	      }
+	    }
+	  }), _vm._v(" "), _c('p', {
+	    on: {
+	      "click": _vm.switchMonthView
+	    }
+	  }, [_vm._v(_vm._s(_vm.stringifyDayHeader(_vm.currDate)))])]), _vm._v(" "), _c('div', {
+	    staticClass: "datepicker-weekRange"
+	  }, _vm._l((_vm.text.daysOfWeek), function(w) {
+	    return _c('span', [_vm._v(_vm._s(w))])
+	  }), 0), _vm._v(" "), _c('div', {
+	    staticClass: "datepicker-dateRange"
+	  }, _vm._l((_vm.dateRange), function(d) {
+	    return _c('span', {
+	      class: d.sclass,
+	      on: {
+	        "click": function($event) {
+	          return _vm.daySelect(d)
+	        }
+	      }
+	    }, [_vm._v(_vm._s(d.text))])
+	  }), 0)])])]), _vm._v(" "), _c('div', {
+	    directives: [{
+	      name: "show",
+	      rawName: "v-show",
+	      value: (_vm.displayMonthView),
+	      expression: "displayMonthView"
+	    }],
+	    staticClass: "datepicker-popup"
+	  }, [_c('div', {
+	    staticClass: "datepicker-inner"
+	  }, [_c('div', {
+	    staticClass: "datepicker-body"
+	  }, [_c('div', {
+	    staticClass: "datepicker-ctrl"
+	  }, [_c('span', {
+	    class: _vm.preBtnClasses,
+	    attrs: {
+	      "aria-hidden": "true"
+	    },
+	    on: {
+	      "click": function($event) {
+	        return _vm.preNextYearClick(0)
+	      }
+	    }
+	  }), _vm._v(" "), _c('span', {
+	    class: _vm.nextBtnClasses,
+	    attrs: {
+	      "aria-hidden": "true"
+	    },
+	    on: {
+	      "click": function($event) {
+	        return _vm.preNextYearClick(1)
+	      }
+	    }
+	  }), _vm._v(" "), _c('p', {
+	    on: {
+	      "click": _vm.switchDecadeView
+	    }
+	  }, [_vm._v(_vm._s(_vm.stringifyYearHeader(_vm.currDate)))])]), _vm._v(" "), _c('div', {
+	    staticClass: "datepicker-monthRange"
+	  }, [_vm._l((_vm.text.months), function(m, index) {
+	    return [_c('span', {
+	      class: {
+	        'datepicker-dateRange-item-active':
+	        (_vm.text.months[_vm.parse(_vm.val).getMonth()] === m) &&
+	        _vm.currDate.getFullYear() === _vm.parse(_vm.val).getFullYear()
+	      },
+	      domProps: {
+	        "textContent": _vm._s(m.substr(0, 3))
+	      },
+	      on: {
+	        "click": function($event) {
+	          return _vm.monthSelect(index)
+	        }
+	      }
+	    })]
+	  })], 2)])])]), _vm._v(" "), _c('div', {
+	    directives: [{
+	      name: "show",
+	      rawName: "v-show",
+	      value: (_vm.displayYearView),
+	      expression: "displayYearView"
+	    }],
+	    staticClass: "datepicker-popup"
+	  }, [_c('div', {
+	    staticClass: "datepicker-inner"
+	  }, [_c('div', {
+	    staticClass: "datepicker-body"
+	  }, [_c('div', {
+	    staticClass: "datepicker-ctrl"
+	  }, [_c('span', {
+	    class: _vm.preBtnClasses,
+	    attrs: {
+	      "aria-hidden": "true"
+	    },
+	    on: {
+	      "click": function($event) {
+	        return _vm.preNextDecadeClick(0)
+	      }
+	    }
+	  }), _vm._v(" "), _c('span', {
+	    class: _vm.nextBtnClasses,
+	    attrs: {
+	      "aria-hidden": "true"
+	    },
+	    on: {
+	      "click": function($event) {
+	        return _vm.preNextDecadeClick(1)
+	      }
+	    }
+	  }), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.stringifyDecadeHeader(_vm.currDate)))])]), _vm._v(" "), _c('div', {
+	    staticClass: "datepicker-monthRange decadeRange"
+	  }, [_vm._l((_vm.decadeRange), function(decade) {
+	    return [_c('span', {
+	      class: {
+	        'datepicker-dateRange-item-active': _vm.parse(_vm.val).getFullYear() === decade.text
+	      },
+	      domProps: {
+	        "textContent": _vm._s(decade.text)
+	      },
+	      on: {
+	        "click": function($event) {
+	          $event.stopPropagation();
+	          return _vm.yearSelect(decade.text)
+	        }
+	      }
+	    })]
+	  })], 2)])])])])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-53663584", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Component = __webpack_require__(70)(
+	  /* script */
+	  __webpack_require__(113),
+	  /* template */
+	  __webpack_require__(114),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -4887,7 +5531,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 108 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4998,7 +5642,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 109 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5067,14 +5711,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 110 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(111),
+	  __webpack_require__(116),
 	  /* template */
-	  __webpack_require__(112),
+	  __webpack_require__(117),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -5101,7 +5745,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 111 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5187,7 +5831,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 112 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5202,14 +5846,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 113 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(114),
+	  __webpack_require__(119),
 	  /* template */
-	  __webpack_require__(115),
+	  __webpack_require__(120),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -5236,7 +5880,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 114 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5307,7 +5951,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 115 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5322,18 +5966,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 116 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(117)
+	__webpack_require__(122)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(119),
+	  __webpack_require__(124),
 	  /* template */
-	  __webpack_require__(120),
+	  __webpack_require__(125),
 	  /* scopeId */
 	  "data-v-67bb51ab",
 	  /* cssModules */
@@ -5360,13 +6004,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 117 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(118);
+	var content = __webpack_require__(123);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -5386,7 +6030,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 118 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -5394,19 +6038,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.form-group[data-v-67bb51ab] {\n  position: relative;\n}\nlabel~.close[data-v-67bb51ab] {\n  top: 25px;\n}\n.input-group>.icon[data-v-67bb51ab] {\n  position: relative;\n  display: table-cell;\n  width:0;\n  z-index: 3;\n}\n.close[data-v-67bb51ab] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.has-feedback .close[data-v-67bb51ab] {\n  right: 20px;\n}\n", "", {"version":3,"sources":["/./src/Input.vue?3b96f8bc"],"names":[],"mappings":";AA6QA;EACA,mBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,mBAAA;EACA,oBAAA;EACA,QAAA;EACA,WAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<!--suppress ALL -->\n<template>\n  <div :id=\"controlId\"  :class=\"[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]\">\n    <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\n    <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\n      <slot name=\"before\"></slot>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n        :cols=\"cols\"\n        :disabled=\"disabled\"\n        :list=\"id_datalist\"\n        :max=\"attr(max)\"\n        :maxlength=\"maxlength\"\n        :min=\"attr(min)\"\n        :name=\"name\"\n        :placeholder=\"placeholder\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :rows=\"rows\"\n        :step=\"step\"\n        :title=\"attr(title)\"\n        :type=\"type=='textarea'?null:type\"\n        v-model=\"val\"\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n      <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\n        <span class=\"close\" @click=\"value = ''\">&times;</span>\n      </div>\n      <div v-if=\"icon\" class=\"icon\">\n        <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\n      </div>\n      <slot name=\"after\"></slot>\n    </div>\n    <template v-else>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n        :cols=\"cols\"\n        :disabled=\"disabled\"\n        :list=\"id_datalist\"\n        :max=\"attr(max)\"\n        :maxlength=\"maxlength\"\n        :min=\"attr(min)\"\n        :name=\"name\"\n        :placeholder=\"placeholder\"\n        :readonly=\"readonly\"\n        :required=\"required\"\n        :rows=\"rows\"\n        :step=\"step\"\n        :title=\"attr(title)\"\n        :type=\"type=='textarea'?null:type\"\n        v-model=\"val\"\n        @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n        @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n      <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\n      <span v-if=\"icon&&valid!==null\" :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\" aria-hidden=\"true\"></span>\n    </template>\n    <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\n      <option v-for=\"opc in options\" :value=\"opc\"></option>\n    </datalist>\n    <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n    <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n  </div>\n</template>\n\n<script>\nimport {coerce, delayer, translations} from './utils/utils.js'\nimport $ from './utils/NodeList.js'\n\nvar DELAY = 300\n\nexport default {\n  props: {\n    clearButton: {type: Boolean, default: false},\n    cols: {type: Number, default: null},\n    datalist: {type: Array, default: null},\n    disabled: {type: Boolean, default: false},\n    enterSubmit: {type: Boolean, default: false},\n    error: {type: String, default: null},\n    help: {type: String, default: null},\n    hideHelp: {type: Boolean, default: true},\n    icon: {type: Boolean, default: false},\n    label: {type: String, default: null},\n    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:\"zh-CN\"},\n    mask: null,\n    maskDelay: {type: Number, default: 100},\n    match: {type: String, default: null},\n    max: {type: String, default: null},\n    maxlength: {type: Number, default: null},\n    min: {type: String, default: null},\n    minlength: {type: Number, default: 0},\n    name: {type: String, default: null},\n    pattern: {default: null},\n    placeholder: {type: String, default: null},\n    readonly: {type: Boolean, default: false},\n    required: {type: Boolean, default: false},\n    rows: {type: Number, default: 3},\n    step: {type: Number, default: null},\n    type: {type: String, default: 'text'},\n    url: {type: String, default: null},\n    urlMap: {type: Function, default: null},\n    validationDelay: {type: Number, default: 250},\n    value: {default: null},\n    cssClass: {type: String, default: null},\n    controlId: {default: true}\n  },\n  data () {\n    var val = this.value\n    return {\n      options: this.datalist,\n      val,\n      valid: null,\n      timeout: null\n    }\n  },\n  computed: {\n    canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },\n    errorText () {\n      let value = this.value\n      let error = [this.error]\n      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\n      if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\n      return error.join(' ')\n    },\n    id_datalist () {\n      if (this.type !== 'textarea' && this.datalist instanceof Array) {\n        if (!this._id_datalist) {\n          if (!this.$root.id_datalist) { this.$root.id_datalist = 0 }\n          this._id_datalist = 'input-datalist' + this.$root.id_datalist++\n        }\n        return this._id_datalist\n      }\n      return null\n    },\n    input () { return this.$refs.input },\n    nativeValidate () { return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max) },\n    regex () { return coerce.pattern(this.pattern) },\n    showError () { return this.error && this.valid === false },\n    showHelp () { return this.help && (!this.showError || !this.hideHelp) },\n    text () { return translations(this.lang) },\n    title () { return this.errorText || this.help || '' }\n  },\n  watch: {\n    datalist (val, old) {\n      if (val !== old && val instanceof Array) { this.options = val }\n    },\n    match (val) { this.eval() },\n    options (val, old) {\n      if (val !== old) this.$emit('options', val)\n    },\n    url (val) {\n      this._url()\n    },\n    val (val, old) {\n      this.$emit('input', val)\n      if (val !== old) {\n        if (this.mask instanceof Function) {\n          val = this.mask(val || '')\n          if (this.val !== val) {\n            if (this._timeout.mask) clearTimeout(this._timeout.mask)\n            this._timeout.mask = setTimeout(() => {\n              this.val = val\n            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\n          }\n        }\n        this.eval()\n      }\n    },\n    valid (val, old) {\n      this.$emit('isvalid', val)\n      this.$emit(!val ? 'invalid' : 'valid')\n      if (this._parent) this._parent.validate()\n    },\n    value (val) {\n      if (this.val !== val) { this.val = val }\n    }\n  },\n  methods: {\n    attr (value) {\n      return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\n    },\n    emit (e) {\n      this.$emit(e.type, e.type == 'input' ? e.target.value : e)\n      if (e.type === 'blur' && this.canValidate) { this.valid = this.validate() }\n    },\n    eval () {\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\n      if (!this.canValidate) {\n        this.valid = true\n      } else {\n        this._timeout.eval = setTimeout(() => {\n          this.valid = this.validate()\n          this._timeout.eval = null\n        }, this.validationDelay)\n      }\n    },\n    focus () { this.input.focus() },\n    submit () {\n      if (this.$parent._formValidator) {\n        return this.$parent.validate()\n      }\n      if (this.input.form) {\n        const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\n        if (invalids.length) {\n          invalids.find('input,textarea,select')[0].focus()\n        } else {\n          this.input.form.submit()\n        }\n      }\n    },\n    validate () {\n      if (!this.canValidate) { return true }\n      let value = (this.val || '').trim()\n      if (!value) { return !this.required }\n      if (this.match !== null) { return this.match === value }\n      if (value.length < this.minlength) { return false }\n      if (this.nativeValidate && !this.input.checkValidity()) { return false }\n      if (this.regex) {\n        if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) { return false }\n      }\n      return true\n    },\n    reset() {\n      this.value = ''\n      this.valid = null\n      if (this._timeout.mask) clearTimeout(this._timeout.mask)\n      if (this._timeout.eval) clearTimeout(this._timeout.eval)\n    }\n  },\n  created () {\n    this._input = true\n    this._timeout = {}\n    let parent = this.$parent\n    while (parent && !parent._formValidator) { parent = parent.$parent }\n    if (parent && parent._formValidator) {\n      parent.children.push(this)\n      this._parent = parent\n    }\n    this._url = delayer(function () {\n      if (!this.url || !this.$http || this._loading) { return }\n      this._loading = true\n      this.$http.get(this.url).then(response => {\n        var data = response.data instanceof Array ? response.data : []\n        try { data = JSON.parse(data) } catch (e) {}\n        if (this.urlMap) { data = data.map(this.urlMap) }\n        this.options = data\n        this.loading = false\n      }, response => {\n        this.loading = false\n      })\n    }, DELAY)\n    if (this.url) this._url()\n  },\n  mounted () {\n    // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\n    //   if (this.canValidate) { this.valid = this.validate() }\n    //   this.$emit('blur', e)\n    // })\n  },\n  beforeDestroy () {\n    // $(this.input).off()\n    if (this._parent) {\n      var index = this._parent.children.indexOf(this)\n      this._parent.children.splice(index, 1)\n    }\n  }\n}\n</script>\n\n<style scoped>\n.form-group {\n  position: relative;\n}\nlabel~.close {\n  top: 25px;\n}\n.input-group>.icon {\n  position: relative;\n  display: table-cell;\n  width:0;\n  z-index: 3;\n}\n.close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.has-feedback .close {\n  right: 20px;\n}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.form-group[data-v-67bb51ab] {\n    position: relative;\n}\nlabel ~ .close[data-v-67bb51ab] {\n    top: 25px;\n}\n.input-group > .icon[data-v-67bb51ab] {\n    position: relative;\n    display: table-cell;\n    width: 0;\n    z-index: 3;\n}\n.close[data-v-67bb51ab] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 2;\n    display: block;\n    width: 34px;\n    height: 34px;\n    line-height: 34px;\n    text-align: center;\n}\n.has-feedback .close[data-v-67bb51ab] {\n    right: 20px;\n}\n", "", {"version":3,"sources":["/./src/Input.vue?583e9616"],"names":[],"mappings":";AA6UA;IACA,mBAAA;CACA;AAEA;IACA,UAAA;CACA;AAEA;IACA,mBAAA;IACA,oBAAA;IACA,SAAA;IACA,WAAA;CACA;AAEA;IACA,mBAAA;IACA,OAAA;IACA,SAAA;IACA,WAAA;IACA,eAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<!--suppress ALL -->\n<template>\n    <div :id=\"controlId\"\n         :class=\"[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]\">\n        <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\n        <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\n            <slot name=\"before\"></slot>\n            <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n                      :cols=\"cols\"\n                      :disabled=\"disabled\"\n                      :list=\"id_datalist\"\n                      :max=\"attr(max)\"\n                      :maxlength=\"maxlength\"\n                      :min=\"attr(min)\"\n                      :name=\"name\"\n                      :placeholder=\"placeholder\"\n                      :readonly=\"readonly\"\n                      :required=\"required\"\n                      :rows=\"rows\"\n                      :step=\"step\"\n                      :title=\"attr(title)\"\n                      :type=\"type=='textarea'?null:type\"\n                      v-model=\"val\"\n                      @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n\n            ></textarea>\n            <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\n                <span class=\"close\" @click=\"value = ''\">&times;</span>\n            </div>\n            <div v-if=\"icon\" class=\"icon\">\n                <span v-if=\"icon&&valid!==null\"\n                      :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\"\n                      aria-hidden=\"true\"></span>\n            </div>\n            <slot name=\"after\"></slot>\n        </div>\n        <template v-else>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n                :cols=\"cols\"\n                :disabled=\"disabled\"\n                :list=\"id_datalist\"\n                :max=\"attr(max)\"\n                :maxlength=\"maxlength\"\n                :min=\"attr(min)\"\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                :readonly=\"readonly\"\n                :required=\"required\"\n                :rows=\"rows\"\n                :step=\"step\"\n                :title=\"attr(title)\"\n                :type=\"type=='textarea'?null:type\"\n                v-model=\"val\"\n                @blur=\"emit\" @focus=\"emit\" @input=\"emit\" @keyup=\"emit\"\n                @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n            <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\n            <span v-if=\"icon&&valid!==null\"\n                  :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\"\n                  aria-hidden=\"true\"></span>\n        </template>\n        <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\n            <option v-for=\"opc in options\" :value=\"opc\"></option>\n        </datalist>\n        <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n        <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n    </div>\n</template>\n\n<script>\n    import {coerce, delayer, translations} from './utils/utils.js'\n    import $ from './utils/NodeList.js'\n\n    var DELAY = 300\n\n    export default {\n        props: {\n            clearButton: {type: Boolean, default: false},\n            cols: {type: Number, default: null},\n            datalist: {type: Array, default: null},\n            disabled: {type: Boolean, default: false},\n            enterSubmit: {type: Boolean, default: false},\n            error: {type: String, default: null},\n            help: {type: String, default: null},\n            hideHelp: {type: Boolean, default: true},\n            icon: {type: Boolean, default: false},\n            label: {type: String, default: null},\n            lang: {type: String, default: typeof navigator !== 'undefined' ? navigator.language : \"zh-CN\"},\n            mask: null,\n            maskDelay: {type: Number, default: 100},\n            match: {type: String, default: null},\n            max: {type: String, default: null},\n            maxlength: {type: Number, default: null},\n            min: {type: String, default: null},\n            minlength: {type: Number, default: 0},\n            name: {type: String, default: null},\n            pattern: {default: null},\n            placeholder: {type: String, default: null},\n            readonly: {type: Boolean, default: false},\n            required: {type: Boolean, default: false},\n            rows: {type: Number, default: 3},\n            step: {type: Number, default: null},\n            type: {type: String, default: 'text'},\n            url: {type: String, default: null},\n            urlMap: {type: Function, default: null},\n            validationDelay: {type: Number, default: 250},\n            value: {default: null},\n            cssClass: {type: String, default: null},\n            controlId: {default: true},\n            method: {type: Function}\n        },\n        data() {\n            var val = this.value\n            return {\n                options: this.datalist,\n                val,\n                valid: null,\n                timeout: null\n            }\n        },\n        computed: {\n            canValidate() {\n                return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null)\n            },\n            errorText() {\n                let value = this.value\n                let error = [this.error]\n                if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\n                if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\n                return error.join(' ')\n            },\n            id_datalist() {\n                if (this.type !== 'textarea' && this.datalist instanceof Array) {\n                    if (!this._id_datalist) {\n                        if (!this.$root.id_datalist) {\n                            this.$root.id_datalist = 0\n                        }\n                        this._id_datalist = 'input-datalist' + this.$root.id_datalist++\n                    }\n                    return this._id_datalist\n                }\n                return null\n            },\n            input() {\n                return this.$refs.input\n            },\n            nativeValidate() {\n                return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max)\n            },\n            regex() {\n                return coerce.pattern(this.pattern)\n            },\n            showError() {\n                return this.error && this.valid === false\n            },\n            showHelp() {\n                return this.help && (!this.showError || !this.hideHelp)\n            },\n            text() {\n                return translations(this.lang)\n            },\n            title() {\n                return this.errorText || this.help || ''\n            }\n        },\n        watch: {\n            datalist(val, old) {\n                if (val !== old && val instanceof Array) {\n                    this.options = val\n                }\n            },\n            match(val) {\n                this.eval()\n            },\n            options(val, old) {\n                if (val !== old) this.$emit('options', val)\n            },\n            url(val) {\n                this._url()\n            },\n            val(val, old) {\n                this.$emit('input', val)\n                if (val !== old) {\n                    if (this.mask instanceof Function) {\n                        val = this.mask(val || '')\n                        if (this.val !== val) {\n                            if (this._timeout.mask) clearTimeout(this._timeout.mask)\n                            this._timeout.mask = setTimeout(() => {\n                                this.val = val\n                            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\n                        }\n                    }\n                    this.eval()\n                }\n            },\n            valid(val, old) {\n                this.$emit('isvalid', val)\n                this.$emit(!val ? 'invalid' : 'valid')\n                if (this._parent) this._parent.validate()\n            },\n            value(val) {\n                if (this.val !== val) {\n                    this.val = val\n                }\n            }\n        },\n        methods: {\n            attr(value) {\n                return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\n            },\n            emit(e) {\n                this.$emit(e.type, e.type == 'input' ? e.target.value : e)\n                if (e.type === 'blur' && this.canValidate) {\n                    this.valid = this.validate()\n                }\n            },\n            eval() {\n                if (this._timeout.eval) clearTimeout(this._timeout.eval)\n                if (!this.canValidate) {\n                    this.valid = true\n                } else {\n                    this._timeout.eval = setTimeout(() => {\n                        this.valid = this.validate()\n                        this._timeout.eval = null\n                    }, this.validationDelay)\n                }\n            },\n            focus() {\n                this.input.focus()\n            },\n            submit: function() {\n                if (this.$parent._formValidator) {\n                    return this.$parent.validate();\n                }\n\n                if (!this.valid) {\n                    return;\n                }\n\n                if (this.input.form) {\n                    const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\n                    if (invalids.length) {\n                        invalids.find('input,textarea,select')[0].focus();\n                        return;\n                    }\n                }\n\n                this.$emit('submit_key_pressed');\n            },\n            setValidState(state) {\n                this.valid = state;\n            },\n            validate() {\n                if (!this.canValidate) {\n                    return true\n                }\n                let value = (this.val || '').trim()\n                if (!value) {\n                    return !this.required\n                }\n                if (this.match !== null) {\n                    return this.match === value\n                }\n                if (value.length < this.minlength) {\n                    return false\n                }\n                if (this.nativeValidate && !this.input.checkValidity()) {\n                    return false\n                }\n                if (this.regex) {\n                    if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) {\n                        return false\n                    }\n                }\n                return true\n            },\n            reset() {\n                this.value = ''\n                this.valid = null\n                if (this._timeout.mask) clearTimeout(this._timeout.mask)\n                if (this._timeout.eval) clearTimeout(this._timeout.eval)\n            }\n        },\n        created() {\n            this._input = true\n            this._timeout = {}\n            let parent = this.$parent\n            while (parent && !parent._formValidator) {\n                parent = parent.$parent\n            }\n            if (parent && parent._formValidator) {\n                parent.children.push(this)\n                this._parent = parent\n            }\n            this._url = delayer(function () {\n                if (!this.url || !this.$http || this._loading) {\n                    return\n                }\n                this._loading = true\n                this.$http.get(this.url).then(response => {\n                    var data = response.data instanceof Array ? response.data : []\n                    try {\n                        data = JSON.parse(data)\n                    } catch (e) {\n                    }\n                    if (this.urlMap) {\n                        data = data.map(this.urlMap)\n                    }\n                    this.options = data\n                    this.loading = false\n                }, response => {\n                    this.loading = false\n                })\n            }, DELAY)\n            if (this.url) this._url()\n        },\n        mounted() {\n            // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\n            //   if (this.canValidate) { this.valid = this.validate() }\n            //   this.$emit('blur', e)\n            // })\n        },\n        beforeDestroy() {\n            // $(this.input).off()\n            if (this._parent) {\n                var index = this._parent.children.indexOf(this)\n                this._parent.children.splice(index, 1)\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .form-group {\n        position: relative;\n    }\n\n    label ~ .close {\n        top: 25px;\n    }\n\n    .input-group > .icon {\n        position: relative;\n        display: table-cell;\n        width: 0;\n        z-index: 3;\n    }\n\n    .close {\n        position: absolute;\n        top: 0;\n        right: 0;\n        z-index: 2;\n        display: block;\n        width: 34px;\n        height: 34px;\n        line-height: 34px;\n        text-align: center;\n    }\n\n    .has-feedback .close {\n        right: 20px;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ }),
-/* 119 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _utils = __webpack_require__(65);
@@ -5481,263 +6125,279 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
 	
 	var DELAY = 300;
 	
 	exports.default = {
-	  props: {
-	    clearButton: { type: Boolean, default: false },
-	    cols: { type: Number, default: null },
-	    datalist: { type: Array, default: null },
-	    disabled: { type: Boolean, default: false },
-	    enterSubmit: { type: Boolean, default: false },
-	    error: { type: String, default: null },
-	    help: { type: String, default: null },
-	    hideHelp: { type: Boolean, default: true },
-	    icon: { type: Boolean, default: false },
-	    label: { type: String, default: null },
-	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
-	    mask: null,
-	    maskDelay: { type: Number, default: 100 },
-	    match: { type: String, default: null },
-	    max: { type: String, default: null },
-	    maxlength: { type: Number, default: null },
-	    min: { type: String, default: null },
-	    minlength: { type: Number, default: 0 },
-	    name: { type: String, default: null },
-	    pattern: { default: null },
-	    placeholder: { type: String, default: null },
-	    readonly: { type: Boolean, default: false },
-	    required: { type: Boolean, default: false },
-	    rows: { type: Number, default: 3 },
-	    step: { type: Number, default: null },
-	    type: { type: String, default: 'text' },
-	    url: { type: String, default: null },
-	    urlMap: { type: Function, default: null },
-	    validationDelay: { type: Number, default: 250 },
-	    value: { default: null },
-	    cssClass: { type: String, default: null },
-	    controlId: { default: true }
-	  },
-	  data: function data() {
-	    var val = this.value;
-	    return {
-	      options: this.datalist,
-	      val: val,
-	      valid: null,
-	      timeout: null
-	    };
-	  },
+	    props: {
+	        clearButton: { type: Boolean, default: false },
+	        cols: { type: Number, default: null },
+	        datalist: { type: Array, default: null },
+	        disabled: { type: Boolean, default: false },
+	        enterSubmit: { type: Boolean, default: false },
+	        error: { type: String, default: null },
+	        help: { type: String, default: null },
+	        hideHelp: { type: Boolean, default: true },
+	        icon: { type: Boolean, default: false },
+	        label: { type: String, default: null },
+	        lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
+	        mask: null,
+	        maskDelay: { type: Number, default: 100 },
+	        match: { type: String, default: null },
+	        max: { type: String, default: null },
+	        maxlength: { type: Number, default: null },
+	        min: { type: String, default: null },
+	        minlength: { type: Number, default: 0 },
+	        name: { type: String, default: null },
+	        pattern: { default: null },
+	        placeholder: { type: String, default: null },
+	        readonly: { type: Boolean, default: false },
+	        required: { type: Boolean, default: false },
+	        rows: { type: Number, default: 3 },
+	        step: { type: Number, default: null },
+	        type: { type: String, default: 'text' },
+	        url: { type: String, default: null },
+	        urlMap: { type: Function, default: null },
+	        validationDelay: { type: Number, default: 250 },
+	        value: { default: null },
+	        cssClass: { type: String, default: null },
+	        controlId: { default: true },
+	        method: { type: Function }
+	    },
+	    data: function data() {
+	        var val = this.value;
+	        return {
+	            options: this.datalist,
+	            val: val,
+	            valid: null,
+	            timeout: null
+	        };
+	    },
 	
-	  computed: {
-	    canValidate: function canValidate() {
-	      return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null);
-	    },
-	    errorText: function errorText() {
-	      var value = this.value;
-	      var error = [this.error];
-	      if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
-	      if (value && value.length < this.minlength) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')');
-	      return error.join(' ');
-	    },
-	    id_datalist: function id_datalist() {
-	      if (this.type !== 'textarea' && this.datalist instanceof Array) {
-	        if (!this._id_datalist) {
-	          if (!this.$root.id_datalist) {
-	            this.$root.id_datalist = 0;
-	          }
-	          this._id_datalist = 'input-datalist' + this.$root.id_datalist++;
+	    computed: {
+	        canValidate: function canValidate() {
+	            return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null);
+	        },
+	        errorText: function errorText() {
+	            var value = this.value;
+	            var error = [this.error];
+	            if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
+	            if (value && value.length < this.minlength) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')');
+	            return error.join(' ');
+	        },
+	        id_datalist: function id_datalist() {
+	            if (this.type !== 'textarea' && this.datalist instanceof Array) {
+	                if (!this._id_datalist) {
+	                    if (!this.$root.id_datalist) {
+	                        this.$root.id_datalist = 0;
+	                    }
+	                    this._id_datalist = 'input-datalist' + this.$root.id_datalist++;
+	                }
+	                return this._id_datalist;
+	            }
+	            return null;
+	        },
+	        input: function input() {
+	            return this.$refs.input;
+	        },
+	        nativeValidate: function nativeValidate() {
+	            return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max);
+	        },
+	        regex: function regex() {
+	            return _utils.coerce.pattern(this.pattern);
+	        },
+	        showError: function showError() {
+	            return this.error && this.valid === false;
+	        },
+	        showHelp: function showHelp() {
+	            return this.help && (!this.showError || !this.hideHelp);
+	        },
+	        text: function text() {
+	            return (0, _utils.translations)(this.lang);
+	        },
+	        title: function title() {
+	            return this.errorText || this.help || '';
 	        }
-	        return this._id_datalist;
-	      }
-	      return null;
 	    },
-	    input: function input() {
-	      return this.$refs.input;
-	    },
-	    nativeValidate: function nativeValidate() {
-	      return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max);
-	    },
-	    regex: function regex() {
-	      return _utils.coerce.pattern(this.pattern);
-	    },
-	    showError: function showError() {
-	      return this.error && this.valid === false;
-	    },
-	    showHelp: function showHelp() {
-	      return this.help && (!this.showError || !this.hideHelp);
-	    },
-	    text: function text() {
-	      return (0, _utils.translations)(this.lang);
-	    },
-	    title: function title() {
-	      return this.errorText || this.help || '';
-	    }
-	  },
-	  watch: {
-	    datalist: function datalist(val, old) {
-	      if (val !== old && val instanceof Array) {
-	        this.options = val;
-	      }
-	    },
-	    match: function match(val) {
-	      this.eval();
-	    },
-	    options: function options(val, old) {
-	      if (val !== old) this.$emit('options', val);
-	    },
-	    url: function url(val) {
-	      this._url();
-	    },
-	    val: function val(_val, old) {
-	      var _this = this;
+	    watch: {
+	        datalist: function datalist(val, old) {
+	            if (val !== old && val instanceof Array) {
+	                this.options = val;
+	            }
+	        },
+	        match: function match(val) {
+	            this.eval();
+	        },
+	        options: function options(val, old) {
+	            if (val !== old) this.$emit('options', val);
+	        },
+	        url: function url(val) {
+	            this._url();
+	        },
+	        val: function val(_val, old) {
+	            var _this = this;
 	
-	      this.$emit('input', _val);
-	      if (_val !== old) {
-	        if (this.mask instanceof Function) {
-	          _val = this.mask(_val || '');
-	          if (this.val !== _val) {
+	            this.$emit('input', _val);
+	            if (_val !== old) {
+	                if (this.mask instanceof Function) {
+	                    _val = this.mask(_val || '');
+	                    if (this.val !== _val) {
+	                        if (this._timeout.mask) clearTimeout(this._timeout.mask);
+	                        this._timeout.mask = setTimeout(function () {
+	                            _this.val = _val;
+	                        }, isNaN(this.maskDelay) ? 0 : this.maskDelay);
+	                    }
+	                }
+	                this.eval();
+	            }
+	        },
+	        valid: function valid(val, old) {
+	            this.$emit('isvalid', val);
+	            this.$emit(!val ? 'invalid' : 'valid');
+	            if (this._parent) this._parent.validate();
+	        },
+	        value: function value(val) {
+	            if (this.val !== val) {
+	                this.val = val;
+	            }
+	        }
+	    },
+	    methods: {
+	        attr: function attr(value) {
+	            return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value;
+	        },
+	        emit: function emit(e) {
+	            this.$emit(e.type, e.type == 'input' ? e.target.value : e);
+	            if (e.type === 'blur' && this.canValidate) {
+	                this.valid = this.validate();
+	            }
+	        },
+	        eval: function _eval() {
+	            var _this2 = this;
+	
+	            if (this._timeout.eval) clearTimeout(this._timeout.eval);
+	            if (!this.canValidate) {
+	                this.valid = true;
+	            } else {
+	                this._timeout.eval = setTimeout(function () {
+	                    _this2.valid = _this2.validate();
+	                    _this2._timeout.eval = null;
+	                }, this.validationDelay);
+	            }
+	        },
+	        focus: function focus() {
+	            this.input.focus();
+	        },
+	
+	        submit: function submit() {
+	            if (this.$parent._formValidator) {
+	                return this.$parent.validate();
+	            }
+	
+	            if (!this.valid) {
+	                return;
+	            }
+	
+	            if (this.input.form) {
+	                var invalids = (0, _NodeList2.default)('.form-group.validate:not(.has-success)', this.input.form);
+	                if (invalids.length) {
+	                    invalids.find('input,textarea,select')[0].focus();
+	                    return;
+	                }
+	            }
+	
+	            this.$emit('submit_key_pressed');
+	        },
+	        setValidState: function setValidState(state) {
+	            this.valid = state;
+	        },
+	        validate: function validate() {
+	            if (!this.canValidate) {
+	                return true;
+	            }
+	            var value = (this.val || '').trim();
+	            if (!value) {
+	                return !this.required;
+	            }
+	            if (this.match !== null) {
+	                return this.match === value;
+	            }
+	            if (value.length < this.minlength) {
+	                return false;
+	            }
+	            if (this.nativeValidate && !this.input.checkValidity()) {
+	                return false;
+	            }
+	            if (this.regex) {
+	                if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) {
+	                    return false;
+	                }
+	            }
+	            return true;
+	        },
+	        reset: function reset() {
+	            this.value = '';
+	            this.valid = null;
 	            if (this._timeout.mask) clearTimeout(this._timeout.mask);
-	            this._timeout.mask = setTimeout(function () {
-	              _this.val = _val;
-	            }, isNaN(this.maskDelay) ? 0 : this.maskDelay);
-	          }
+	            if (this._timeout.eval) clearTimeout(this._timeout.eval);
 	        }
-	        this.eval();
-	      }
 	    },
-	    valid: function valid(val, old) {
-	      this.$emit('isvalid', val);
-	      this.$emit(!val ? 'invalid' : 'valid');
-	      if (this._parent) this._parent.validate();
-	    },
-	    value: function value(val) {
-	      if (this.val !== val) {
-	        this.val = val;
-	      }
-	    }
-	  },
-	  methods: {
-	    attr: function attr(value) {
-	      return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value;
-	    },
-	    emit: function emit(e) {
-	      this.$emit(e.type, e.type == 'input' ? e.target.value : e);
-	      if (e.type === 'blur' && this.canValidate) {
-	        this.valid = this.validate();
-	      }
-	    },
-	    eval: function _eval() {
-	      var _this2 = this;
+	    created: function created() {
+	        this._input = true;
+	        this._timeout = {};
+	        var parent = this.$parent;
+	        while (parent && !parent._formValidator) {
+	            parent = parent.$parent;
+	        }
+	        if (parent && parent._formValidator) {
+	            parent.children.push(this);
+	            this._parent = parent;
+	        }
+	        this._url = (0, _utils.delayer)(function () {
+	            var _this3 = this;
 	
-	      if (this._timeout.eval) clearTimeout(this._timeout.eval);
-	      if (!this.canValidate) {
-	        this.valid = true;
-	      } else {
-	        this._timeout.eval = setTimeout(function () {
-	          _this2.valid = _this2.validate();
-	          _this2._timeout.eval = null;
-	        }, this.validationDelay);
-	      }
+	            if (!this.url || !this.$http || this._loading) {
+	                return;
+	            }
+	            this._loading = true;
+	            this.$http.get(this.url).then(function (response) {
+	                var data = response.data instanceof Array ? response.data : [];
+	                try {
+	                    data = JSON.parse(data);
+	                } catch (e) {}
+	                if (_this3.urlMap) {
+	                    data = data.map(_this3.urlMap);
+	                }
+	                _this3.options = data;
+	                _this3.loading = false;
+	            }, function (response) {
+	                _this3.loading = false;
+	            });
+	        }, DELAY);
+	        if (this.url) this._url();
 	    },
-	    focus: function focus() {
-	      this.input.focus();
+	    mounted: function mounted() {
+	        // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {
+	        //   if (this.canValidate) { this.valid = this.validate() }
+	        //   this.$emit('blur', e)
+	        // })
 	    },
-	    submit: function submit() {
-	      if (this.$parent._formValidator) {
-	        return this.$parent.validate();
-	      }
-	      if (this.input.form) {
-	        var invalids = (0, _NodeList2.default)('.form-group.validate:not(.has-success)', this.input.form);
-	        if (invalids.length) {
-	          invalids.find('input,textarea,select')[0].focus();
-	        } else {
-	          this.input.form.submit();
+	    beforeDestroy: function beforeDestroy() {
+	        // $(this.input).off()
+	        if (this._parent) {
+	            var index = this._parent.children.indexOf(this);
+	            this._parent.children.splice(index, 1);
 	        }
-	      }
-	    },
-	    validate: function validate() {
-	      if (!this.canValidate) {
-	        return true;
-	      }
-	      var value = (this.val || '').trim();
-	      if (!value) {
-	        return !this.required;
-	      }
-	      if (this.match !== null) {
-	        return this.match === value;
-	      }
-	      if (value.length < this.minlength) {
-	        return false;
-	      }
-	      if (this.nativeValidate && !this.input.checkValidity()) {
-	        return false;
-	      }
-	      if (this.regex) {
-	        if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) {
-	          return false;
-	        }
-	      }
-	      return true;
-	    },
-	    reset: function reset() {
-	      this.value = '';
-	      this.valid = null;
-	      if (this._timeout.mask) clearTimeout(this._timeout.mask);
-	      if (this._timeout.eval) clearTimeout(this._timeout.eval);
 	    }
-	  },
-	  created: function created() {
-	    this._input = true;
-	    this._timeout = {};
-	    var parent = this.$parent;
-	    while (parent && !parent._formValidator) {
-	      parent = parent.$parent;
-	    }
-	    if (parent && parent._formValidator) {
-	      parent.children.push(this);
-	      this._parent = parent;
-	    }
-	    this._url = (0, _utils.delayer)(function () {
-	      var _this3 = this;
-	
-	      if (!this.url || !this.$http || this._loading) {
-	        return;
-	      }
-	      this._loading = true;
-	      this.$http.get(this.url).then(function (response) {
-	        var data = response.data instanceof Array ? response.data : [];
-	        try {
-	          data = JSON.parse(data);
-	        } catch (e) {}
-	        if (_this3.urlMap) {
-	          data = data.map(_this3.urlMap);
-	        }
-	        _this3.options = data;
-	        _this3.loading = false;
-	      }, function (response) {
-	        _this3.loading = false;
-	      });
-	    }, DELAY);
-	    if (this.url) this._url();
-	  },
-	  mounted: function mounted() {
-	    // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {
-	    //   if (this.canValidate) { this.valid = this.validate() }
-	    //   this.$emit('blur', e)
-	    // })
-	  },
-	  beforeDestroy: function beforeDestroy() {
-	    // $(this.input).off()
-	    if (this._parent) {
-	      var index = this._parent.children.indexOf(this);
-	      this._parent.children.splice(index, 1);
-	    }
-	  }
 	};
 
 /***/ }),
-/* 120 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5781,11 +6441,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "blur": _vm.emit,
 	      "focus": _vm.emit,
-	      "input": _vm.emit,
-	      "keyup": function($event) {
-	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
-	        _vm.type != 'textarea' && _vm.enterSubmit && _vm.submit()
-	      }
+	      "input": _vm.emit
 	    },
 	    model: {
 	      value: (_vm.val),
@@ -5836,10 +6492,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "blur": _vm.emit,
 	      "focus": _vm.emit,
 	      "input": _vm.emit,
-	      "keyup": function($event) {
+	      "keyup": [_vm.emit, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
 	        _vm.type != 'textarea' && _vm.enterSubmit && _vm.submit()
-	      }
+	      }]
 	    },
 	    model: {
 	      value: (_vm.val),
@@ -5891,18 +6547,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 121 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(122)
+	__webpack_require__(127)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(124),
-	  /* template */
 	  __webpack_require__(129),
+	  /* template */
+	  __webpack_require__(134),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -5929,13 +6585,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 122 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(123);
+	var content = __webpack_require__(128);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -5955,7 +6611,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 123 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -5969,7 +6625,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 124 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5978,7 +6634,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _isInteger = __webpack_require__(125);
+	var _isInteger = __webpack_require__(130);
 	
 	var _isInteger2 = _interopRequireDefault(_isInteger);
 	
@@ -6093,31 +6749,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 125 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(126), __esModule: true };
+	module.exports = { "default": __webpack_require__(131), __esModule: true };
 
 /***/ }),
-/* 126 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(127);
+	__webpack_require__(132);
 	module.exports = __webpack_require__(7).Number.isInteger;
 
 
 /***/ }),
-/* 127 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 20.1.2.3 Number.isInteger(number)
 	var $export = __webpack_require__(5);
 	
-	$export($export.S, 'Number', { isInteger: __webpack_require__(128) });
+	$export($export.S, 'Number', { isInteger: __webpack_require__(133) });
 
 
 /***/ }),
-/* 128 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 20.1.2.3 Number.isInteger(number)
@@ -6129,7 +6785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 129 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6214,14 +6870,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 130 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(131),
+	  __webpack_require__(136),
 	  /* template */
-	  __webpack_require__(132),
+	  __webpack_require__(137),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -6248,7 +6904,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 131 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6369,7 +7025,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 132 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6417,14 +7073,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 133 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(134),
+	  __webpack_require__(139),
 	  /* template */
-	  __webpack_require__(135),
+	  __webpack_require__(140),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -6451,7 +7107,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 134 */
+/* 139 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6483,7 +7139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 135 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6498,18 +7154,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 136 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(137)
+	__webpack_require__(142)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(139),
+	  __webpack_require__(144),
 	  /* template */
-	  __webpack_require__(140),
+	  __webpack_require__(145),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -6536,13 +7192,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 137 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(138);
+	var content = __webpack_require__(143);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -6562,7 +7218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 138 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -6576,7 +7232,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 139 */
+/* 144 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6661,7 +7317,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 140 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6703,18 +7359,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 141 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(142)
+	__webpack_require__(147)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(144),
+	  __webpack_require__(149),
 	  /* template */
-	  __webpack_require__(146),
+	  __webpack_require__(151),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -6741,13 +7397,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 142 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(143);
+	var content = __webpack_require__(148);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -6767,7 +7423,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 143 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -6781,7 +7437,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 144 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6790,7 +7446,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(145);
+	var _popoverMixins = __webpack_require__(150);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -6816,7 +7472,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 145 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6927,7 +7583,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 146 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6961,14 +7617,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 147 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(148),
+	  __webpack_require__(153),
 	  /* template */
-	  __webpack_require__(149),
+	  __webpack_require__(154),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -6995,7 +7651,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 148 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7031,7 +7687,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 149 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -7057,18 +7713,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 150 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(151)
+	__webpack_require__(156)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(153),
+	  __webpack_require__(158),
 	  /* template */
-	  __webpack_require__(154),
+	  __webpack_require__(159),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -7095,13 +7751,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 151 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(152);
+	var content = __webpack_require__(157);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -7121,7 +7777,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 152 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -7135,7 +7791,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 153 */
+/* 158 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7259,7 +7915,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 154 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -7349,18 +8005,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 155 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(156)
+	__webpack_require__(161)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(158),
+	  __webpack_require__(163),
 	  /* template */
-	  __webpack_require__(159),
+	  __webpack_require__(164),
 	  /* scopeId */
 	  "data-v-4617532a",
 	  /* cssModules */
@@ -7387,13 +8043,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 156 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(157);
+	var content = __webpack_require__(162);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -7413,7 +8069,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 157 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -7427,7 +8083,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 158 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7514,623 +8170,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    searchText: { type: String, default: null },
 	    url: { type: String, default: null },
 	    value: null
-	  },
-	  data: function data() {
-	    return {
-	      list: [],
-	      loading: null,
-	      searchValue: null,
-	      show: false,
-	      notify: false,
-	      val: null,
-	      valid: null
-	    };
-	  },
-	
-	  computed: {
-	    canSearch: function canSearch() {
-	      return this.minSearch ? this.list.length >= this.minSearch : this.search;
-	    },
-	    classes: function classes() {
-	      return [{ open: this.show, disabled: this.disabled }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'];
-	    },
-	    filteredOptions: function filteredOptions() {
-	      var _this = this;
-	
-	      var search = (this.searchValue || '').toLowerCase();
-	      return !search ? this.list : this.list.filter(function (el) {
-	        return ~el[_this.optionsLabel].toLowerCase().search(search);
-	      });
-	    },
-	    hasParent: function hasParent() {
-	      return this.parent instanceof Array ? this.parent.length : this.parent;
-	    },
-	    inInput: function inInput() {
-	      return this.$parent._input;
-	    },
-	    isLi: function isLi() {
-	      return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;
-	    },
-	    limitText: function limitText() {
-	      return this.text.limit.replace('{{limit}}', this.limit);
-	    },
-	    selected: function selected() {
-	      var _this2 = this;
-	
-	      if (this.list.length === 0) {
-	        return '';
-	      }
-	      var sel = this.values.map(function (val) {
-	        return (_this2.list.find(function (o) {
-	          return o[_this2.optionsValue] === val;
-	        }) || {})[_this2.optionsLabel];
-	      }).filter(function (val) {
-	        return val !== undefined;
-	      });
-	      this.$emit('selected', sel);
-	      return sel.join(', ');
-	    },
-	    showPlaceholder: function showPlaceholder() {
-	      return this.values.length === 0 || !this.hasParent ? this.placeholder || this.text.notSelected : null;
-	    },
-	    text: function text() {
-	      return (0, _utils.translations)(this.lang);
-	    },
-	    values: function values() {
-	      return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val];
-	    },
-	    valOptions: function valOptions() {
-	      var _this3 = this;
-	
-	      return this.list.map(function (el) {
-	        return el[_this3.optionsValue];
-	      });
-	    }
-	  },
-	  watch: {
-	    options: function options(_options) {
-	      if (_options instanceof Array) this.setOptions(_options);
-	    },
-	    show: function show(val) {
-	      if (val) {
-	        this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus();
-	        // onBlur(this.$refs.select, e => { this.show = false })
-	      } else {
-	          // offBlur(this.$refs.select)
-	        }
-	    },
-	    url: function url() {
-	      this.urlChanged();
-	    },
-	    valid: function valid(val, old) {
-	      this.$emit('isvalid', val);
-	      this.$emit(!val ? 'invalid' : 'valid');
-	      if (val !== old && this._parent) this._parent.validate();
-	    },
-	    value: function value(val, old) {
-	      if (val !== old) {
-	        this.val = val;
-	      }
-	    },
-	    val: function val(_val, old) {
-	      var _this4 = this;
-	
-	      if (_val === undefined) {
-	        this.val = _val = null;
-	      }
-	      if (_val !== old) {
-	        this.$emit('change', _val);
-	        this.$emit('input', _val);
-	      }
-	      if (_val instanceof Array && _val.length > this.limit) {
-	        this.val = _val.slice(0, this.limit);
-	        this.notify = true;
-	        if (timeout.limit) clearTimeout(timeout.limit);
-	        timeout.limit = setTimeout(function () {
-	          timeout.limit = false;
-	          _this4.notify = false;
-	        }, 1500);
-	      }
-	      this.valid = this.validate();
-	    }
-	  },
-	  methods: {
-	    close: function close() {
-	      this.show = false;
-	    },
-	    checkData: function checkData() {
-	      if (this.multiple) {
-	        if (this.limit < 1) {
-	          this.limit = 1;
-	        }
-	        if (!(this.val instanceof Array)) {
-	          this.val = this.val === null || this.val === undefined ? [] : [this.val];
-	        }
-	        var values = this.valOptions;
-	        this.val = this.val.filter(function (el) {
-	          return ~values.indexOf(el);
-	        });
-	        if (this.values.length > this.limit) {
-	          this.val = this.val.slice(0, this.limit);
-	        }
-	      } else {
-	        if (!~this.valOptions.indexOf(this.val)) {
-	          this.val = null;
-	        }
-	      }
-	    },
-	    clear: function clear() {
-	      if (this.disabled || this.readonly) {
-	        return;
-	      }
-	      this.val = this.val instanceof Array ? [] : null;
-	      this.toggle();
-	    },
-	    clearSearch: function clearSearch() {
-	      this.searchValue = '';
-	      this.$refs.search.focus();
-	    },
-	    isSelected: function isSelected(v) {
-	      return this.values.indexOf(v) > -1;
-	    },
-	    select: function select(v) {
-	      if (this.val instanceof Array) {
-	        var newVal = this.val.slice(0);
-	        if (~newVal.indexOf(v)) {
-	          newVal.splice(newVal.indexOf(v), 1);
-	        } else {
-	          newVal.push(v);
-	        }
-	        this.val = newVal;
-	        if (this.closeOnSelect) {
-	          this.toggle();
-	        }
-	      } else {
-	        this.val = v;
-	        this.toggle();
-	      }
-	    },
-	    setOptions: function setOptions(options) {
-	      var _this5 = this;
-	
-	      this.list = options.map(function (el) {
-	        if (el instanceof Object) {
-	          return el;
-	        }
-	        var obj = {};
-	        obj[_this5.optionsLabel] = el;
-	        obj[_this5.optionsValue] = el;
-	        return obj;
-	      });
-	      this.$emit('options', this.list);
-	    },
-	    toggle: function toggle() {
-	      this.show = !this.show;
-	      if (!this.show) this.$refs.btn.focus();
-	    },
-	    urlChanged: function urlChanged() {
-	      var _this6 = this;
-	
-	      if (!this.url || !this.$http) {
-	        return;
-	      }
-	      this.loading = true;
-	      this.$http.get(this.url).then(function (response) {
-	        var data = response.data instanceof Array ? response.data : [];
-	        try {
-	          data = JSON.parse(data);
-	        } catch (e) {}
-	        _this6.setOptions(data);
-	        _this6.loading = false;
-	        _this6.checkData();
-	      }, function (response) {
-	        _this6.loading = false;
-	      });
-	    },
-	    validate: function validate() {
-	      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null;
-	    }
-	  },
-	  created: function created() {
-	    this.setOptions(this.options);
-	    this.val = this.value;
-	    this._select = true;
-	    if (this.val === undefined || !this.parent) {
-	      this.val = null;
-	    }
-	    if (!this.multiple && this.val instanceof Array) {
-	      this.val = this.val[0];
-	    }
-	    this.checkData();
-	    if (this.url) this.urlChanged();
-	    var parent = this.$parent;
-	    while (parent && !parent._formValidator) {
-	      parent = parent.$parent;
-	    }
-	    if (parent && parent._formValidator) {
-	      parent.children.push(this);
-	      this._parent = parent;
-	    }
-	  },
-	  mounted: function mounted() {
-	    if (this._parent) this._parent.children.push(this);
-	    this.setOptions(this.options);
-	    this.val = this.value;
-	    this.checkData();
-	  },
-	  beforeDestroy: function beforeDestroy() {
-	    if (this._parent) {
-	      var index = this._parent.children.indexOf(this);
-	      this._parent.children.splice(index, 1);
-	    }
-	  }
-	};
-
-/***/ }),
-/* 159 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    directives: [{
-	      name: "click-outside",
-	      rawName: "v-click-outside",
-	      value: (_vm.close),
-	      expression: "close"
-	    }],
-	    ref: "select",
-	    class: _vm.classes
-	  }, [_c('div', {
-	    ref: "btn",
-	    staticClass: "form-control dropdown-toggle",
-	    attrs: {
-	      "tabindex": "1",
-	      "disabled": _vm.disabled || !_vm.hasParent,
-	      "readonly": _vm.readonly
-	    },
-	    on: {
-	      "blur": function($event) {
-	        _vm.canSearch ? null : _vm.close()
-	      },
-	      "click": function($event) {
-	        return _vm.toggle()
-	      },
-	      "keydown": [function($event) {
-	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
-	        $event.stopPropagation();
-	        $event.preventDefault();
-	        return _vm.close($event)
-	      }, function($event) {
-	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "space", 32, $event.key, [" ", "Spacebar"])) { return null; }
-	        $event.stopPropagation();
-	        $event.preventDefault();
-	        return _vm.toggle($event)
-	      }, function($event) {
-	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
-	        $event.stopPropagation();
-	        $event.preventDefault();
-	        return _vm.toggle($event)
-	      }]
-	    }
-	  }, [_c('span', {
-	    staticClass: "btn-content",
-	    domProps: {
-	      "innerHTML": _vm._s(_vm.loading ? _vm.text.loading : _vm.showPlaceholder || _vm.selected)
-	    }
-	  }), _vm._v(" "), (_vm.clearButton && _vm.values.length) ? _c('span', {
-	    staticClass: "close",
-	    on: {
-	      "click": function($event) {
-	        return _vm.clear()
-	      }
-	    }
-	  }, [_vm._v("×")]) : _vm._e()]), _vm._v(" "), _c('select', {
-	    directives: [{
-	      name: "model",
-	      rawName: "v-model",
-	      value: (_vm.val),
-	      expression: "val"
-	    }],
-	    ref: "sel",
-	    staticClass: "secret",
-	    attrs: {
-	      "name": _vm.name,
-	      "multiple": _vm.multiple,
-	      "required": _vm.required,
-	      "readonly": _vm.readonly,
-	      "disabled": _vm.disabled
-	    },
-	    on: {
-	      "change": function($event) {
-	        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-	          return o.selected
-	        }).map(function(o) {
-	          var val = "_value" in o ? o._value : o.value;
-	          return val
-	        });
-	        _vm.val = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-	      }
-	    }
-	  }, [(_vm.required) ? _c('option', {
-	    attrs: {
-	      "value": ""
-	    }
-	  }) : _vm._e(), _vm._v(" "), _vm._l((_vm.list), function(option) {
-	    return _c('option', {
-	      domProps: {
-	        "value": option[_vm.optionsValue]
-	      }
-	    }, [_vm._v(_vm._s(option[_vm.optionsLabel]))])
-	  })], 2), _vm._v(" "), _c('ul', {
-	    staticClass: "dropdown-menu"
-	  }, [(_vm.list.length) ? [(_vm.canSearch) ? _c('li', {
-	    staticClass: "bs-searchbox"
-	  }, [_c('input', {
-	    directives: [{
-	      name: "model",
-	      rawName: "v-model",
-	      value: (_vm.searchValue),
-	      expression: "searchValue"
-	    }],
-	    ref: "search",
-	    staticClass: "form-control",
-	    attrs: {
-	      "type": "text",
-	      "placeholder": _vm.searchText || _vm.text.search,
-	      "autocomplete": "off"
-	    },
-	    domProps: {
-	      "value": (_vm.searchValue)
-	    },
-	    on: {
-	      "keyup": function($event) {
-	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
-	        return _vm.close($event)
-	      },
-	      "input": function($event) {
-	        if ($event.target.composing) { return; }
-	        _vm.searchValue = $event.target.value
-	      }
-	    }
-	  }), _vm._v(" "), _c('span', {
-	    directives: [{
-	      name: "show",
-	      rawName: "v-show",
-	      value: (_vm.searchValue),
-	      expression: "searchValue"
-	    }],
-	    staticClass: "close",
-	    on: {
-	      "click": _vm.clearSearch
-	    }
-	  }, [_vm._v("×")])]) : _vm._e(), _vm._v(" "), (_vm.required && !_vm.clearButton) ? _c('li', [_c('a', {
-	    on: {
-	      "mousedown": function($event) {
-	        $event.preventDefault();
-	        _vm.clear() && _vm.close()
-	      }
-	    }
-	  }, [_vm._v(_vm._s(_vm.placeholder || _vm.text.notSelected))])]) : _vm._e(), _vm._v(" "), _vm._l((_vm.filteredOptions), function(option) {
-	    return _c('li', {
-	      attrs: {
-	        "id": option[_vm.optionsValue]
-	      }
-	    }, [_c('a', {
-	      on: {
-	        "mousedown": function($event) {
-	          $event.preventDefault();
-	          return _vm.select(option[_vm.optionsValue])
-	        }
-	      }
-	    }, [_c('span', {
-	      domProps: {
-	        "innerHTML": _vm._s(option[_vm.optionsLabel])
-	      }
-	    }), _vm._v(" "), _c('span', {
-	      directives: [{
-	        name: "show",
-	        rawName: "v-show",
-	        value: (_vm.isSelected(option[_vm.optionsValue])),
-	        expression: "isSelected(option[optionsValue])"
-	      }],
-	      staticClass: "glyphicon glyphicon-ok check-mark"
-	    })])])
-	  })] : _vm._e(), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.notify && !_vm.closeOnSelect) ? _c('transition', {
-	    attrs: {
-	      "name": "fadein"
-	    }
-	  }, [_c('div', {
-	    staticClass: "notify in"
-	  }, [_vm._v(_vm._s(_vm.limitText))])]) : _vm._e()], 2), _vm._v(" "), (_vm.notify && _vm.closeOnSelect) ? _c('transition', {
-	    attrs: {
-	      "name": "fadein"
-	    }
-	  }, [_c('div', {
-	    staticClass: "notify out"
-	  }, [_c('div', [_vm._v(_vm._s(_vm.limitText))])])]) : _vm._e()], 1)
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-4617532a", module.exports)
-	  }
-	}
-
-/***/ }),
-/* 160 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	
-	/* styles */
-	__webpack_require__(161)
-	
-	var Component = __webpack_require__(70)(
-	  /* script */
-	  __webpack_require__(163),
-	  /* template */
-	  __webpack_require__(164),
-	  /* scopeId */
-	  "data-v-f81f5f78",
-	  /* cssModules */
-	  null
-	)
-	Component.options.__file = "/home/jim/Documents/Projects/node/git/vue-strap/src/SelectExtended.vue"
-	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-	if (Component.options.functional) {console.error("[vue-loader] SelectExtended.vue: functional components are not supported with templates, they should use render functions.")}
-	
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-f81f5f78", Component.options)
-	  } else {
-	    hotAPI.reload("data-v-f81f5f78", Component.options)
-	  }
-	})()}
-	
-	module.exports = Component.exports
-
-
-/***/ }),
-/* 161 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(162);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	if(content.locals) module.exports = content.locals;
-	// add the styles to the DOM
-	var update = __webpack_require__(80)("2ae25df3", content, false);
-	// Hot Module Replacement
-	if(false) {
-	 // When the styles change, update the <style> tags
-	 if(!content.locals) {
-	   module.hot.accept("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f81f5f78\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectExtended.vue", function() {
-	     var newContent = require("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f81f5f78\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectExtended.vue");
-	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-	     update(newContent);
-	   });
-	 }
-	 // When the module is disposed, remove the <style> tags
-	 module.hot.dispose(function() { update(); });
-	}
-
-/***/ }),
-/* 162 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(79)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\n.form-control.dropdown-toggle[data-v-f81f5f78]{\n  height: auto;\n  padding-right: 24px;\n}\n.form-control.dropdown-toggle[data-v-f81f5f78]:after{\n  content: ' ';\n  position: absolute;\n  right: 13px;\n  top: 50%;\n  margin: -1px 0 0;\n  border-top: 4px dashed;\n  border-top: 4px solid \\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n.bs-searchbox[data-v-f81f5f78] {\n  position: relative;\n  margin: 4px 8px;\n}\n.bs-searchbox .close[data-v-f81f5f78] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.bs-searchbox input[data-v-f81f5f78]:focus,\n.form-control.dropdown-toggle[data-v-f81f5f78]:focus {\n  outline: 0;\n  border-color: #66afe9 !important;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\n.secret[data-v-f81f5f78] {\n  border: 0;\n  clip: rect(0 0 0 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n.form-control.dropdown-toggle>.close[data-v-f81f5f78] { margin-left: 5px;\n}\n.notify.out[data-v-f81f5f78] { position: relative;\n}\n.notify.in[data-v-f81f5f78],\n.notify>div[data-v-f81f5f78] {\n  position: absolute;\n  width: 96%;\n  margin: 0 2%;\n  min-height: 26px;\n  padding: 3px 5px;\n  background: #f5f5f5;\n  border: 1px solid #e3e3e3;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\n  pointer-events: none;\n}\n.notify>div[data-v-f81f5f78] {\n  top: 5px;\n  z-index: 1;\n}\n.notify.in[data-v-f81f5f78] {\n  opacity: .9;\n  bottom: 5px;\n}\n.btn-group-justified .dropdown-toggle>span[data-v-f81f5f78]:not(.close) {\n  width: calc(100% - 18px);\n  display: inline-block;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  margin-bottom: -4px;\n}\n.btn-group-justified .dropdown-menu[data-v-f81f5f78] { width: 100%;\n}\n", "", {"version":3,"sources":["/./src/SelectExtended.vue?2eb62b49"],"names":[],"mappings":";AA2QA;EACA,aAAA;EACA,oBAAA;CACA;AACA;EACA,aAAA;EACA,mBAAA;EACA,YAAA;EACA,SAAA;EACA,iBAAA;EACA,uBAAA;EACA,yBAAA;EACA,oCAAA;EACA,mCAAA;CACA;AACA;EACA,mBAAA;EACA,gBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;;EAEA,WAAA;EACA,iCAAA;EACA,0EAAA;CACA;AACA;EACA,UAAA;EACA,oBAAA;EACA,YAAA;EACA,aAAA;EACA,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,WAAA;CACA;AACA,wDAAA,iBAAA;CAAA;AACA,+BAAA,mBAAA;CAAA;AACA;;EAEA,mBAAA;EACA,WAAA;EACA,aAAA;EACA,iBAAA;EACA,iBAAA;EACA,oBAAA;EACA,0BAAA;EACA,4CAAA;EACA,qBAAA;CACA;AACA;EACA,SAAA;EACA,WAAA;CACA;AACA;EACA,YAAA;EACA,YAAA;CACA;AACA;EACA,yBAAA;EACA,sBAAA;EACA,iBAAA;EACA,oBAAA;EACA,wBAAA;EACA,oBAAA;CACA;AACA,uDAAA,YAAA;CAAA","file":"SelectExtended.vue","sourcesContent":["<template>\n  <div ref=\"selectExtended\" :class=\"['input-group', classes, cssClass]\" v-click-outside=\"close\">\n    <span v-if=\"groupAddon\" class=\"input-group-addon\">\n      <i v-if=\"groupFaIcon\" :class=\"groupFaIcon\" style=\"margin-right: 3px\"></i>\n      {{groupAddon}}\n    </span>\n    <div ref=\"btn\" class=\"form-control dropdown-toggle\" tabindex=\"1\" :disabled=\"disabled || !hasParent\" :readonly=\"readonly\"\n      @blur=\"canSearch ? null : close()\"\n      @click=\"toggle()\"\n      @keydown.esc.stop.prevent=\"close\"\n      @keydown.space.stop.prevent=\"toggle\"\n      @keydown.enter.stop.prevent=\"toggle\"\n    >\n      <span class=\"btn-content\" v-html=\"loading ? text.loading : showPlaceholder || selected\"></span>\n      <span v-if=\"clearButton&&values.length\" class=\"close\" @click=\"clear()\">&times;</span>\n    </div>\n    <select ref=\"sel\" v-model=\"val\" :name=\"name\" class=\"secret\" :multiple=\"multiple\" :required=\"required\" :readonly=\"readonly\" :disabled=\"disabled\">\n      <option v-if=\"required\" value=\"\"></option>\n      <option v-for=\"option in list\" :value=\"option[optionsValue]\">{{ option[optionsLabel] }}</option>\n    </select>\n    <ul class=\"dropdown-menu\">\n      <template v-if=\"list.length\">\n        <li v-if=\"canSearch\" class=\"bs-searchbox\">\n          <input type=\"text\" :placeholder=\"searchText||text.search\" class=\"form-control\" autocomplete=\"off\" ref=\"search\"\n            v-model=\"searchValue\"\n            @keyup.esc=\"close\"\n          />\n          <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\">&times;</span>\n        </li>\n        <li v-if=\"required&&!clearButton\"><a @mousedown.prevent=\"clear() && close()\">{{ placeholder || text.notSelected }}</a></li>\n        <li v-for=\"option in filteredOptions\" :id=\"option[optionsValue]\">\n          <a @mousedown.prevent=\"select(option[optionsValue])\">\n            <span v-html=\"option[optionsLabel]\"></span>\n            <span class=\"glyphicon glyphicon-ok check-mark\" v-show=\"isSelected(option[optionsValue])\"></span>\n          </a>\n        </li>\n      </template>\n      <slot></slot>\n      <transition v-if=\"notify && !closeOnSelect\" name=\"fadein\"><div class=\"notify in\">{{limitText}}</div></transition>\n    </ul>\n    <transition v-if=\"notify && closeOnSelect\" name=\"fadein\"><div class=\"notify out\"><div>{{limitText}}</div></div></transition>\n    <!-- <pre>Options: {{list}}</pre> -->\n  </div>\n</template>\n\n<script>\nimport {translations} from './utils/utils.js'\nimport ClickOutside from './directives/ClickOutside.js'\n\nvar timeout = {};\n\nexport default {\n  directives: {\n    ClickOutside\n  },\n  props: {\n    clearButton: {type: Boolean, default: false},\n    closeOnSelect: {type: Boolean, default: false},\n    disabled: {type: Boolean, default: false},\n    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:\"zh-CN\"},\n    limit: {type: Number, default: 1024},\n    minSearch: {type: Number, default: 0},\n    multiple: {type: Boolean, default: false},\n    name: {type: String, default: null},\n    options: {type: Array, default () { return [] }},\n    optionsLabel: {type: String, default: 'label'},\n    optionsValue: {type: String, default: 'value'},\n    parent: {default: true},\n    placeholder: {type: String, default: null},\n    readonly: {type: Boolean, default: null},\n    required: {type: Boolean, default: null},\n    search: {type: Boolean, default: false},\n    searchText: {type: String, default: null},\n    url: {type: String, default: null},\n    value: null,\n    groupAddon: {type:String, default:null},\n    groupFaIcon: {type:String, default:null},\n    cssClass: {type: String, default: null},\n  },\n  data () {\n    return {\n      list: [],\n      loading: null,\n      searchValue: null,\n      show: false,\n      notify: false,\n      val: null,\n      valid: null\n    }\n  },\n  computed: {\n    canSearch () { return this.minSearch ? this.list.length >= this.minSearch : this.search },\n    classes () { return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'] },\n    filteredOptions () {\n      var search = (this.searchValue || '').toLowerCase()\n      return !search ? this.list : this.list.filter(el => {\n        return ~el[this.optionsLabel].toLowerCase().search(search)\n      })\n    },\n    hasParent () { return this.parent instanceof Array ? this.parent.length : this.parent },\n    inInput () { return this.$parent._input },\n    isLi () { return this.$parent._navbar || this.$parent.menu || this.$parent._tabset },\n    limitText () { return this.text.limit.replace('{{limit}}', this.limit) },\n    selected () {\n      if (this.list.length === 0) { return '' }\n      var sel = this.values.map(val => (this.list.find(o => o[this.optionsValue] === val) || {})[this.optionsLabel]).filter(val => val !== undefined)\n      this.$emit('selected', sel)\n      return sel.join(', ')\n    },\n    showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },\n    text () { return translations(this.lang) },\n    values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] },\n    valOptions () { return this.list.map(el => el[this.optionsValue]) }\n  },\n  watch: {\n    options (options) {\n      if (options instanceof Array) this.setOptions(options)\n    },\n    show (val) {\n      if (val) {\n        this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus()\n        // onBlur(this.$refs.select, e => { this.show = false })\n      } else {\n        // offBlur(this.$refs.select)\n      }\n    },\n    url () {\n      this.urlChanged()\n    },\n    valid (val, old) {\n      this.$emit('isvalid', val)\n      this.$emit(!val ? 'invalid' : 'valid')\n      if (val !== old && this._parent) this._parent.validate()\n    },\n    value (val, old) {\n      if (val !== old) { this.val = val }\n    },\n    val (val, old) {\n      if (val === undefined) { this.val = val = null }\n      if (val !== old) {\n        this.$emit('change', val)\n        this.$emit('input', val)\n      }\n      if (val instanceof Array && val.length > this.limit) {\n        this.val = val.slice(0, this.limit)\n        this.notify = true\n        if (timeout.limit) clearTimeout(timeout.limit)\n        timeout.limit = setTimeout(() => {\n          timeout.limit = false\n          this.notify = false\n        }, 1500)\n      }\n      this.valid = this.validate()\n    }\n  },\n  methods: {\n    close () {\n      this.show = false\n    },\n    checkData () {\n      if (this.multiple) {\n        if (this.limit < 1) { this.limit = 1 }\n        if (!(this.val instanceof Array)) {\n          this.val = (this.val === null || this.val === undefined) ? [] : [this.val]\n        }\n        var values = this.valOptions\n        this.val = this.val.filter(el => ~values.indexOf(el))\n        if (this.values.length > this.limit) {\n          this.val = this.val.slice(0, this.limit)\n        }\n      } else {\n        if (!~this.valOptions.indexOf(this.val)) { this.val = null }\n      }\n    },\n    clear () {\n      if (this.disabled || this.readonly) { return }\n      this.val = this.val instanceof Array ? [] : null\n      this.toggle()\n    },\n    clearSearch () {\n      this.searchValue = ''\n      this.$refs.search.focus()\n    },\n    isSelected (v) {\n      return this.values.indexOf(v) > -1\n    },\n    select (v) {\n      if (this.val instanceof Array) {\n        var newVal = this.val.slice(0)\n        if (~newVal.indexOf(v)) {\n          newVal.splice(newVal.indexOf(v), 1)\n        } else {\n          newVal.push(v)\n        }\n        this.val = newVal\n        if (this.closeOnSelect) {\n          this.toggle()\n        }\n      } else {\n        this.val = v\n        this.toggle()\n      }\n    },\n    setOptions (options) {\n      this.list = options.map(el => {\n        if (el instanceof Object) { return el }\n        let obj = {}\n        obj[this.optionsLabel] = el\n        obj[this.optionsValue] = el\n        return obj\n      })\n      this.$emit('options', this.list)\n    },\n    toggle () {\n      this.show = !this.show\n      if (!this.show) this.$refs.btn.focus()\n    },\n    urlChanged () {\n      if (!this.url || !this.$http) { return }\n      this.loading = true\n      this.$http.get(this.url).then(response => {\n        var data = response.data instanceof Array ? response.data : []\n        try { data = JSON.parse(data) } catch (e) {}\n        this.setOptions(data)\n        this.loading = false\n        this.checkData()\n      }, response => {\n        this.loading = false\n      })\n    },\n    validate () {\n      return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null\n    }\n  },\n  created () {\n    this.setOptions(this.options)\n    this.val = this.value\n    this._select = true\n    if (this.val === undefined || !this.parent) { this.val = null }\n    if (!this.multiple && this.val instanceof Array) {\n      this.val = this.val[0]\n    }\n    this.checkData()\n    if (this.url) this.urlChanged()\n    let parent = this.$parent\n    while (parent && !parent._formValidator) { parent = parent.$parent }\n    if (parent && parent._formValidator) {\n      parent.children.push(this)\n      this._parent = parent\n    }\n  },\n  mounted () {\n    if (this._parent) this._parent.children.push(this)\n    this.setOptions(this.options)\n    this.val = this.value\n    this.checkData()\n  },\n  beforeDestroy () {\n    if (this._parent) {\n      var index = this._parent.children.indexOf(this)\n      this._parent.children.splice(index, 1)\n    }\n  }\n}\n</script>\n\n<style scoped>\n.form-control.dropdown-toggle{\n  height: auto;\n  padding-right: 24px;\n}\n.form-control.dropdown-toggle:after{\n  content: ' ';\n  position: absolute;\n  right: 13px;\n  top: 50%;\n  margin: -1px 0 0;\n  border-top: 4px dashed;\n  border-top: 4px solid \\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n.bs-searchbox {\n  position: relative;\n  margin: 4px 8px;\n}\n.bs-searchbox .close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.bs-searchbox input:focus,\n.form-control.dropdown-toggle:focus {\n  outline: 0;\n  border-color: #66afe9 !important;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);\n}\n.secret {\n  border: 0;\n  clip: rect(0 0 0 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n.form-control.dropdown-toggle>.close { margin-left: 5px;}\n.notify.out { position: relative; }\n.notify.in,\n.notify>div {\n  position: absolute;\n  width: 96%;\n  margin: 0 2%;\n  min-height: 26px;\n  padding: 3px 5px;\n  background: #f5f5f5;\n  border: 1px solid #e3e3e3;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);\n  pointer-events: none;\n}\n.notify>div {\n  top: 5px;\n  z-index: 1;\n}\n.notify.in {\n  opacity: .9;\n  bottom: 5px;\n}\n.btn-group-justified .dropdown-toggle>span:not(.close) {\n  width: calc(100% - 18px);\n  display: inline-block;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  margin-bottom: -4px;\n}\n.btn-group-justified .dropdown-menu { width: 100%; }\n</style>\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ }),
-/* 163 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _utils = __webpack_require__(65);
-	
-	var _ClickOutside = __webpack_require__(66);
-	
-	var _ClickOutside2 = _interopRequireDefault(_ClickOutside);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	
-	var timeout = {};
-	
-	exports.default = {
-	  directives: {
-	    ClickOutside: _ClickOutside2.default
-	  },
-	  props: {
-	    clearButton: { type: Boolean, default: false },
-	    closeOnSelect: { type: Boolean, default: false },
-	    disabled: { type: Boolean, default: false },
-	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
-	    limit: { type: Number, default: 1024 },
-	    minSearch: { type: Number, default: 0 },
-	    multiple: { type: Boolean, default: false },
-	    name: { type: String, default: null },
-	    options: { type: Array, default: function _default() {
-	        return [];
-	      }
-	    },
-	    optionsLabel: { type: String, default: 'label' },
-	    optionsValue: { type: String, default: 'value' },
-	    parent: { default: true },
-	    placeholder: { type: String, default: null },
-	    readonly: { type: Boolean, default: null },
-	    required: { type: Boolean, default: null },
-	    search: { type: Boolean, default: false },
-	    searchText: { type: String, default: null },
-	    url: { type: String, default: null },
-	    value: null,
-	    groupAddon: { type: String, default: null },
-	    groupFaIcon: { type: String, default: null },
-	    cssClass: { type: String, default: null }
 	  },
 	  data: function data() {
 	    return {
@@ -8395,16 +8434,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      value: (_vm.close),
 	      expression: "close"
 	    }],
-	    ref: "selectExtended",
-	    class: ['input-group', _vm.classes, _vm.cssClass]
-	  }, [(_vm.groupAddon) ? _c('span', {
-	    staticClass: "input-group-addon"
-	  }, [(_vm.groupFaIcon) ? _c('i', {
-	    class: _vm.groupFaIcon,
-	    staticStyle: {
-	      "margin-right": "3px"
-	    }
-	  }) : _vm._e(), _vm._v("\n    " + _vm._s(_vm.groupAddon) + "\n  ")]) : _vm._e(), _vm._v(" "), _c('div', {
+	    ref: "select",
+	    class: _vm.classes
+	  }, [_c('div', {
 	    ref: "btn",
 	    staticClass: "form-control dropdown-toggle",
 	    attrs: {
@@ -8577,7 +8609,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-f81f5f78", module.exports)
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-4617532a", module.exports)
 	  }
 	}
 
@@ -8585,11 +8617,728 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	
+	/* styles */
+	__webpack_require__(166)
+	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(166),
+	  __webpack_require__(168),
 	  /* template */
-	  __webpack_require__(167),
+	  __webpack_require__(169),
+	  /* scopeId */
+	  "data-v-f81f5f78",
+	  /* cssModules */
+	  null
+	)
+	Component.options.__file = "/home/jim/Documents/Projects/node/git/vue-strap/src/SelectExtended.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] SelectExtended.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-f81f5f78", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-f81f5f78", Component.options)
+	  }
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(167);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	if(content.locals) module.exports = content.locals;
+	// add the styles to the DOM
+	var update = __webpack_require__(80)("2ae25df3", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f81f5f78\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectExtended.vue", function() {
+	     var newContent = require("!!../node_modules/css-loader/index.js?sourceMap!../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-f81f5f78\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectExtended.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(79)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.form-control.dropdown-toggle[data-v-f81f5f78] {\n    height: auto;\n    padding-right: 24px;\n}\n.form-control.dropdown-toggle[data-v-f81f5f78]:after {\n    content: ' ';\n    position: absolute;\n    right: 13px;\n    top: 50%;\n    margin: -1px 0 0;\n    border-top: 4px dashed;\n    border-top: 4px solid \\9;\n    border-right: 4px solid transparent;\n    border-left: 4px solid transparent;\n}\n.bs-searchbox[data-v-f81f5f78] {\n    position: relative;\n    margin: 4px 8px;\n}\n.bs-searchbox .close[data-v-f81f5f78] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 2;\n    display: block;\n    width: 34px;\n    height: 34px;\n    line-height: 34px;\n    text-align: center;\n}\n.bs-searchbox input[data-v-f81f5f78]:focus,\n.form-control.dropdown-toggle[data-v-f81f5f78]:focus {\n    outline: 0;\n    border-color: #66afe9 !important;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n}\n.secret[data-v-f81f5f78] {\n    border: 0;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px;\n}\n.form-control.dropdown-toggle > .close[data-v-f81f5f78] {\n    margin-left: 5px;\n}\n.notify.out[data-v-f81f5f78] {\n    position: relative;\n}\n.notify.in[data-v-f81f5f78],\n.notify > div[data-v-f81f5f78] {\n    position: absolute;\n    width: 96%;\n    margin: 0 2%;\n    min-height: 26px;\n    padding: 3px 5px;\n    background: #f5f5f5;\n    border: 1px solid #e3e3e3;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);\n    pointer-events: none;\n}\n.notify > div[data-v-f81f5f78] {\n    top: 5px;\n    z-index: 1;\n}\n.notify.in[data-v-f81f5f78] {\n    opacity: .9;\n    bottom: 5px;\n}\n.btn-group-justified .dropdown-toggle > span[data-v-f81f5f78]:not(.close) {\n    width: calc(100% - 18px);\n    display: inline-block;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    margin-bottom: -4px;\n}\n.btn-group-justified .dropdown-menu[data-v-f81f5f78] {\n    width: 100%;\n}\n", "", {"version":3,"sources":["/./src/SelectExtended.vue?5db34f18"],"names":[],"mappings":";AA4WA;IACA,aAAA;IACA,oBAAA;CACA;AAEA;IACA,aAAA;IACA,mBAAA;IACA,YAAA;IACA,SAAA;IACA,iBAAA;IACA,uBAAA;IACA,yBAAA;IACA,oCAAA;IACA,mCAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;CACA;AAEA;IACA,mBAAA;IACA,OAAA;IACA,SAAA;IACA,WAAA;IACA,eAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;;IAEA,WAAA;IACA,iCAAA;IACA,iFAAA;CACA;AAEA;IACA,UAAA;IACA,oBAAA;IACA,YAAA;IACA,aAAA;IACA,iBAAA;IACA,WAAA;IACA,mBAAA;IACA,WAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,mBAAA;CACA;AAEA;;IAEA,mBAAA;IACA,WAAA;IACA,aAAA;IACA,iBAAA;IACA,iBAAA;IACA,oBAAA;IACA,0BAAA;IACA,+CAAA;IACA,qBAAA;CACA;AAEA;IACA,SAAA;IACA,WAAA;CACA;AAEA;IACA,YAAA;IACA,YAAA;CACA;AAEA;IACA,yBAAA;IACA,sBAAA;IACA,iBAAA;IACA,oBAAA;IACA,wBAAA;IACA,oBAAA;CACA;AAEA;IACA,YAAA;CACA","file":"SelectExtended.vue","sourcesContent":["<template>\n    <div :class=\"['form-group',{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}]\">\n        <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n        <div ref=\"selectExtended\" :class=\"['input-group', classes, cssClass]\" v-click-outside=\"close\" :style=\"{'min-width': minWidth}\">\n            <span v-if=\"groupAddon\" class=\"input-group-addon\">\n              <i v-if=\"groupFaIcon\" :class=\"groupFaIcon\" style=\"margin-right: 3px\"></i>\n              {{groupAddon}}\n            </span>\n            <div ref=\"btn\"\n                 class=\"form-control dropdown-toggle\"\n                 tabindex=\"1\"\n                 :disabled=\"disabled || !hasParent\"\n                 :readonly=\"readonly\"\n                 @blur=\"canSearch ? null : close()\"\n                 @click=\"toggle()\"\n                 @keydown.esc.stop.prevent=\"close\"\n                 @keydown.space.stop.prevent=\"toggle\"\n                 @keydown.enter.stop.prevent=\"toggle\"\n            >\n                <span class=\"btn-content\" v-html=\"loading ? text.loading : showPlaceholder || selected\"></span>\n                <span v-if=\"clearButton&&values.length\" class=\"close\" @click=\"clear()\">&times;</span>\n            </div>\n            <select ref=\"sel\"\n                    v-model=\"val\"\n                    :name=\"name\"\n                    class=\"secret\"\n                    :multiple=\"multiple\"\n                    :required=\"required\"\n                    :readonly=\"readonly\"\n                    :disabled=\"disabled\"\n            >\n                <option v-if=\"required\" value=\"\"></option>\n                <option v-for=\"option in list\" :value=\"option[optionsValue]\">{{ option[optionsLabel] }}</option>\n            </select>\n            <span :class=\"['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]\" aria-hidden='true'></span>\n            <ul class=\"dropdown-menu\">\n                <template v-if=\"list.length\">\n                    <li v-if=\"canSearch\" class=\"bs-searchbox\">\n                        <input type=\"text\" :placeholder=\"searchText||text.search\" class=\"form-control\" autocomplete=\"off\"\n                               ref=\"search\"\n                               v-model=\"searchValue\"\n                               @keyup.esc=\"close\"\n                        />\n                        <span v-show=\"searchValue\" class=\"close\" @click=\"clearSearch\">&times;</span>\n                    </li>\n                    <li v-if=\"required&&!clearButton\"><a @mousedown.prevent=\"clear() && close()\">{{ placeholder ||\n                        text.notSelected }}</a></li>\n                    <li v-for=\"option in filteredOptions\" :id=\"option[optionsValue]\">\n                        <a @mousedown.prevent=\"select(option[optionsValue])\">\n                            <span v-html=\"option[optionsLabel]\"></span>\n                            <span class=\"glyphicon glyphicon-ok check-mark\"\n                                  v-show=\"isSelected(option[optionsValue])\"></span>\n                        </a>\n                    </li>\n                </template>\n                <slot></slot>\n                <transition v-if=\"notify && !closeOnSelect\" name=\"fadein\">\n                    <div class=\"notify in\">{{limitText}}</div>\n                </transition>\n            </ul>\n            <transition v-if=\"notify && closeOnSelect\" name=\"fadein\">\n                <div class=\"notify out\">\n                    <div>{{limitText}}</div>\n                </div>\n            </transition>\n        </div>\n        <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n        <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n    </div>\n</template>\n\n<script>\n    import {translations} from './utils/utils.js';\n    import ClickOutside from './directives/ClickOutside.js';\n\n    var timeout = {};\n\n    export default {\n        directives: {\n            ClickOutside\n        },\n        props: {\n            clearButton: {type: Boolean, default: false},\n            closeOnSelect: {type: Boolean, default: false},\n            disabled: {type: Boolean, default: false},\n            error: {type: String, default: null},\n            help: {type: String, default: null},\n            hideHelp: {type: Boolean, default: true},\n            icon: {type: Boolean, default: false},\n            label: {type: String, default: null},\n            lang: {type: String, default: typeof navigator !== 'undefined' ? navigator.language : \"zh-CN\"},\n            limit: {type: Number, default: 1024},\n            minSearch: {type: Number, default: 0},\n            multiple: {type: Boolean, default: false},\n            name: {type: String, default: null},\n            options: {\n                type: Array, default() {\n                    return [];\n                }\n            },\n            optionsLabel: {type: String, default: 'label'},\n            optionsValue: {type: String, default: 'value'},\n            parent: {default: true},\n            placeholder: {type: String, default: null},\n            readonly: {type: Boolean, default: null},\n            required: {type: Boolean, default: null},\n            search: {type: Boolean, default: false},\n            searchText: {type: String, default: null},\n            url: {type: String, default: null},\n            value: null,\n            groupAddon: {type: String, default: null},\n            groupFaIcon: {type: String, default: null},\n            cssClass: {type: String, default: null},\n            minWidth: {type: String, default: '0'},\n        },\n        data() {\n            return {\n                list: [],\n                loading: null,\n                searchValue: null,\n                show: false,\n                notify: false,\n                val: null,\n                valid: null\n            }\n        },\n        computed: {\n            canSearch() {\n                return this.minSearch ? this.list.length >= this.minSearch : this.search;\n            },\n            //canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },\n            canValidate () { return true },\n            classes() {\n                return [{\n                    open: this.show,\n                    disabled: this.disabled\n                }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group']\n            },\n            errorText () {\n                let value = this.value;\n                let error = [this.error];\n                if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');\n                return error.join(' ');\n            },\n            filteredOptions() {\n                var search = (this.searchValue || '').toLowerCase();\n                return !search ? this.list : this.list.filter(el => {\n                    return ~el[this.optionsLabel].toLowerCase().search(search);\n                })\n            },\n            hasParent() {\n                return this.parent instanceof Array ? this.parent.length : this.parent;\n            },\n            input () { return this.$refs.sel; },\n            inInput() {\n                return this.$parent._input;\n            },\n            isLi() {\n                return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;\n            },\n            limitText() {\n                return this.text.limit.replace('{{limit}}', this.limit);\n            },\n            selected() {\n                if (this.list.length === 0) {\n                    return '';\n                }\n                var sel = this.values.map(val => (this.list.find(o => o[this.optionsValue] === val) || {})[this.optionsLabel]).filter(val => val !== undefined);\n                this.$emit('selected', sel);\n                return sel.join(', ');\n            },\n            showPlaceholder() {\n                return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null;\n            },\n            showError () { return this.error && this.valid === false },\n            showHelp () { return this.help && (!this.showError || !this.hideHelp) },\n            text() {\n                return translations(this.lang);\n            },\n            values() {\n                return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val];\n            },\n            valOptions() {\n                return this.list.map(el => el[this.optionsValue]);\n            }\n        },\n        watch: {\n            options(options) {\n                if (options instanceof Array) this.setOptions(options);\n            },\n            show(val) {\n                if (val) {\n                    this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus();\n                    // onBlur(this.$refs.select, e => { this.show = false })\n                } else {\n                    // offBlur(this.$refs.select)\n                }\n            },\n            url() {\n                this.urlChanged()\n            },\n            valid(val, old) {\n                this.$emit('isvalid', val);\n                this.$emit(!val ? 'invalid' : 'valid');\n                if (val !== old && this._parent) this._parent.validate();\n            },\n            value(val, old) {\n                if (val !== old) {\n                    this.val = val;\n                }\n            },\n            val(val, old) {\n                if (val === undefined) {\n                    this.val = val = null;\n                }\n                if (val !== old) {\n                    this.$emit('change', val);\n                    this.$emit('input', val);\n                }\n                if (val instanceof Array && val.length > this.limit) {\n                    this.val = val.slice(0, this.limit);\n                    this.notify = true;\n                    if (timeout.limit) clearTimeout(timeout.limit);\n                    timeout.limit = setTimeout(() => {\n                        timeout.limit = false;\n                        this.notify = false;\n                    }, 1500)\n                }\n                this.valid = this.validate();\n            }\n        },\n        methods: {\n            close() {\n                this.show = false;\n            },\n            checkData() {\n                if (this.multiple) {\n                    if (this.limit < 1) {\n                        this.limit = 1;\n                    }\n                    if (!(this.val instanceof Array)) {\n                        this.val = (this.val === null || this.val === undefined) ? [] : [this.val];\n                    }\n                    var values = this.valOptions;\n                    this.val = this.val.filter(el => ~values.indexOf(el));\n                    if (this.values.length > this.limit) {\n                        this.val = this.val.slice(0, this.limit);\n                    }\n                } else {\n                    if (!~this.valOptions.indexOf(this.val)) {\n                        this.val = null;\n                    }\n                }\n            },\n            clear() {\n                if (this.disabled || this.readonly) {\n                    return;\n                }\n                this.val = this.val instanceof Array ? [] : null;\n                this.toggle();\n            },\n            clearSearch() {\n                this.searchValue = '';\n                this.$refs.search.focus();\n            },\n            focus () { this.input.focus() },\n            isSelected(v) {\n                return this.values.indexOf(v) > -1;\n            },\n            select(v) {\n                if (this.val instanceof Array) {\n                    var newVal = this.val.slice(0);\n                    if (~newVal.indexOf(v)) {\n                        newVal.splice(newVal.indexOf(v), 1);\n                    } else {\n                        newVal.push(v);\n                    }\n                    this.val = newVal;\n                    if (this.closeOnSelect) {\n                        this.toggle();\n                    }\n                } else {\n                    this.val = v;\n                    this.toggle();\n                }\n            },\n            setOptions(options) {\n                this.list = options.map(el => {\n                    if (el instanceof Object) {\n                        return el\n                    }\n                    let obj = {};\n                    obj[this.optionsLabel] = el;\n                    obj[this.optionsValue] = el;\n                    return obj;\n                });\n                this.$emit('options', this.list)\n            },\n            toggle() {\n                this.show = !this.show;\n                if (!this.show) this.$refs.btn.focus();\n            },\n            urlChanged() {\n                if (!this.url || !this.$http) {\n                    return;\n                }\n                this.loading = true;\n                this.$http.get(this.url).then(response => {\n                    var data = response.data instanceof Array ? response.data : [];\n                    try {\n                        data = JSON.parse(data);\n                    } catch (e) {\n                    }\n                    this.setOptions(data);\n                    this.loading = false;\n                    this.checkData();\n                }, response => {\n                    this.loading = false;\n                })\n            },\n            validate() {\n                return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null;\n            },\n            setValidState (state) {\n                this.valid = state;\n            },\n        },\n        created() {\n            this.setOptions(this.options);\n            this.val = this.value;\n            this._select = true;\n            if (this.val === undefined || !this.parent) {\n                this.val = null;\n            }\n            if (!this.multiple && this.val instanceof Array) {\n                this.val = this.val[0];\n            }\n            this.checkData();\n            if (this.url) this.urlChanged();\n            let parent = this.$parent;\n            while (parent && !parent._formValidator) {\n                parent = parent.$parent;\n            }\n            if (parent && parent._formValidator) {\n                parent.children.push(this);\n                this._parent = parent;\n            }\n        },\n        mounted() {\n            if (this._parent) this._parent.children.push(this);\n            this.setOptions(this.options);\n            this.val = this.value;\n            this.checkData();\n        },\n        beforeDestroy() {\n            if (this._parent) {\n                var index = this._parent.children.indexOf(this);\n                this._parent.children.splice(index, 1);\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .form-control.dropdown-toggle {\n        height: auto;\n        padding-right: 24px;\n    }\n\n    .form-control.dropdown-toggle:after {\n        content: ' ';\n        position: absolute;\n        right: 13px;\n        top: 50%;\n        margin: -1px 0 0;\n        border-top: 4px dashed;\n        border-top: 4px solid \\9;\n        border-right: 4px solid transparent;\n        border-left: 4px solid transparent;\n    }\n\n    .bs-searchbox {\n        position: relative;\n        margin: 4px 8px;\n    }\n\n    .bs-searchbox .close {\n        position: absolute;\n        top: 0;\n        right: 0;\n        z-index: 2;\n        display: block;\n        width: 34px;\n        height: 34px;\n        line-height: 34px;\n        text-align: center;\n    }\n\n    .bs-searchbox input:focus,\n    .form-control.dropdown-toggle:focus {\n        outline: 0;\n        border-color: #66afe9 !important;\n        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);\n    }\n\n    .secret {\n        border: 0;\n        clip: rect(0 0 0 0);\n        height: 1px;\n        margin: -1px;\n        overflow: hidden;\n        padding: 0;\n        position: absolute;\n        width: 1px;\n    }\n\n    .form-control.dropdown-toggle > .close {\n        margin-left: 5px;\n    }\n\n    .notify.out {\n        position: relative;\n    }\n\n    .notify.in,\n    .notify > div {\n        position: absolute;\n        width: 96%;\n        margin: 0 2%;\n        min-height: 26px;\n        padding: 3px 5px;\n        background: #f5f5f5;\n        border: 1px solid #e3e3e3;\n        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);\n        pointer-events: none;\n    }\n\n    .notify > div {\n        top: 5px;\n        z-index: 1;\n    }\n\n    .notify.in {\n        opacity: .9;\n        bottom: 5px;\n    }\n\n    .btn-group-justified .dropdown-toggle > span:not(.close) {\n        width: calc(100% - 18px);\n        display: inline-block;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        margin-bottom: -4px;\n    }\n\n    .btn-group-justified .dropdown-menu {\n        width: 100%;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _utils = __webpack_require__(65);
+	
+	var _ClickOutside = __webpack_require__(66);
+	
+	var _ClickOutside2 = _interopRequireDefault(_ClickOutside);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	
+	var timeout = {};
+	
+	exports.default = {
+	    directives: {
+	        ClickOutside: _ClickOutside2.default
+	    },
+	    props: {
+	        clearButton: { type: Boolean, default: false },
+	        closeOnSelect: { type: Boolean, default: false },
+	        disabled: { type: Boolean, default: false },
+	        error: { type: String, default: null },
+	        help: { type: String, default: null },
+	        hideHelp: { type: Boolean, default: true },
+	        icon: { type: Boolean, default: false },
+	        label: { type: String, default: null },
+	        lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
+	        limit: { type: Number, default: 1024 },
+	        minSearch: { type: Number, default: 0 },
+	        multiple: { type: Boolean, default: false },
+	        name: { type: String, default: null },
+	        options: {
+	            type: Array, default: function _default() {
+	                return [];
+	            }
+	        },
+	        optionsLabel: { type: String, default: 'label' },
+	        optionsValue: { type: String, default: 'value' },
+	        parent: { default: true },
+	        placeholder: { type: String, default: null },
+	        readonly: { type: Boolean, default: null },
+	        required: { type: Boolean, default: null },
+	        search: { type: Boolean, default: false },
+	        searchText: { type: String, default: null },
+	        url: { type: String, default: null },
+	        value: null,
+	        groupAddon: { type: String, default: null },
+	        groupFaIcon: { type: String, default: null },
+	        cssClass: { type: String, default: null },
+	        minWidth: { type: String, default: '0' }
+	    },
+	    data: function data() {
+	        return {
+	            list: [],
+	            loading: null,
+	            searchValue: null,
+	            show: false,
+	            notify: false,
+	            val: null,
+	            valid: null
+	        };
+	    },
+	
+	    computed: {
+	        canSearch: function canSearch() {
+	            return this.minSearch ? this.list.length >= this.minSearch : this.search;
+	        },
+	
+	        //canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },
+	        canValidate: function canValidate() {
+	            return true;
+	        },
+	        classes: function classes() {
+	            return [{
+	                open: this.show,
+	                disabled: this.disabled
+	            }, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn' : 'btn-group'];
+	        },
+	        errorText: function errorText() {
+	            var value = this.value;
+	            var error = [this.error];
+	            if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
+	            return error.join(' ');
+	        },
+	        filteredOptions: function filteredOptions() {
+	            var _this = this;
+	
+	            var search = (this.searchValue || '').toLowerCase();
+	            return !search ? this.list : this.list.filter(function (el) {
+	                return ~el[_this.optionsLabel].toLowerCase().search(search);
+	            });
+	        },
+	        hasParent: function hasParent() {
+	            return this.parent instanceof Array ? this.parent.length : this.parent;
+	        },
+	        input: function input() {
+	            return this.$refs.sel;
+	        },
+	        inInput: function inInput() {
+	            return this.$parent._input;
+	        },
+	        isLi: function isLi() {
+	            return this.$parent._navbar || this.$parent.menu || this.$parent._tabset;
+	        },
+	        limitText: function limitText() {
+	            return this.text.limit.replace('{{limit}}', this.limit);
+	        },
+	        selected: function selected() {
+	            var _this2 = this;
+	
+	            if (this.list.length === 0) {
+	                return '';
+	            }
+	            var sel = this.values.map(function (val) {
+	                return (_this2.list.find(function (o) {
+	                    return o[_this2.optionsValue] === val;
+	                }) || {})[_this2.optionsLabel];
+	            }).filter(function (val) {
+	                return val !== undefined;
+	            });
+	            this.$emit('selected', sel);
+	            return sel.join(', ');
+	        },
+	        showPlaceholder: function showPlaceholder() {
+	            return this.values.length === 0 || !this.hasParent ? this.placeholder || this.text.notSelected : null;
+	        },
+	        showError: function showError() {
+	            return this.error && this.valid === false;
+	        },
+	        showHelp: function showHelp() {
+	            return this.help && (!this.showError || !this.hideHelp);
+	        },
+	        text: function text() {
+	            return (0, _utils.translations)(this.lang);
+	        },
+	        values: function values() {
+	            return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val];
+	        },
+	        valOptions: function valOptions() {
+	            var _this3 = this;
+	
+	            return this.list.map(function (el) {
+	                return el[_this3.optionsValue];
+	            });
+	        }
+	    },
+	    watch: {
+	        options: function options(_options) {
+	            if (_options instanceof Array) this.setOptions(_options);
+	        },
+	        show: function show(val) {
+	            if (val) {
+	                this.$refs.search ? this.$refs.search.focus() : this.$refs.btn.focus();
+	                // onBlur(this.$refs.select, e => { this.show = false })
+	            } else {
+	                    // offBlur(this.$refs.select)
+	                }
+	        },
+	        url: function url() {
+	            this.urlChanged();
+	        },
+	        valid: function valid(val, old) {
+	            this.$emit('isvalid', val);
+	            this.$emit(!val ? 'invalid' : 'valid');
+	            if (val !== old && this._parent) this._parent.validate();
+	        },
+	        value: function value(val, old) {
+	            if (val !== old) {
+	                this.val = val;
+	            }
+	        },
+	        val: function val(_val, old) {
+	            var _this4 = this;
+	
+	            if (_val === undefined) {
+	                this.val = _val = null;
+	            }
+	            if (_val !== old) {
+	                this.$emit('change', _val);
+	                this.$emit('input', _val);
+	            }
+	            if (_val instanceof Array && _val.length > this.limit) {
+	                this.val = _val.slice(0, this.limit);
+	                this.notify = true;
+	                if (timeout.limit) clearTimeout(timeout.limit);
+	                timeout.limit = setTimeout(function () {
+	                    timeout.limit = false;
+	                    _this4.notify = false;
+	                }, 1500);
+	            }
+	            this.valid = this.validate();
+	        }
+	    },
+	    methods: {
+	        close: function close() {
+	            this.show = false;
+	        },
+	        checkData: function checkData() {
+	            if (this.multiple) {
+	                if (this.limit < 1) {
+	                    this.limit = 1;
+	                }
+	                if (!(this.val instanceof Array)) {
+	                    this.val = this.val === null || this.val === undefined ? [] : [this.val];
+	                }
+	                var values = this.valOptions;
+	                this.val = this.val.filter(function (el) {
+	                    return ~values.indexOf(el);
+	                });
+	                if (this.values.length > this.limit) {
+	                    this.val = this.val.slice(0, this.limit);
+	                }
+	            } else {
+	                if (!~this.valOptions.indexOf(this.val)) {
+	                    this.val = null;
+	                }
+	            }
+	        },
+	        clear: function clear() {
+	            if (this.disabled || this.readonly) {
+	                return;
+	            }
+	            this.val = this.val instanceof Array ? [] : null;
+	            this.toggle();
+	        },
+	        clearSearch: function clearSearch() {
+	            this.searchValue = '';
+	            this.$refs.search.focus();
+	        },
+	        focus: function focus() {
+	            this.input.focus();
+	        },
+	        isSelected: function isSelected(v) {
+	            return this.values.indexOf(v) > -1;
+	        },
+	        select: function select(v) {
+	            if (this.val instanceof Array) {
+	                var newVal = this.val.slice(0);
+	                if (~newVal.indexOf(v)) {
+	                    newVal.splice(newVal.indexOf(v), 1);
+	                } else {
+	                    newVal.push(v);
+	                }
+	                this.val = newVal;
+	                if (this.closeOnSelect) {
+	                    this.toggle();
+	                }
+	            } else {
+	                this.val = v;
+	                this.toggle();
+	            }
+	        },
+	        setOptions: function setOptions(options) {
+	            var _this5 = this;
+	
+	            this.list = options.map(function (el) {
+	                if (el instanceof Object) {
+	                    return el;
+	                }
+	                var obj = {};
+	                obj[_this5.optionsLabel] = el;
+	                obj[_this5.optionsValue] = el;
+	                return obj;
+	            });
+	            this.$emit('options', this.list);
+	        },
+	        toggle: function toggle() {
+	            this.show = !this.show;
+	            if (!this.show) this.$refs.btn.focus();
+	        },
+	        urlChanged: function urlChanged() {
+	            var _this6 = this;
+	
+	            if (!this.url || !this.$http) {
+	                return;
+	            }
+	            this.loading = true;
+	            this.$http.get(this.url).then(function (response) {
+	                var data = response.data instanceof Array ? response.data : [];
+	                try {
+	                    data = JSON.parse(data);
+	                } catch (e) {}
+	                _this6.setOptions(data);
+	                _this6.loading = false;
+	                _this6.checkData();
+	            }, function (response) {
+	                _this6.loading = false;
+	            });
+	        },
+	        validate: function validate() {
+	            return !this.required ? true : this.val instanceof Array ? this.val.length > 0 : this.val !== null;
+	        },
+	        setValidState: function setValidState(state) {
+	            this.valid = state;
+	        }
+	    },
+	    created: function created() {
+	        this.setOptions(this.options);
+	        this.val = this.value;
+	        this._select = true;
+	        if (this.val === undefined || !this.parent) {
+	            this.val = null;
+	        }
+	        if (!this.multiple && this.val instanceof Array) {
+	            this.val = this.val[0];
+	        }
+	        this.checkData();
+	        if (this.url) this.urlChanged();
+	        var parent = this.$parent;
+	        while (parent && !parent._formValidator) {
+	            parent = parent.$parent;
+	        }
+	        if (parent && parent._formValidator) {
+	            parent.children.push(this);
+	            this._parent = parent;
+	        }
+	    },
+	    mounted: function mounted() {
+	        if (this._parent) this._parent.children.push(this);
+	        this.setOptions(this.options);
+	        this.val = this.value;
+	        this.checkData();
+	    },
+	    beforeDestroy: function beforeDestroy() {
+	        if (this._parent) {
+	            var index = this._parent.children.indexOf(this);
+	            this._parent.children.splice(index, 1);
+	        }
+	    }
+	};
+
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    class: ['form-group', {
+	      validate: _vm.canValidate,
+	      'has-feedback': _vm.icon,
+	      'has-error': _vm.canValidate && _vm.valid === false,
+	      'has-success': _vm.canValidate && _vm.valid
+	    }]
+	  }, [(_vm.label) ? _c('label', {
+	    staticClass: "control-label"
+	  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e(), _vm._v(" "), _c('div', {
+	    directives: [{
+	      name: "click-outside",
+	      rawName: "v-click-outside",
+	      value: (_vm.close),
+	      expression: "close"
+	    }],
+	    ref: "selectExtended",
+	    class: ['input-group', _vm.classes, _vm.cssClass],
+	    style: ({
+	      'min-width': _vm.minWidth
+	    })
+	  }, [(_vm.groupAddon) ? _c('span', {
+	    staticClass: "input-group-addon"
+	  }, [(_vm.groupFaIcon) ? _c('i', {
+	    class: _vm.groupFaIcon,
+	    staticStyle: {
+	      "margin-right": "3px"
+	    }
+	  }) : _vm._e(), _vm._v("\n          " + _vm._s(_vm.groupAddon) + "\n        ")]) : _vm._e(), _vm._v(" "), _c('div', {
+	    ref: "btn",
+	    staticClass: "form-control dropdown-toggle",
+	    attrs: {
+	      "tabindex": "1",
+	      "disabled": _vm.disabled || !_vm.hasParent,
+	      "readonly": _vm.readonly
+	    },
+	    on: {
+	      "blur": function($event) {
+	        _vm.canSearch ? null : _vm.close()
+	      },
+	      "click": function($event) {
+	        return _vm.toggle()
+	      },
+	      "keydown": [function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
+	        $event.stopPropagation();
+	        $event.preventDefault();
+	        return _vm.close($event)
+	      }, function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "space", 32, $event.key, [" ", "Spacebar"])) { return null; }
+	        $event.stopPropagation();
+	        $event.preventDefault();
+	        return _vm.toggle($event)
+	      }, function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
+	        $event.stopPropagation();
+	        $event.preventDefault();
+	        return _vm.toggle($event)
+	      }]
+	    }
+	  }, [_c('span', {
+	    staticClass: "btn-content",
+	    domProps: {
+	      "innerHTML": _vm._s(_vm.loading ? _vm.text.loading : _vm.showPlaceholder || _vm.selected)
+	    }
+	  }), _vm._v(" "), (_vm.clearButton && _vm.values.length) ? _c('span', {
+	    staticClass: "close",
+	    on: {
+	      "click": function($event) {
+	        return _vm.clear()
+	      }
+	    }
+	  }, [_vm._v("×")]) : _vm._e()]), _vm._v(" "), _c('select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.val),
+	      expression: "val"
+	    }],
+	    ref: "sel",
+	    staticClass: "secret",
+	    attrs: {
+	      "name": _vm.name,
+	      "multiple": _vm.multiple,
+	      "required": _vm.required,
+	      "readonly": _vm.readonly,
+	      "disabled": _vm.disabled
+	    },
+	    on: {
+	      "change": function($event) {
+	        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+	          return o.selected
+	        }).map(function(o) {
+	          var val = "_value" in o ? o._value : o.value;
+	          return val
+	        });
+	        _vm.val = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+	      }
+	    }
+	  }, [(_vm.required) ? _c('option', {
+	    attrs: {
+	      "value": ""
+	    }
+	  }) : _vm._e(), _vm._v(" "), _vm._l((_vm.list), function(option) {
+	    return _c('option', {
+	      domProps: {
+	        "value": option[_vm.optionsValue]
+	      }
+	    }, [_vm._v(_vm._s(option[_vm.optionsLabel]))])
+	  })], 2), _vm._v(" "), _c('span', {
+	    class: ['form-control-feedback dropdown-glyph glyphicon', {
+	      'glyphicon-ok': _vm.canValidate && _vm.valid,
+	      'glyphicon-remove': _vm.canValidate && _vm.valid === false
+	    }],
+	    attrs: {
+	      "aria-hidden": "true"
+	    }
+	  }), _vm._v(" "), _c('ul', {
+	    staticClass: "dropdown-menu"
+	  }, [(_vm.list.length) ? [(_vm.canSearch) ? _c('li', {
+	    staticClass: "bs-searchbox"
+	  }, [_c('input', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.searchValue),
+	      expression: "searchValue"
+	    }],
+	    ref: "search",
+	    staticClass: "form-control",
+	    attrs: {
+	      "type": "text",
+	      "placeholder": _vm.searchText || _vm.text.search,
+	      "autocomplete": "off"
+	    },
+	    domProps: {
+	      "value": (_vm.searchValue)
+	    },
+	    on: {
+	      "keyup": function($event) {
+	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
+	        return _vm.close($event)
+	      },
+	      "input": function($event) {
+	        if ($event.target.composing) { return; }
+	        _vm.searchValue = $event.target.value
+	      }
+	    }
+	  }), _vm._v(" "), _c('span', {
+	    directives: [{
+	      name: "show",
+	      rawName: "v-show",
+	      value: (_vm.searchValue),
+	      expression: "searchValue"
+	    }],
+	    staticClass: "close",
+	    on: {
+	      "click": _vm.clearSearch
+	    }
+	  }, [_vm._v("×")])]) : _vm._e(), _vm._v(" "), (_vm.required && !_vm.clearButton) ? _c('li', [_c('a', {
+	    on: {
+	      "mousedown": function($event) {
+	        $event.preventDefault();
+	        _vm.clear() && _vm.close()
+	      }
+	    }
+	  }, [_vm._v(_vm._s(_vm.placeholder ||
+	    _vm.text.notSelected))])]) : _vm._e(), _vm._v(" "), _vm._l((_vm.filteredOptions), function(option) {
+	    return _c('li', {
+	      attrs: {
+	        "id": option[_vm.optionsValue]
+	      }
+	    }, [_c('a', {
+	      on: {
+	        "mousedown": function($event) {
+	          $event.preventDefault();
+	          return _vm.select(option[_vm.optionsValue])
+	        }
+	      }
+	    }, [_c('span', {
+	      domProps: {
+	        "innerHTML": _vm._s(option[_vm.optionsLabel])
+	      }
+	    }), _vm._v(" "), _c('span', {
+	      directives: [{
+	        name: "show",
+	        rawName: "v-show",
+	        value: (_vm.isSelected(option[_vm.optionsValue])),
+	        expression: "isSelected(option[optionsValue])"
+	      }],
+	      staticClass: "glyphicon glyphicon-ok check-mark"
+	    })])])
+	  })] : _vm._e(), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.notify && !_vm.closeOnSelect) ? _c('transition', {
+	    attrs: {
+	      "name": "fadein"
+	    }
+	  }, [_c('div', {
+	    staticClass: "notify in"
+	  }, [_vm._v(_vm._s(_vm.limitText))])]) : _vm._e()], 2), _vm._v(" "), (_vm.notify && _vm.closeOnSelect) ? _c('transition', {
+	    attrs: {
+	      "name": "fadein"
+	    }
+	  }, [_c('div', {
+	    staticClass: "notify out"
+	  }, [_c('div', [_vm._v(_vm._s(_vm.limitText))])])]) : _vm._e()], 1), _vm._v(" "), (_vm.showHelp) ? _c('div', {
+	    staticClass: "help-block",
+	    on: {
+	      "click": _vm.focus
+	    }
+	  }, [_vm._v(_vm._s(_vm.help))]) : _vm._e(), _vm._v(" "), (_vm.showError) ? _c('div', {
+	    staticClass: "help-block with-errors",
+	    on: {
+	      "click": _vm.focus
+	    }
+	  }, [_vm._v(_vm._s(_vm.errorText))]) : _vm._e()])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-f81f5f78", module.exports)
+	  }
+	}
+
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Component = __webpack_require__(70)(
+	  /* script */
+	  __webpack_require__(171),
+	  /* template */
+	  __webpack_require__(172),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8616,7 +9365,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 166 */
+/* 171 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8648,7 +9397,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 167 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8665,18 +9414,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 168 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(169)
+	__webpack_require__(174)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(171),
+	  __webpack_require__(176),
 	  /* template */
-	  __webpack_require__(172),
+	  __webpack_require__(177),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8703,13 +9452,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 169 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(170);
+	var content = __webpack_require__(175);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -8729,7 +9478,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 170 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -8743,7 +9492,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 171 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8858,7 +9607,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 172 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -8889,14 +9638,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 173 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(174),
+	  __webpack_require__(179),
 	  /* template */
-	  __webpack_require__(175),
+	  __webpack_require__(180),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -8923,7 +9672,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 174 */
+/* 179 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -9014,7 +9763,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 175 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -9038,18 +9787,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 176 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(177)
+	__webpack_require__(182)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(179),
+	  __webpack_require__(184),
 	  /* template */
-	  __webpack_require__(180),
+	  __webpack_require__(185),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -9076,13 +9825,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 177 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(178);
+	var content = __webpack_require__(183);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -9102,7 +9851,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 178 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -9116,7 +9865,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 179 */
+/* 184 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -9164,7 +9913,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 180 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -9179,18 +9928,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 181 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(182)
+	__webpack_require__(187)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(184),
+	  __webpack_require__(189),
 	  /* template */
-	  __webpack_require__(185),
+	  __webpack_require__(190),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -9217,13 +9966,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 182 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(183);
+	var content = __webpack_require__(188);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -9243,7 +9992,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 183 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -9257,7 +10006,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 184 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9268,7 +10017,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _utils = __webpack_require__(65);
 	
-	var _Dropdown = __webpack_require__(107);
+	var _Dropdown = __webpack_require__(112);
 	
 	var _Dropdown2 = _interopRequireDefault(_Dropdown);
 	
@@ -9343,7 +10092,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 185 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -9412,14 +10161,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 186 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(187),
+	  __webpack_require__(192),
 	  /* template */
-	  __webpack_require__(188),
+	  __webpack_require__(193),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -9446,7 +10195,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 187 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9522,7 +10271,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 188 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -9558,18 +10307,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 189 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(190)
+	__webpack_require__(195)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(192),
+	  __webpack_require__(197),
 	  /* template */
-	  __webpack_require__(193),
+	  __webpack_require__(198),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -9596,13 +10345,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 190 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(191);
+	var content = __webpack_require__(196);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -9622,7 +10371,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 191 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -9636,7 +10385,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 192 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9645,7 +10394,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _popoverMixins = __webpack_require__(145);
+	var _popoverMixins = __webpack_require__(150);
 	
 	var _popoverMixins2 = _interopRequireDefault(_popoverMixins);
 	
@@ -9673,7 +10422,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 
 /***/ }),
-/* 193 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -9705,18 +10454,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 194 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 	/* styles */
-	__webpack_require__(195)
+	__webpack_require__(200)
 	
 	var Component = __webpack_require__(70)(
 	  /* script */
-	  __webpack_require__(197),
+	  __webpack_require__(202),
 	  /* template */
-	  __webpack_require__(212),
+	  __webpack_require__(217),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -9743,13 +10492,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 195 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(196);
+	var content = __webpack_require__(201);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
@@ -9769,7 +10518,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 196 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(79)();
@@ -9783,7 +10532,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 197 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9792,7 +10541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _typeof2 = __webpack_require__(198);
+	var _typeof2 = __webpack_require__(203);
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
@@ -9949,7 +10698,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 198 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -9960,7 +10709,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _iterator2 = _interopRequireDefault(_iterator);
 	
-	var _symbol = __webpack_require__(199);
+	var _symbol = __webpack_require__(204);
 	
 	var _symbol2 = _interopRequireDefault(_symbol);
 	
@@ -9975,24 +10724,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 199 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(200), __esModule: true };
+	module.exports = { "default": __webpack_require__(205), __esModule: true };
 
 /***/ }),
-/* 200 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(201);
-	__webpack_require__(209);
-	__webpack_require__(210);
-	__webpack_require__(211);
+	__webpack_require__(206);
+	__webpack_require__(214);
+	__webpack_require__(215);
+	__webpack_require__(216);
 	module.exports = __webpack_require__(7).Symbol;
 
 
 /***/ }),
-/* 201 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10002,16 +10751,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DESCRIPTORS = __webpack_require__(15);
 	var $export = __webpack_require__(5);
 	var redefine = __webpack_require__(29);
-	var META = __webpack_require__(202).KEY;
+	var META = __webpack_require__(207).KEY;
 	var $fails = __webpack_require__(16);
 	var shared = __webpack_require__(43);
 	var setToStringTag = __webpack_require__(47);
 	var uid = __webpack_require__(44);
 	var wks = __webpack_require__(48);
 	var wksExt = __webpack_require__(55);
-	var wksDefine = __webpack_require__(203);
-	var enumKeys = __webpack_require__(204);
-	var isArray = __webpack_require__(207);
+	var wksDefine = __webpack_require__(208);
+	var enumKeys = __webpack_require__(209);
+	var isArray = __webpack_require__(212);
 	var anObject = __webpack_require__(12);
 	var isObject = __webpack_require__(13);
 	var toObject = __webpack_require__(50);
@@ -10020,8 +10769,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var createDesc = __webpack_require__(19);
 	var _create = __webpack_require__(32);
 	var gOPNExt = __webpack_require__(60);
-	var $GOPD = __webpack_require__(208);
-	var $GOPS = __webpack_require__(205);
+	var $GOPD = __webpack_require__(213);
+	var $GOPS = __webpack_require__(210);
 	var $DP = __webpack_require__(11);
 	var $keys = __webpack_require__(34);
 	var gOPD = $GOPD.f;
@@ -10147,7 +10896,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  $GOPD.f = $getOwnPropertyDescriptor;
 	  $DP.f = $defineProperty;
 	  __webpack_require__(61).f = gOPNExt.f = $getOwnPropertyNames;
-	  __webpack_require__(206).f = $propertyIsEnumerable;
+	  __webpack_require__(211).f = $propertyIsEnumerable;
 	  $GOPS.f = $getOwnPropertySymbols;
 	
 	  if (DESCRIPTORS && !__webpack_require__(28)) {
@@ -10244,7 +10993,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 202 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var META = __webpack_require__(44)('meta');
@@ -10303,7 +11052,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 203 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var global = __webpack_require__(6);
@@ -10318,13 +11067,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 204 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
 	var getKeys = __webpack_require__(34);
-	var gOPS = __webpack_require__(205);
-	var pIE = __webpack_require__(206);
+	var gOPS = __webpack_require__(210);
+	var pIE = __webpack_require__(211);
 	module.exports = function (it) {
 	  var result = getKeys(it);
 	  var getSymbols = gOPS.f;
@@ -10339,21 +11088,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 205 */
+/* 210 */
 /***/ (function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 206 */
+/* 211 */
 /***/ (function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 207 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
@@ -10364,10 +11113,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 208 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var pIE = __webpack_require__(206);
+	var pIE = __webpack_require__(211);
 	var createDesc = __webpack_require__(19);
 	var toIObject = __webpack_require__(36);
 	var toPrimitive = __webpack_require__(18);
@@ -10386,27 +11135,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 209 */
+/* 214 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 210 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(203)('asyncIterator');
+	__webpack_require__(208)('asyncIterator');
 
 
 /***/ }),
-/* 211 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(203)('observable');
+	__webpack_require__(208)('observable');
 
 
 /***/ }),
-/* 212 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
