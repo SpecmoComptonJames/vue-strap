@@ -254,7 +254,7 @@
                 if (!this.canValidate) {
                     return true
                 }
-                let value = (this.val || '').trim()
+                var value = (this.val || '').trim()
                 if (!value) {
                     return !this.required
                 }
