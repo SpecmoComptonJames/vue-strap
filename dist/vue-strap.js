@@ -4929,7 +4929,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.datepicker {\n  position: relative;\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\n  padding-right: 25px;\n}\n.datepicker > button.close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  outline: none;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.datepicker > button.close:focus {\n  opacity: .2;\n}\n.datepicker-popup {\n  position: absolute;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  background: #fff;\n  margin-top: 2px;\n  z-index: 1000;\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\n  width: 218px;\n}\n.datepicker-body {\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\n.datepicker-ctrl span,\n.datepicker-body span {\n  display: inline-block;\n  width: 28px;\n  line-height: 28px;\n  height: 28px;\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\n  width: 65%;\n}\n.datepicker-ctrl span {\n  position: absolute;\n}\n.datepicker-body span {\n  text-align: center;\n}\n.datepicker-monthRange span {\n  width: 48px;\n  height: 50px;\n  line-height: 45px;\n}\n.datepicker-item-disable {\n  background-color: white!important;\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\n.decadeRange span:last-child,\n.datepicker-item-disable,\n.datepicker-item-gray {\n  color: #999;\n}\n.datepicker-dateRange-item-active:hover,\n.datepicker-dateRange-item-active {\n  background: rgb(50, 118, 177)!important;\n  color: white!important;\n}\n.datepicker-monthRange {\n  margin-top: 10px\n}\n.datepicker-monthRange span,\n.datepicker-ctrl span,\n.datepicker-ctrl p,\n.datepicker-dateRange span {\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\n.datepicker-ctrl p:hover,\n.datepicker-ctrl i:hover,\n.datepicker-dateRange span:hover,\n.datepicker-dateRange-item-hover {\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\n  font-weight: bold;\n}\n.datepicker-label {\n  background-color: #f8f8f8;\n  font-weight: 700;\n  padding: 7px 0;\n  text-align: center;\n}\n.datepicker-ctrl {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  font-weight: bold;\n  text-align: center;\n}\n.month-btn {\n  font-weight: bold;\n  -webkit-user-select:none;\n  -moz-user-select:none;\n  -ms-user-select:none;\n  user-select:none;\n}\n.datepicker-preBtn {\n  left: 2px;\n}\n.datepicker-nextBtn {\n  right: 2px;\n}\n", "", {"version":3,"sources":["/./src/DatepickerExtended.vue?cd409478"],"names":[],"mappings":";AAiVA;EACA,mBAAA;EACA,sBAAA;CACA;AACA;EACA,oBAAA;CACA;AACA;EACA,mBAAA;EACA,OAAA;EACA,SAAA;EACA,cAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,YAAA;CACA;AACA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,iBAAA;EACA,gBAAA;EACA,cAAA;EACA,yCAAA;CACA;AACA;EACA,aAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;;;EAGA,sBAAA;EACA,YAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;CACA;AACA;EACA,WAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;CACA;AACA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;CACA;AACA;EACA,kCAAA;EACA,8BAAA;CACA;AACA;;;;EAIA,YAAA;CACA;AAEA;;EAEA,wCAAA;EACA,uBAAA;CACA;AACA;EACA,gBAAA;CACA;AACA;;;;EAIA,gBAAA;CACA;AACA;;;;;EAKA,2BAAA;CACA;AACA;EACA,kBAAA;CACA;AACA;EACA,0BAAA;EACA,iBAAA;EACA,eAAA;EACA,mBAAA;CACA;AACA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;CACA;AACA;EACA,kBAAA;EACA,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;CACA;AACA;EACA,UAAA;CACA;AACA;EACA,WAAA;CACA","file":"DatepickerExtended.vue","sourcesContent":["<template>\n  <div class=\"datepicker\">\n    <input class=\"form-control datepicker-input\" type=\"text\"\n      v-model=\"val\"\n      :class=\"{'with-reset-button': clearButton}\"\n      :placeholder=\"placeholder\"\n      :style=\"{width:width}\"\n      @focus=\"inputClick\"\n    />\n    <button v-if=\"clearButton&&val\" type=\"button\" class=\"close\" @click=\"val = ''\">\n      <span>&times;</span>\n    </button>\n    <div class=\"datepicker-popup\" v-show=\"displayDayView\">\n      <div class=\"datepicker-inner\">\n        <div class=\"datepicker-body\">\n          <div class=\"datepicker-ctrl\">\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\n            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\n          </div>\n          <div class=\"datepicker-weekRange\">\n            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\n          </div>\n          <div class=\"datepicker-dateRange\">\n            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d)\">{{d.text}}</span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\n      <div class=\"datepicker-inner\">\n        <div class=\"datepicker-body\">\n          <div class=\"datepicker-ctrl\">\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\n            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\n          </div>\n          <div class=\"datepicker-monthRange\">\n            <template v-for=\"(m, index) in text.months\">\n              <span v-text=\"m.substr(0,3)\"\n                :class=\"{'datepicker-dateRange-item-active':\n                  (text.months[parse(val).getMonth()] === m) &&\n                  currDate.getFullYear() === parse(val).getFullYear()}\"\n                @click=\"monthSelect(index)\"\n              ></span>\n            </template>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n      <div class=\"datepicker-inner\">\n        <div class=\"datepicker-body\">\n          <div class=\"datepicker-ctrl\">\n            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\n            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\n            <p>{{stringifyDecadeHeader(currDate)}}</p>\n          </div>\n          <div class=\"datepicker-monthRange decadeRange\">\n            <template v-for=\"decade in decadeRange\">\n              <span :class=\"{'datepicker-dateRange-item-active':parse(val).getFullYear() === decade.text}\"\n                v-text=\"decade.text\"\n                @click.stop=\"yearSelect(decade.text)\"\n              ></span>\n            </template>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport {translations} from './utils/utils.js'\n// import $ from './utils/NodeList.js'\n\nexport default {\n  props: {\n    value: {type: String},\n    format: {default: 'MM/dd/yyyy'},\n    disabledDaysOfWeek: {type: Array, default () { return [] }},\n    width: {type: String},\n    clearButton: {type: Boolean, default: false},\n    lang: {type: String, default: typeof navigator !== 'undefined'?navigator.language:\"zh-CN\"},\n    placeholder: {type: String},\n    iconsFont: {type: String, default: 'glyphicon'}\n  },\n  data () {\n    return {\n      currDate: new Date(),\n      dateRange: [],\n      decadeRange: [],\n      displayDayView: false,\n      displayMonthView: false,\n      displayYearView: false,\n      val: this.value\n    }\n  },\n  watch: {\n    currDate () {\n      this.getDateRange()\n    },\n    format () {\n      this.val = this.stringify(this.currDate)\n    },\n    val (val, old) {\n      this.$emit('input', val)\n    },\n    value (val) {\n      if (this.val !== val) { this.val = val }\n    }\n  },\n  computed: {\n    text () {\n      return translations(this.lang)\n    },\n    preBtnClasses () {\n      return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`\n    },\n    nextBtnClasses () {\n      return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`\n    },\n    disabledDaysArray () {\n      return this.disabledDaysOfWeek.map(d => parseInt(d, 10))\n    }\n  },\n  methods: {\n    close () {\n      this.displayDayView = this.displayMonthView = this.displayYearView = false\n    },\n    inputClick () {\n      this.currDate = this.parse(this.val) || this.parse(new Date())\n      if (this.displayMonthView || this.displayYearView) {\n        this.displayDayView = false\n      } else {\n        this.displayDayView = !this.displayDayView\n      }\n    },\n    preNextDecadeClick (flag) {\n      const year = this.currDate.getFullYear()\n      const months = this.currDate.getMonth()\n      const date = this.currDate.getDate()\n\n      if (flag === 0) {\n        this.currDate = new Date(year - 10, months, date)\n      } else {\n        this.currDate = new Date(year + 10, months, date)\n      }\n    },\n    preNextMonthClick (flag) {\n      const year = this.currDate.getFullYear()\n      const month = this.currDate.getMonth()\n      const date = this.currDate.getDate()\n\n      if (flag === 0) {\n        const preMonth = this.getYearMonth(year, month - 1)\n        this.currDate = new Date(preMonth.year, preMonth.month, date)\n      } else {\n        const nextMonth = this.getYearMonth(year, month + 1)\n        this.currDate = new Date(nextMonth.year, nextMonth.month, date)\n      }\n    },\n    preNextYearClick (flag) {\n      const year = this.currDate.getFullYear()\n      const months = this.currDate.getMonth()\n      const date = this.currDate.getDate()\n\n      if (flag === 0) {\n        this.currDate = new Date(year - 1, months, date)\n      } else {\n        this.currDate = new Date(year + 1, months, date)\n      }\n    },\n    yearSelect (year) {\n      this.displayYearView = false\n      this.displayMonthView = true\n      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())\n    },\n    daySelect (day) {\n      if (day.sclass === 'datepicker-item-disable') {\n        return false\n      } else {\n        this.currDate = day.date\n        this.val = this.stringify(this.currDate)\n        this.displayDayView = false\n      }\n    },\n    switchMonthView () {\n      this.displayDayView = false\n      this.displayMonthView = true\n    },\n    switchDecadeView () {\n      this.displayMonthView = false\n      this.displayYearView = true\n    },\n    monthSelect (index) {\n      this.displayMonthView = false\n      this.displayDayView = true\n      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())\n    },\n    getYearMonth (year, month) {\n      if (month > 11) {\n        year++\n        month = 0\n      } else if (month < 0) {\n        year--\n        month = 11\n      }\n      return {year: year, month: month}\n    },\n    stringifyDecadeHeader (date) {\n      const yearStr = date.getFullYear().toString()\n      const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0\n      const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10\n      return firstYearOfDecade + '-' + lastYearOfDecade\n    },\n    stringifyDayHeader (date) {\n      return this.text.months[date.getMonth()] + ' ' + date.getFullYear()\n    },\n    parseMonth (date) {\n      return this.text.months[date.getMonth()]\n    },\n    stringifyYearHeader (date) {\n      return date.getFullYear()\n    },\n    stringify (date, format = this.format) {\n      if (!date) date = this.parse()\n      if (!date) return ''\n      const year = date.getFullYear()\n      const month = date.getMonth() + 1\n      const day = date.getDate()\n      const monthName = this.parseMonth(date)\n      return format\n        .replace(/yyyy/g, year)\n        .replace(/yy/g, year)\n        .replace(/MMMM/g, monthName)\n        .replace(/MMM/g, monthName.substring(0, 3))\n        .replace(/MM/g, ('0' + month).slice(-2))\n        .replace(/M(?!a)/g, month)\n        .replace(/dd/g, ('0' + day).slice(-2))\n        .replace(/d/g, day)\n    },\n    parse (str) {\n      if (str === undefined || str === null) { str = this.val }\n      let date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ?\n        new Date(str.substring(6, 10), str.substring(3, 5)-1, str.substring(0, 2)) :\n        new Date(str)\n      return isNaN(date.getFullYear()) ? new Date() : date\n    },\n    getDayCount (year, month) {\n      const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\n      if (month === 1) {\n        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {\n          return 29\n        }\n      }\n      return dict[month]\n    },\n    getDateRange () {\n      this.dateRange = []\n      this.decadeRange = []\n      const time = {\n        year: this.currDate.getFullYear(),\n        month: this.currDate.getMonth(),\n        day: this.currDate.getDate()\n      }\n      const yearStr = time.year.toString()\n      const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1\n      for (let i = 0; i < 12; i++) {\n        this.decadeRange.push({\n          text: firstYearOfDecade + i\n        })\n      }\n\n      const currMonthFirstDay = new Date(time.year, time.month, 1)\n      let firstDayWeek = currMonthFirstDay.getDay() + 1\n      if (firstDayWeek === 0) {\n        firstDayWeek = 7\n      }\n      const dayCount = this.getDayCount(time.year, time.month)\n      if (firstDayWeek > 1) {\n        const preMonth = this.getYearMonth(time.year, time.month - 1)\n        const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)\n        for (let i = 1; i < firstDayWeek; i++) {\n          const dayText = prevMonthDayCount - firstDayWeek + i + 1\n          const date = new Date(preMonth.year, preMonth.month, dayText)\n          let sclass = 'datepicker-item-gray'\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n            sclass = 'datepicker-item-disable'\n          }\n          this.dateRange.push({text: dayText, date, sclass })\n        }\n      }\n\n      for (let i = 1; i <= dayCount; i++) {\n        const date = new Date(time.year, time.month, i)\n        let sclass = ''\n        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n          sclass = 'datepicker-item-disable'\n        }\n        if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month){\n          sclass = 'datepicker-dateRange-item-active'\n        }\n        this.dateRange.push({text: i, date, sclass})\n      }\n\n      if (this.dateRange.length < 42) {\n        const nextMonthNeed = 42 - this.dateRange.length\n        const nextMonth = this.getYearMonth(time.year, time.month + 1)\n\n        for (let i = 1; i <= nextMonthNeed; i++) {\n          const date = new Date(nextMonth.year, nextMonth.month, i)\n          let sclass = 'datepicker-item-gray'\n          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n            sclass = 'datepicker-item-disable'\n          }\n          this.dateRange.push({text: i, date, sclass})\n        }\n      }\n    }\n  },\n  mounted () {\n    this.$emit('child-created', this)\n    this.currDate = this.parse(this.val) || this.parse(new Date())\n    this._blur = e => {\n      if (!this.$el.contains(e.target))\n        this.close()\n    }\n    window.addEventListener('click', this._blur);\n  },\n  beforeDestroy () {\n    window.removeEventListener('click', this._blur)\n  }\n}\n</script>\n\n<style>\n.datepicker {\n  position: relative;\n  display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\n  padding-right: 25px;\n}\n.datepicker > button.close {\n  position: absolute;\n  top: 0;\n  right: 0;\n  outline: none;\n  z-index: 2;\n  display: block;\n  width: 34px;\n  height: 34px;\n  line-height: 34px;\n  text-align: center;\n}\n.datepicker > button.close:focus {\n  opacity: .2;\n}\n.datepicker-popup {\n  position: absolute;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  background: #fff;\n  margin-top: 2px;\n  z-index: 1000;\n  box-shadow: 0 6px 12px rgba(0,0,0,0.175);\n}\n.datepicker-inner {\n  width: 218px;\n}\n.datepicker-body {\n  padding: 10px 10px;\n}\n.datepicker-ctrl p,\n.datepicker-ctrl span,\n.datepicker-body span {\n  display: inline-block;\n  width: 28px;\n  line-height: 28px;\n  height: 28px;\n  border-radius: 4px;\n}\n.datepicker-ctrl p {\n  width: 65%;\n}\n.datepicker-ctrl span {\n  position: absolute;\n}\n.datepicker-body span {\n  text-align: center;\n}\n.datepicker-monthRange span {\n  width: 48px;\n  height: 50px;\n  line-height: 45px;\n}\n.datepicker-item-disable {\n  background-color: white!important;\n  cursor: not-allowed!important;\n}\n.decadeRange span:first-child,\n.decadeRange span:last-child,\n.datepicker-item-disable,\n.datepicker-item-gray {\n  color: #999;\n}\n\n.datepicker-dateRange-item-active:hover,\n.datepicker-dateRange-item-active {\n  background: rgb(50, 118, 177)!important;\n  color: white!important;\n}\n.datepicker-monthRange {\n  margin-top: 10px\n}\n.datepicker-monthRange span,\n.datepicker-ctrl span,\n.datepicker-ctrl p,\n.datepicker-dateRange span {\n  cursor: pointer;\n}\n.datepicker-monthRange span:hover,\n.datepicker-ctrl p:hover,\n.datepicker-ctrl i:hover,\n.datepicker-dateRange span:hover,\n.datepicker-dateRange-item-hover {\n  background-color : #eeeeee;\n}\n.datepicker-weekRange span {\n  font-weight: bold;\n}\n.datepicker-label {\n  background-color: #f8f8f8;\n  font-weight: 700;\n  padding: 7px 0;\n  text-align: center;\n}\n.datepicker-ctrl {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  font-weight: bold;\n  text-align: center;\n}\n.month-btn {\n  font-weight: bold;\n  -webkit-user-select:none;\n  -moz-user-select:none;\n  -ms-user-select:none;\n  user-select:none;\n}\n.datepicker-preBtn {\n  left: 2px;\n}\n.datepicker-nextBtn {\n  right: 2px;\n}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.datepicker {\n    position: relative;\n    display: inline-block;\n}\ninput.datepicker-input.with-reset-button {\n    padding-right: 25px;\n}\n.datepicker > button.close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    outline: none;\n    z-index: 2;\n    display: block;\n    width: 34px;\n    height: 34px;\n    line-height: 34px;\n    text-align: center;\n}\n.datepicker > button.close:focus {\n    opacity: .2;\n}\n.datepicker-popup {\n    position: absolute;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    background: #fff;\n    margin-top: 34px;\n    z-index: 1000;\n    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);\n}\n.datepicker-inner {\n    width: 218px;\n}\n.datepicker-body {\n    padding: 10px 10px;\n}\n.datepicker-ctrl p,\n.datepicker-ctrl span,\n.datepicker-body span {\n    display: inline-block;\n    width: 28px;\n    line-height: 28px;\n    height: 28px;\n    border-radius: 4px;\n}\n.datepicker-ctrl p {\n    width: 65%;\n}\n.datepicker-ctrl span {\n    position: absolute;\n}\n.datepicker-body span {\n    text-align: center;\n}\n.datepicker-monthRange span {\n    width: 48px;\n    height: 50px;\n    line-height: 45px;\n}\n.datepicker-item-disable {\n    background-color: white !important;\n    cursor: not-allowed !important;\n}\n.decadeRange span:first-child,\n.decadeRange span:last-child,\n.datepicker-item-disable,\n.datepicker-item-gray {\n    color: #999;\n}\n.datepicker-dateRange-item-active:hover,\n.datepicker-dateRange-item-active {\n    background: rgb(50, 118, 177) !important;\n    color: white !important;\n}\n.datepicker-monthRange {\n    margin-top: 10px\n}\n.datepicker-monthRange span,\n.datepicker-ctrl span,\n.datepicker-ctrl p,\n.datepicker-dateRange span {\n    cursor: pointer;\n}\n.datepicker-monthRange span:hover,\n.datepicker-ctrl p:hover,\n.datepicker-ctrl i:hover,\n.datepicker-dateRange span:hover,\n.datepicker-dateRange-item-hover {\n    background-color: #eeeeee;\n}\n.datepicker-weekRange span {\n    font-weight: bold;\n}\n.datepicker-label {\n    background-color: #f8f8f8;\n    font-weight: 700;\n    padding: 7px 0;\n    text-align: center;\n}\n.datepicker-ctrl {\n    position: relative;\n    height: 30px;\n    line-height: 30px;\n    font-weight: bold;\n    text-align: center;\n}\n.month-btn {\n    font-weight: bold;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n}\n.datepicker-preBtn {\n    left: 2px;\n}\n.datepicker-nextBtn {\n    right: 2px;\n}\n.datepicker-feedback-glyph {\n    margin-right: 20px;\n}\n", "", {"version":3,"sources":["/./src/DatepickerExtended.vue?57962af0"],"names":[],"mappings":";AAwnBA;IACA,mBAAA;IACA,sBAAA;CACA;AAEA;IACA,oBAAA;CACA;AAEA;IACA,mBAAA;IACA,OAAA;IACA,SAAA;IACA,cAAA;IACA,WAAA;IACA,eAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;CACA;AAEA;IACA,mBAAA;IACA,uBAAA;IACA,mBAAA;IACA,iBAAA;IACA,iBAAA;IACA,cAAA;IACA,4CAAA;CACA;AAEA;IACA,aAAA;CACA;AAEA;IACA,mBAAA;CACA;AAEA;;;IAGA,sBAAA;IACA,YAAA;IACA,kBAAA;IACA,aAAA;IACA,mBAAA;CACA;AAEA;IACA,WAAA;CACA;AAEA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;CACA;AAEA;IACA,mCAAA;IACA,+BAAA;CACA;AAEA;;;;IAIA,YAAA;CACA;AAEA;;IAEA,yCAAA;IACA,wBAAA;CACA;AAEA;IACA,gBAAA;CACA;AAEA;;;;IAIA,gBAAA;CACA;AAEA;;;;;IAKA,0BAAA;CACA;AAEA;IACA,kBAAA;CACA;AAEA;IACA,0BAAA;IACA,iBAAA;IACA,eAAA;IACA,mBAAA;CACA;AAEA;IACA,mBAAA;IACA,aAAA;IACA,kBAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,kBAAA;IACA,0BAAA;IACA,uBAAA;IACA,sBAAA;IACA,kBAAA;CACA;AAEA;IACA,UAAA;CACA;AAEA;IACA,WAAA;CACA;AAEA;IACA,mBAAA;CACA","file":"DatepickerExtended.vue","sourcesContent":["<template>\n    <div :class=\"['form-group',{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}]\">\n        <label v-if=\"label\" class=\"control-label\">{{label}}</label>\n        <div class=\"datepicker\" :class=\"['input-group', cssClass]\">\n            <span v-if=\"groupAddon\" class=\"input-group-addon\">\n              <i v-if=\"groupFaIcon\" :class=\"groupFaIcon\" style=\"margin-right: 3px\"></i>\n              {{groupAddon}}\n            </span>\n            <input class=\"form-control datepicker-input\" type=\"text\"\n                   v-model=\"val\"\n                   :class=\"{'with-reset-button': clearButton}\"\n                   :placeholder=\"placeholder\"\n                   :style=\"{width:width}\"\n                   @click=\"inputClick\"\n                   @focus=\"onFocus\"\n                   @keyup=\"onKeyup\"\n            />\n            <span :class=\"['form-control-feedback dropdown-glyph glyphicon datepicker-feedback-glyph',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]\"\n                  aria-hidden='true'></span>\n            <button v-if=\"clearButton&&val\" type=\"button\" class=\"close\" @click=\"val = ''\">\n                <span>&times;</span>\n            </button>\n            <div class=\"datepicker-popup\" v-show=\"displayDayView\">\n                <div class=\"datepicker-inner\">\n                    <div class=\"datepicker-body\">\n                        <div class=\"datepicker-ctrl\">\n                            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(0)\"></span>\n                            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextMonthClick(1)\"></span>\n                            <p @click=\"switchMonthView\">{{stringifyDayHeader(currDate)}}</p>\n                        </div>\n                        <div class=\"datepicker-weekRange\">\n                            <span v-for=\"w in text.daysOfWeek\">{{w}}</span>\n                        </div>\n                        <div class=\"datepicker-dateRange\">\n                            <span v-for=\"d in dateRange\" :class=\"d.sclass\" @click=\"daySelect(d)\">{{d.text}}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"datepicker-popup\" v-show=\"displayMonthView\">\n                <div class=\"datepicker-inner\">\n                    <div class=\"datepicker-body\">\n                        <div class=\"datepicker-ctrl\">\n                            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(0)\"></span>\n                            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextYearClick(1)\"></span>\n                            <p @click=\"switchDecadeView\">{{stringifyYearHeader(currDate)}}</p>\n                        </div>\n                        <div class=\"datepicker-monthRange\">\n                            <template v-for=\"(m, index) in text.months\">\n                <span v-text=\"m.substr(0,3)\"\n                      :class=\"{'datepicker-dateRange-item-active':\n                    (text.months[parse(val).getMonth()] === m) &&\n                    currDate.getFullYear() === parse(val).getFullYear()}\"\n                      @click=\"monthSelect(index)\"\n                ></span>\n                            </template>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"datepicker-popup\" v-show=\"displayYearView\">\n                <div class=\"datepicker-inner\">\n                    <div class=\"datepicker-body\">\n                        <div class=\"datepicker-ctrl\">\n                            <span :class=\"preBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(0)\"></span>\n                            <span :class=\"nextBtnClasses\" aria-hidden=\"true\" @click=\"preNextDecadeClick(1)\"></span>\n                            <p>{{stringifyDecadeHeader(currDate)}}</p>\n                        </div>\n                        <div class=\"datepicker-monthRange decadeRange\">\n                            <template v-for=\"decade in decadeRange\">\n                <span :class=\"{'datepicker-dateRange-item-active':parse(val).getFullYear() === decade.text}\"\n                      v-text=\"decade.text\"\n                      @click.stop=\"yearSelect(decade.text)\"\n                ></span>\n                            </template>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n        <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n    </div>\n</template>\n\n<script>\n    import {translations} from './utils/utils.js'\n    // import $ from './utils/NodeList.js'\n\n    export default {\n        props: {\n            value: {type: String},\n            format: {default: 'MM/dd/yyyy'},\n            disabledDaysOfWeek: {\n                type: Array, default() {\n                    return []\n                }\n            },\n            width: {type: String},\n            clearButton: {type: Boolean, default: false},\n            lang: {type: String, default: typeof navigator !== 'undefined' ? navigator.language : \"zh-CN\"},\n            placeholder: {type: String},\n            iconsFont: {type: String, default: 'glyphicon'},\n            icon: {type: Boolean, default: false},\n            label: {type: String, default: null},\n            cssClass: {type: String, default: null},\n            groupAddon: {type: String, default: null},\n            groupFaIcon: {type: String, default: null},\n            error: {type: String, default: null},\n            help: {type: String, default: null},\n            hideHelp: {type: Boolean, default: true},\n            required: {type: Boolean, default: null},\n            openOnFocus: {type: Boolean, default: false},\n            validationDelay: {type: Number, default: 250},\n            formatDelay: {type: Number, default: 250},\n            month: {type: String, default:''},\n            day: {type: String, default: ''},\n            year: {type: String, default: ''}\n        },\n        data() {\n            return {\n                currDate: new Date(),\n                dateRange: [],\n                decadeRange: [],\n                displayDayView: false,\n                displayMonthView: false,\n                displayYearView: false,\n                val: this.value,\n                valid: null,\n                displayValidationErrorMessage: false\n            }\n        },\n        watch: {\n            currDate() {\n                this.getDateRange();\n            },\n            format() {\n                this.val = this.stringify(this.currDate);\n            },\n            val(val, old) {\n                this.$emit('input', val);\n                if (val !== old) {\n                    this.eval();\n                }\n            },\n            valid(val, old) {\n                this.$emit('isvalid', val);\n                this.$emit(!val ? 'invalid' : 'valid');\n                if (this._parent) this._parent.validate()\n            },\n            value(val) {\n                if (this.val !== val) {\n                    this.val = val;\n                }\n            }\n        },\n        computed: {\n            canValidate() {\n                return true\n            },\n            text() {\n                return translations(this.lang)\n            },\n            preBtnClasses() {\n                return `datepicker-preBtn ${this.iconsFont} ${this.iconsFont}-chevron-left`\n            },\n            nextBtnClasses() {\n                return `datepicker-nextBtn ${this.iconsFont} ${this.iconsFont}-chevron-right`\n            },\n            disabledDaysArray() {\n                return this.disabledDaysOfWeek.map(d => parseInt(d, 10))\n            },\n            showError() {\n                return this.error && this.valid === false\n            },\n            showHelp() {\n                return this.help && (!this.showError || !this.hideHelp)\n            },\n            errorText() {\n                var value = this.value;\n                var error = [this.error];\n                if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');\n                if (!this.displayValidationErrorMessage && this.format) error.push('( Check Date: ' + this.format + ')');\n                return error.join(' ');\n            }\n        },\n        methods: {\n            extractDateParts: function (value) {\n                var format = this.format;\n                var pos;\n                var valuePieces;\n                var month;\n                var year;\n                var day;\n                var dateString = \"\";\n                var date = null;\n                var valid = true;\n\n                if (format.indexOf('-') > -1) {\n                    //dash format\n                    pos = format.split('-');\n                } else {\n                    pos = format.split('/');\n                }\n\n                if (value.indexOf('-') > -1) {\n                    //dash format\n                    valuePieces = value.split('-');\n                } else {\n                    valuePieces = value.split('/');\n                }\n\n                if (valuePieces.length < 3) {\n                    return false;\n                }\n                var checkPosition = function (index, pos, valuePieces) {\n\n                    switch (pos[index]) {\n                        case \"MM\":\n                            month = index;\n                            if (valuePieces[index].length != 2) {\n                                return false;\n                            }\n\n                            if (isNaN(valuePieces[index])) {\n                                return false;\n                            }\n\n                            if (parseInt(valuePieces[index]) < 1 && parseInt(valuePieces[index]) > 12) {\n                                return false;\n                            }\n                            month = parseInt(valuePieces[index]);\n                            break;\n                        case \"dd\":\n                            if (valuePieces[index].length != 2) {\n                                return false;\n                            }\n                            if (isNaN(valuePieces[index])) {\n                                return false;\n                            }\n                            day = parseInt(valuePieces[index]);\n                            break;\n                        case \"yy\":\n                            year = index;\n                            if (valuePieces[index].length != 2) {\n                                return false;\n                            }\n\n                            if (isNaN(valuePieces[index])) {\n                                return false;\n                            }\n\n                            if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 99) {\n                                return false;\n                            }\n                            year = parseInt(valuePieces[index]);\n                        case \"yyyy\":\n                            year = index;\n                            if (valuePieces[index].length != 4) {\n                                return false;\n                            }\n\n                            if (isNaN(valuePieces[index])) {\n                                return false;\n                            }\n\n                            if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 9999) {\n                                return false;\n                            }\n                            year = parseInt(valuePieces[index]);\n                            break;\n                    }\n                    return true;\n                };\n\n                if (!checkPosition(0,pos,valuePieces)) {\n                    valid = false;\n                }\n                if (!checkPosition(1,pos,valuePieces)) {\n                    valid = false;\n                }\n\n                if (!checkPosition(2,pos,valuePieces)) {\n                    valid = false;\n                }\n\n                if (valid) {\n                    var daysInMonth = function (month, year) {\n                        return new Date(year, month, 0).getDate();\n                    };\n\n                    var days = daysInMonth(month, year);\n                    if (day > days || day < 1) {\n                        valid = false;\n                    }\n                }\n\n                var getTimeZone = function () {\n                    var offset = new Date().getTimezoneOffset();\n                    var o = Math.abs(offset);\n                    var strVal = (offset < 0 ? \"+\" : \"-\") + (\"00\" + Math.floor(o / 60)).slice(-2) + \":\" + (\"00\" + (o % 60)).slice(-2);\n\n                    return {stringVal: strVal, modifier: (o / 60)};\n                };\n\n                if (valid) {\n                    //make a good date and deal with local time malfunction.\n                    var zone = getTimeZone();\n                    date =  new Date(year + '-' + month + '-' + day + ' GMT' + zone.stringVal);\n                }\n                return {month: month, year: year, day: day, valid: valid, date: date};\n            },\n            validate() {\n                var valid = true;\n                if (!this.canValidate) {\n                    return true;\n                }\n\n                var value = (this.val || '').trim();\n                if (!value) {\n                    return !this.required;\n                }\n\n                var outD = this.extractDateParts(value);\n                return outD.valid;\n            },\n            onKeyup(e) {\n                if (this._timeout.onKeyUp) clearTimeout(this._timeout.onKeyUp);\n                if (e.key == \"Escape\") {\n                    this.val = '';\n                    this.eval();\n                    return;\n                }\n                this._timeout.onKeyUp = setTimeout(() => {\n                    this.formatValue();\n                    this.eval();\n                    this._timeout.onKeyUp = null\n                }, this.formatDelay)\n\n            },\n            formatValue() {\n                var val = this.val;\n                var format = this.format;\n\n                if (!val) {\n                    return;\n                }\n\n                if (val.length != format.length - 2) {\n                    return;\n                }\n\n                var pos;\n                var valuePieces;\n                var delimChar;\n                if (format.indexOf('-') > -1) {\n                    //dash format\n                    pos = format.split('-');\n                    delimChar = '-';\n                } else {\n                    pos = format.split('/');\n                    delimChar = '/';\n                }\n\n                val = val.replace(/[^0-9]/g,'');\n                val = val.trim();\n\n                if (val) {\n                    val = val.slice(0, pos[0].length) + delimChar + val.slice(pos[0].length);\n                    val = val.slice(0, pos[0].length + 1 + pos[1].length, pos[1].length) + delimChar + val.slice(pos[0].length + 1 + pos[1].length);\n                }\n                this.val = val;\n                this.eval();\n                this.close();\n            },\n            close() {\n                this.displayDayView = this.displayMonthView = this.displayYearView = false;\n            },\n            eval() {\n                if (this._timeout.eval) clearTimeout(this._timeout.eval);\n                if (!this.canValidate) {\n                    this.valid = true\n                } else {\n                    this._timeout.eval = setTimeout(() => {\n                        this.valid = this.validate();\n                        this._timeout.eval = null\n                    }, this.validationDelay)\n                }\n            },\n            focus() {\n                this.input.focus()\n            },\n            onFocus() {\n                if (this.openOnFocus) {\n                    this.inputClick();\n                }\n            },\n            inputClick() {\n                if (!this.val) {\n                    this.val = '';\n                    this.currDate = new Date();\n                } else {\n                    var outD = this.extractDateParts(this.val);\n                    if (outD.valid) {\n                        this.currDate = outD.date;\n                    } else {\n                        this.currDate = new Date();\n                    }\n                }\n                if (this.displayMonthView || this.displayYearView) {\n                    this.displayDayView = false;\n                } else {\n                    this.displayDayView = !this.displayDayView;\n                }\n            },\n            preNextDecadeClick(flag) {\n                const year = this.currDate.getFullYear();\n                const months = this.currDate.getMonth();\n                const date = this.currDate.getDate();\n\n                if (flag === 0) {\n                    this.currDate = new Date(year - 10, months, date);\n                } else {\n                    this.currDate = new Date(year + 10, months, date);\n                }\n            },\n            preNextMonthClick(flag) {\n                const year = this.currDate.getFullYear();\n                const month = this.currDate.getMonth();\n                const date = this.currDate.getDate();\n\n                if (flag === 0) {\n                    const preMonth = this.getYearMonth(year, month - 1);\n                    this.currDate = new Date(preMonth.year, preMonth.month, date);\n                } else {\n                    const nextMonth = this.getYearMonth(year, month + 1);\n                    this.currDate = new Date(nextMonth.year, nextMonth.month, date);\n                }\n            },\n            preNextYearClick(flag) {\n                const year = this.currDate.getFullYear();\n                const months = this.currDate.getMonth();\n                const date = this.currDate.getDate();\n\n                if (flag === 0) {\n                    this.currDate = new Date(year - 1, months, date);\n                } else {\n                    this.currDate = new Date(year + 1, months, date);\n                }\n            },\n            yearSelect(year) {\n                this.displayYearView = false;\n                this.displayMonthView = true;\n                this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate());\n            },\n            daySelect(day) {\n                if (day.sclass === 'datepicker-item-disable') {\n                    return false;\n                } else {\n                    this.currDate = day.date;\n                    this.val = this.stringify(this.currDate);\n                    this.displayDayView = false;\n                }\n            },\n            switchMonthView() {\n                this.displayDayView = false;\n                this.displayMonthView = true;\n            },\n            switchDecadeView() {\n                this.displayMonthView = false;\n                this.displayYearView = true;\n            },\n            monthSelect(index) {\n                this.displayMonthView = false;\n                this.displayDayView = true;\n                this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate())\n            },\n            getYearMonth(year, month) {\n                if (month > 11) {\n                    year++;\n                    month = 0;\n                } else if (month < 0) {\n                    year--;\n                    month = 11;\n                }\n                return {year: year, month: month}\n            },\n            getDateParts(date) {\n                  var valStrings = {\n                      fullYear: date.getFullYear().toString()\n                  }\n            },\n            stringifyDecadeHeader(date) {\n                const yearStr = date.getFullYear().toString();\n                const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0;\n                const lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10;\n                return firstYearOfDecade + '-' + lastYearOfDecade;\n            },\n            stringifyDayHeader(date) {\n                return this.text.months[date.getMonth()] + ' ' + date.getFullYear();\n            },\n            parseMonth(date) {\n                return this.text.months[date.getMonth()];\n            },\n            stringifyYearHeader(date) {\n                return date.getFullYear();\n            },\n            stringify(date, format = this.format) {\n                if (!date) date = this.parse();\n                if (!date) return '';\n                const year = date.getFullYear();\n                const month = date.getMonth() + 1;\n                const day = date.getDate();\n                const monthName = this.parseMonth(date);\n                var fmt = format\n                    .replace(/yyyy/g, year)\n                    .replace(/yy/g, year)\n                    .replace(/MMMM/g, monthName)\n                    .replace(/MMM/g, monthName.substring(0, 3))\n                    .replace(/MM/g, ('0' + month).slice(-2))\n                    .replace(/M(?!a)/g, month)\n                    .replace(/dd/g, ('0' + day).slice(-2))\n                    .replace(/d/g, day);\n                return fmt;\n            },\n            parse(str) {\n\n                if (str === undefined || str === null) {\n                    str = this.val;\n                }\n\n                if (str) {\n                    var outD = this.extractDateParts(str);\n                    return (outD.valid) ? outD.date : new Date();\n                } else {\n                    return new Date();\n                }\n            },\n            getDayCount(year, month) {\n                const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];\n                if (month === 1) {\n                    if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {\n                        return 29;\n                    }\n                }\n                return dict[month];\n            },\n            getDateRange() {\n                this.dateRange = [];\n                this.decadeRange = [];\n                const time = {\n                    year: this.currDate.getFullYear(),\n                    month: this.currDate.getMonth(),\n                    day: this.currDate.getDate()\n                };\n                const yearStr = time.year.toString();\n                const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1;\n                for (var i = 0; i < 12; i++) {\n                    this.decadeRange.push({\n                        text: firstYearOfDecade + i\n                    });\n                }\n\n                const currMonthFirstDay = new Date(time.year, time.month, 1);\n                var firstDayWeek = currMonthFirstDay.getDay() + 1;\n                if (firstDayWeek === 0) {\n                    firstDayWeek = 7;\n                }\n                const dayCount = this.getDayCount(time.year, time.month);\n                if (firstDayWeek > 1) {\n                    const preMonth = this.getYearMonth(time.year, time.month - 1);\n                    const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month);\n                    for (var i = 1; i < firstDayWeek; i++) {\n                        const dayText = prevMonthDayCount - firstDayWeek + i + 1;\n                        const date = new Date(preMonth.year, preMonth.month, dayText);\n                        var sclass = 'datepicker-item-gray';\n                        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n                            sclass = 'datepicker-item-disable';\n                        }\n                        this.dateRange.push({text: dayText, date, sclass});\n                    }\n                }\n\n                for (var i = 1; i <= dayCount; i++) {\n                    const date = new Date(time.year, time.month, i);\n                    var sclass = '';\n                    if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n                        sclass = 'datepicker-item-disable';\n                    }\n                    if (i == time.day && date.getFullYear() == time.year && date.getMonth() == time.month) {\n                        sclass = 'datepicker-dateRange-item-active';\n                    }\n                    this.dateRange.push({text: i, date, sclass});\n                }\n\n                if (this.dateRange.length < 42) {\n                    const nextMonthNeed = 42 - this.dateRange.length;\n                    const nextMonth = this.getYearMonth(time.year, time.month + 1);\n\n                    for (var i = 1; i <= nextMonthNeed; i++) {\n                        const date = new Date(nextMonth.year, nextMonth.month, i);\n                        var sclass = 'datepicker-item-gray';\n                        if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {\n                            sclass = 'datepicker-item-disable';\n                        }\n                        this.dateRange.push({text: i, date, sclass});\n                    }\n                }\n            },\n            setValidState(state) {\n                this.valid = state;\n            }\n        },\n        created() {\n            this._timeout = {};\n        },\n        mounted() {\n            this.$emit('child-created', this);\n            this.currDate = this.parse(this.val) || this.parse(new Date());\n            this._blur = e => {\n                if (!this.$el.contains(e.target))\n                    this.close();\n            };\n            window.addEventListener('click', this._blur);\n        },\n        beforeDestroy() {\n            window.removeEventListener('click', this._blur);\n        }\n    }\n</script>\n\n<style>\n    .datepicker {\n        position: relative;\n        display: inline-block;\n    }\n\n    input.datepicker-input.with-reset-button {\n        padding-right: 25px;\n    }\n\n    .datepicker > button.close {\n        position: absolute;\n        top: 0;\n        right: 0;\n        outline: none;\n        z-index: 2;\n        display: block;\n        width: 34px;\n        height: 34px;\n        line-height: 34px;\n        text-align: center;\n    }\n\n    .datepicker > button.close:focus {\n        opacity: .2;\n    }\n\n    .datepicker-popup {\n        position: absolute;\n        border: 1px solid #ccc;\n        border-radius: 5px;\n        background: #fff;\n        margin-top: 34px;\n        z-index: 1000;\n        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);\n    }\n\n    .datepicker-inner {\n        width: 218px;\n    }\n\n    .datepicker-body {\n        padding: 10px 10px;\n    }\n\n    .datepicker-ctrl p,\n    .datepicker-ctrl span,\n    .datepicker-body span {\n        display: inline-block;\n        width: 28px;\n        line-height: 28px;\n        height: 28px;\n        border-radius: 4px;\n    }\n\n    .datepicker-ctrl p {\n        width: 65%;\n    }\n\n    .datepicker-ctrl span {\n        position: absolute;\n    }\n\n    .datepicker-body span {\n        text-align: center;\n    }\n\n    .datepicker-monthRange span {\n        width: 48px;\n        height: 50px;\n        line-height: 45px;\n    }\n\n    .datepicker-item-disable {\n        background-color: white !important;\n        cursor: not-allowed !important;\n    }\n\n    .decadeRange span:first-child,\n    .decadeRange span:last-child,\n    .datepicker-item-disable,\n    .datepicker-item-gray {\n        color: #999;\n    }\n\n    .datepicker-dateRange-item-active:hover,\n    .datepicker-dateRange-item-active {\n        background: rgb(50, 118, 177) !important;\n        color: white !important;\n    }\n\n    .datepicker-monthRange {\n        margin-top: 10px\n    }\n\n    .datepicker-monthRange span,\n    .datepicker-ctrl span,\n    .datepicker-ctrl p,\n    .datepicker-dateRange span {\n        cursor: pointer;\n    }\n\n    .datepicker-monthRange span:hover,\n    .datepicker-ctrl p:hover,\n    .datepicker-ctrl i:hover,\n    .datepicker-dateRange span:hover,\n    .datepicker-dateRange-item-hover {\n        background-color: #eeeeee;\n    }\n\n    .datepicker-weekRange span {\n        font-weight: bold;\n    }\n\n    .datepicker-label {\n        background-color: #f8f8f8;\n        font-weight: 700;\n        padding: 7px 0;\n        text-align: center;\n    }\n\n    .datepicker-ctrl {\n        position: relative;\n        height: 30px;\n        line-height: 30px;\n        font-weight: bold;\n        text-align: center;\n    }\n\n    .month-btn {\n        font-weight: bold;\n        -webkit-user-select: none;\n        -moz-user-select: none;\n        -ms-user-select: none;\n        user-select: none;\n    }\n\n    .datepicker-preBtn {\n        left: 2px;\n    }\n\n    .datepicker-nextBtn {\n        right: 2px;\n    }\n\n    .datepicker-feedback-glyph {\n        margin-right: 20px;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -4941,7 +4941,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _utils = __webpack_require__(65);
@@ -4949,266 +4949,559 @@ return /******/ (function(modules) { // webpackBootstrap
 	// import $ from './utils/NodeList.js'
 	
 	exports.default = {
-	  props: {
-	    value: { type: String },
-	    format: { default: 'MM/dd/yyyy' },
-	    disabledDaysOfWeek: { type: Array, default: function _default() {
-	        return [];
-	      }
+	    props: {
+	        value: { type: String },
+	        format: { default: 'MM/dd/yyyy' },
+	        disabledDaysOfWeek: {
+	            type: Array, default: function _default() {
+	                return [];
+	            }
+	        },
+	        width: { type: String },
+	        clearButton: { type: Boolean, default: false },
+	        lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
+	        placeholder: { type: String },
+	        iconsFont: { type: String, default: 'glyphicon' },
+	        icon: { type: Boolean, default: false },
+	        label: { type: String, default: null },
+	        cssClass: { type: String, default: null },
+	        groupAddon: { type: String, default: null },
+	        groupFaIcon: { type: String, default: null },
+	        error: { type: String, default: null },
+	        help: { type: String, default: null },
+	        hideHelp: { type: Boolean, default: true },
+	        required: { type: Boolean, default: null },
+	        openOnFocus: { type: Boolean, default: false },
+	        validationDelay: { type: Number, default: 250 },
+	        formatDelay: { type: Number, default: 250 },
+	        month: { type: String, default: '' },
+	        day: { type: String, default: '' },
+	        year: { type: String, default: '' }
 	    },
-	    width: { type: String },
-	    clearButton: { type: Boolean, default: false },
-	    lang: { type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN" },
-	    placeholder: { type: String },
-	    iconsFont: { type: String, default: 'glyphicon' }
-	  },
-	  data: function data() {
-	    return {
-	      currDate: new Date(),
-	      dateRange: [],
-	      decadeRange: [],
-	      displayDayView: false,
-	      displayMonthView: false,
-	      displayYearView: false,
-	      val: this.value
-	    };
-	  },
+	    data: function data() {
+	        return {
+	            currDate: new Date(),
+	            dateRange: [],
+	            decadeRange: [],
+	            displayDayView: false,
+	            displayMonthView: false,
+	            displayYearView: false,
+	            val: this.value,
+	            valid: null,
+	            displayValidationErrorMessage: false
+	        };
+	    },
 	
-	  watch: {
-	    currDate: function currDate() {
-	      this.getDateRange();
+	    watch: {
+	        currDate: function currDate() {
+	            this.getDateRange();
+	        },
+	        format: function format() {
+	            this.val = this.stringify(this.currDate);
+	        },
+	        val: function val(_val, old) {
+	            this.$emit('input', _val);
+	            if (_val !== old) {
+	                this.eval();
+	            }
+	        },
+	        valid: function valid(val, old) {
+	            this.$emit('isvalid', val);
+	            this.$emit(!val ? 'invalid' : 'valid');
+	            if (this._parent) this._parent.validate();
+	        },
+	        value: function value(val) {
+	            if (this.val !== val) {
+	                this.val = val;
+	            }
+	        }
 	    },
-	    format: function format() {
-	      this.val = this.stringify(this.currDate);
+	    computed: {
+	        canValidate: function canValidate() {
+	            return true;
+	        },
+	        text: function text() {
+	            return (0, _utils.translations)(this.lang);
+	        },
+	        preBtnClasses: function preBtnClasses() {
+	            return 'datepicker-preBtn ' + this.iconsFont + ' ' + this.iconsFont + '-chevron-left';
+	        },
+	        nextBtnClasses: function nextBtnClasses() {
+	            return 'datepicker-nextBtn ' + this.iconsFont + ' ' + this.iconsFont + '-chevron-right';
+	        },
+	        disabledDaysArray: function disabledDaysArray() {
+	            return this.disabledDaysOfWeek.map(function (d) {
+	                return parseInt(d, 10);
+	            });
+	        },
+	        showError: function showError() {
+	            return this.error && this.valid === false;
+	        },
+	        showHelp: function showHelp() {
+	            return this.help && (!this.showError || !this.hideHelp);
+	        },
+	        errorText: function errorText() {
+	            var value = this.value;
+	            var error = [this.error];
+	            if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
+	            if (!this.displayValidationErrorMessage && this.format) error.push('( Check Date: ' + this.format + ')');
+	            return error.join(' ');
+	        }
 	    },
-	    val: function val(_val, old) {
-	      this.$emit('input', _val);
+	    methods: {
+	        extractDateParts: function extractDateParts(value) {
+	            var format = this.format;
+	            var pos;
+	            var valuePieces;
+	            var month;
+	            var year;
+	            var day;
+	            var dateString = "";
+	            var date = null;
+	            var valid = true;
+	
+	            if (format.indexOf('-') > -1) {
+	                //dash format
+	                pos = format.split('-');
+	            } else {
+	                pos = format.split('/');
+	            }
+	
+	            if (value.indexOf('-') > -1) {
+	                //dash format
+	                valuePieces = value.split('-');
+	            } else {
+	                valuePieces = value.split('/');
+	            }
+	
+	            if (valuePieces.length < 3) {
+	                return false;
+	            }
+	            var checkPosition = function checkPosition(index, pos, valuePieces) {
+	
+	                switch (pos[index]) {
+	                    case "MM":
+	                        month = index;
+	                        if (valuePieces[index].length != 2) {
+	                            return false;
+	                        }
+	
+	                        if (isNaN(valuePieces[index])) {
+	                            return false;
+	                        }
+	
+	                        if (parseInt(valuePieces[index]) < 1 && parseInt(valuePieces[index]) > 12) {
+	                            return false;
+	                        }
+	                        month = parseInt(valuePieces[index]);
+	                        break;
+	                    case "dd":
+	                        if (valuePieces[index].length != 2) {
+	                            return false;
+	                        }
+	                        if (isNaN(valuePieces[index])) {
+	                            return false;
+	                        }
+	                        day = parseInt(valuePieces[index]);
+	                        break;
+	                    case "yy":
+	                        year = index;
+	                        if (valuePieces[index].length != 2) {
+	                            return false;
+	                        }
+	
+	                        if (isNaN(valuePieces[index])) {
+	                            return false;
+	                        }
+	
+	                        if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 99) {
+	                            return false;
+	                        }
+	                        year = parseInt(valuePieces[index]);
+	                    case "yyyy":
+	                        year = index;
+	                        if (valuePieces[index].length != 4) {
+	                            return false;
+	                        }
+	
+	                        if (isNaN(valuePieces[index])) {
+	                            return false;
+	                        }
+	
+	                        if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 9999) {
+	                            return false;
+	                        }
+	                        year = parseInt(valuePieces[index]);
+	                        break;
+	                }
+	                return true;
+	            };
+	
+	            if (!checkPosition(0, pos, valuePieces)) {
+	                valid = false;
+	            }
+	            if (!checkPosition(1, pos, valuePieces)) {
+	                valid = false;
+	            }
+	
+	            if (!checkPosition(2, pos, valuePieces)) {
+	                valid = false;
+	            }
+	
+	            if (valid) {
+	                var daysInMonth = function daysInMonth(month, year) {
+	                    return new Date(year, month, 0).getDate();
+	                };
+	
+	                var days = daysInMonth(month, year);
+	                if (day > days || day < 1) {
+	                    valid = false;
+	                }
+	            }
+	
+	            var getTimeZone = function getTimeZone() {
+	                var offset = new Date().getTimezoneOffset();
+	                var o = Math.abs(offset);
+	                var strVal = (offset < 0 ? "+" : "-") + ("00" + Math.floor(o / 60)).slice(-2) + ":" + ("00" + o % 60).slice(-2);
+	
+	                return { stringVal: strVal, modifier: o / 60 };
+	            };
+	
+	            if (valid) {
+	                //make a good date and deal with local time malfunction.
+	                var zone = getTimeZone();
+	                date = new Date(year + '-' + month + '-' + day + ' GMT' + zone.stringVal);
+	            }
+	            return { month: month, year: year, day: day, valid: valid, date: date };
+	        },
+	        validate: function validate() {
+	            var valid = true;
+	            if (!this.canValidate) {
+	                return true;
+	            }
+	
+	            var value = (this.val || '').trim();
+	            if (!value) {
+	                return !this.required;
+	            }
+	
+	            var outD = this.extractDateParts(value);
+	            return outD.valid;
+	        },
+	        onKeyup: function onKeyup(e) {
+	            var _this = this;
+	
+	            if (this._timeout.onKeyUp) clearTimeout(this._timeout.onKeyUp);
+	            if (e.key == "Escape") {
+	                this.val = '';
+	                this.eval();
+	                return;
+	            }
+	            this._timeout.onKeyUp = setTimeout(function () {
+	                _this.formatValue();
+	                _this.eval();
+	                _this._timeout.onKeyUp = null;
+	            }, this.formatDelay);
+	        },
+	        formatValue: function formatValue() {
+	            var val = this.val;
+	            var format = this.format;
+	
+	            if (!val) {
+	                return;
+	            }
+	
+	            if (val.length != format.length - 2) {
+	                return;
+	            }
+	
+	            var pos;
+	            var valuePieces;
+	            var delimChar;
+	            if (format.indexOf('-') > -1) {
+	                //dash format
+	                pos = format.split('-');
+	                delimChar = '-';
+	            } else {
+	                pos = format.split('/');
+	                delimChar = '/';
+	            }
+	
+	            val = val.replace(/[^0-9]/g, '');
+	            val = val.trim();
+	
+	            if (val) {
+	                val = val.slice(0, pos[0].length) + delimChar + val.slice(pos[0].length);
+	                val = val.slice(0, pos[0].length + 1 + pos[1].length, pos[1].length) + delimChar + val.slice(pos[0].length + 1 + pos[1].length);
+	            }
+	            this.val = val;
+	            this.eval();
+	            this.close();
+	        },
+	        close: function close() {
+	            this.displayDayView = this.displayMonthView = this.displayYearView = false;
+	        },
+	        eval: function _eval() {
+	            var _this2 = this;
+	
+	            if (this._timeout.eval) clearTimeout(this._timeout.eval);
+	            if (!this.canValidate) {
+	                this.valid = true;
+	            } else {
+	                this._timeout.eval = setTimeout(function () {
+	                    _this2.valid = _this2.validate();
+	                    _this2._timeout.eval = null;
+	                }, this.validationDelay);
+	            }
+	        },
+	        focus: function focus() {
+	            this.input.focus();
+	        },
+	        onFocus: function onFocus() {
+	            if (this.openOnFocus) {
+	                this.inputClick();
+	            }
+	        },
+	        inputClick: function inputClick() {
+	            if (!this.val) {
+	                this.val = '';
+	                this.currDate = new Date();
+	            } else {
+	                var outD = this.extractDateParts(this.val);
+	                if (outD.valid) {
+	                    this.currDate = outD.date;
+	                } else {
+	                    this.currDate = new Date();
+	                }
+	            }
+	            if (this.displayMonthView || this.displayYearView) {
+	                this.displayDayView = false;
+	            } else {
+	                this.displayDayView = !this.displayDayView;
+	            }
+	        },
+	        preNextDecadeClick: function preNextDecadeClick(flag) {
+	            var year = this.currDate.getFullYear();
+	            var months = this.currDate.getMonth();
+	            var date = this.currDate.getDate();
+	
+	            if (flag === 0) {
+	                this.currDate = new Date(year - 10, months, date);
+	            } else {
+	                this.currDate = new Date(year + 10, months, date);
+	            }
+	        },
+	        preNextMonthClick: function preNextMonthClick(flag) {
+	            var year = this.currDate.getFullYear();
+	            var month = this.currDate.getMonth();
+	            var date = this.currDate.getDate();
+	
+	            if (flag === 0) {
+	                var preMonth = this.getYearMonth(year, month - 1);
+	                this.currDate = new Date(preMonth.year, preMonth.month, date);
+	            } else {
+	                var nextMonth = this.getYearMonth(year, month + 1);
+	                this.currDate = new Date(nextMonth.year, nextMonth.month, date);
+	            }
+	        },
+	        preNextYearClick: function preNextYearClick(flag) {
+	            var year = this.currDate.getFullYear();
+	            var months = this.currDate.getMonth();
+	            var date = this.currDate.getDate();
+	
+	            if (flag === 0) {
+	                this.currDate = new Date(year - 1, months, date);
+	            } else {
+	                this.currDate = new Date(year + 1, months, date);
+	            }
+	        },
+	        yearSelect: function yearSelect(year) {
+	            this.displayYearView = false;
+	            this.displayMonthView = true;
+	            this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate());
+	        },
+	        daySelect: function daySelect(day) {
+	            if (day.sclass === 'datepicker-item-disable') {
+	                return false;
+	            } else {
+	                this.currDate = day.date;
+	                this.val = this.stringify(this.currDate);
+	                this.displayDayView = false;
+	            }
+	        },
+	        switchMonthView: function switchMonthView() {
+	            this.displayDayView = false;
+	            this.displayMonthView = true;
+	        },
+	        switchDecadeView: function switchDecadeView() {
+	            this.displayMonthView = false;
+	            this.displayYearView = true;
+	        },
+	        monthSelect: function monthSelect(index) {
+	            this.displayMonthView = false;
+	            this.displayDayView = true;
+	            this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate());
+	        },
+	        getYearMonth: function getYearMonth(year, month) {
+	            if (month > 11) {
+	                year++;
+	                month = 0;
+	            } else if (month < 0) {
+	                year--;
+	                month = 11;
+	            }
+	            return { year: year, month: month };
+	        },
+	        getDateParts: function getDateParts(date) {
+	            var valStrings = {
+	                fullYear: date.getFullYear().toString()
+	            };
+	        },
+	        stringifyDecadeHeader: function stringifyDecadeHeader(date) {
+	            var yearStr = date.getFullYear().toString();
+	            var firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0;
+	            var lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10;
+	            return firstYearOfDecade + '-' + lastYearOfDecade;
+	        },
+	        stringifyDayHeader: function stringifyDayHeader(date) {
+	            return this.text.months[date.getMonth()] + ' ' + date.getFullYear();
+	        },
+	        parseMonth: function parseMonth(date) {
+	            return this.text.months[date.getMonth()];
+	        },
+	        stringifyYearHeader: function stringifyYearHeader(date) {
+	            return date.getFullYear();
+	        },
+	        stringify: function stringify(date) {
+	            var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.format;
+	
+	            if (!date) date = this.parse();
+	            if (!date) return '';
+	            var year = date.getFullYear();
+	            var month = date.getMonth() + 1;
+	            var day = date.getDate();
+	            var monthName = this.parseMonth(date);
+	            var fmt = format.replace(/yyyy/g, year).replace(/yy/g, year).replace(/MMMM/g, monthName).replace(/MMM/g, monthName.substring(0, 3)).replace(/MM/g, ('0' + month).slice(-2)).replace(/M(?!a)/g, month).replace(/dd/g, ('0' + day).slice(-2)).replace(/d/g, day);
+	            return fmt;
+	        },
+	        parse: function parse(str) {
+	
+	            if (str === undefined || str === null) {
+	                str = this.val;
+	            }
+	
+	            if (str) {
+	                var outD = this.extractDateParts(str);
+	                return outD.valid ? outD.date : new Date();
+	            } else {
+	                return new Date();
+	            }
+	        },
+	        getDayCount: function getDayCount(year, month) {
+	            var dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	            if (month === 1) {
+	                if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0) {
+	                    return 29;
+	                }
+	            }
+	            return dict[month];
+	        },
+	        getDateRange: function getDateRange() {
+	            this.dateRange = [];
+	            this.decadeRange = [];
+	            var time = {
+	                year: this.currDate.getFullYear(),
+	                month: this.currDate.getMonth(),
+	                day: this.currDate.getDate()
+	            };
+	            var yearStr = time.year.toString();
+	            var firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0 - 1;
+	            for (var i = 0; i < 12; i++) {
+	                this.decadeRange.push({
+	                    text: firstYearOfDecade + i
+	                });
+	            }
+	
+	            var currMonthFirstDay = new Date(time.year, time.month, 1);
+	            var firstDayWeek = currMonthFirstDay.getDay() + 1;
+	            if (firstDayWeek === 0) {
+	                firstDayWeek = 7;
+	            }
+	            var dayCount = this.getDayCount(time.year, time.month);
+	            if (firstDayWeek > 1) {
+	                var preMonth = this.getYearMonth(time.year, time.month - 1);
+	                var prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month);
+	                for (var i = 1; i < firstDayWeek; i++) {
+	                    var dayText = prevMonthDayCount - firstDayWeek + i + 1;
+	                    var date = new Date(preMonth.year, preMonth.month, dayText);
+	                    var sclass = 'datepicker-item-gray';
+	                    if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
+	                        sclass = 'datepicker-item-disable';
+	                    }
+	                    this.dateRange.push({ text: dayText, date: date, sclass: sclass });
+	                }
+	            }
+	
+	            for (var i = 1; i <= dayCount; i++) {
+	                var _date = new Date(time.year, time.month, i);
+	                var sclass = '';
+	                if (this.disabledDaysArray.indexOf(_date.getDay()) > -1) {
+	                    sclass = 'datepicker-item-disable';
+	                }
+	                if (i == time.day && _date.getFullYear() == time.year && _date.getMonth() == time.month) {
+	                    sclass = 'datepicker-dateRange-item-active';
+	                }
+	                this.dateRange.push({ text: i, date: _date, sclass: sclass });
+	            }
+	
+	            if (this.dateRange.length < 42) {
+	                var nextMonthNeed = 42 - this.dateRange.length;
+	                var nextMonth = this.getYearMonth(time.year, time.month + 1);
+	
+	                for (var i = 1; i <= nextMonthNeed; i++) {
+	                    var _date2 = new Date(nextMonth.year, nextMonth.month, i);
+	                    var sclass = 'datepicker-item-gray';
+	                    if (this.disabledDaysArray.indexOf(_date2.getDay()) > -1) {
+	                        sclass = 'datepicker-item-disable';
+	                    }
+	                    this.dateRange.push({ text: i, date: _date2, sclass: sclass });
+	                }
+	            }
+	        },
+	        setValidState: function setValidState(state) {
+	            this.valid = state;
+	        }
 	    },
-	    value: function value(val) {
-	      if (this.val !== val) {
-	        this.val = val;
-	      }
+	    created: function created() {
+	        this._timeout = {};
+	    },
+	    mounted: function mounted() {
+	        var _this3 = this;
+	
+	        this.$emit('child-created', this);
+	        this.currDate = this.parse(this.val) || this.parse(new Date());
+	        this._blur = function (e) {
+	            if (!_this3.$el.contains(e.target)) _this3.close();
+	        };
+	        window.addEventListener('click', this._blur);
+	    },
+	    beforeDestroy: function beforeDestroy() {
+	        window.removeEventListener('click', this._blur);
 	    }
-	  },
-	  computed: {
-	    text: function text() {
-	      return (0, _utils.translations)(this.lang);
-	    },
-	    preBtnClasses: function preBtnClasses() {
-	      return 'datepicker-preBtn ' + this.iconsFont + ' ' + this.iconsFont + '-chevron-left';
-	    },
-	    nextBtnClasses: function nextBtnClasses() {
-	      return 'datepicker-nextBtn ' + this.iconsFont + ' ' + this.iconsFont + '-chevron-right';
-	    },
-	    disabledDaysArray: function disabledDaysArray() {
-	      return this.disabledDaysOfWeek.map(function (d) {
-	        return parseInt(d, 10);
-	      });
-	    }
-	  },
-	  methods: {
-	    close: function close() {
-	      this.displayDayView = this.displayMonthView = this.displayYearView = false;
-	    },
-	    inputClick: function inputClick() {
-	      this.currDate = this.parse(this.val) || this.parse(new Date());
-	      if (this.displayMonthView || this.displayYearView) {
-	        this.displayDayView = false;
-	      } else {
-	        this.displayDayView = !this.displayDayView;
-	      }
-	    },
-	    preNextDecadeClick: function preNextDecadeClick(flag) {
-	      var year = this.currDate.getFullYear();
-	      var months = this.currDate.getMonth();
-	      var date = this.currDate.getDate();
-	
-	      if (flag === 0) {
-	        this.currDate = new Date(year - 10, months, date);
-	      } else {
-	        this.currDate = new Date(year + 10, months, date);
-	      }
-	    },
-	    preNextMonthClick: function preNextMonthClick(flag) {
-	      var year = this.currDate.getFullYear();
-	      var month = this.currDate.getMonth();
-	      var date = this.currDate.getDate();
-	
-	      if (flag === 0) {
-	        var preMonth = this.getYearMonth(year, month - 1);
-	        this.currDate = new Date(preMonth.year, preMonth.month, date);
-	      } else {
-	        var nextMonth = this.getYearMonth(year, month + 1);
-	        this.currDate = new Date(nextMonth.year, nextMonth.month, date);
-	      }
-	    },
-	    preNextYearClick: function preNextYearClick(flag) {
-	      var year = this.currDate.getFullYear();
-	      var months = this.currDate.getMonth();
-	      var date = this.currDate.getDate();
-	
-	      if (flag === 0) {
-	        this.currDate = new Date(year - 1, months, date);
-	      } else {
-	        this.currDate = new Date(year + 1, months, date);
-	      }
-	    },
-	    yearSelect: function yearSelect(year) {
-	      this.displayYearView = false;
-	      this.displayMonthView = true;
-	      this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate());
-	    },
-	    daySelect: function daySelect(day) {
-	      if (day.sclass === 'datepicker-item-disable') {
-	        return false;
-	      } else {
-	        this.currDate = day.date;
-	        this.val = this.stringify(this.currDate);
-	        this.displayDayView = false;
-	      }
-	    },
-	    switchMonthView: function switchMonthView() {
-	      this.displayDayView = false;
-	      this.displayMonthView = true;
-	    },
-	    switchDecadeView: function switchDecadeView() {
-	      this.displayMonthView = false;
-	      this.displayYearView = true;
-	    },
-	    monthSelect: function monthSelect(index) {
-	      this.displayMonthView = false;
-	      this.displayDayView = true;
-	      this.currDate = new Date(this.currDate.getFullYear(), index, this.currDate.getDate());
-	    },
-	    getYearMonth: function getYearMonth(year, month) {
-	      if (month > 11) {
-	        year++;
-	        month = 0;
-	      } else if (month < 0) {
-	        year--;
-	        month = 11;
-	      }
-	      return { year: year, month: month };
-	    },
-	    stringifyDecadeHeader: function stringifyDecadeHeader(date) {
-	      var yearStr = date.getFullYear().toString();
-	      var firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0;
-	      var lastYearOfDecade = parseInt(firstYearOfDecade, 10) + 10;
-	      return firstYearOfDecade + '-' + lastYearOfDecade;
-	    },
-	    stringifyDayHeader: function stringifyDayHeader(date) {
-	      return this.text.months[date.getMonth()] + ' ' + date.getFullYear();
-	    },
-	    parseMonth: function parseMonth(date) {
-	      return this.text.months[date.getMonth()];
-	    },
-	    stringifyYearHeader: function stringifyYearHeader(date) {
-	      return date.getFullYear();
-	    },
-	    stringify: function stringify(date) {
-	      var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.format;
-	
-	      if (!date) date = this.parse();
-	      if (!date) return '';
-	      var year = date.getFullYear();
-	      var month = date.getMonth() + 1;
-	      var day = date.getDate();
-	      var monthName = this.parseMonth(date);
-	      return format.replace(/yyyy/g, year).replace(/yy/g, year).replace(/MMMM/g, monthName).replace(/MMM/g, monthName.substring(0, 3)).replace(/MM/g, ('0' + month).slice(-2)).replace(/M(?!a)/g, month).replace(/dd/g, ('0' + day).slice(-2)).replace(/d/g, day);
-	    },
-	    parse: function parse(str) {
-	      if (str === undefined || str === null) {
-	        str = this.val;
-	      }
-	      var date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ? new Date(str.substring(6, 10), str.substring(3, 5) - 1, str.substring(0, 2)) : new Date(str);
-	      return isNaN(date.getFullYear()) ? new Date() : date;
-	    },
-	    getDayCount: function getDayCount(year, month) {
-	      var dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	      if (month === 1) {
-	        if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0) {
-	          return 29;
-	        }
-	      }
-	      return dict[month];
-	    },
-	    getDateRange: function getDateRange() {
-	      this.dateRange = [];
-	      this.decadeRange = [];
-	      var time = {
-	        year: this.currDate.getFullYear(),
-	        month: this.currDate.getMonth(),
-	        day: this.currDate.getDate()
-	      };
-	      var yearStr = time.year.toString();
-	      var firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0 - 1;
-	      for (var i = 0; i < 12; i++) {
-	        this.decadeRange.push({
-	          text: firstYearOfDecade + i
-	        });
-	      }
-	
-	      var currMonthFirstDay = new Date(time.year, time.month, 1);
-	      var firstDayWeek = currMonthFirstDay.getDay() + 1;
-	      if (firstDayWeek === 0) {
-	        firstDayWeek = 7;
-	      }
-	      var dayCount = this.getDayCount(time.year, time.month);
-	      if (firstDayWeek > 1) {
-	        var preMonth = this.getYearMonth(time.year, time.month - 1);
-	        var prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month);
-	        for (var _i = 1; _i < firstDayWeek; _i++) {
-	          var dayText = prevMonthDayCount - firstDayWeek + _i + 1;
-	          var date = new Date(preMonth.year, preMonth.month, dayText);
-	          var sclass = 'datepicker-item-gray';
-	          if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
-	            sclass = 'datepicker-item-disable';
-	          }
-	          this.dateRange.push({ text: dayText, date: date, sclass: sclass });
-	        }
-	      }
-	
-	      for (var _i2 = 1; _i2 <= dayCount; _i2++) {
-	        var _date = new Date(time.year, time.month, _i2);
-	        var _sclass = '';
-	        if (this.disabledDaysArray.indexOf(_date.getDay()) > -1) {
-	          _sclass = 'datepicker-item-disable';
-	        }
-	        if (_i2 == time.day && _date.getFullYear() == time.year && _date.getMonth() == time.month) {
-	          _sclass = 'datepicker-dateRange-item-active';
-	        }
-	        this.dateRange.push({ text: _i2, date: _date, sclass: _sclass });
-	      }
-	
-	      if (this.dateRange.length < 42) {
-	        var nextMonthNeed = 42 - this.dateRange.length;
-	        var nextMonth = this.getYearMonth(time.year, time.month + 1);
-	
-	        for (var _i3 = 1; _i3 <= nextMonthNeed; _i3++) {
-	          var _date2 = new Date(nextMonth.year, nextMonth.month, _i3);
-	          var _sclass2 = 'datepicker-item-gray';
-	          if (this.disabledDaysArray.indexOf(_date2.getDay()) > -1) {
-	            _sclass2 = 'datepicker-item-disable';
-	          }
-	          this.dateRange.push({ text: _i3, date: _date2, sclass: _sclass2 });
-	        }
-	      }
-	    }
-	  },
-	  mounted: function mounted() {
-	    var _this = this;
-	
-	    this.$emit('child-created', this);
-	    this.currDate = this.parse(this.val) || this.parse(new Date());
-	    this._blur = function (e) {
-	      if (!_this.$el.contains(e.target)) _this.close();
-	    };
-	    window.addEventListener('click', this._blur);
-	  },
-	  beforeDestroy: function beforeDestroy() {
-	    window.removeEventListener('click', this._blur);
-	  }
 	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 	//
 	//
 	//
@@ -5287,8 +5580,25 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
-	    staticClass: "datepicker"
-	  }, [_c('input', {
+	    class: ['form-group', {
+	      validate: _vm.canValidate,
+	      'has-feedback': _vm.icon,
+	      'has-error': _vm.canValidate && _vm.valid === false,
+	      'has-success': _vm.canValidate && _vm.valid
+	    }]
+	  }, [(_vm.label) ? _c('label', {
+	    staticClass: "control-label"
+	  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e(), _vm._v(" "), _c('div', {
+	    staticClass: "datepicker",
+	    class: ['input-group', _vm.cssClass]
+	  }, [(_vm.groupAddon) ? _c('span', {
+	    staticClass: "input-group-addon"
+	  }, [(_vm.groupFaIcon) ? _c('i', {
+	    class: _vm.groupFaIcon,
+	    staticStyle: {
+	      "margin-right": "3px"
+	    }
+	  }) : _vm._e(), _vm._v("\n          " + _vm._s(_vm.groupAddon) + "\n        ")]) : _vm._e(), _vm._v(" "), _c('input', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -5310,11 +5620,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "value": (_vm.val)
 	    },
 	    on: {
-	      "focus": _vm.inputClick,
+	      "click": _vm.inputClick,
+	      "focus": _vm.onFocus,
+	      "keyup": _vm.onKeyup,
 	      "input": function($event) {
 	        if ($event.target.composing) { return; }
 	        _vm.val = $event.target.value
 	      }
+	    }
+	  }), _vm._v(" "), _c('span', {
+	    class: ['form-control-feedback dropdown-glyph glyphicon datepicker-feedback-glyph', {
+	      'glyphicon-ok': _vm.canValidate && _vm.valid,
+	      'glyphicon-remove': _vm.canValidate && _vm.valid === false
+	    }],
+	    attrs: {
+	      "aria-hidden": "true"
 	    }
 	  }), _vm._v(" "), (_vm.clearButton && _vm.val) ? _c('button', {
 	    staticClass: "close",
@@ -5486,7 +5806,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	    })]
-	  })], 2)])])])])
+	  })], 2)])])])]), _vm._v(" "), (_vm.showHelp) ? _c('div', {
+	    staticClass: "help-block",
+	    on: {
+	      "click": _vm.focus
+	    }
+	  }, [_vm._v(_vm._s(_vm.help))]) : _vm._e(), _vm._v(" "), (_vm.showError) ? _c('div', {
+	    staticClass: "help-block with-errors",
+	    on: {
+	      "click": _vm.focus
+	    }
+	  }, [_vm._v(_vm._s(_vm.errorText))]) : _vm._e()])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -6038,7 +6368,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.form-group[data-v-67bb51ab] {\n    position: relative;\n}\nlabel ~ .close[data-v-67bb51ab] {\n    top: 25px;\n}\n.input-group > .icon[data-v-67bb51ab] {\n    position: relative;\n    display: table-cell;\n    width: 0;\n    z-index: 3;\n}\n.close[data-v-67bb51ab] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 2;\n    display: block;\n    width: 34px;\n    height: 34px;\n    line-height: 34px;\n    text-align: center;\n}\n.has-feedback .close[data-v-67bb51ab] {\n    right: 20px;\n}\n", "", {"version":3,"sources":["/./src/Input.vue?583e9616"],"names":[],"mappings":";AA6UA;IACA,mBAAA;CACA;AAEA;IACA,UAAA;CACA;AAEA;IACA,mBAAA;IACA,oBAAA;IACA,SAAA;IACA,WAAA;CACA;AAEA;IACA,mBAAA;IACA,OAAA;IACA,SAAA;IACA,WAAA;IACA,eAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<!--suppress ALL -->\n<template>\n    <div :id=\"controlId\"\n         :class=\"[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]\">\n        <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\n        <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\n            <slot name=\"before\"></slot>\n            <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n                      :cols=\"cols\"\n                      :disabled=\"disabled\"\n                      :list=\"id_datalist\"\n                      :max=\"attr(max)\"\n                      :maxlength=\"maxlength\"\n                      :min=\"attr(min)\"\n                      :name=\"name\"\n                      :placeholder=\"placeholder\"\n                      :readonly=\"readonly\"\n                      :required=\"required\"\n                      :rows=\"rows\"\n                      :step=\"step\"\n                      :title=\"attr(title)\"\n                      :type=\"type=='textarea'?null:type\"\n                      v-model=\"val\"\n                      @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n\n            ></textarea>\n            <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\n                <span class=\"close\" @click=\"value = ''\">&times;</span>\n            </div>\n            <div v-if=\"icon\" class=\"icon\">\n                <span v-if=\"icon&&valid!==null\"\n                      :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\"\n                      aria-hidden=\"true\"></span>\n            </div>\n            <slot name=\"after\"></slot>\n        </div>\n        <template v-else>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n                :cols=\"cols\"\n                :disabled=\"disabled\"\n                :list=\"id_datalist\"\n                :max=\"attr(max)\"\n                :maxlength=\"maxlength\"\n                :min=\"attr(min)\"\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                :readonly=\"readonly\"\n                :required=\"required\"\n                :rows=\"rows\"\n                :step=\"step\"\n                :title=\"attr(title)\"\n                :type=\"type=='textarea'?null:type\"\n                v-model=\"val\"\n                @blur=\"emit\" @focus=\"emit\" @input=\"emit\" @keyup=\"emit\"\n                @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n            <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\n            <span v-if=\"icon&&valid!==null\"\n                  :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\"\n                  aria-hidden=\"true\"></span>\n        </template>\n        <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\n            <option v-for=\"opc in options\" :value=\"opc\"></option>\n        </datalist>\n        <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n        <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n    </div>\n</template>\n\n<script>\n    import {coerce, delayer, translations} from './utils/utils.js'\n    import $ from './utils/NodeList.js'\n\n    var DELAY = 300\n\n    export default {\n        props: {\n            clearButton: {type: Boolean, default: false},\n            cols: {type: Number, default: null},\n            datalist: {type: Array, default: null},\n            disabled: {type: Boolean, default: false},\n            enterSubmit: {type: Boolean, default: false},\n            error: {type: String, default: null},\n            help: {type: String, default: null},\n            hideHelp: {type: Boolean, default: true},\n            icon: {type: Boolean, default: false},\n            label: {type: String, default: null},\n            lang: {type: String, default: typeof navigator !== 'undefined' ? navigator.language : \"zh-CN\"},\n            mask: null,\n            maskDelay: {type: Number, default: 100},\n            match: {type: String, default: null},\n            max: {type: String, default: null},\n            maxlength: {type: Number, default: null},\n            min: {type: String, default: null},\n            minlength: {type: Number, default: 0},\n            name: {type: String, default: null},\n            pattern: {default: null},\n            placeholder: {type: String, default: null},\n            readonly: {type: Boolean, default: false},\n            required: {type: Boolean, default: false},\n            rows: {type: Number, default: 3},\n            step: {type: Number, default: null},\n            type: {type: String, default: 'text'},\n            url: {type: String, default: null},\n            urlMap: {type: Function, default: null},\n            validationDelay: {type: Number, default: 250},\n            value: {default: null},\n            cssClass: {type: String, default: null},\n            controlId: {default: true},\n            method: {type: Function}\n        },\n        data() {\n            var val = this.value\n            return {\n                options: this.datalist,\n                val,\n                valid: null,\n                timeout: null\n            }\n        },\n        computed: {\n            canValidate() {\n                return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null)\n            },\n            errorText() {\n                let value = this.value\n                let error = [this.error]\n                if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\n                if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\n                return error.join(' ')\n            },\n            id_datalist() {\n                if (this.type !== 'textarea' && this.datalist instanceof Array) {\n                    if (!this._id_datalist) {\n                        if (!this.$root.id_datalist) {\n                            this.$root.id_datalist = 0\n                        }\n                        this._id_datalist = 'input-datalist' + this.$root.id_datalist++\n                    }\n                    return this._id_datalist\n                }\n                return null\n            },\n            input() {\n                return this.$refs.input\n            },\n            nativeValidate() {\n                return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max)\n            },\n            regex() {\n                return coerce.pattern(this.pattern)\n            },\n            showError() {\n                return this.error && this.valid === false\n            },\n            showHelp() {\n                return this.help && (!this.showError || !this.hideHelp)\n            },\n            text() {\n                return translations(this.lang)\n            },\n            title() {\n                return this.errorText || this.help || ''\n            }\n        },\n        watch: {\n            datalist(val, old) {\n                if (val !== old && val instanceof Array) {\n                    this.options = val\n                }\n            },\n            match(val) {\n                this.eval()\n            },\n            options(val, old) {\n                if (val !== old) this.$emit('options', val)\n            },\n            url(val) {\n                this._url()\n            },\n            val(val, old) {\n                this.$emit('input', val)\n                if (val !== old) {\n                    if (this.mask instanceof Function) {\n                        val = this.mask(val || '')\n                        if (this.val !== val) {\n                            if (this._timeout.mask) clearTimeout(this._timeout.mask)\n                            this._timeout.mask = setTimeout(() => {\n                                this.val = val\n                            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\n                        }\n                    }\n                    this.eval()\n                }\n            },\n            valid(val, old) {\n                this.$emit('isvalid', val)\n                this.$emit(!val ? 'invalid' : 'valid')\n                if (this._parent) this._parent.validate()\n            },\n            value(val) {\n                if (this.val !== val) {\n                    this.val = val\n                }\n            }\n        },\n        methods: {\n            attr(value) {\n                return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\n            },\n            emit(e) {\n                this.$emit(e.type, e.type == 'input' ? e.target.value : e)\n                if (e.type === 'blur' && this.canValidate) {\n                    this.valid = this.validate()\n                }\n            },\n            eval() {\n                if (this._timeout.eval) clearTimeout(this._timeout.eval)\n                if (!this.canValidate) {\n                    this.valid = true\n                } else {\n                    this._timeout.eval = setTimeout(() => {\n                        this.valid = this.validate()\n                        this._timeout.eval = null\n                    }, this.validationDelay)\n                }\n            },\n            focus() {\n                this.input.focus()\n            },\n            submit: function() {\n                if (this.$parent._formValidator) {\n                    return this.$parent.validate();\n                }\n\n                if (!this.valid) {\n                    return;\n                }\n\n                if (this.input.form) {\n                    const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\n                    if (invalids.length) {\n                        invalids.find('input,textarea,select')[0].focus();\n                        return;\n                    }\n                }\n\n                this.$emit('submit_key_pressed');\n            },\n            setValidState(state) {\n                this.valid = state;\n            },\n            validate() {\n                if (!this.canValidate) {\n                    return true\n                }\n                let value = (this.val || '').trim()\n                if (!value) {\n                    return !this.required\n                }\n                if (this.match !== null) {\n                    return this.match === value\n                }\n                if (value.length < this.minlength) {\n                    return false\n                }\n                if (this.nativeValidate && !this.input.checkValidity()) {\n                    return false\n                }\n                if (this.regex) {\n                    if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) {\n                        return false\n                    }\n                }\n                return true\n            },\n            reset() {\n                this.value = ''\n                this.valid = null\n                if (this._timeout.mask) clearTimeout(this._timeout.mask)\n                if (this._timeout.eval) clearTimeout(this._timeout.eval)\n            }\n        },\n        created() {\n            this._input = true\n            this._timeout = {}\n            let parent = this.$parent\n            while (parent && !parent._formValidator) {\n                parent = parent.$parent\n            }\n            if (parent && parent._formValidator) {\n                parent.children.push(this)\n                this._parent = parent\n            }\n            this._url = delayer(function () {\n                if (!this.url || !this.$http || this._loading) {\n                    return\n                }\n                this._loading = true\n                this.$http.get(this.url).then(response => {\n                    var data = response.data instanceof Array ? response.data : []\n                    try {\n                        data = JSON.parse(data)\n                    } catch (e) {\n                    }\n                    if (this.urlMap) {\n                        data = data.map(this.urlMap)\n                    }\n                    this.options = data\n                    this.loading = false\n                }, response => {\n                    this.loading = false\n                })\n            }, DELAY)\n            if (this.url) this._url()\n        },\n        mounted() {\n            // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\n            //   if (this.canValidate) { this.valid = this.validate() }\n            //   this.$emit('blur', e)\n            // })\n        },\n        beforeDestroy() {\n            // $(this.input).off()\n            if (this._parent) {\n                var index = this._parent.children.indexOf(this)\n                this._parent.children.splice(index, 1)\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .form-group {\n        position: relative;\n    }\n\n    label ~ .close {\n        top: 25px;\n    }\n\n    .input-group > .icon {\n        position: relative;\n        display: table-cell;\n        width: 0;\n        z-index: 3;\n    }\n\n    .close {\n        position: absolute;\n        top: 0;\n        right: 0;\n        z-index: 2;\n        display: block;\n        width: 34px;\n        height: 34px;\n        line-height: 34px;\n        text-align: center;\n    }\n\n    .has-feedback .close {\n        right: 20px;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.form-group[data-v-67bb51ab] {\n    position: relative;\n}\nlabel ~ .close[data-v-67bb51ab] {\n    top: 25px;\n}\n.input-group > .icon[data-v-67bb51ab] {\n    position: relative;\n    display: table-cell;\n    width: 0;\n    z-index: 3;\n}\n.close[data-v-67bb51ab] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 2;\n    display: block;\n    width: 34px;\n    height: 34px;\n    line-height: 34px;\n    text-align: center;\n}\n.has-feedback .close[data-v-67bb51ab] {\n    right: 20px;\n}\n", "", {"version":3,"sources":["/./src/Input.vue?c8d805d4"],"names":[],"mappings":";AA6UA;IACA,mBAAA;CACA;AAEA;IACA,UAAA;CACA;AAEA;IACA,mBAAA;IACA,oBAAA;IACA,SAAA;IACA,WAAA;CACA;AAEA;IACA,mBAAA;IACA,OAAA;IACA,SAAA;IACA,WAAA;IACA,eAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,mBAAA;CACA;AAEA;IACA,YAAA;CACA","file":"Input.vue","sourcesContent":["<!--suppress ALL -->\n<template>\n    <div :id=\"controlId\"\n         :class=\"[{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}, cssClass]\">\n        <slot name=\"label\"><label v-if=\"label\" class=\"control-label\" @click=\"focus\">{{label}}</label></slot>\n        <div v-if=\"$slots.before||$slots.after\" class=\"input-group\">\n            <slot name=\"before\"></slot>\n            <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n                      :cols=\"cols\"\n                      :disabled=\"disabled\"\n                      :list=\"id_datalist\"\n                      :max=\"attr(max)\"\n                      :maxlength=\"maxlength\"\n                      :min=\"attr(min)\"\n                      :name=\"name\"\n                      :placeholder=\"placeholder\"\n                      :readonly=\"readonly\"\n                      :required=\"required\"\n                      :rows=\"rows\"\n                      :step=\"step\"\n                      :title=\"attr(title)\"\n                      :type=\"type=='textarea'?null:type\"\n                      v-model=\"val\"\n                      @blur=\"emit\" @focus=\"emit\" @input=\"emit\"\n\n            ></textarea>\n            <div v-if=\"clearButton && value\" :class=\"{icon:icon}\">\n                <span class=\"close\" @click=\"value = ''\">&times;</span>\n            </div>\n            <div v-if=\"icon\" class=\"icon\">\n                <span v-if=\"icon&&valid!==null\"\n                      :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\"\n                      aria-hidden=\"true\"></span>\n            </div>\n            <slot name=\"after\"></slot>\n        </div>\n        <template v-else>\n      <textarea :is=\"type=='textarea'?type:'input'\" class=\"form-control\" ref=\"input\"\n                :cols=\"cols\"\n                :disabled=\"disabled\"\n                :list=\"id_datalist\"\n                :max=\"attr(max)\"\n                :maxlength=\"maxlength\"\n                :min=\"attr(min)\"\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                :readonly=\"readonly\"\n                :required=\"required\"\n                :rows=\"rows\"\n                :step=\"step\"\n                :title=\"attr(title)\"\n                :type=\"type=='textarea'?null:type\"\n                v-model=\"val\"\n                @blur=\"emit\" @focus=\"emit\" @input=\"emit\" @keyup=\"emit\"\n                @keyup.enter=\"type!='textarea'&&enterSubmit&&submit()\"\n      ></textarea>\n            <span v-if=\"clearButton && val\" class=\"close\" @click=\"val = ''\">&times;</span>\n            <span v-if=\"icon&&valid!==null\"\n                  :class=\"['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]\"\n                  aria-hidden=\"true\"></span>\n        </template>\n        <datalist v-if=\"id_datalist\" :id=\"id_datalist\">\n            <option v-for=\"opc in options\" :value=\"opc\"></option>\n        </datalist>\n        <div v-if=\"showHelp\" class=\"help-block\" @click=\"focus\">{{help}}</div>\n        <div v-if=\"showError\" class=\"help-block with-errors\" @click=\"focus\">{{errorText}}</div>\n    </div>\n</template>\n\n<script>\n    import {coerce, delayer, translations} from './utils/utils.js'\n    import $ from './utils/NodeList.js'\n\n    var DELAY = 300\n\n    export default {\n        props: {\n            clearButton: {type: Boolean, default: false},\n            cols: {type: Number, default: null},\n            datalist: {type: Array, default: null},\n            disabled: {type: Boolean, default: false},\n            enterSubmit: {type: Boolean, default: false},\n            error: {type: String, default: null},\n            help: {type: String, default: null},\n            hideHelp: {type: Boolean, default: true},\n            icon: {type: Boolean, default: false},\n            label: {type: String, default: null},\n            lang: {type: String, default: typeof navigator !== 'undefined' ? navigator.language : \"zh-CN\"},\n            mask: null,\n            maskDelay: {type: Number, default: 100},\n            match: {type: String, default: null},\n            max: {type: String, default: null},\n            maxlength: {type: Number, default: null},\n            min: {type: String, default: null},\n            minlength: {type: Number, default: 0},\n            name: {type: String, default: null},\n            pattern: {default: null},\n            placeholder: {type: String, default: null},\n            readonly: {type: Boolean, default: false},\n            required: {type: Boolean, default: false},\n            rows: {type: Number, default: 3},\n            step: {type: Number, default: null},\n            type: {type: String, default: 'text'},\n            url: {type: String, default: null},\n            urlMap: {type: Function, default: null},\n            validationDelay: {type: Number, default: 250},\n            value: {default: null},\n            cssClass: {type: String, default: null},\n            controlId: {default: true},\n            method: {type: Function}\n        },\n        data() {\n            var val = this.value\n            return {\n                options: this.datalist,\n                val,\n                valid: null,\n                timeout: null\n            }\n        },\n        computed: {\n            canValidate() {\n                return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null)\n            },\n            errorText() {\n                var value = this.value\n                var error = [this.error]\n                if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')\n                if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')\n                return error.join(' ')\n            },\n            id_datalist() {\n                if (this.type !== 'textarea' && this.datalist instanceof Array) {\n                    if (!this._id_datalist) {\n                        if (!this.$root.id_datalist) {\n                            this.$root.id_datalist = 0\n                        }\n                        this._id_datalist = 'input-datalist' + this.$root.id_datalist++\n                    }\n                    return this._id_datalist\n                }\n                return null\n            },\n            input() {\n                return this.$refs.input\n            },\n            nativeValidate() {\n                return (this.input || {}).checkValidity && (~['url', 'email'].indexOf(this.type.toLowerCase()) || this.min || this.max)\n            },\n            regex() {\n                return coerce.pattern(this.pattern)\n            },\n            showError() {\n                return this.error && this.valid === false\n            },\n            showHelp() {\n                return this.help && (!this.showError || !this.hideHelp)\n            },\n            text() {\n                return translations(this.lang)\n            },\n            title() {\n                return this.errorText || this.help || ''\n            }\n        },\n        watch: {\n            datalist(val, old) {\n                if (val !== old && val instanceof Array) {\n                    this.options = val\n                }\n            },\n            match(val) {\n                this.eval()\n            },\n            options(val, old) {\n                if (val !== old) this.$emit('options', val)\n            },\n            url(val) {\n                this._url()\n            },\n            val(val, old) {\n                this.$emit('input', val)\n                if (val !== old) {\n                    if (this.mask instanceof Function) {\n                        val = this.mask(val || '')\n                        if (this.val !== val) {\n                            if (this._timeout.mask) clearTimeout(this._timeout.mask)\n                            this._timeout.mask = setTimeout(() => {\n                                this.val = val\n                            }, isNaN(this.maskDelay) ? 0 : this.maskDelay)\n                        }\n                    }\n                    this.eval()\n                }\n            },\n            valid(val, old) {\n                this.$emit('isvalid', val)\n                this.$emit(!val ? 'invalid' : 'valid')\n                if (this._parent) this._parent.validate()\n            },\n            value(val) {\n                if (this.val !== val) {\n                    this.val = val\n                }\n            }\n        },\n        methods: {\n            attr(value) {\n                return ~['', null, undefined].indexOf(value) || value instanceof Function ? null : value\n            },\n            emit(e) {\n                this.$emit(e.type, e.type == 'input' ? e.target.value : e)\n                if (e.type === 'blur' && this.canValidate) {\n                    this.valid = this.validate()\n                }\n            },\n            eval() {\n                if (this._timeout.eval) clearTimeout(this._timeout.eval)\n                if (!this.canValidate) {\n                    this.valid = true\n                } else {\n                    this._timeout.eval = setTimeout(() => {\n                        this.valid = this.validate()\n                        this._timeout.eval = null\n                    }, this.validationDelay)\n                }\n            },\n            focus() {\n                this.input.focus()\n            },\n            submit: function() {\n                if (this.$parent._formValidator) {\n                    return this.$parent.validate();\n                }\n\n                if (!this.valid) {\n                    return;\n                }\n\n                if (this.input.form) {\n                    const invalids = $('.form-group.validate:not(.has-success)', this.input.form)\n                    if (invalids.length) {\n                        invalids.find('input,textarea,select')[0].focus();\n                        return;\n                    }\n                }\n\n                this.$emit('submit_key_pressed');\n            },\n            setValidState(state) {\n                this.valid = state;\n            },\n            validate() {\n                if (!this.canValidate) {\n                    return true\n                }\n                var value = (this.val || '').trim()\n                if (!value) {\n                    return !this.required\n                }\n                if (this.match !== null) {\n                    return this.match === value\n                }\n                if (value.length < this.minlength) {\n                    return false\n                }\n                if (this.nativeValidate && !this.input.checkValidity()) {\n                    return false\n                }\n                if (this.regex) {\n                    if (!(this.regex instanceof Function ? this.regex(this.value) : this.regex.test(this.value))) {\n                        return false\n                    }\n                }\n                return true\n            },\n            reset() {\n                this.value = ''\n                this.valid = null\n                if (this._timeout.mask) clearTimeout(this._timeout.mask)\n                if (this._timeout.eval) clearTimeout(this._timeout.eval)\n            }\n        },\n        created() {\n            this._input = true\n            this._timeout = {}\n            var parent = this.$parent\n            while (parent && !parent._formValidator) {\n                parent = parent.$parent\n            }\n            if (parent && parent._formValidator) {\n                parent.children.push(this)\n                this._parent = parent\n            }\n            this._url = delayer(function () {\n                if (!this.url || !this.$http || this._loading) {\n                    return\n                }\n                this._loading = true\n                this.$http.get(this.url).then(response => {\n                    var data = response.data instanceof Array ? response.data : []\n                    try {\n                        data = JSON.parse(data)\n                    } catch (e) {\n                    }\n                    if (this.urlMap) {\n                        data = data.map(this.urlMap)\n                    }\n                    this.options = data\n                    this.loading = false\n                }, response => {\n                    this.loading = false\n                })\n            }, DELAY)\n            if (this.url) this._url()\n        },\n        mounted() {\n            // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {\n            //   if (this.canValidate) { this.valid = this.validate() }\n            //   this.$emit('blur', e)\n            // })\n        },\n        beforeDestroy() {\n            // $(this.input).off()\n            if (this._parent) {\n                var index = this._parent.children.indexOf(this)\n                this._parent.children.splice(index, 1)\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .form-group {\n        position: relative;\n    }\n\n    label ~ .close {\n        top: 25px;\n    }\n\n    .input-group > .icon {\n        position: relative;\n        display: table-cell;\n        width: 0;\n        z-index: 3;\n    }\n\n    .close {\n        position: absolute;\n        top: 0;\n        right: 0;\n        z-index: 2;\n        display: block;\n        width: 34px;\n        height: 34px;\n        line-height: 34px;\n        text-align: center;\n    }\n\n    .has-feedback .close {\n        right: 20px;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
