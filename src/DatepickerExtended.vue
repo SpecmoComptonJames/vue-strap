@@ -80,7 +80,6 @@
         </div>
         <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
         <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
-        <p>D: {{currDate}}</p>
     </div>
 </template>
 
@@ -150,7 +149,6 @@
                 if (this._parent) this._parent.validate()
             },
             value(val) {
-                console.log('value', val);
                 if (this.val !== val) {
                     this.val = val;
                 }
@@ -297,11 +295,18 @@
                     }
                 }
 
+                var getTimeZone = function () {
+                    var offset = new Date().getTimezoneOffset();
+                    var o = Math.abs(offset);
+                    var strVal = (offset < 0 ? "+" : "-") + ("00" + Math.floor(o / 60)).slice(-2) + ":" + ("00" + (o % 60)).slice(-2);
+
+                    return {stringVal: strVal, modifier: (o / 60)};
+                };
+
                 if (valid) {
                     //make a good date and deal with local time malfunction.
-                    //console.log(year, month , day);
-                    date =  new Date(Date.UTC(year, parseInt(month) - 1 , day,0,0,0));
-                    //console.log('create date-> ', date);
+                    var zone = getTimeZone();
+                    date =  new Date(year + '-' + month + '-' + day + ' GMT' + zone.stringVal);
                 }
                 return {month: month, year: year, day: day, valid: valid, date: date};
             },
@@ -316,21 +321,17 @@
                     return !this.required;
                 }
 
-                console.log('validate -> ready to parse', value);
                 var outD = this.extractDateParts(value);
-                console.log('validate -> after test', outD);
                 return outD.valid;
             },
             onKeyup(e) {
                 if (this._timeout.onKeyUp) clearTimeout(this._timeout.onKeyUp);
-                console.log('keyUp',e);
                 if (e.key == "Escape") {
                     this.val = '';
                     this.eval();
                     return;
                 }
                 this._timeout.onKeyUp = setTimeout(() => {
-                    console.log('timeout.onKeyUp');
                     this.formatValue();
                     this.eval();
                     this._timeout.onKeyUp = null
@@ -338,7 +339,6 @@
 
             },
             formatValue() {
-                console.log('formatValue');
                 var val = this.val;
                 var format = this.format;
 
@@ -374,11 +374,9 @@
                 this.close();
             },
             close() {
-                console.log('close');
                 this.displayDayView = this.displayMonthView = this.displayYearView = false;
             },
             eval() {
-                console.log('eval');
                 if (this._timeout.eval) clearTimeout(this._timeout.eval);
                 if (!this.canValidate) {
                     this.valid = true
@@ -398,7 +396,6 @@
                 }
             },
             inputClick() {
-                console.log('inputClick -> start', this.val);
                 if (!this.val) {
                     this.val = '';
                     this.currDate = new Date();
@@ -409,10 +406,7 @@
                     } else {
                         this.currDate = new Date();
                     }
-                    console.log('inputClick -> currdate after parse', outD, this.currDate );
                 }
-                //this.currDate = this.parse(this.val) || this.parse(new Date());
-                console.log('inputClick -> currdate after parse', this.currDate);
                 if (this.displayMonthView || this.displayYearView) {
                     this.displayDayView = false;
                 } else {
@@ -512,8 +506,6 @@
                 return date.getFullYear();
             },
             stringify(date, format = this.format) {
-                throw new Exception("bah don't use stringify");
-                console.log('stringify', date, format);
                 if (!date) date = this.parse();
                 if (!date) return '';
                 const year = date.getFullYear();
@@ -529,7 +521,6 @@
                     .replace(/M(?!a)/g, month)
                     .replace(/dd/g, ('0' + day).slice(-2))
                     .replace(/d/g, day);
-                console.log('stringify -> out', fmt);
                 return fmt;
             },
             parse(str) {
@@ -537,17 +528,11 @@
                 if (str === undefined || str === null) {
                     str = this.val;
                 }
-              /*  var date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ?
-                    new Date(str.substring(6, 10), str.substring(3, 5) - 1, str.substring(0, 2)) :
-                    new Date(str);
-                //console.log('parse -> make date', date);
-                return isNaN(date.getFullYear()) ? new Date() : date;*/
 
                 if (str) {
                     var outD = this.extractDateParts(str);
                     return (outD.valid) ? outD.date : new Date();
                 } else {
-                    console.log('blank date');
                     return new Date();
                 }
             },
@@ -631,9 +616,7 @@
         },
         mounted() {
             this.$emit('child-created', this);
-            console.log('mounted', this.val);
             this.currDate = this.parse(this.val) || this.parse(new Date());
-            console.log('currDate', this.currDate);
             this._blur = e => {
                 if (!this.$el.contains(e.target))
                     this.close();
