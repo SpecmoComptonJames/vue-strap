@@ -11,7 +11,9 @@
                    :class="{'with-reset-button': clearButton}"
                    :placeholder="placeholder"
                    :style="{width:width}"
-                   @focus="inputClick"
+                   @click="inputClick"
+                   @focus="onFocus"
+                   @keyup="onKeyup"
             />
             <span :class="['form-control-feedback dropdown-glyph glyphicon datepicker-feedback-glyph',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]"
                   aria-hidden='true'></span>
@@ -78,6 +80,7 @@
         </div>
         <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
         <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
+        <p>D: {{currDate}}</p>
     </div>
 </template>
 
@@ -108,6 +111,12 @@
             help: {type: String, default: null},
             hideHelp: {type: Boolean, default: true},
             required: {type: Boolean, default: null},
+            openOnFocus: {type: Boolean, default: false},
+            validationDelay: {type: Number, default: 250},
+            formatDelay: {type: Number, default: 250},
+            month: {type: String, default:''},
+            day: {type: String, default: ''},
+            year: {type: String, default: ''}
         },
         data() {
             return {
@@ -118,7 +127,8 @@
                 displayMonthView: false,
                 displayYearView: false,
                 val: this.value,
-                valid: null
+                valid: null,
+                displayValidationErrorMessage: false
             }
         },
         watch: {
@@ -130,8 +140,17 @@
             },
             val(val, old) {
                 this.$emit('input', val);
+                if (val !== old) {
+                    this.eval();
+                }
+            },
+            valid(val, old) {
+                this.$emit('isvalid', val);
+                this.$emit(!val ? 'invalid' : 'valid');
+                if (this._parent) this._parent.validate()
             },
             value(val) {
+                console.log('value', val);
                 if (this.val !== val) {
                     this.val = val;
                 }
@@ -160,21 +179,240 @@
                 return this.help && (!this.showError || !this.hideHelp)
             },
             errorText() {
-                let value = this.value;
-                let error = [this.error];
+                var value = this.value;
+                var error = [this.error];
                 if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
+                if (!this.displayValidationErrorMessage && this.format) error.push('( Check Date: ' + this.format + ')');
                 return error.join(' ');
-            },
+            }
         },
         methods: {
+            extractDateParts: function (value) {
+                var format = this.format;
+                var pos;
+                var valuePieces;
+                var month;
+                var year;
+                var day;
+                var dateString = "";
+                var date = null;
+                var valid = true;
+
+                if (format.indexOf('-') > -1) {
+                    //dash format
+                    pos = format.split('-');
+                } else {
+                    pos = format.split('/');
+                }
+
+                if (value.indexOf('-') > -1) {
+                    //dash format
+                    valuePieces = value.split('-');
+                } else {
+                    valuePieces = value.split('/');
+                }
+
+                if (valuePieces.length < 3) {
+                    return false;
+                }
+                var checkPosition = function (index, pos, valuePieces) {
+
+                    switch (pos[index]) {
+                        case "MM":
+                            month = index;
+                            if (valuePieces[index].length != 2) {
+                                return false;
+                            }
+
+                            if (isNaN(valuePieces[index])) {
+                                return false;
+                            }
+
+                            if (parseInt(valuePieces[index]) < 1 && parseInt(valuePieces[index]) > 12) {
+                                return false;
+                            }
+                            month = parseInt(valuePieces[index]);
+                            break;
+                        case "dd":
+                            if (valuePieces[index].length != 2) {
+                                return false;
+                            }
+                            if (isNaN(valuePieces[index])) {
+                                return false;
+                            }
+                            day = parseInt(valuePieces[index]);
+                            break;
+                        case "yy":
+                            year = index;
+                            if (valuePieces[index].length != 2) {
+                                return false;
+                            }
+
+                            if (isNaN(valuePieces[index])) {
+                                return false;
+                            }
+
+                            if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 99) {
+                                return false;
+                            }
+                            year = parseInt(valuePieces[index]);
+                        case "yyyy":
+                            year = index;
+                            if (valuePieces[index].length != 4) {
+                                return false;
+                            }
+
+                            if (isNaN(valuePieces[index])) {
+                                return false;
+                            }
+
+                            if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 9999) {
+                                return false;
+                            }
+                            year = parseInt(valuePieces[index]);
+                            break;
+                    }
+                    return true;
+                };
+
+                if (!checkPosition(0,pos,valuePieces)) {
+                    valid = false;
+                }
+                if (!checkPosition(1,pos,valuePieces)) {
+                    valid = false;
+                }
+
+                if (!checkPosition(2,pos,valuePieces)) {
+                    valid = false;
+                }
+
+                if (valid) {
+                    var daysInMonth = function (month, year) {
+                        return new Date(year, month, 0).getDate();
+                    };
+
+                    var days = daysInMonth(month, year);
+                    if (day > days || day < 1) {
+                        valid = false;
+                    }
+                }
+
+                if (valid) {
+                    //make a good date and deal with local time malfunction.
+                    //console.log(year, month , day);
+                    date =  new Date(Date.UTC(year, parseInt(month) - 1 , day,0,0,0));
+                    //console.log('create date-> ', date);
+                }
+                return {month: month, year: year, day: day, valid: valid, date: date};
+            },
+            validate() {
+                var valid = true;
+                if (!this.canValidate) {
+                    return true;
+                }
+
+                var value = (this.val || '').trim();
+                if (!value) {
+                    return !this.required;
+                }
+
+                console.log('validate -> ready to parse', value);
+                var outD = this.extractDateParts(value);
+                console.log('validate -> after test', outD);
+                return outD.valid;
+            },
+            onKeyup(e) {
+                if (this._timeout.onKeyUp) clearTimeout(this._timeout.onKeyUp);
+                console.log('keyUp',e);
+                if (e.key == "Escape") {
+                    this.val = '';
+                    this.eval();
+                    return;
+                }
+                this._timeout.onKeyUp = setTimeout(() => {
+                    console.log('timeout.onKeyUp');
+                    this.formatValue();
+                    this.eval();
+                    this._timeout.onKeyUp = null
+                }, this.formatDelay)
+
+            },
+            formatValue() {
+                console.log('formatValue');
+                var val = this.val;
+                var format = this.format;
+
+                if (!val) {
+                    return;
+                }
+
+                if (val.length != format.length - 2) {
+                    return;
+                }
+
+                var pos;
+                var valuePieces;
+                var delimChar;
+                if (format.indexOf('-') > -1) {
+                    //dash format
+                    pos = format.split('-');
+                    delimChar = '-';
+                } else {
+                    pos = format.split('/');
+                    delimChar = '/';
+                }
+
+                val = val.replace(/[^0-9]/g,'');
+                val = val.trim();
+
+                if (val) {
+                    val = val.slice(0, pos[0].length) + delimChar + val.slice(pos[0].length);
+                    val = val.slice(0, pos[0].length + 1 + pos[1].length, pos[1].length) + delimChar + val.slice(pos[0].length + 1 + pos[1].length);
+                }
+                this.val = val;
+                this.eval();
+                this.close();
+            },
             close() {
+                console.log('close');
                 this.displayDayView = this.displayMonthView = this.displayYearView = false;
+            },
+            eval() {
+                console.log('eval');
+                if (this._timeout.eval) clearTimeout(this._timeout.eval);
+                if (!this.canValidate) {
+                    this.valid = true
+                } else {
+                    this._timeout.eval = setTimeout(() => {
+                        this.valid = this.validate();
+                        this._timeout.eval = null
+                    }, this.validationDelay)
+                }
             },
             focus() {
                 this.input.focus()
             },
+            onFocus() {
+                if (this.openOnFocus) {
+                    this.inputClick();
+                }
+            },
             inputClick() {
-                this.currDate = this.parse(this.val) || this.parse(new Date());
+                console.log('inputClick -> start', this.val);
+                if (!this.val) {
+                    this.val = '';
+                    this.currDate = new Date();
+                } else {
+                    var outD = this.extractDateParts(this.val);
+                    if (outD.valid) {
+                        this.currDate = outD.date;
+                    } else {
+                        this.currDate = new Date();
+                    }
+                    console.log('inputClick -> currdate after parse', outD, this.currDate );
+                }
+                //this.currDate = this.parse(this.val) || this.parse(new Date());
+                console.log('inputClick -> currdate after parse', this.currDate);
                 if (this.displayMonthView || this.displayYearView) {
                     this.displayDayView = false;
                 } else {
@@ -253,6 +491,11 @@
                 }
                 return {year: year, month: month}
             },
+            getDateParts(date) {
+                  var valStrings = {
+                      fullYear: date.getFullYear().toString()
+                  }
+            },
             stringifyDecadeHeader(date) {
                 const yearStr = date.getFullYear().toString();
                 const firstYearOfDecade = yearStr.substring(0, yearStr.length - 1) + 0;
@@ -269,13 +512,15 @@
                 return date.getFullYear();
             },
             stringify(date, format = this.format) {
+                throw new Exception("bah don't use stringify");
+                console.log('stringify', date, format);
                 if (!date) date = this.parse();
                 if (!date) return '';
                 const year = date.getFullYear();
                 const month = date.getMonth() + 1;
                 const day = date.getDate();
                 const monthName = this.parseMonth(date);
-                return format
+                var fmt = format
                     .replace(/yyyy/g, year)
                     .replace(/yy/g, year)
                     .replace(/MMMM/g, monthName)
@@ -283,16 +528,28 @@
                     .replace(/MM/g, ('0' + month).slice(-2))
                     .replace(/M(?!a)/g, month)
                     .replace(/dd/g, ('0' + day).slice(-2))
-                    .replace(/d/g, day)
+                    .replace(/d/g, day);
+                console.log('stringify -> out', fmt);
+                return fmt;
             },
             parse(str) {
+
                 if (str === undefined || str === null) {
                     str = this.val;
                 }
-                let date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ?
+              /*  var date = str.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy') ?
                     new Date(str.substring(6, 10), str.substring(3, 5) - 1, str.substring(0, 2)) :
                     new Date(str);
-                return isNaN(date.getFullYear()) ? new Date() : date;
+                //console.log('parse -> make date', date);
+                return isNaN(date.getFullYear()) ? new Date() : date;*/
+
+                if (str) {
+                    var outD = this.extractDateParts(str);
+                    return (outD.valid) ? outD.date : new Date();
+                } else {
+                    console.log('blank date');
+                    return new Date();
+                }
             },
             getDayCount(year, month) {
                 const dict = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -313,14 +570,14 @@
                 };
                 const yearStr = time.year.toString();
                 const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1;
-                for (let i = 0; i < 12; i++) {
+                for (var i = 0; i < 12; i++) {
                     this.decadeRange.push({
                         text: firstYearOfDecade + i
                     });
                 }
 
                 const currMonthFirstDay = new Date(time.year, time.month, 1);
-                let firstDayWeek = currMonthFirstDay.getDay() + 1;
+                var firstDayWeek = currMonthFirstDay.getDay() + 1;
                 if (firstDayWeek === 0) {
                     firstDayWeek = 7;
                 }
@@ -328,10 +585,10 @@
                 if (firstDayWeek > 1) {
                     const preMonth = this.getYearMonth(time.year, time.month - 1);
                     const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month);
-                    for (let i = 1; i < firstDayWeek; i++) {
+                    for (var i = 1; i < firstDayWeek; i++) {
                         const dayText = prevMonthDayCount - firstDayWeek + i + 1;
                         const date = new Date(preMonth.year, preMonth.month, dayText);
-                        let sclass = 'datepicker-item-gray';
+                        var sclass = 'datepicker-item-gray';
                         if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
                             sclass = 'datepicker-item-disable';
                         }
@@ -339,9 +596,9 @@
                     }
                 }
 
-                for (let i = 1; i <= dayCount; i++) {
+                for (var i = 1; i <= dayCount; i++) {
                     const date = new Date(time.year, time.month, i);
-                    let sclass = '';
+                    var sclass = '';
                     if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
                         sclass = 'datepicker-item-disable';
                     }
@@ -355,9 +612,9 @@
                     const nextMonthNeed = 42 - this.dateRange.length;
                     const nextMonth = this.getYearMonth(time.year, time.month + 1);
 
-                    for (let i = 1; i <= nextMonthNeed; i++) {
+                    for (var i = 1; i <= nextMonthNeed; i++) {
                         const date = new Date(nextMonth.year, nextMonth.month, i);
-                        let sclass = 'datepicker-item-gray';
+                        var sclass = 'datepicker-item-gray';
                         if (this.disabledDaysArray.indexOf(date.getDay()) > -1) {
                             sclass = 'datepicker-item-disable';
                         }
@@ -369,9 +626,14 @@
                 this.valid = state;
             }
         },
+        created() {
+            this._timeout = {};
+        },
         mounted() {
             this.$emit('child-created', this);
+            console.log('mounted', this.val);
             this.currDate = this.parse(this.val) || this.parse(new Date());
+            console.log('currDate', this.currDate);
             this._blur = e => {
                 if (!this.$el.contains(e.target))
                     this.close();
@@ -416,7 +678,7 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         background: #fff;
-        margin-top: 2px;
+        margin-top: 34px;
         z-index: 1000;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     }
@@ -528,6 +790,7 @@
     .datepicker-nextBtn {
         right: 2px;
     }
+
     .datepicker-feedback-glyph {
         margin-right: 20px;
     }

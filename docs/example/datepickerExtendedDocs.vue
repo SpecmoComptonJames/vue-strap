@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <p>
-                    <pre>Selected date is: {{dateString}}</pre>
+                    <pre>Selected date is: {{date}}</pre>
                     </p>
                     <h4>Plain Date Picker</h4>
                     <datepicker ref="dp"
@@ -15,7 +15,9 @@
                                 :placeholder="placeholder"
                                 :groupAddon="groupAddon"
                                 :error="errorText"
+                                :required="required"
                                 help="Pick a Date"
+                                :openOnFocus="openFocus"
                     ></datepicker>
                     <h4>Plain Date With Label</h4>
                     <datepicker
@@ -26,6 +28,8 @@
                             :clear-button="clear"
                             :placeholder="placeholder"
                             label="Here is my Label"
+                            :openOnFocus="openFocus"
+                            :required="required"
 
                     ></datepicker>
 
@@ -37,8 +41,9 @@
                     <v-select v-model="format" :options="formats"></v-select>
 
                     <h4>Reset button</h4>
-                    <checkbox :value="clear" @checked="clear = arguments[0]" type="primary">toggle clear button
-                    </checkbox>
+                    <checkbox :value="clear" @checked="clear = arguments[0]" type="primary">toggle clear button</checkbox>
+                    <checkbox :value="openFocus" @checked="openFocus = arguments[0]" type="primary">toggle focus on enter button</checkbox>
+                    <checkbox :value="required" @checked="required = arguments[0]" type="primary">toggle Required</checkbox>
 
                     <p>
                         <label>Group Addon Tag:</label>
@@ -47,6 +52,10 @@
                     <p>
                         <label>FA Tag:</label>
                         <input v-model="groupFaTag"></input>
+                    </p>
+                    <p>
+                        <label>Date:</label>
+                        <input v-model="date"></input>
                     </p>
 
                     <button @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
@@ -138,25 +147,27 @@
             return {
                 clear: true,
                 disabled: [],
+                required: false,
                 format: 'yyyy-MM-dd',
-                formats: ['dd/MM/yyyy', 'dd-MM-yyyy', 'yyyy,MM,dd', 'yyyy-MM-dd', 'yyyy.MM.dd', 'MMM/dd/yyyy', 'MMMM/dd/yyyy', 'MM/dd/yyyy', 'MM-dd-yyyy'],
+                formats: ['dd/MM/yyyy', 'dd-MM-yyyy', 'yyyy,MM,dd', 'yyyy-MM-dd', 'yyyy.MM.dd', 'MM/dd/yyyy', 'MM-dd-yyyy'],
                 placeholder: 'placeholder is displayed when value is null or empty',
                 date: '2015-06-10',
                 groupAddon: 'Field Label',
                 groupFaTag: null,
-                errorText: 'It is broken'
+                errorText: 'It is broken',
+                openFocus: false
             }
         },
         computed: {
-            dateString() {
-                let date
+           /* dateString() {
+                var date;
                 if (this.date.length === 10 && (this.format === 'dd-MM-yyyy' || this.format === 'dd/MM/yyyy')) {
                     date = new Date(this.date.substring(6, 10), this.date.substring(3, 5), this.date.substring(0, 2))
                 } else {
                     date = new Date(this.date)
                 }
                 return isNaN(date.getFullYear()) ? new Date().toString() : date.toString()
-            }
+            }*/
         },
         methods: {
             testSetInvalid() {

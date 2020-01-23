@@ -123,8 +123,8 @@
                 return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null)
             },
             errorText() {
-                let value = this.value
-                let error = [this.error]
+                var value = this.value
+                var error = [this.error]
                 if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')')
                 if (value && (value.length < this.minlength)) error.push('(' + this.text.minLength.toLowerCase() + ': ' + this.minlength + ')')
                 return error.join(' ')
@@ -284,7 +284,7 @@
         created() {
             this._input = true
             this._timeout = {}
-            let parent = this.$parent
+            var parent = this.$parent
             while (parent && !parent._formValidator) {
                 parent = parent.$parent
             }
