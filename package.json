@@ -1,6 +1,6 @@
 {
-  "name": "vue-strap",
-  "version": "2.0.2",
+  "name": "vue-strap-spc",
+  "version": "2.0.3",
   "description": "Bootstrap 3.0 components built with Vue.js",
   "main": "dist/vue-strap.js",
   "typings": "types/index.d.ts",
@@ -8,7 +8,7 @@
     "type": "git",
     "url": "SpecmoComptonJames/vue-strap#v2"
   },
-  "homepage": "https://github.com/SpecmoComptonJames/vue-strap",
+  "homepage": "https://github.com/SpecmoComptonJames/vue-strap#v2",
   "directories": {
     "src": "src/"
   },
@@ -76,6 +76,6 @@
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags"
   },
-  "author": "yuche",
+  "author": "yuche-specmo",
   "license": "MIT"
 }

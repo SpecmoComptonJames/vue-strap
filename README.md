@@ -1,5 +1,6 @@
-# vue-strap
+# vue-strap-spc
 Bootstrap components built with Vue.js.
+Branched from vue-strap(https://yuche.github.io/vue-strap/) 
 
 This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS. As a result no dependency on jQuery or Bootstrap's JavaScript is required. The only required dependencies are:
 
@@ -11,7 +12,7 @@ This repository contains a set of native Vue.js components based on Bootstrap's 
 ### NPM
 
 ```bash
-$ npm install vue-strap
+$ npm install vue-strap-spc
 ```
 
 ### CommonJS
@@ -75,9 +76,6 @@ See the [documentation](https://wffranco.github.io/vue-strap/) with live editabl
 * Install with `npm install`
 * Run the docs site in development mode with `npm run docs`. This will watch for file changes as you work.
 * Build with `npm run build`.
-
-## TODO
-See [Roadmap](https://github.com/yuche/vue-strap/issues/41)
 
 ## License
 vue-strap is licensed under [The MIT License](LICENSE).
