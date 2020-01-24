@@ -107,7 +107,8 @@
             value: {default: null},
             cssClass: {type: String, default: null},
             controlId: {default: true},
-            method: {type: Function}
+            method: {type: Function},
+            debug: {type: Boolean, default: false}
         },
         data() {
             var val = this.value
@@ -246,6 +247,9 @@
                 }
 
                 this.$emit('submit_key_pressed');
+                if (this.debug) {
+                    console.log('Input.vue->','submit_key_pressed emmited');
+                }
             },
             setValidState(state) {
                 this.valid = state;

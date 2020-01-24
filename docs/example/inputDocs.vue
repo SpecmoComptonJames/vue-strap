@@ -25,6 +25,7 @@
                                   v-model="input"
                                   cssClass="myCssClass myCssClass2"
                                   @submit_key_pressed="submitKeyPressed"
+                                  :debug="debug"
                         ></bs-input>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -395,7 +396,8 @@
                 event: null,
                 fruits: ['apple', 'avocado', 'banana', 'cherry', 'coconut', 'grapefruit', 'kiwi', 'lime', 'orange', 'quince', 'strawberry', 'watermelon'],
                 input: null,
-                match: null
+                match: null,
+                debug: true
             }
         },
         methods: {
