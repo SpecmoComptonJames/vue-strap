@@ -96,6 +96,12 @@
                 <p>Placeholder to put on the input field when no date (null or empty) is set</p>
             </div>
             <div>
+                <p>groupAddon</p>
+                <p><code>String</code></p>
+                <p></p>
+                <p>Creates a BootStrap 3 Group-add-on tag and places text in it</p>
+            </div>
+            <div>
                 <p>value</p>
                 <p><code>String</code></p>
                 <p></p>

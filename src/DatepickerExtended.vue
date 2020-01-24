@@ -1,4 +1,5 @@
 <template>
+    <!--2.0.5-->
     <div :class="['form-group',{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}]">
         <label v-if="label" class="control-label">{{label}}</label>
         <div class="datepicker" :class="['input-group', cssClass]">
