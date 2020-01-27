@@ -8,6 +8,7 @@
                         <bs-input
                                   ref="txtUserName"
                                   name="username"
+                                  :group-addon="groupAddon"
                                   :disabled="check.disabled"
                                   :error="check.error ? 'Insert user name' : null"
                                   help="Only allows lowercase letters and numbers."
@@ -78,6 +79,14 @@
                             </p>
                             <p>
                                 <checkbox v-model="check.enterSubmit">enter submit</checkbox>
+                            </p>
+                            <p>
+                                <label>Group Addon Tag:</label>
+                                <input v-model="groupAddon"></input>
+                            </p>
+                            <p>
+                                <label>FA Tag:</label>
+                                <input v-model="groupFaTag"></input>
                             </p>
                         </div>
                     </button-group>
@@ -199,6 +208,18 @@
                 <p><code>String</code></p>
                 <p><code>null</code></p>
                 <p>Error message.</p>
+            </div>
+            <div>
+                <p>groupAddon</p>
+                <p><code>String</code></p>
+                <p></p>
+                <p>Creates a BootStrap 3 Group-add-on tag and places text in it</p>
+            </div>
+            <div>
+                <p>groupFaIcon</p>
+                <p><code>String</code></p>
+                <p></p>
+                <p>CSS for a font-awesome icon.</p>
             </div>
             <div>
                 <p>help</p>
@@ -397,7 +418,9 @@
                 fruits: ['apple', 'avocado', 'banana', 'cherry', 'coconut', 'grapefruit', 'kiwi', 'lime', 'orange', 'quince', 'strawberry', 'watermelon'],
                 input: null,
                 match: null,
-                debug: true
+                debug: true,
+                groupAddon: null,
+                groupFaTag: null,
             }
         },
         methods: {

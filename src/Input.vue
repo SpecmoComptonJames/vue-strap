@@ -35,29 +35,35 @@
             <slot name="after"></slot>
         </div>
         <template v-else>
-      <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
-                :cols="cols"
-                :disabled="disabled"
-                :list="id_datalist"
-                :max="attr(max)"
-                :maxlength="maxlength"
-                :min="attr(min)"
-                :name="name"
-                :placeholder="placeholder"
-                :readonly="readonly"
-                :required="required"
-                :rows="rows"
-                :step="step"
-                :title="attr(title)"
-                :type="type=='textarea'?null:type"
-                v-model="val"
-                @blur="emit" @focus="emit" @input="emit" @keyup="emit"
-                @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
-      ></textarea>
+            <div class="input-group">
+                <span v-if="groupAddon" class="input-group-addon">
+                    <i v-if="groupFaIcon" :class="groupFaIcon" style="margin-right: 3px"></i>
+                    {{groupAddon}}
+                </span>
+            <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
+                    :cols="cols"
+                    :disabled="disabled"
+                    :list="id_datalist"
+                    :max="attr(max)"
+                    :maxlength="maxlength"
+                    :min="attr(min)"
+                    :name="name"
+                    :placeholder="placeholder"
+                    :readonly="readonly"
+                    :required="required"
+                    :rows="rows"
+                    :step="step"
+                    :title="attr(title)"
+                    :type="type=='textarea'?null:type"
+                    v-model="val"
+                    @blur="emit" @focus="emit" @input="emit" @keyup="emit"
+                    @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+            ></textarea>
             <span v-if="clearButton && val" class="close" @click="val = ''">&times;</span>
             <span v-if="icon&&valid!==null"
                   :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]"
                   aria-hidden="true"></span>
+            </div>
         </template>
         <datalist v-if="id_datalist" :id="id_datalist">
             <option v-for="opc in options" :value="opc"></option>
@@ -81,6 +87,8 @@
             disabled: {type: Boolean, default: false},
             enterSubmit: {type: Boolean, default: false},
             error: {type: String, default: null},
+            groupAddon: {type: String, default: null},
+            groupFaIcon: {type: String, default: null},
             help: {type: String, default: null},
             hideHelp: {type: Boolean, default: true},
             icon: {type: Boolean, default: false},
