@@ -23,6 +23,7 @@
                                   :required="check.required"
                                   :hide-help="check.hideHelp"
                                   :clear-button="check.clearButton"
+                                  :validate-manually="validateManually"
                                   v-model="input"
                                   cssClass="myCssClass myCssClass2"
                                   @submit_key_pressed="submitKeyPressed"
@@ -79,6 +80,9 @@
                             </p>
                             <p>
                                 <checkbox v-model="check.enterSubmit">enter submit</checkbox>
+                            </p>
+                            <p>
+                                <checkbox v-model="check.validateManually">Validate Manually</checkbox>
                             </p>
                             <p>
                                 <label>Group Addon Tag:</label>
@@ -431,7 +435,8 @@
                 debug: true,
                 groupAddon: null,
                 groupFaTag: null,
-                textarea: null
+                textarea: null,
+                validateManually: false
             }
         },
         methods: {

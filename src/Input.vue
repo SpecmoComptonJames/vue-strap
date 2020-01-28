@@ -148,6 +148,7 @@
             url: {type: String, default: null},
             urlMap: {type: Function, default: null},
             validationDelay: {type: Number, default: 250},
+            validateManually: {type: Boolean, default: false},
             value: {default: null},
             cssClass: {type: String, default: null},
             controlId: {default: true},
@@ -165,7 +166,7 @@
         },
         computed: {
             canValidate() {
-                return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null)
+                return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.validateManually || this.match !== null)
             },
             errorText() {
                 var value = this.value
