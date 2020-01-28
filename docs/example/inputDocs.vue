@@ -88,6 +88,11 @@
                                 <label>FA Tag:</label>
                                 <input v-model="groupFaTag"></input>
                             </p>
+                            <p>
+                                <label>Value:</label>
+                                <div>{{input}}</div>
+                                <input v-model="input" type="text"></input>
+                            </p>
                         </div>
                     </button-group>
                 </div>
@@ -96,12 +101,17 @@
                     <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     <span slot="after" class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
                 </bs-input>
-                <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon"
+                <bs-input name="textarea"
+                          label="Textarea"
+                          type="textarea"
+                          :icon="check.icon"
                           :enter-submit="check.enterSubmit"
                           @focus="event = 'focused'"
                           @blur="event = 'blured'"
+                          v-model="textarea"
                 ></bs-input>
                 <pre> Test event on textarea: {{event}}</pre>
+                <p>Test Text Area Text: <input type="text" v-model="textarea"/></p>
             </form>
             <doc-code>
                 &lt;bs-input v-model="input"
@@ -409,7 +419,7 @@
                     hideHelp: true,
                     icon: true,
                     label: true,
-                    mask: true,
+                    mask: false,
                     minlength: true,
                     placeholder: true,
                     required: true
@@ -421,6 +431,7 @@
                 debug: true,
                 groupAddon: null,
                 groupFaTag: null,
+                textarea: null
             }
         },
         methods: {

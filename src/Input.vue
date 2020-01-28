@@ -5,7 +5,26 @@
         <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
         <div v-if="$slots.before||$slots.after" class="input-group">
             <slot name="before"></slot>
-            <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
+            <input v-if="type!=='textarea'" class="form-control" ref="input"
+                      :cols="cols"
+                      :disabled="disabled"
+                      :list="id_datalist"
+                      :max="attr(max)"
+                      :maxlength="maxlength"
+                      :min="attr(min)"
+                      :name="name"
+                      :placeholder="placeholder"
+                      :readonly="readonly"
+                      :required="required"
+                      :rows="rows"
+                      :step="step"
+                      :title="attr(title)"
+                      :type="type=='textarea'?null:type"
+                      v-model="val"
+                      @blur="emit" @focus="emit" @input="emit"
+
+            ></input>
+            <textarea v-if="type==='textarea'" class="form-control" ref="input"
                       :cols="cols"
                       :disabled="disabled"
                       :list="id_datalist"
@@ -40,7 +59,7 @@
                     <i v-if="groupFaIcon" :class="groupFaIcon" style="margin-right: 3px"></i>
                     {{groupAddon}}
                 </span>
-            <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
+                <input v-if="type!=='textarea'" class="form-control"
                     :cols="cols"
                     :disabled="disabled"
                     :list="id_datalist"
@@ -54,7 +73,24 @@
                     :rows="rows"
                     :step="step"
                     :title="attr(title)"
-                    :type="type=='textarea'?null:type"
+                    v-model="val"
+                    @blur="emit" @focus="emit" @input="emit" @keyup="emit"
+                    @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+            ></input>
+            <textarea v-if="type=='textarea'" class="form-control"
+                    :cols="cols"
+                    :disabled="disabled"
+                    :list="id_datalist"
+                    :max="attr(max)"
+                    :maxlength="maxlength"
+                    :min="attr(min)"
+                    :name="name"
+                    :placeholder="placeholder"
+                    :readonly="readonly"
+                    :required="required"
+                    :rows="rows"
+                    :step="step"
+                    :title="attr(title)"
                     v-model="val"
                     @blur="emit" @focus="emit" @input="emit" @keyup="emit"
                     @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
