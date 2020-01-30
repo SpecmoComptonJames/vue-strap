@@ -394,6 +394,7 @@
                 console.log('set invalid state');
             },
             clearValid() {
+                debugger;
                 var input = this.$refs['txtNormalSelectData'];
                 input.setValidState(null);
                 var input2 = this.$refs['txtNormalSelectData2'];
