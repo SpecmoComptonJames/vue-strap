@@ -1,7 +1,11 @@
-var webpack = require('webpack')
-var path = require('path')
+var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
+  devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true
+  },
   entry: './docs/index.js',
   output: {
     path: './build',
