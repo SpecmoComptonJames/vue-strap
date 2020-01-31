@@ -14,6 +14,11 @@
 
       <h4>Reset button</h4>
       <checkbox :value="clear" @checked="clear = arguments[0]" type="primary">toggle clear button</checkbox>
+      <checkbox :value="icon" @checked="icon = arguments[0]" type="primary">toggle icon button</checkbox>
+      <p>
+        <label>Date:</label>
+        <input v-model="date"></input>
+      </p>
     </div>
     <doc-code language="markup">
       &lt;datepicker v-model="value" :disabled-days-of-Week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder">&lt;/datepicker>
@@ -96,6 +101,7 @@ export default {
   data () {
     return {
       clear: true,
+      icon: true,
       disabled: [],
       format: 'yyyy-MM-dd',
       formats: ['dd/MM/yyyy', 'dd-MM-yyyy', 'yyyy,MM,dd', 'yyyy-MM-dd', 'yyyy.MM.dd', 'MMM/dd/yyyy', 'MMMM/dd/yyyy', 'MM/dd/yyyy', 'MM-dd-yyyy'],

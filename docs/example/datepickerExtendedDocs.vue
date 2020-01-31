@@ -18,6 +18,7 @@
                                 :required="required"
                                 help="Pick a Date"
                                 :openOnFocus="openFocus"
+                                :icon="icon"
                     ></datepicker>
                     <h4>Plain Date With Label</h4>
                     <datepicker
@@ -32,7 +33,21 @@
                             :required="required"
 
                     ></datepicker>
-
+                    <h4>Plain Date With DateTime Type</h4>
+                    <datepicker ref="dp3"
+                                v-model="date"
+                                :disabled-days-of-week="disabled"
+                                :format="format"
+                                :clear-button="clear"
+                                :placeholder="placeholder"
+                                :groupAddon="groupAddon"
+                                :error="errorText"
+                                :required="required"
+                                help="Pick a Date"
+                                :openOnFocus="openFocus"
+                                :icon="icon"
+                    ></datepicker>
+                    <p>{{dateValue}}</p>
                     <h4>Disabled days of week</h4>
 
                     <v-select multiple v-model="disabled" :options="[0,1,2,3,4,5,6]"></v-select>
@@ -44,6 +59,7 @@
                     <checkbox :value="clear" @checked="clear = arguments[0]" type="primary">toggle clear button</checkbox>
                     <checkbox :value="openFocus" @checked="openFocus = arguments[0]" type="primary">toggle focus on enter button</checkbox>
                     <checkbox :value="required" @checked="required = arguments[0]" type="primary">toggle Required</checkbox>
+                    <checkbox :value="icon" @checked="icon = arguments[0]" type="primary">toggle Icon</checkbox>
 
                     <p>
                         <label>Group Addon Tag:</label>
@@ -61,6 +77,8 @@
                     <button @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
                     <button @click="testSetValid()" class="btn btn-success">Set Valid</button>
                     <button @click="clearValid()" class="btn btn-default">Clear Valid</button>
+                    <button @click="setDateTime()" class="btn btn-default">For to DateTime Data Value</button>
+                    <p>{{date}}</p>
                 </div>
             </div>
         </div>
@@ -119,6 +137,12 @@
                 <p><code>glyphicon</code></p>
                 <p>The icon font used for arrows. Can be 'glyphicon' or 'fa' (Font Awesome)</p>
             </div>
+            <div>
+                <p>icon</p>
+                <p><code>Boolean</code></p>
+                <p><code></code></p>
+                <p>Trues the gylph icon</p>
+            </div>
         </doc-table>
         <doc-table type="Events">
             <div>
@@ -158,10 +182,12 @@
                 formats: ['dd/MM/yyyy', 'dd-MM-yyyy', 'yyyy,MM,dd', 'yyyy-MM-dd', 'yyyy.MM.dd', 'MM/dd/yyyy', 'MM-dd-yyyy'],
                 placeholder: 'placeholder is displayed when value is null or empty',
                 date: '2015-06-10',
+                dateValue: null,
                 groupAddon: 'Field Label',
                 groupFaTag: null,
                 errorText: 'It is broken',
-                openFocus: false
+                openFocus: false,
+                icon: true
             }
         },
         computed: {
@@ -176,6 +202,9 @@
             }*/
         },
         methods: {
+            setDateTime() {
+                this.dateValue = new Date();
+            },
             testSetInvalid() {
                 var input = this.$refs['dp'];
                 input.setValidState(false);
