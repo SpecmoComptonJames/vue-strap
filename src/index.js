@@ -14,7 +14,6 @@ import carousel from './Carousel.vue'
 import checkbox from './Checkbox.vue'
 import datepicker from './Datepicker.vue'
 import datepickerExtended from './DatepickerExtended.vue'
-import datepickerDateTime from './DatepickerDateTime.vue'
 import dropdown from './Dropdown.vue'
 import formGroup from './FormGroup.vue'
 import formValidator from './FormValidator.vue'
@@ -56,7 +55,6 @@ const VueStrap = {
   checkbox,
   datepicker,
   datepickerExtended,
-  datepickerDateTime,
   dropdown,
   formGroup,
   formValidator,
