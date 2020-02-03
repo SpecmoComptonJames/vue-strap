@@ -59,8 +59,10 @@
                     <i v-if="groupFaIcon" :class="groupFaIcon" style="margin-right: 3px"></i>
                     {{groupAddon}}
                 </span>
-                <input v-if="type!=='textarea'" class="form-control"
-                    :cols="cols"
+                <input v-if="type!=='textarea'"
+                       class="form-control"
+                       ref="input"
+                       :cols="cols"
                     :disabled="disabled"
                     :list="id_datalist"
                     :max="attr(max)"
@@ -77,7 +79,9 @@
                     @blur="emit" @focus="emit" @input="emit" @keyup="emit"
                     @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
             ></input>
-            <textarea v-if="type=='textarea'" class="form-control"
+            <textarea v-if="type=='textarea'"
+                      ref="input"
+                      class="form-control"
                     :cols="cols"
                     :disabled="disabled"
                     :list="id_datalist"
