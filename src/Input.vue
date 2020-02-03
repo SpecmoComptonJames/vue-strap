@@ -287,7 +287,11 @@
                     return;
                 }
 
-                if (this.input.form) {
+                if (this.input &&
+                    this.input.form) {
+                    if (this.debug) {
+                        console.log('this.input.form->','validate');
+                    }
                     const invalids = $('.form-group.validate:not(.has-success)', this.input.form)
                     if (invalids.length) {
                         invalids.find('input,textarea,select')[0].focus();
