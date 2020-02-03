@@ -5,23 +5,29 @@
         <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
         <div v-if="$slots.before||$slots.after" class="input-group">
             <slot name="before"></slot>
-            <input v-if="type!=='textarea'" class="form-control" ref="input"
-                      :cols="cols"
-                      :disabled="disabled"
-                      :list="id_datalist"
-                      :max="attr(max)"
-                      :maxlength="maxlength"
-                      :min="attr(min)"
-                      :name="name"
-                      :placeholder="placeholder"
-                      :readonly="readonly"
-                      :required="required"
-                      :rows="rows"
-                      :step="step"
-                      :title="attr(title)"
-                      :type="type=='textarea'?null:type"
-                      v-model="val"
-                      @blur="emit" @focus="emit" @input="emit"
+            <span v-if="groupAddon" class="input-group-addon">
+                    <i v-if="groupFaIcon" :class="groupFaIcon" style="margin-right: 3px"></i>
+                    {{groupAddon}}
+                </span>
+            <input v-if="type!=='textarea'" class="form-control"
+                    ref="input"
+                    :cols="cols"
+                    :disabled="disabled"
+                    :list="id_datalist"
+                    :max="attr(max)"
+                    :maxlength="maxlength"
+                    :min="attr(min)"
+                    :name="name"
+                    :placeholder="placeholder"
+                    :readonly="readonly"
+                    :required="required"
+                    :rows="rows"
+                    :step="step"
+                    :title="attr(title)"
+                    :type="type=='textarea'?null:type"
+                    v-model="val"
+                    @blur="emit" @focus="emit" @input="emit"
+                   @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
 
             ></input>
             <textarea v-if="type==='textarea'" class="form-control" ref="input"
@@ -52,6 +58,8 @@
                       aria-hidden="true"></span>
             </div>
             <slot name="after"></slot>
+            <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
+            <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
         </div>
         <template v-else>
             <div class="input-group">
@@ -299,7 +307,7 @@
                     }
                 }
 
-                this.$emit('submit_key_pressed');
+               slot
                 if (this.debug) {
                     console.log('Input.vue->','submit_key_pressed emmited');
                 }

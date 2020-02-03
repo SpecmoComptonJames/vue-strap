@@ -148,7 +148,7 @@
             <h2>Input groups:</h2>
             <p>More details in <a href="http://getbootstrap.com/components/#input-groups">bootstrap input groups</a>.
             </p>
-            <bs-input label="With dropdown and button" type="text">
+            <bs-input label="With dropdown and button" type="text" :group-addon="groupAddon">
                 <dropdown slot="before" text="dropdown">
                     <li><a href="#">option</a></li>
                 </dropdown>
@@ -156,8 +156,12 @@
           <button type="button" class="btn btn-primary">Go!</button>
         </span>
             </bs-input>
+            <h4>With Addon:</h4>
             <doc-code>
-                &lt;bs-input label="With dropdown and button" type="text">
+                &lt;bs-input label="With dropdown and button"
+                type="text"
+                :group-addon="groupAddon"
+                >
                 &lt;dropdown slot="before" text="dropdown">
                 &lt;li>&lt;a href="#">option&lt;/a>&lt;/li>
                 &lt;/dropdown>
