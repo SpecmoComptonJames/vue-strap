@@ -58,8 +58,7 @@
                       aria-hidden="true"></span>
             </div>
             <slot name="after"></slot>
-            <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
-            <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
+
         </div>
         <template v-else>
             <div class="input-group">

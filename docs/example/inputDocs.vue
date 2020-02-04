@@ -101,7 +101,16 @@
                     </button-group>
                 </div>
                 <hr/>
-                <bs-input label="Input with slots" type="text" required icon clear-button>
+                <bs-input
+                        ref="with-slots"
+                        label="Input with slots"
+                        type="text"
+                        required
+                        icon
+                        clear-button
+                        error="I am an error message"
+                        help="I am a help message"
+                >
                     <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     <span slot="after" class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
                 </bs-input>
@@ -451,16 +460,30 @@
                 var input = this.$refs['txtUserName'];
                 input.setValidState(false);
                 console.log(' input.setValidState(false);');
+
+                var input = this.$refs['with-slots'];
+                input.setValidState(false);
+                console.log(' input.setValidState(false);');
+
+
             },
             testSetValid() {
                 var input = this.$refs['txtUserName'];
                 input.setValidState(true);
                 console.log('input.setValidState(true);');
+
+                var input = this.$refs['with-slots'];
+                input.setValidState(true);
+                console.log(' input.setValidState(false);');
             },
             clearValid() {
                 var input = this.$refs['txtUserName'];
                 input.setValidState(null);
                 console.log('clearValid');
+
+                var input = this.$refs['with-slots'];
+                input.setValidState(null);
+                console.log(' input.setValidState(false);');
             },
             submitKeyPressed: function(e) {
                 console.log('submit_key_pressed:', e);
