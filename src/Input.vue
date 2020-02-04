@@ -307,6 +307,7 @@
                     }
                 }
 
+                this.$emit('submit_key_pressed');
                 if (this.debug) {
                     console.log('Input.vue->','submit_key_pressed emmited');
                 }
