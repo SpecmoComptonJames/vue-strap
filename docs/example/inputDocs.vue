@@ -23,7 +23,7 @@
                                   :required="check.required"
                                   :hide-help="check.hideHelp"
                                   :clear-button="check.clearButton"
-                                  :validate-manually="validateManually"
+                                  :validate-manually="check.validateManually"
                                   v-model="input"
                                   cssClass="myCssClass myCssClass2"
                                   @submit_key_pressed="submitKeyPressed"

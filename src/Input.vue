@@ -315,10 +315,15 @@
                 this.valid = state;
             },
             validate() {
+                console.log('validate', this.validateManually);
                 if (!this.canValidate) {
                     return true
                 }
-                var value = (this.val || '').trim()
+                var value = (this.val || '').trim();
+
+                if (this.validateManually) {
+                    return this.valid;
+                }
                 if (!value) {
                     return !this.required
                 }
