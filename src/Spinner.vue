@@ -1,5 +1,5 @@
 <template>
-  <div :class="['spinner spinner-gritcode',spinnerSize,{'spinner-fixed':fixed}]" v-show="active||locked">
+  <div :class="['spinner spinner-gritcode', spinnerSize, {'spinner-fixed':fixed}, cssClass]" v-show="active||locked">
     <div class="spinner-wrapper">
       <div class="spinner-circle"></div>
       <div class="spinner-text">{{text}}</div>
@@ -9,10 +9,11 @@
 
 <script>
 import {coerce, delayer} from './utils/utils.js'
-const MIN_WAIT = 500 // in ms
+const MIN_WAIT = 500; // in ms
 
 export default {
   props: {
+    cssClass: {type: String, default: null},
     fixed: {type: Boolean, default: false},
     global: {type: Boolean, default: false},
     size: {type: String, default: 'md'},
@@ -38,8 +39,8 @@ export default {
   },
   methods: {
     hide () {
-      var delay = 0
-      this.active = false
+      var delay = 0;
+      this.active = false;
     },
     show (options) {
       if (options) {
@@ -48,42 +49,42 @@ export default {
         if (options.fixed) { this.fixed = options.fixed }
       }
       // block scrolling when spinner is on
-      this._body.style.overflowY = 'hidden'
+      this._body.style.overflowY = 'hidden';
       // activate spinner
-      this._started = new Date()
-      this.active = true
-      this.locked = true
-      this._unlock()
+      this._started = new Date();
+      this.active = true;
+      this.locked = true;
+      this._unlock();
     }
   },
   created () {
-    this._body = document.body
-    this._bodyOverflow = document.body.style.overflowY
+    this._body = document.body;
+    this._bodyOverflow = document.body.style.overflowY;
     this._unlock = delayer(function () {
-      this.locked = false
-      this._body.style.overflowY = this._bodyOverflow
-    }, MIN_WAIT)
+      this.locked = false;
+      this._body.style.overflowY = this._bodyOverflow;
+    }, MIN_WAIT);
     if (this.global) {
       if (!this.$root._globalSpinner) {
-        this.$root._globalSpinner = true
-        var self = this
+        this.$root._globalSpinner = true;
+        var self = this;
         this._global = {
           hide () { self.hide() },
           show () { self.show() }
-        }
-        this.$root.$on('spinner::show', this._global.show)
-        this.$root.$on('spinner::hide', this._global.hide)
+        };
+        this.$root.$on('spinner::show', this._global.show);
+        this.$root.$on('spinner::hide', this._global.hide);
       }
     }
   },
   beforeDestroy () {
     if (this._global) {
-      this.$root.$off('spinner::show', this._global.show)
-      this.$root.$off('spinner::hide', this._global.hide)
-      delete this.$root._globalSpinner
+      this.$root.$off('spinner::show', this._global.show);
+      this.$root.$off('spinner::hide', this._global.hide);
+      delete this.$root._globalSpinner;
     }
-    clearTimeout(this._spinnerAnimation)
-    this._body.style.overflowY = this._bodyOverflow
+    clearTimeout(this._spinnerAnimation);
+    this._body.style.overflowY = this._bodyOverflow;
   }
 }
 </script>
