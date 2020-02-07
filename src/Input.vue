@@ -315,7 +315,6 @@
                 this.valid = state;
             },
             validate() {
-                console.log('validate', this.validateManually);
                 if (!this.canValidate) {
                     return true
                 }
