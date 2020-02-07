@@ -230,7 +230,7 @@
                                 return false;
                             }
 
-                            if (parseInt(valuePieces[index]) < 1 && parseInt(valuePieces[index]) > 12) {
+                            if (parseInt(valuePieces[index]) < 1 || parseInt(valuePieces[index]) > 12) {
                                 return false;
                             }
                             month = parseInt(valuePieces[index]);
@@ -254,7 +254,7 @@
                                 return false;
                             }
 
-                            if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 99) {
+                            if (parseInt(valuePieces[index]) < 0 || parseInt(valuePieces[index]) > 99) {
                                 return false;
                             }
                             year = parseInt(valuePieces[index]);
@@ -268,7 +268,7 @@
                                 return false;
                             }
 
-                            if (parseInt(valuePieces[index]) < 0 && parseInt(valuePieces[index]) > 9999) {
+                            if (parseInt(valuePieces[index]) < 0 || parseInt(valuePieces[index]) > 9999) {
                                 return false;
                             }
                             year = parseInt(valuePieces[index]);
