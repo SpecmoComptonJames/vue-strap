@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
     <!--2.0.5-->
     <div :class="['form-group',{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}]">
@@ -14,7 +15,9 @@
                    :style="{width:width}"
                    @click="inputClick"
                    @focus="onFocus"
+                   @keypress="onKeyPress"
                    @keyup="onKeyup"
+                   @blur="onBlur"
             />
             <span :class="['form-control-feedback dropdown-glyph glyphicon datepicker-feedback-glyph',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]"
                   aria-hidden='true'></span>
@@ -114,7 +117,7 @@
             openOnFocus: {type: Boolean, default: false},
             validationDelay: {type: Number, default: 250},
             formatDelay: {type: Number, default: 250},
-            month: {type: String, default:''},
+            month: {type: String, default: ''},
             day: {type: String, default: ''},
             year: {type: String, default: ''}
         },
@@ -274,14 +277,14 @@
                     return true;
                 };
 
-                if (!checkPosition(0,pos,valuePieces)) {
+                if (!checkPosition(0, pos, valuePieces)) {
                     valid = false;
                 }
-                if (!checkPosition(1,pos,valuePieces)) {
+                if (!checkPosition(1, pos, valuePieces)) {
                     valid = false;
                 }
 
-                if (!checkPosition(2,pos,valuePieces)) {
+                if (!checkPosition(2, pos, valuePieces)) {
                     valid = false;
                 }
 
@@ -307,35 +310,67 @@
                 if (valid) {
                     //make a good date and deal with local time malfunction.
                     var zone = getTimeZone();
-                    date =  new Date(year + '-' + month + '-' + day + ' GMT' + zone.stringVal);
+                    date = new Date(year + '-' + month + '-' + day + ' GMT' + zone.stringVal);
                 }
                 return {month: month, year: year, day: day, valid: valid, date: date};
             },
             validate() {
                 var valid = true;
                 if (!this.canValidate) {
+                    this.valid = null;
                     return true;
                 }
 
                 var value = (this.val || '').trim();
                 if (!value) {
+                    if (!this.required) {
+                        this.valid = null;
+                    } else {
+                        this.valid = false;
+                    }
                     return !this.required;
                 }
 
-                var outD = this.extractDateParts(value);
-                return outD.valid;
+                var v = this.extractDateParts(value);
+                if (v.valid) {
+                    this.valid = true;
+                } else {
+                    this.valid = false;
+                }
+            },
+            onBlur() {
+                var _self = this;
+                setTimeout(function() {
+                    _self.validate();
+                }, 250);
+
+            },
+            onKeyPress(e) {
+                if (
+                    (e.keyCode >= 48 && e.keyCode <= 57) ||
+                    (e.key === "-") ||
+                    (e.key === "/")
+                ) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
             },
             onKeyup(e) {
                 if (this._timeout.onKeyUp) clearTimeout(this._timeout.onKeyUp);
                 if (e.key == "Escape") {
                     this.val = '';
+                    this.valid = null;
                     this.eval();
+                    this.validate();
                     return;
                 }
+
                 this._timeout.onKeyUp = setTimeout(() => {
                     this.formatValue();
                     this.eval();
-                    this._timeout.onKeyUp = null
+                    this._timeout.onKeyUp = null;
                 }, this.formatDelay)
 
             },
@@ -363,7 +398,7 @@
                     delimChar = '/';
                 }
 
-                val = val.replace(/[^0-9]/g,'');
+                val = val.replace(/[^0-9]/g, '');
                 val = val.trim();
 
                 if (val) {
@@ -404,8 +439,10 @@
                     var outD = this.extractDateParts(this.val);
                     if (outD.valid) {
                         this.currDate = outD.date;
+                        this.valid = true;
                     } else {
                         this.currDate = new Date();
+                        this.valid = false;
                     }
                 }
                 if (this.displayMonthView || this.displayYearView) {
@@ -487,9 +524,9 @@
                 return {year: year, month: month}
             },
             getDateParts(date) {
-                  var valStrings = {
-                      fullYear: date.getFullYear().toString()
-                  }
+                var valStrings = {
+                    fullYear: date.getFullYear().toString()
+                }
             },
             stringifyDecadeHeader(date) {
                 const yearStr = date.getFullYear().toString();

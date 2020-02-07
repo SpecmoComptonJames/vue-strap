@@ -60,6 +60,7 @@
                     <checkbox :value="openFocus" @checked="openFocus = arguments[0]" type="primary">toggle focus on enter button</checkbox>
                     <checkbox :value="required" @checked="required = arguments[0]" type="primary">toggle Required</checkbox>
                     <checkbox :value="icon" @checked="icon = arguments[0]" type="primary">toggle Icon</checkbox>
+                    <checkbox :value="canValidate" @checked="icon = arguments[0]" type="primary">Can Validate</checkbox>
 
                     <p>
                         <label>Group Addon Tag:</label>
@@ -187,7 +188,8 @@
                 groupFaTag: null,
                 errorText: 'It is broken',
                 openFocus: false,
-                icon: true
+                icon: true,
+                canValidate: true
             }
         },
         computed: {
