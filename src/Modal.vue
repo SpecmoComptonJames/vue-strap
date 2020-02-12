@@ -1,5 +1,5 @@
 <template>
-  <div role="dialog" :class="['modal',effect]" @click="backdrop&&action(false,1)" @transitionend="transition = false">
+  <div role="dialog" :class="['modal',effect, cssClass]" @click="backdrop&&action(false,1)" @transitionend="transition = false">
     <div :class="['modal-dialog',{'modal-lg':large,'modal-sm':small}]" role="document" :style="{width: optionalWidth}" @click.stop="action(null)">
       <div class="modal-content">
         <slot name="modal-header">
@@ -24,6 +24,7 @@
 import {getScrollBarWidth} from './utils/utils.js'
 
 export default {
+  name: "modal",
   props: {
     backdrop: {type: Boolean, default: true},
     callback: {type: Function, default: null},
@@ -34,7 +35,8 @@ export default {
     small: {type: Boolean, default: false},
     title: {type: String, default: ''},
     value: {type: Boolean, required: true},
-    width: {default: null}
+    width: {default: null},
+    cssClass: {type: String, default: null },
   },
   data () {
     return {
