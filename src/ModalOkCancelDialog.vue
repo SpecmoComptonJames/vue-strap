@@ -59,6 +59,10 @@
                     _self.footer = options.footer;
                 }
 
+                if (options.cssClass) {
+                    _self.cssClass = options.cssClass;
+                }
+
                 if (options.buttons) {
                     if (typeof(options.buttons.ok === "boolean")) {
                         _self.buttons.ok = options.buttons.ok;
