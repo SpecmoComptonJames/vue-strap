@@ -89,8 +89,6 @@
 
 <script>
     import {translations} from './utils/utils.js'
-    // import $ from './utils/NodeList.js'
-
     export default {
         props: {
             value: {type: String},
@@ -119,7 +117,8 @@
             formatDelay: {type: Number, default: 250},
             month: {type: String, default: ''},
             day: {type: String, default: ''},
-            year: {type: String, default: ''}
+            year: {type: String, default: ''},
+            validatorCustomFunction: {default: null},
         },
         data() {
             return {
@@ -131,7 +130,8 @@
                 displayYearView: false,
                 val: this.value,
                 valid: null,
-                displayValidationErrorMessage: false
+                displayValidationErrorMessage: false,
+                customErrorMessage: null,
             }
         },
         watch: {
@@ -182,7 +182,15 @@
             },
             errorText() {
                 var value = this.value;
-                var error = [this.error];
+                //var error = [this.error];
+                var error;
+
+                if (this.customErrorMessage) {
+                    error = [this.customErrorMessage];
+                } else {
+                    error = [this.error];
+                }
+
                 if (!value && this.required) error.push('(' + this.text.required.toLowerCase() + ')');
                 if (!this.displayValidationErrorMessage && this.format) error.push('( Check Date: ' + this.format + ')');
                 return error.join(' ');
@@ -316,6 +324,7 @@
             },
             validate() {
                 var valid = true;
+                this.customErrorMessage = null;
                 if (!this.canValidate) {
                     this.valid = null;
                     return true;
@@ -333,10 +342,27 @@
 
                 var v = this.extractDateParts(value);
                 if (v.valid) {
-                    this.valid = true;
+                    if (this.validatorCustomFunction) {
+                        var cv = this.validatorCustomFunction(v, this);
+                        this.valid = cv.valid;
+                        if (cv.customMessage) {
+                            this.customErrorMessage = cv.customMessage;
+                        }
+                        return this.valid;
+                    } else {
+                        this.valid = true;
+                        return this.valid;
+                    }
                 } else {
                     this.valid = false;
+                    return this.valid;
                 }
+            },
+            setValidState(state) {
+                this.valid = state;
+            },
+            setErrorMessage(msg) {
+              this.error = msg;
             },
             onBlur() {
                 var _self = this;

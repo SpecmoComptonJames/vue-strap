@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <p>
-                    <pre>Selected date is: {{date}}</pre>
+                        <pre>Selected date is: {{date}}</pre>
                     </p>
                     <h4>Plain Date Picker</h4>
                     <datepicker ref="dp"
@@ -15,10 +15,12 @@
                                 :placeholder="placeholder"
                                 :groupAddon="groupAddon"
                                 :error="errorText"
+                                errorDefaultMessage="Date is invalid."
                                 :required="required"
                                 help="Pick a Date"
                                 :openOnFocus="openFocus"
                                 :icon="icon"
+                                :validator-custom-function="validateRoDate"
                     ></datepicker>
                     <h4>Plain Date With Label</h4>
                     <datepicker
@@ -121,6 +123,12 @@
                 <p>Creates a BootStrap 3 Group-add-on tag and places text in it</p>
             </div>
             <div>
+                <p>error</p>
+                <p><code>String</code></p>
+                <p></p>
+                <p>message to display if validation of the date fails.</p>
+            </div>
+            <div>
                 <p>value</p>
                 <p><code>String</code></p>
                 <p></p>
@@ -143,6 +151,20 @@
                 <p><code>Boolean</code></p>
                 <p><code></code></p>
                 <p>Trues the gylph icon</p>
+            </div>
+            <div>
+                <p>validatorCustomFunction</p>
+                <p><code>function({month: str, year: str, day: str, valid: bool, date: DateTime}, self) {
+                    return {valid: boolean, customerMessage: string}
+                    }</code></p>
+                <p><code></code></p>
+                <p>A custom function which can validate the date further after the controls validate method executes and succeeds.</p>
+            </div>
+            <div>
+                <p>setErrorMessage(string)</p>
+                <p><code>function(string)</code></p>
+                <p><code></code></p>
+                <p>Override error message.</p>
             </div>
         </doc-table>
         <doc-table type="Events">
@@ -227,6 +249,16 @@
                 var input2 = this.$refs['dp2'];
                 input2.setValidState(null);
                 console.log('set invalid state');
+            },
+            validateRoDate: function(args, sender) {
+                var _self = this;
+                console.log('validate ro date ->', args, sender);
+                var tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                if (args.date >= tomorrow) {
+                    return {valid: false, customMessage: "Date must be before or equal to today."};
+                }
+                return {valid: true};
             }
         }
     }
