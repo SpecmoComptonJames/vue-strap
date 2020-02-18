@@ -7637,7 +7637,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.modal-footer-message[data-v-7a256e0c] {\n    text-align: left;\n}\n", "", {"version":3,"sources":["/./src/ModalOkCancelDialog.vue?6e7d6a3a"],"names":[],"mappings":";AA+FA;IACA,iBAAA;CACA","file":"ModalOkCancelDialog.vue","sourcesContent":["<template>\n    <div>\n        <modal :title='title'\n               :effect='effect'\n               :width='width'\n               :css-class=\"cssClass\"\n               v-model=\"show\" @callback=\"onModalClose\">\n            <div class=\"modal-body\" slot='modal-body'>\n                {{body}}\n            </div>\n            <div class=\"modal-footer\" slot='modal-footer'>\n                <div v-if=\"footer\" class=\"modal-footer-message\">\n                    {{footer}}\n                </div>\n                <button class=\"btn btn-primary\" v-if=\"buttons.ok\" @click='onModalClose(\"OK\")'>OK</button>\n                <button class=\"btn btn-link\" v-if=\"buttons.cancel\" @click='onModalClose(\"CANCEL\")'>CANCEL</button>\n            </div>\n        </modal>\n    </div>\n</template>\n\n<script>\n    import  xmodal from './Modal.vue';\n\n    export default {\n        name: \"ModalOkCancelDialog\",\n        components: {\n            modal: xmodal\n        },\n        props: {\n            effect: {type: String, default: 'fade'},\n            width: {default: null},\n            cssClass: {type: String, default: null }\n        },\n        data: function () {\n            return {\n                show: false,\n                title: \"\",\n                body: \"\",\n                footer: \"\",\n                buttons: {\n                    ok: true,\n                    cancel: true\n                },\n            }\n        },\n        methods: {\n            showDialog: function(options) {\n                var _self = this;\n                if (options.title) {\n                    _self.title = options.title;\n                }\n\n                if (options.body) {\n                    _self.body = options.body;\n                }\n\n                if (options.footer) {\n                    _self.footer = options.footer;\n                }\n\n                if (options.cssClass) {\n                    _self.cssClass = options.cssClass;\n                }\n\n                if (options.buttons) {\n                    if (typeof(options.buttons.ok === \"boolean\")) {\n                        _self.buttons.ok = options.buttons.ok;\n                    }\n                    if (typeof(options.buttons.cancel === \"boolean\")) {\n                        _self.buttons.cancel = options.buttons.cancel;\n                    }\n                } else {\n                    _self.buttons.ok = true;\n                    _self.buttons.cancel = true;\n\n                }\n\n                _self.show = true;\n                _self.$emit('shown');\n            },\n            onModalClose: function(args) {\n                var _self = this;\n                _self.show = false;\n                var action = \"CANCEL\";\n                if (args === \"OK\") {\n                    action = \"OK\";\n                }\n                _self.$emit('closed', action);\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .modal-footer-message {\n        text-align: left;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.modal-footer-message[data-v-7a256e0c] {\n    text-align: left;\n}\n", "", {"version":3,"sources":["/./src/ModalOkCancelDialog.vue?258c3228"],"names":[],"mappings":";AA0GA;IACA,iBAAA;CACA","file":"ModalOkCancelDialog.vue","sourcesContent":["<template>\n    <div>\n        <modal :title='title'\n               :effect='effect'\n               :width='width'\n               :css-class=\"cssClassEval\"\n               v-model=\"show\" @callback=\"onModalClose\">\n            <div class=\"modal-body\" slot='modal-body'>\n                {{body}}\n            </div>\n            <div class=\"modal-footer\" slot='modal-footer'>\n                <div v-if=\"footer\" class=\"modal-footer-message\">\n                    {{footer}}\n                </div>\n                <button class=\"btn btn-primary\" v-if=\"buttons.ok\" @click='onModalClose(\"OK\")'>OK</button>\n                <button class=\"btn btn-link\" v-if=\"buttons.cancel\" @click='onModalClose(\"CANCEL\")'>CANCEL</button>\n            </div>\n        </modal>\n    </div>\n</template>\n\n<script>\n    import  xmodal from './Modal.vue';\n\n    export default {\n        name: \"ModalOkCancelDialog\",\n        components: {\n            modal: xmodal\n        },\n        props: {\n            effect: {type: String, default: 'fade'},\n            width: {default: null},\n            cssClass: {type: String, default: null }\n        },\n        data: function () {\n            return {\n                show: false,\n                title: \"\",\n                body: \"\",\n                footer: \"\",\n                classOverride: \"\",\n                buttons: {\n                    ok: true,\n                    cancel: true\n                },\n            }\n        },\n        methods: {\n            showDialog: function(options) {\n                var _self = this;\n                if (options.title) {\n                    _self.title = options.title;\n                }\n\n                if (options.body) {\n                    _self.body = options.body;\n                }\n\n                if (options.footer) {\n                    _self.footer = options.footer;\n                }\n\n                if (options.cssClass) {\n                    _self.classOverride = options.cssClass;\n                }\n\n                if (options.buttons) {\n                    if (typeof(options.buttons.ok === \"boolean\")) {\n                        _self.buttons.ok = options.buttons.ok;\n                    }\n                    if (typeof(options.buttons.cancel === \"boolean\")) {\n                        _self.buttons.cancel = options.buttons.cancel;\n                    }\n                } else {\n                    _self.buttons.ok = true;\n                    _self.buttons.cancel = true;\n\n                }\n\n                _self.show = true;\n                _self.$emit('shown');\n            },\n            onModalClose: function(args) {\n                var _self = this;\n                _self.show = false;\n                var action = \"CANCEL\";\n                if (args === \"OK\") {\n                    action = \"OK\";\n                }\n                _self.$emit('closed', action);\n                _self.classOverride = \"\";\n            }\n        },\n        computed: {\n            cssClassEval: function() {\n                if (this.classOverride) {\n                    return this.classOverride;\n                }\n\n                return this.cssClass;\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .modal-footer-message {\n        text-align: left;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -7678,6 +7678,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            title: "",
 	            body: "",
 	            footer: "",
+	            classOverride: "",
 	            buttons: {
 	                ok: true,
 	                cancel: true
@@ -7700,7 +7701,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	
 	            if (options.cssClass) {
-	                _self.cssClass = options.cssClass;
+	                _self.classOverride = options.cssClass;
 	            }
 	
 	            if (options.buttons) {
@@ -7726,6 +7727,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	                action = "OK";
 	            }
 	            _self.$emit('closed', action);
+	            _self.classOverride = "";
+	        }
+	    },
+	    computed: {
+	        cssClassEval: function cssClassEval() {
+	            if (this.classOverride) {
+	                return this.classOverride;
+	            }
+	
+	            return this.cssClass;
 	        }
 	    }
 	}; //
@@ -8217,7 +8228,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "title": _vm.title,
 	      "effect": _vm.effect,
 	      "width": _vm.width,
-	      "css-class": _vm.cssClass
+	      "css-class": _vm.cssClassEval
 	    },
 	    on: {
 	      "callback": _vm.onModalClose

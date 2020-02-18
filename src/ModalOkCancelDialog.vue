@@ -3,7 +3,7 @@
         <modal :title='title'
                :effect='effect'
                :width='width'
-               :css-class="cssClass"
+               :css-class="cssClassEval"
                v-model="show" @callback="onModalClose">
             <div class="modal-body" slot='modal-body'>
                 {{body}}
@@ -38,6 +38,7 @@
                 title: "",
                 body: "",
                 footer: "",
+                classOverride: "",
                 buttons: {
                     ok: true,
                     cancel: true
@@ -60,7 +61,7 @@
                 }
 
                 if (options.cssClass) {
-                    _self.cssClass = options.cssClass;
+                    _self.classOverride = options.cssClass;
                 }
 
                 if (options.buttons) {
@@ -87,6 +88,16 @@
                     action = "OK";
                 }
                 _self.$emit('closed', action);
+                _self.classOverride = "";
+            }
+        },
+        computed: {
+            cssClassEval: function() {
+                if (this.classOverride) {
+                    return this.classOverride;
+                }
+
+                return this.cssClass;
             }
         }
     }
