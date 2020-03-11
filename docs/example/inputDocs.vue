@@ -28,6 +28,7 @@
                                   cssClass="myCssClass myCssClass2"
                                   @submit_key_pressed="submitKeyPressed"
                                   :debug="debug"
+                                  :type="type"
                         ></bs-input>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -96,6 +97,10 @@
                                 <label>Value:</label>
                                 <div>{{input}}</div>
                                 <input v-model="input" type="text"></input>
+                            </p>
+                            <p>
+                                <label>Type:</label>
+                                <input v-model="type"></input>
                             </p>
                         </div>
                     </button-group>
@@ -449,7 +454,8 @@
                 groupAddon: null,
                 groupFaTag: null,
                 textarea: null,
-                validateManually: false
+                validateManually: false,
+                type: null
             }
         },
         methods: {
