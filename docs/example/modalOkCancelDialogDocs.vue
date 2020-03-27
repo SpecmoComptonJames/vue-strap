@@ -18,6 +18,10 @@
         <input type="text" v-model="body" />
       </p>
       <p>
+        <label>htmlBody</label>
+        <input type="text" v-model="htmlBody" />
+      </p>
+      <p>
         <label>Footer</label>
         <input type="text" v-model="footer" />
       </p>
@@ -153,6 +157,7 @@ export default {
       width: "800px",
       title: "Dialog Title",
       body: "Body Text",
+      htmlBody: "",
       footer: "footer text",
       buttons: {
         ok: true,
@@ -163,7 +168,7 @@ export default {
   methods: {
     showModal() {
         var bx = this.$refs['pageModal1'];
-        bx.showDialog({title: this.title, body: this.body, footer: this.footer, buttons: this.buttons})
+        bx.showDialog({title: this.title, body: this.body,htmlBody: this.htmlBody, footer: this.footer, buttons: this.buttons})
     },
     closed: function(args) {
       console.log('CLOSED EVENT - > ',args);

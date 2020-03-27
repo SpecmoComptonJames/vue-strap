@@ -6,7 +6,8 @@
                :css-class="cssClassEval"
                v-model="show" @callback="onModalClose">
             <div class="modal-body" slot='modal-body'>
-                {{body}}
+                <div v-model="body" v-if="body"></div>
+                <div v-html="htmlBody" v-if="htmlBody"></div>
             </div>
             <div class="modal-footer" slot='modal-footer'>
                 <div v-if="footer" class="modal-footer-message">
@@ -37,6 +38,7 @@
                 show: false,
                 title: "",
                 body: "",
+                htmlBody: null,
                 footer: "",
                 classOverride: "",
                 buttons: {
@@ -54,6 +56,10 @@
 
                 if (options.body) {
                     _self.body = options.body;
+                }
+
+                if (options.htmlBody) {
+                    _self.htmlBody = options.htmlBody;
                 }
 
                 if (options.footer) {
