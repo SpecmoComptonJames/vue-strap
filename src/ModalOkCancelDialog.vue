@@ -6,7 +6,8 @@
                :css-class="cssClassEval"
                v-model="show" @callback="onModalClose">
             <div class="modal-body" slot='modal-body'>
-                <div v-model="body" v-if="body"></div>
+                <div v-model="body"></div>
+                {{body}}
                 <div v-html="htmlBody" v-if="htmlBody"></div>
             </div>
             <div class="modal-footer" slot='modal-footer'>
@@ -38,7 +39,7 @@
                 show: false,
                 title: "",
                 body: "",
-                htmlBody: null,
+                htmlBody: "",
                 footer: "",
                 classOverride: "",
                 buttons: {
@@ -49,21 +50,30 @@
         },
         methods: {
             showDialog: function(options) {
+                debugger;
                 var _self = this;
                 if (options.title) {
                     _self.title = options.title;
+                } else {
+                    _self.title = "";
                 }
 
                 if (options.body) {
                     _self.body = options.body;
+                } else {
+                    _self.body = "";
                 }
 
                 if (options.htmlBody) {
                     _self.htmlBody = options.htmlBody;
+                } else {
+                    _self.htmlBody = "";
                 }
 
                 if (options.footer) {
                     _self.footer = options.footer;
+                } else {
+                    _self.footer = "";
                 }
 
                 if (options.cssClass) {

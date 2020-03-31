@@ -19,7 +19,7 @@
       </p>
       <p>
         <label>htmlBody</label>
-        <input type="text" v-model="htmlBody" />
+          <input type="text" v-model="htmlBody" />
       </p>
       <p>
         <label>Footer</label>
