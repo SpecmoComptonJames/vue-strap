@@ -50,7 +50,6 @@
         },
         methods: {
             showDialog: function(options) {
-                debugger;
                 var _self = this;
                 if (options.title) {
                     _self.title = options.title;

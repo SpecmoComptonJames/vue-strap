@@ -1,6 +1,6 @@
 {
   "name": "vue-strap-spc",
-  "version": "2.0.27",
+  "version": "2.0.28",
   "description": "Bootstrap 3.0 components built with Vue.js",
   "main": "dist/vue-strap.js",
   "typings": "types/index.d.ts",
