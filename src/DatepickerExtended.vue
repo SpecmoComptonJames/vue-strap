@@ -673,6 +673,13 @@
             },
             setValidState(state) {
                 this.valid = state;
+            },
+            isValid() {
+                if (typeof this.valid === "undefined" ||
+                    this.valid === null) {
+                    return false
+                }
+                return (this.valid);
             }
         },
         created() {

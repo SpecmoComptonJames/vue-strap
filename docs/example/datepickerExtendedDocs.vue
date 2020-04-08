@@ -22,6 +22,10 @@
                                 :icon="icon"
                                 :validator-custom-function="validateRoDate"
                     ></datepicker>
+                    <button @click="checkValidState">call isValid()</button>
+                    <p>Control State Check:
+                        {{stateCheck}}
+                    </p>
                     <h4>Plain Date With Label</h4>
                     <datepicker
                             ref="dp2"
@@ -211,7 +215,8 @@
                 errorText: 'It is broken',
                 openFocus: false,
                 icon: true,
-                canValidate: true
+                canValidate: true,
+                stateCheck: null
             }
         },
         computed: {
@@ -259,7 +264,13 @@
                     return {valid: false, customMessage: "Date must be before or equal to today."};
                 }
                 return {valid: true};
+            },
+            checkValidState() {
+                var input = this.$refs['dp'];
+                this.stateCheck = input.isValid();
+
             }
+
         }
     }
 </script>
