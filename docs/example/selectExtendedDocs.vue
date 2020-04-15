@@ -25,9 +25,12 @@
                                   group-fa-icon="fab fa-vuejs"
                                   control-id="xxx1"
                                   :error="select.errorText"
-
+                                  :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
+                        <p>
+                            <checkbox v-model="select.enableDropDownAutoAlignment">Enable Dropdown Auto Alignment</checkbox>
+                        </p>
                     </form>
                     <br/>
                     <p>
@@ -48,6 +51,7 @@
                                   :error="select.errorText"
                                   label="This is my label"
                                   minWidth="300px"
+                                  :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -67,6 +71,7 @@
                                   :group-addon="select.groupAddon"
                                   :group-fa-icon="select.groupFaTag"
                                   :disabled="select.disabled"
+                                  :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
 
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
@@ -207,6 +212,12 @@
             <pre v-html="ajax.options"></pre>
         </div>
         <doc-table name="Other">
+            <div>
+                <p>enableDropdownAutoAlignment</p>
+                <p><code>Boolean</code></p>
+                <p><code>false</code></p>
+                <p>If true the drop down will be set to left:auto to allign with the group add-on</p>
+            </div>
             <div>
                 <p>min-search</p>
                 <p><code>Number</code></p>
@@ -353,6 +364,7 @@
                     readonly: false,
                     justified: true,
                     limit: false,
+                    enableDropDownAutoAlignment: false,
                     multiple: [],
                     options: [
                         {val: 0, label: 'Cat'},

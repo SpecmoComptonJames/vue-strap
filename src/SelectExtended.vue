@@ -33,7 +33,8 @@
                 <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
             </select>
             <span :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu"
+                :style="selectStyle">
                 <template v-if="list.length">
                     <li v-if="canSearch" class="bs-searchbox">
                         <input type="text" :placeholder="searchText||text.search" class="form-control" autocomplete="off"
@@ -110,6 +111,7 @@
             value: null,
             groupAddon: {type: String, default: null},
             groupFaIcon: {type: String, default: null},
+            enableDropdownAutoAlignment: {type: Boolean, default: false},
             cssClass: {type: String, default: null},
             minWidth: {type: String, default: ''},
         },
@@ -121,7 +123,8 @@
                 show: false,
                 notify: false,
                 val: null,
-                valid: null
+                valid: null,
+                selectStyle: "",
             }
         },
         computed: {
@@ -297,6 +300,15 @@
                 this.$emit('options', this.list)
             },
             toggle() {
+                //set drop-down offset
+                console.log('toggle');
+                if (this.enableDropdownAutoAlignment) {
+                    this.selectStyle = "left: auto;";
+                    console.log('set auto');
+                } else {
+                    this.selectStyle = "";
+                }
+
                 this.show = !this.show;
                 if (!this.show) this.$refs.btn.focus();
             },
