@@ -301,10 +301,8 @@
             },
             toggle() {
                 //set drop-down offset
-                console.log('toggle');
                 if (this.enableDropdownAutoAlignment) {
                     this.selectStyle = "left: auto;";
-                    console.log('set auto');
                 } else {
                     this.selectStyle = "";
                 }
