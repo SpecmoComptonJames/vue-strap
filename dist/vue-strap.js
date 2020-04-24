@@ -7739,7 +7739,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.modal-footer-message[data-v-7a256e0c] {\n    text-align: left;\n}\n", "", {"version":3,"sources":["/./src/ModalOkCancelDialog.vue?e80a221c"],"names":[],"mappings":";AAyHA;IACA,iBAAA;CACA","file":"ModalOkCancelDialog.vue","sourcesContent":["<template>\n    <div>\n        <modal :title='title'\n               :effect='effect'\n               :width='width'\n               :css-class=\"cssClassEval\"\n               v-model=\"show\" @callback=\"onModalClose\">\n            <div class=\"modal-body\" slot='modal-body'>\n                <div v-model=\"body\"></div>\n                {{body}}\n                <div v-html=\"htmlBody\" v-if=\"htmlBody\"></div>\n            </div>\n            <div class=\"modal-footer\" slot='modal-footer'>\n                <div v-if=\"footer\" class=\"modal-footer-message\">\n                    {{footer}}\n                </div>\n                <button class=\"btn btn-primary\" v-if=\"buttons.ok\" @click='onModalClose(\"OK\")'>OK</button>\n                <button class=\"btn btn-link\" v-if=\"buttons.cancel\" @click='onModalClose(\"CANCEL\")'>CANCEL</button>\n            </div>\n        </modal>\n    </div>\n</template>\n\n<script>\n    import  xmodal from './Modal.vue';\n\n    export default {\n        name: \"ModalOkCancelDialog\",\n        components: {\n            modal: xmodal\n        },\n        props: {\n            effect: {type: String, default: 'fade'},\n            width: {default: null},\n            cssClass: {type: String, default: null }\n        },\n        data: function () {\n            return {\n                show: false,\n                title: \"\",\n                body: \"\",\n                htmlBody: \"\",\n                footer: \"\",\n                classOverride: \"\",\n                buttons: {\n                    ok: true,\n                    cancel: true\n                },\n            }\n        },\n        methods: {\n            showDialog: function(options) {\n                var _self = this;\n                if (options.title) {\n                    _self.title = options.title;\n                } else {\n                    _self.title = \"\";\n                }\n\n                if (options.body) {\n                    _self.body = options.body;\n                } else {\n                    _self.body = \"\";\n                }\n\n                if (options.htmlBody) {\n                    _self.htmlBody = options.htmlBody;\n                } else {\n                    _self.htmlBody = \"\";\n                }\n\n                if (options.footer) {\n                    _self.footer = options.footer;\n                } else {\n                    _self.footer = \"\";\n                }\n\n                if (options.cssClass) {\n                    _self.classOverride = options.cssClass;\n                }\n\n                if (options.buttons) {\n                    if (typeof(options.buttons.ok === \"boolean\")) {\n                        _self.buttons.ok = options.buttons.ok;\n                    }\n                    if (typeof(options.buttons.cancel === \"boolean\")) {\n                        _self.buttons.cancel = options.buttons.cancel;\n                    }\n                } else {\n                    _self.buttons.ok = true;\n                    _self.buttons.cancel = true;\n\n                }\n\n                _self.show = true;\n                _self.$emit('shown');\n            },\n            onModalClose: function(args) {\n                var _self = this;\n                _self.show = false;\n                var action = \"CANCEL\";\n                if (args === \"OK\") {\n                    action = \"OK\";\n                }\n                _self.$emit('closed', action);\n                _self.classOverride = \"\";\n            }\n        },\n        computed: {\n            cssClassEval: function() {\n                if (this.classOverride) {\n                    return this.classOverride;\n                }\n\n                return this.cssClass;\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .modal-footer-message {\n        text-align: left;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.modal-footer-message[data-v-7a256e0c] {\n    text-align: left;\n}\n.modal-footer-message-id[data-v-7a256e0c] {\n    width: 50%;\n    font-size: .8em;\n    line-height: 35px;\n    height: 35px;\n    text-align: left;\n    vertical-align: bottom;\n}\n", "", {"version":3,"sources":["/./src/ModalOkCancelDialog.vue?96f4d4aa"],"names":[],"mappings":";AAsIA;IACA,iBAAA;CACA;AAEA;IACA,WAAA;IACA,gBAAA;IACA,kBAAA;IACA,aAAA;IACA,iBAAA;IACA,uBAAA;CACA","file":"ModalOkCancelDialog.vue","sourcesContent":["<template>\n    <div>\n        <modal :title='title'\n               :effect='effect'\n               :width='width'\n               :css-class=\"cssClassEval\"\n               v-model=\"show\" @callback=\"onModalClose\">\n            <div class=\"modal-body\" slot='modal-body'>\n                <div v-model=\"body\"></div>\n                {{body}}\n                <div v-html=\"htmlBody\" v-if=\"htmlBody\"></div>\n            </div>\n            <div class=\"modal-footer\" slot='modal-footer'>\n                <div v-if=\"footer\" class=\"modal-footer-message\">\n                    {{footer}}\n                </div>\n                <div>\n                    <div v-if=\"dialogId\" class=\"modal-footer-message-id\" style=\"float: left\">{{dialogId}}</div>\n                    <div class=\"modal-footer-message-buttons\" style=\"float: right\">\n                        <button class=\"btn btn-primary\" v-if=\"buttons.ok\" @click='onModalClose(\"OK\")'>OK</button>\n                        <button class=\"btn btn-link\" v-if=\"buttons.cancel\" @click='onModalClose(\"CANCEL\")'>CANCEL</button>\n                    </div>\n                </div>\n\n            </div>\n        </modal>\n    </div>\n</template>\n\n<script>\n    import  xmodal from './Modal.vue';\n\n    export default {\n        name: \"ModalOkCancelDialog\",\n        components: {\n            modal: xmodal\n        },\n        props: {\n            effect: {type: String, default: 'fade'},\n            width: {default: null},\n            cssClass: {type: String, default: null }\n        },\n        data: function () {\n            return {\n                show: false,\n                title: \"\",\n                body: \"\",\n                htmlBody: \"\",\n                footer: \"\",\n                dialogId: \"\",\n                classOverride: \"\",\n                buttons: {\n                    ok: true,\n                    cancel: true\n                },\n            }\n        },\n        methods: {\n            showDialog: function(options) {\n                var _self = this;\n                if (options.title) {\n                    _self.title = options.title;\n                } else {\n                    _self.title = \"\";\n                }\n\n                if (options.body) {\n                    _self.body = options.body;\n                } else {\n                    _self.body = \"\";\n                }\n\n                if (options.htmlBody) {\n                    _self.htmlBody = options.htmlBody;\n                } else {\n                    _self.htmlBody = \"\";\n                }\n\n                if (options.footer) {\n                    _self.footer = options.footer;\n                } else {\n                    _self.footer = \"\";\n                }\n\n                if (options.dialogId) {\n                    _self.dialogId = options.dialogId;\n                } else {\n                    _self.dialogId = \"\";\n                }\n\n                if (options.cssClass) {\n                    _self.classOverride = options.cssClass;\n                }\n\n                if (options.buttons) {\n                    if (typeof(options.buttons.ok === \"boolean\")) {\n                        _self.buttons.ok = options.buttons.ok;\n                    }\n                    if (typeof(options.buttons.cancel === \"boolean\")) {\n                        _self.buttons.cancel = options.buttons.cancel;\n                    }\n                } else {\n                    _self.buttons.ok = true;\n                    _self.buttons.cancel = true;\n\n                }\n\n                _self.show = true;\n                _self.$emit('shown');\n            },\n            onModalClose: function(args) {\n                var _self = this;\n                _self.show = false;\n                var action = \"CANCEL\";\n                if (args === \"OK\") {\n                    action = \"OK\";\n                }\n                _self.$emit('closed', action);\n                _self.classOverride = \"\";\n            }\n        },\n        computed: {\n            cssClassEval: function() {\n                if (this.classOverride) {\n                    return this.classOverride;\n                }\n\n                return this.cssClass;\n            }\n        }\n    }\n</script>\n\n<style scoped>\n    .modal-footer-message {\n        text-align: left;\n    }\n\n    .modal-footer-message-id {\n        width: 50%;\n        font-size: .8em;\n        line-height: 35px;\n        height: 35px;\n        text-align: left;\n        vertical-align: bottom;\n    }\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -7781,6 +7781,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            body: "",
 	            htmlBody: "",
 	            footer: "",
+	            dialogId: "",
 	            classOverride: "",
 	            buttons: {
 	                ok: true,
@@ -7813,6 +7814,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _self.footer = options.footer;
 	            } else {
 	                _self.footer = "";
+	            }
+	
+	            if (options.dialogId) {
+	                _self.dialogId = options.dialogId;
+	            } else {
+	                _self.dialogId = "";
 	            }
 	
 	            if (options.cssClass) {
@@ -7855,6 +7862,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }
 	}; //
+	//
+	//
+	//
+	//
+	//
+	//
 	//
 	//
 	//
@@ -8383,7 +8396,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    slot: "modal-footer"
 	  }, [(_vm.footer) ? _c('div', {
 	    staticClass: "modal-footer-message"
-	  }, [_vm._v("\n                " + _vm._s(_vm.footer) + "\n            ")]) : _vm._e(), _vm._v(" "), (_vm.buttons.ok) ? _c('button', {
+	  }, [_vm._v("\n                " + _vm._s(_vm.footer) + "\n            ")]) : _vm._e(), _vm._v(" "), _c('div', [(_vm.dialogId) ? _c('div', {
+	    staticClass: "modal-footer-message-id",
+	    staticStyle: {
+	      "float": "left"
+	    }
+	  }, [_vm._v(_vm._s(_vm.dialogId))]) : _vm._e(), _vm._v(" "), _c('div', {
+	    staticClass: "modal-footer-message-buttons",
+	    staticStyle: {
+	      "float": "right"
+	    }
+	  }, [(_vm.buttons.ok) ? _c('button', {
 	    staticClass: "btn btn-primary",
 	    on: {
 	      "click": function($event) {
@@ -8397,7 +8420,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _vm.onModalClose("CANCEL")
 	      }
 	    }
-	  }, [_vm._v("CANCEL")]) : _vm._e()])])], 1)
+	  }, [_vm._v("CANCEL")]) : _vm._e()])])])])], 1)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
