@@ -14,8 +14,14 @@
                 <div v-if="footer" class="modal-footer-message">
                     {{footer}}
                 </div>
-                <button class="btn btn-primary" v-if="buttons.ok" @click='onModalClose("OK")'>OK</button>
-                <button class="btn btn-link" v-if="buttons.cancel" @click='onModalClose("CANCEL")'>CANCEL</button>
+                <div>
+                    <div v-if="dialogId" class="modal-footer-message-id" style="float: left">{{dialogId}}</div>
+                    <div class="modal-footer-message-buttons" style="float: right">
+                        <button class="btn btn-primary" v-if="buttons.ok" @click='onModalClose("OK")'>OK</button>
+                        <button class="btn btn-link" v-if="buttons.cancel" @click='onModalClose("CANCEL")'>CANCEL</button>
+                    </div>
+                </div>
+
             </div>
         </modal>
     </div>
@@ -41,6 +47,7 @@
                 body: "",
                 htmlBody: "",
                 footer: "",
+                dialogId: "",
                 classOverride: "",
                 buttons: {
                     ok: true,
@@ -73,6 +80,12 @@
                     _self.footer = options.footer;
                 } else {
                     _self.footer = "";
+                }
+
+                if (options.dialogId) {
+                    _self.dialogId = options.dialogId;
+                } else {
+                    _self.dialogId = "";
                 }
 
                 if (options.cssClass) {
@@ -121,5 +134,14 @@
 <style scoped>
     .modal-footer-message {
         text-align: left;
+    }
+
+    .modal-footer-message-id {
+        width: 50%;
+        font-size: .8em;
+        line-height: 35px;
+        height: 35px;
+        text-align: left;
+        vertical-align: bottom;
     }
 </style>

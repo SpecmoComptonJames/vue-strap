@@ -26,6 +26,10 @@
         <input type="text" v-model="footer" />
       </p>
       <p>
+        <label>dialogId: </label>
+        <input type="text" v-model="dialogId" />
+      </p>
+      <p>
         <label>OK Button</label>
         <input type="checkbox" v-model="buttons.ok" />
       </p>
@@ -159,6 +163,7 @@ export default {
       body: "Body Text",
       htmlBody: "",
       footer: "footer text",
+      dialogId: "ID-XXX-XXXXXXXXXX",
       buttons: {
         ok: true,
         cancel: true
@@ -168,7 +173,7 @@ export default {
   methods: {
     showModal() {
         var bx = this.$refs['pageModal1'];
-        bx.showDialog({title: this.title, body: this.body,htmlBody: this.htmlBody, footer: this.footer, buttons: this.buttons})
+        bx.showDialog({title: this.title, body: this.body,htmlBody: this.htmlBody, footer: this.footer, dialogId: this.dialogId, buttons: this.buttons})
     },
     closed: function(args) {
       console.log('CLOSED EVENT - > ',args);
