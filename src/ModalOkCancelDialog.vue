@@ -1,10 +1,14 @@
 <template>
     <div>
-        <modal :title='title'
+        <modal
                :effect='effect'
                :width='width'
                :css-class="cssClassEval"
+               :backdrop='false'
                v-model="show" @callback="onModalClose">
+            <div slot="modal-header" class="modal-header">
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
             <div class="modal-body" slot='modal-body'>
                 <div v-model="body"></div>
                 {{body}}
