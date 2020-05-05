@@ -20,7 +20,9 @@
             >
                 <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
                 <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
+                <span :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
             </div>
+            <slot name="after"></slot>
             <select ref="sel"
                     v-model="val"
                     :name="name"
@@ -33,7 +35,6 @@
                 <option v-if="required" value=""></option>
                 <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
             </select>
-            <span :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
             <ul class="dropdown-menu"
                 :style="selectStyle">
                 <template v-if="list.length">
@@ -55,7 +56,7 @@
                         </a>
                     </li>
                 </template>
-                <slot name="after"></slot>
+
                 <transition v-if="notify && !closeOnSelect" name="fadein">
                     <div class="notify in">{{limitText}}</div>
                 </transition>
@@ -65,7 +66,9 @@
                     <div>{{limitText}}</div>
                 </div>
             </transition>
+
         </div>
+
         <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
         <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
     </div>

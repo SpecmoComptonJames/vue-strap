@@ -79,6 +79,37 @@
                 </div>
             </div>
             <br/>
+            <div>
+                <h3>Slot Test</h3>
+                <form action="./#select" method="get">
+                    <v-select ref="txtNormalSelectData2"
+                              :options="select.options" options-value="val" v-model="select.normal" name="animal"
+                              :search="select.search"
+                              :required="select.required" :clear-button="select.clearButton"
+                              :disabled="select.disabled"
+                              help="Pick an item from the list (this isn't hard)"
+                              placeholder="-- SELECT ONE --"
+                              :group-addon="select.groupAddon"
+                              :group-fa-icon="select.groupFaTag"
+                              cssClass="test1 test2"
+                              group-fa-icon="fab fa-vuejs"
+                              control-id="xxx1"
+                              :error="select.errorText"
+                              :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
+                    >
+                         <span slot="before" class="input-group-btn">
+                            B4
+                         </span>
+                        <span slot="after" class="input-group-btn">
+                           <button type="button" class="btn btn-primary">GO!</button>
+                        </span>
+                    </v-select>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <p>
+                        <checkbox v-model="select.enableDropDownAutoAlignment">Enable Dropdown Auto Alignment</checkbox>
+                    </p>
+                </form>
+            </div>
             <button-group type="primary" :buttons="false">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -420,5 +451,9 @@
 <style>
     .checkbox > label:not(:first-child) {
         margin-left: 15px;
+    }
+
+    .form-control-feedback.dropdown-glyph.glyphicon {
+        margin-right: 16px;
     }
 </style>
