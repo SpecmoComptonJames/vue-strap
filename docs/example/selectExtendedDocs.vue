@@ -24,12 +24,16 @@
                                   cssClass="test1 test2"
                                   group-fa-icon="fab fa-vuejs"
                                   control-id="xxx1"
+                                  :enable-feedback="select.enableFeedBack"
                                   :error="select.errorText"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                         <p>
                             <checkbox v-model="select.enableDropDownAutoAlignment">Enable Dropdown Auto Alignment</checkbox>
+                        </p>
+                        <p>
+                            <checkbox v-model="select.enableFeedBack">Enable Feedback</checkbox>
                         </p>
                     </form>
                     <br/>
@@ -49,6 +53,7 @@
                                   group-fa-icon="fab fa-vuejs"
                                   control-id="xxx1"
                                   :error="select.errorText"
+                                  :enable-feedback="select.enableFeedBack"
                                   label="This is my label"
                                   minWidth="300px"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
@@ -71,6 +76,7 @@
                                   :group-addon="select.groupAddon"
                                   :group-fa-icon="select.groupFaTag"
                                   :disabled="select.disabled"
+                                  :enable-feedback="select.enableFeedBack"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
 
                         ></v-select>
@@ -389,6 +395,7 @@
         data() {
             return {
                 select: {
+                    enableFeedBack: true,
                     clearButton: false,
                     closeOnSelect: false,
                     disabled: false,
@@ -453,7 +460,5 @@
         margin-left: 15px;
     }
 
-    .form-control-feedback.dropdown-glyph.glyphicon {
-        margin-right: 16px;
-    }
+
 </style>

@@ -118,6 +118,7 @@
             enableDropdownAutoAlignment: {type: Boolean, default: false},
             cssClass: {type: String, default: null},
             minWidth: {type: String, default: ''},
+            enableFeedback: {type: Boolean, default: true}
         },
         data() {
             return {
@@ -136,7 +137,10 @@
                 return this.minSearch ? this.list.length >= this.minSearch : this.search;
             },
             //canValidate () { return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.match !== null) },
-            canValidate () { return true },
+            //canValidate () { return true },
+            canValidate() {
+                return !this.disabled && !this.readonly && this.enableFeedback;
+            },
             classes() {
                 return [{
                     open: this.show,
@@ -470,5 +474,9 @@
 
     .btn-group-justified .dropdown-menu {
         width: 100%;
+    }
+
+    .form-control-feedback.dropdown-glyph.glyphicon {
+        margin-right: 16px;
     }
 </style>
