@@ -22,7 +22,7 @@
                 <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
                 <span :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
             </div>
-            <slot name="after"></slot>
+
             <select ref="sel"
                     v-model="val"
                     :name="name"
@@ -61,6 +61,7 @@
                     <div class="notify in">{{limitText}}</div>
                 </transition>
             </ul>
+            <slot name="after"></slot>
             <transition v-if="notify && closeOnSelect" name="fadein">
                 <div class="notify out">
                     <div>{{limitText}}</div>
