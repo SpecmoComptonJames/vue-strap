@@ -2,6 +2,7 @@
     <div :class="['form-group',{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}]">
         <label v-if="label" class="control-label">{{label}}</label>
         <div ref="select" :class="['input-group', classes, cssClass]" v-click-outside="close" :style="{'min-width': minWidth}">
+            <slot name="before"></slot>
             <span v-if="groupAddon" class="input-group-addon">
               <i v-if="groupFaIcon" :class="groupFaIcon" style="margin-right: 3px"></i>
               {{groupAddon}}
@@ -54,7 +55,7 @@
                         </a>
                     </li>
                 </template>
-                <slot></slot>
+                <slot name="after"></slot>
                 <transition v-if="notify && !closeOnSelect" name="fadein">
                     <div class="notify in">{{limitText}}</div>
                 </transition>
