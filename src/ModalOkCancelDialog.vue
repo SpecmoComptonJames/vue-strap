@@ -10,7 +10,7 @@
                 <h4 class="modal-title">{{title}}</h4>
             </div>
             <div class="modal-body" slot='modal-body'>
-                <div v-model="body"></div>
+                <div v-show="body" v-model="body"></div>
                 {{body}}
                 <div v-html="htmlBody" v-if="htmlBody"></div>
             </div>
