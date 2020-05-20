@@ -432,6 +432,7 @@
                     val = val.slice(0, pos[0].length + 1 + pos[1].length, pos[1].length) + delimChar + val.slice(pos[0].length + 1 + pos[1].length);
                 }
                 this.val = val;
+                console.log("data format complete", val);
                 this.eval();
                 this.close();
             },
