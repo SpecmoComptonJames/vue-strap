@@ -408,7 +408,7 @@
                     return;
                 }
 
-                if (val.length != format.length - 2) {
+                if (val.length < format.length - 2) {
                     return;
                 }
 
