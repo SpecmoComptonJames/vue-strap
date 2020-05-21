@@ -17,6 +17,7 @@
                  @keydown.esc.stop.prevent="close"
                  @keydown.space.stop.prevent="toggle"
                  @keydown.enter.stop.prevent="toggle"
+                 :tabindex="tabIndex"
             >
                 <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
                 <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
@@ -119,7 +120,8 @@
             enableDropdownAutoAlignment: {type: Boolean, default: false},
             cssClass: {type: String, default: null},
             minWidth: {type: String, default: ''},
-            enableFeedback: {type: Boolean, default: true}
+            enableFeedback: {type: Boolean, default: true},
+            tabIndex: {type: String, default: null}
         },
         data() {
             return {

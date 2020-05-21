@@ -10,6 +10,7 @@
         :name="name"
         :readonly="readonly"
         :disabled="disabled"
+        :tabindex="tabIndex"
       />
       <slot></slot>
     </template>
@@ -20,6 +21,7 @@
         :name="name"
         :readonly="readonly"
         :disabled="disabled"
+        :tabindex="tabIndex"
       />
       <span class="icon dropdown-toggle" :class="[active?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
       <span v-if="active&&typeColor==='default'" class="icon"></span>
@@ -37,7 +39,8 @@ export default {
     name: {type: String, default: null},
     readonly: {type: Boolean, default: false},
     type: {type: String, default: null},
-    value: {default: false}
+    value: {default: false},
+    tabIndex: {type: String, default: null}
   },
   data () {
     return {

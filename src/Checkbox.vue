@@ -1,6 +1,6 @@
 <template>
   <a :is="isButton?'a':'label'" @click="toggle" :class="[isButton?'btn btn-'+typeColor:'open checkbox '+typeColor,{active:checked,disabled:disabled,readonly:readonly}]">
-    <input v-if="name" type="hidden" :name="name" :value="checked?trueValue:falseValue" />
+    <input v-if="name" type="hidden" :name="name" :value="checked?trueValue:falseValue"  :tabindex="tabIndex"/>
     <span v-if="!isButton" class="icon dropdown-toggle" :class="[checked?'btn-'+typeColor:'',{bg:typeColor==='default'}]"></span>
     <span v-if="!isButton&&checked&&typeColor==='default'" class="icon"></span>
     <slot></slot>
@@ -17,7 +17,8 @@ export default {
     readonly: {type: Boolean, default: false},
     trueValue: {default: true},
     type: {type: String, default: null},
-    value: {default: false}
+    value: {default: false},
+    tabIndex: {type: String, default: null}
   },
   data () {
     return {

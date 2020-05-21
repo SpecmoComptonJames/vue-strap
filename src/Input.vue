@@ -27,7 +27,8 @@
                     :type="(type=='textarea') ? null:type"
                     v-model="val"
                     @blur="emit" @focus="emit" @input="emit"
-                   @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+                    @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+                    :tabindex="tabIndex"
 
             ></input>
             <textarea v-if="type==='textarea'" class="form-control" ref="input"
@@ -47,7 +48,7 @@
                       :type=" (type=='textarea') ? null:type"
                       v-model="val"
                       @blur="emit" @focus="emit" @input="emit"
-
+                      :tabindex="tabIndex"
             ></textarea>
             <div v-if="clearButton && value" :class="{icon:icon}">
                 <span class="close" @click="value = ''">&times;</span>
@@ -86,10 +87,11 @@
                     v-model="val"
                     @blur="emit" @focus="emit" @input="emit" @keyup="emit"
                     @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+                    :tabindex="tabIndex"
             ></input>
             <textarea v-if="type=='textarea'"
-                      ref="input"
-                      class="form-control"
+                     ef="input"
+                    class="form-control"
                     :cols="cols"
                     :disabled="disabled"
                     :list="id_datalist"
@@ -106,6 +108,7 @@
                     v-model="val"
                     @blur="emit" @focus="emit" @input="emit" @keyup="emit"
                     @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
+                    :tabindex="tabIndex"
             ></textarea>
             <span v-if="clearButton && val" class="close" @click="val = ''">&times;</span>
             <span v-if="icon&&valid!==null"
@@ -165,7 +168,8 @@
             cssClass: {type: String, default: null},
             controlId: {default: true},
             method: {type: Function},
-            debug: {type: Boolean, default: false}
+            debug: {type: Boolean, default: false},
+            tabIndex: {type: String, default: null}
         },
         data() {
             var val = this.value

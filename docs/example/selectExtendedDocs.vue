@@ -27,6 +27,7 @@
                                   :enable-feedback="select.enableFeedBack"
                                   :error="select.errorText"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
+                                  tab-index="50"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                         <p>
@@ -57,6 +58,7 @@
                                   label="This is my label"
                                   minWidth="300px"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
+                                  tab-index="51"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -78,7 +80,7 @@
                                   :disabled="select.disabled"
                                   :enable-feedback="select.enableFeedBack"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
-
+                                  tab-index="53"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -102,6 +104,7 @@
                               control-id="xxx1"
                               :error="select.errorText"
                               :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
+                              tab-index="54"
                     >
                          <span slot="before" class="input-group-btn">
                             B4
@@ -249,6 +252,12 @@
             <pre v-html="ajax.options"></pre>
         </div>
         <doc-table name="Other">
+            <div>
+                <p>tabIndex (tab-index)</p>
+                <p><code>String</code></p>
+                <p><code>1</code></p>
+                <p>sets the input's tabindex order. 0 Means non-focus when tabbing</p>
+            </div>
             <div>
                 <p>enableDropdownAutoAlignment</p>
                 <p><code>Boolean</code></p>

@@ -29,11 +29,13 @@
                                   @submit_key_pressed="submitKeyPressed"
                                   :debug="debug"
                                   :type="type"
+                                  tab-index="10"
                         ></bs-input>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <bs-input name="match" required type="password" :match="input" :icon="check.icon"
-                                  :enter-submit="check.enterSubmit" help="Match the User Name">
+                                  :enter-submit="check.enterSubmit" help="Match the User Name"
+                                  tab-index="11">
                             <label slot="label">Match value</label>
                         </bs-input>
                     </div>
@@ -115,6 +117,7 @@
                         clear-button
                         error="I am an error message"
                         help="I am a help message"
+                        tab-index="12"
                 >
                     <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     <span slot="after" class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
@@ -127,6 +130,7 @@
                           @focus="event = 'focused'"
                           @blur="event = 'blured'"
                           v-model="textarea"
+                          tab-index="13"
                 ></bs-input>
                 <pre> Test event on textarea: {{event}}</pre>
                 <p>Test Text Area Text: <input type="text" v-model="textarea"/></p>
@@ -203,7 +207,13 @@
         </div>
         <doc-table>
             <div>
-                <p>cssClass</p>
+                <p>tabIndex (tab-index)</p>
+                <p><code>String</code></p>
+                <p><code>1</code></p>
+                <p>sets the input's tabindex order. 0 Means non-focus when tabbing</p>
+            </div>
+            <div>
+                <p>cssClass (css-class)</p>
                 <p><code>String</code></p>
                 <p><code>custom css class name</code></p>
                 <p>spc Added: Adds a custom CSS class to outside of this control.</p>

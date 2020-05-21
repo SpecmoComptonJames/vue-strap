@@ -18,6 +18,7 @@
                    @keypress="onKeyPress"
                    @keyup="onKeyup"
                    @blur="onBlur"
+                   :tabindex="tabIndex"
             />
             <span :class="['form-control-feedback dropdown-glyph glyphicon datepicker-feedback-glyph',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]"
                   aria-hidden='true'></span>
@@ -119,6 +120,7 @@
             day: {type: String, default: ''},
             year: {type: String, default: ''},
             validatorCustomFunction: {default: null},
+            tabIndex: {type: String, default: null}
         },
         data() {
             return {
