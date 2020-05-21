@@ -8,6 +8,7 @@
           <h1>VueStrap</h1>
           <p>Bootstrap components built with <a target="_blank" href="http://vuejs.org/">Vue.js</a>.</p>
           <p>No jQuery, bootstrap.js, or any 3rd party plugins required.</p>
+          <p>Version: {{version}}</p>
           <br>
           <p><a class="btn btn-outline-inverse btn-lg" href="https://github.com/wffranco/vue-strap">Code on GitHub</a></p>
         </div>
@@ -99,6 +100,8 @@ import toggleButtonDocs from './example/toggleButtonDocs.vue'
 import tooltipDocs from './example/tooltipDocs.vue'
 import typeaheadDocs from './example/typeaheadDocs.vue'
 
+import pkg from '../package'
+
 export default {
   components: {
     accordionDocs,
@@ -132,7 +135,8 @@ export default {
     typeaheadDocs
   },
   computed: {
-    local () { return location.hostname === 'localhost' }
-  }
+    local () { return location.hostname === 'localhost' },
+    version() { return pkg.version; }
+  },
 }
 </script>
