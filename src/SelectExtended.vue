@@ -384,7 +384,6 @@
 
 <style scoped>
     .form-control.dropdown-toggle {
-        height: auto;
         padding-right: 24px;
     }
 
