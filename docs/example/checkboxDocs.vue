@@ -2,10 +2,10 @@
   <doc-section id="checkbox" name="Checkbox">
     <div class="bs-example">
       <h4>Checkbox</h4>
-      <checkbox v-model="checkboxValue.one" true-value="1">One</checkbox>
-      <checkbox v-model="checkboxValue.two" true-value="two" type="danger" disabled>Two (disabled)</checkbox>
-      <checkbox v-model="checkboxValue.two" true-value="two" type="warning" readonly>Two (readonly)</checkbox>
-      <checkbox v-model="checkboxValue.two" true-value="two" type="success">Two</checkbox>
+      <checkbox v-model="checkboxValue.one" true-value="1" tab-index="100">One</checkbox>
+      <checkbox v-model="checkboxValue.two" true-value="two" type="danger" disabled tab-index="103">Two (disabled)</checkbox>
+      <checkbox v-model="checkboxValue.two" true-value="two" type="warning" readonly tab-index="101">Two (readonly)</checkbox>
+      <checkbox v-model="checkboxValue.two" true-value="two" type="success" tab-index="102">Two</checkbox>
       <hr>
       <h4>Checkbox Button (Single button)</h4>
       <checkbox button v-model="checkboxValue.three" :true-value="2+1" type="primary">Three</checkbox>
