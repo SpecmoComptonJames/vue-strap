@@ -24,6 +24,12 @@
     </doc-code>
     <doc-table>
       <div>
+        <p>tabIndex (tab-index)</p>
+        <p><code>String</code></p>
+        <p><code>1</code></p>
+        <p>sets the input's tabindex order. 0 Means non-focus when tabbing</p>
+      </div>
+      <div>
         <p>value</p>
         <p><code>Mixed</code></p>
         <p></p>
