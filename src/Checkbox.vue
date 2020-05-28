@@ -90,6 +90,7 @@ export default {
 label.checkbox {
   position: relative;
   padding-left: 18px;
+  cursor: pointer;
 }
 label.checkbox > input {
   box-sizing: border-box;
