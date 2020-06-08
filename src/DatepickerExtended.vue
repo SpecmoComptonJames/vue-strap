@@ -317,10 +317,18 @@
                     return {stringVal: strVal, modifier: (o / 60)};
                 };
 
+                var makeDate = function(y, m, d) {
+                    let mon = '0' + m.toString();
+                    let day = '0' + d.toString();
+
+                    return new Date(year + '-' + mon.substr(mon.length-2,2) + '-' + day.substr(day.length-2,2) + 'T00:00:00');
+                }
+
                 if (valid) {
                     //make a good date and deal with local time malfunction.
                     var zone = getTimeZone();
-                    date = new Date(year + '-' + month + '-' + day + ' GMT' + zone.stringVal);
+                    var date2 = new Date(year + '-' + month + '-' + day + ' GMT' + zone.stringVal);
+                    date = makeDate(year,month,day);
                 }
                 return {month: month, year: year, day: day, valid: valid, date: date};
             },
@@ -564,6 +572,9 @@
                 return firstYearOfDecade + '-' + lastYearOfDecade;
             },
             stringifyDayHeader(date) {
+                if (isNaN(date.valueOf())) {
+                    return "";
+                }
                 return this.text.months[date.getMonth()] + ' ' + date.getFullYear();
             },
             parseMonth(date) {
