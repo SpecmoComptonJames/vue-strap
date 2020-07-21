@@ -33,10 +33,28 @@
                         ></bs-input>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <bs-input name="match" required type="password" :match="input" :icon="check.icon"
+                        <bs-input name="match"
+                                  required
+                                  type="password"
+                                  :match="input"
+                                  :icon="check.icon"
                                   :enter-submit="check.enterSubmit" help="Match the User Name"
                                   tab-index="11">
                             <label slot="label">Match value</label>
+                        </bs-input>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <h3>NUMBER CHECK</h3>
+                        <p>{{numberValue}}</p>
+                        <p>{{typeof(numberValue)}}</p>
+                        <bs-input
+                                  name="number"
+                                  required
+                                  type="number"
+                                  tab-index="12"
+                                  v-model="numberValue"
+                                >
+                            <label slot="label">Number value</label>
                         </bs-input>
                     </div>
                 </div>
@@ -465,7 +483,8 @@
                 groupFaTag: null,
                 textarea: null,
                 validateManually: false,
-                type: null
+                type: "text",
+                numberValue: 12.55,
             }
         },
         methods: {

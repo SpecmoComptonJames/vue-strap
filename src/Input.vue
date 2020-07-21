@@ -323,7 +323,13 @@
                 if (!this.canValidate) {
                     return true
                 }
-                var value = (this.val || '').trim();
+                //var value = (this.val || '').trim();
+                var value = "";
+                if (typeof this.val !=='string') {
+                    value = this.val;
+                } else {
+                    value = (this.val || '').trim();
+                }
 
                 if (this.validateManually) {
                     return this.valid;
