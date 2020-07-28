@@ -277,7 +277,11 @@
                 this.searchValue = '';
                 this.$refs.search.focus();
             },
-            focus () { this.input.focus() },
+            focus () {
+                if (this.input && typeof this.input.focus === 'function') {
+                    this.input.focus();
+                }
+            },
             isSelected(v) {
                 return this.values.indexOf(v) > -1;
             },

@@ -461,7 +461,9 @@
                 }
             },
             focus() {
-                this.input.focus()
+                if (this.input && typeof this.input.focus === 'function') {
+                    this.input.focus();
+                }
             },
             onFocus() {
                 if (this.openOnFocus) {

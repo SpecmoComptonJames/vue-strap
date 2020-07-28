@@ -288,7 +288,9 @@
                 }
             },
             focus() {
-                this.input.focus()
+                if (this.input && typeof this.input.focus === 'function') {
+                    this.input.focus();
+                }
             },
             submit: function() {
                 if (this.$parent._formValidator) {
