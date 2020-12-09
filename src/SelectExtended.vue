@@ -21,9 +21,9 @@
             >
                 <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
                 <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
-                <span :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
-            </div>
+                <span v-if="icon" :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
 
+            </div>
             <select ref="sel"
                     v-model="val"
                     :name="name"
@@ -93,7 +93,7 @@
             error: {type: String, default: null},
             help: {type: String, default: null},
             hideHelp: {type: Boolean, default: true},
-            icon: {type: Boolean, default: false},
+            icon: {type: Boolean, default: true},
             label: {type: String, default: null},
             lang: {type: String, default: typeof navigator !== 'undefined' ? navigator.language : "zh-CN"},
             limit: {type: Number, default: 1024},

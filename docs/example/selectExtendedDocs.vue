@@ -28,6 +28,7 @@
                                   :error="select.errorText"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                                   tab-index="50"
+                                  :icon="select.icon"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                         <p>
@@ -36,6 +37,10 @@
                         <p>
                             <checkbox v-model="select.enableFeedBack">Enable Feedback</checkbox>
                         </p>
+                      <p>
+                        <checkbox v-model="select.icon">icon</checkbox>
+                        {{select.icon}}
+                      </p>
                     </form>
                     <br/>
                     <p>
@@ -59,6 +64,7 @@
                                   minWidth="300px"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                                   tab-index="51"
+                                  :icon="select.icon"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -81,6 +87,7 @@
                                   :enable-feedback="select.enableFeedBack"
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                                   tab-index="53"
+                                  :icon="select.icon"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -284,6 +291,12 @@
                 <p><code>label</code></p>
                 <p>Define the value in the data used as label.</p>
             </div>
+          <div>
+                <p>icon</p>
+                <p><code>Boolean</code></p>
+                <p><code>true</code></p>
+                <p>Show Validity icon.</p>
+            </div>
             <div>
                 <p>options-value</p>
                 <p><code>String</code></p>
@@ -428,7 +441,8 @@
                     search: true,
                     groupAddon: 'Field Label',
                     groupFaTag: null,
-                    errorText: 'It is broken'
+                    errorText: 'It is broken',
+                    icon: true
                 },
                 ajax: {
                     options: [],
