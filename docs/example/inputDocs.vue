@@ -82,6 +82,8 @@
                             <button type="button" @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
                             <button type="button" @click="testSetValid()" class="btn btn-success">Set Valid</button>
                             <button type="button" @click="clearValid()" class="btn btn-default">Clear Valid</button>
+                            <button type="button" @click="focusUserName()" class="btn btn-default">Focus User Name</button>
+
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <p>
@@ -488,6 +490,9 @@
             }
         },
         methods: {
+            focusUserName() {
+              this.$refs.txtUserName.focus();
+            },
             mask(value) {
                 return value.toLowerCase().replace(/^[^a-z]+/, '').replace(/[^a-z0-9]/g, '')
             },
