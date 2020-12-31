@@ -20,6 +20,7 @@ import formValidator from './FormValidator.vue'
 import input from './Input.vue'
 import modal from './Modal.vue'
 import modalOkCancelDialog from './ModalOkCancelDialog.vue'
+import money from './Money.vue'
 import navbar from './Navbar.vue'
 import option from './Option.vue'
 import panel from './Panel.vue'
@@ -62,6 +63,7 @@ const VueStrap = {
   input,
   modal,
   modalOkCancelDialog,
+  money,
   navbar,
   option,
   panel,

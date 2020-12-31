@@ -32,6 +32,7 @@
             <input-docs></input-docs>
             <modal-docs></modal-docs>
             <modal-ok-cancel-dialog-docs></modal-ok-cancel-dialog-docs>
+            <money-docs></money-docs>
             <navbar-docs></navbar-docs>
             <popover-docs></popover-docs>
             <progressbar-docs></progressbar-docs>
@@ -88,6 +89,7 @@ import gettingStarted from './example/gettingStarted.vue'
 import inputDocs from './example/inputDocs.vue'
 import modalDocs from './example/modalDocs.vue'
 import modalOkCancelDialogDocs from './example/modalOkCancelDialogDocs.vue'
+import moneyDocs from './example/moneyDocs.vue'
 import navbarDocs from './example/navbarDocs.vue'
 import popoverDocs from './example/popoverDocs.vue'
 import progressbarDocs from './example/progressbarDocs.vue'
@@ -122,6 +124,7 @@ export default {
     inputDocs,
     modalDocs,
     modalOkCancelDialogDocs,
+    moneyDocs,
     navbarDocs,
     popoverDocs,
     progressbarDocs,
