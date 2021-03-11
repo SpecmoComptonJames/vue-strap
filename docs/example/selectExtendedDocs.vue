@@ -356,6 +356,12 @@
                 <p></p>
                 <p>Method: Programmatically override the valid flag by setting the has-feedback flags to true/false. <code>null</code> clears the has-feedback flag until next validation event.</p>
             </div>
+            <div>
+                <p>enableFeedback</p>
+                <p><code>Boolean</code></p>
+                <p>true</p>
+                <p>Turns on bootstrap validation/feedback options.</p>
+            </div>
         </doc-table>
         <doc-table type="Events">
             <div>
