@@ -10,6 +10,7 @@
             </span>
             <input class="form-control datepicker-input" type="text"
                    v-model="val"
+                   :disabled="disabled"
                    :class="{'with-reset-button': clearButton}"
                    :placeholder="placeholder"
                    :style="{width:width}"
@@ -94,6 +95,7 @@
         props: {
             value: {type: String},
             format: {default: 'MM/dd/yyyy'},
+            disabled: {type: Boolean, default: false},
             disabledDaysOfWeek: {
                 type: Array, default() {
                     return []

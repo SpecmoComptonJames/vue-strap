@@ -15,6 +15,7 @@
                                 :placeholder="placeholder"
                                 :groupAddon="groupAddon"
                                 :error="errorText"
+                                :disabled="controlDisabled"
                                 errorDefaultMessage="Date is invalid."
                                 :required="required"
                                 help="Pick a Date"
@@ -63,6 +64,7 @@
 
                     <h4>Reset button</h4>
                     <checkbox :value="clear" @checked="clear = arguments[0]" type="primary">toggle clear button</checkbox>
+                    <checkbox :value="controlDisabled" @checked="controlDisabled = arguments[0]" type="primary">toggle Disable Control</checkbox>
                     <checkbox :value="openFocus" @checked="openFocus = arguments[0]" type="primary">toggle focus on enter button</checkbox>
                     <checkbox :value="required" @checked="required = arguments[0]" type="primary">toggle Required</checkbox>
                     <checkbox :value="icon" @checked="icon = arguments[0]" type="primary">toggle Icon</checkbox>
@@ -100,6 +102,12 @@
                 <p>false</p>
                 <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
                     Usefull in forms where date entry is optional.</p>
+            </div>
+            <div>
+                <p>disabled</p>
+                <p><code>Boolean</code></p>
+                <p>false</p>
+                <p>Disables Control</p>
             </div>
             <div>
                 <p>disabled-days-of-week</p>
@@ -204,6 +212,7 @@
             return {
                 clear: true,
                 disabled: [],
+                controlDisabled: false,
                 required: false,
                 format: 'yyyy-MM-dd',
                 formats: ['dd/MM/yyyy', 'dd-MM-yyyy', 'yyyy,MM,dd', 'yyyy-MM-dd', 'yyyy.MM.dd', 'MM/dd/yyyy', 'MM-dd-yyyy'],
