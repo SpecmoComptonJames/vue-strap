@@ -2598,7 +2598,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -2726,7 +2726,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-f2baf8ae", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-f2baf8ae", module.exports)
 	  }
 	}
 
@@ -2750,7 +2750,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -2872,7 +2872,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-614e58b1", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-614e58b1", module.exports)
 	  }
 	}
 
@@ -2900,7 +2900,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -3373,7 +3373,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-aa5b2b86", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-aa5b2b86", module.exports)
 	  }
 	}
 
@@ -3401,7 +3401,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -3595,7 +3595,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_c('span', [_vm._v("×")])]), _vm._v(" "), _c('h4', {
 	    staticClass: "aside-title"
-	  }, [_vm._t("header", [_vm._v(_vm._s(_vm.header))])], 2)]), _vm._v(" "), _c('div', {
+	  }, [_vm._t("header", function() {
+	    return [_vm._v(_vm._s(_vm.header))]
+	  })], 2)]), _vm._v(" "), _c('div', {
 	    staticClass: "aside-body"
 	  }, [_vm._t("default")], 2)])])]) : _vm._e()])
 	},staticRenderFns: []}
@@ -3603,7 +3605,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-3cdc5819", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-3cdc5819", module.exports)
 	  }
 	}
 
@@ -3627,7 +3629,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -3686,7 +3688,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
 	    class: {
-	      'btn-group': _vm.buttons, 'btn-group-justified': _vm.justified, 'btn-group-vertical': _vm.vertical
+	      'btn-group': _vm.buttons,
+	      'btn-group-justified': _vm.justified,
+	      'btn-group-vertical': _vm.vertical
 	    },
 	    attrs: {
 	      "data-toggle": _vm.buttons && 'buttons'
@@ -3697,7 +3701,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-4718a7a4", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-4718a7a4", module.exports)
 	  }
 	}
 
@@ -3725,7 +3729,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -3991,7 +3995,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-c5e651e2", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-c5e651e2", module.exports)
 	  }
 	}
 
@@ -4019,7 +4023,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -4237,7 +4241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-57fcb01c", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-57fcb01c", module.exports)
 	  }
 	}
 
@@ -4265,7 +4269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -4807,9 +4811,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_vm._l((_vm.text.months), function(m, index) {
 	    return [_c('span', {
 	      class: {
-	        'datepicker-dateRange-item-active':
-	        (_vm.text.months[_vm.parse(_vm.val).getMonth()] === m) &&
-	        _vm.currDate.getFullYear() === _vm.parse(_vm.val).getFullYear()
+	        'datepicker-dateRange-item-active': (_vm.text.months[_vm.parse(_vm.val).getMonth()] === m) &&
+	          _vm.currDate.getFullYear() === _vm.parse(_vm.val).getFullYear()
 	      },
 	      domProps: {
 	        "textContent": _vm._s(m.substr(0, 3))
@@ -4877,7 +4880,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-76437bab", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-76437bab", module.exports)
 	  }
 	}
 
@@ -4905,7 +4908,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -5889,9 +5892,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_vm._l((_vm.text.months), function(m, index) {
 	    return [_c('span', {
 	      class: {
-	        'datepicker-dateRange-item-active':
-	        (_vm.text.months[_vm.parse(_vm.val).getMonth()] === m) &&
-	        _vm.currDate.getFullYear() === _vm.parse(_vm.val).getFullYear()
+	        'datepicker-dateRange-item-active': (_vm.text.months[_vm.parse(_vm.val).getMonth()] === m) &&
+	          _vm.currDate.getFullYear() === _vm.parse(_vm.val).getFullYear()
 	      },
 	      domProps: {
 	        "textContent": _vm._s(m.substr(0, 3))
@@ -5969,7 +5971,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-53663584", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-53663584", module.exports)
 	  }
 	}
 
@@ -5993,7 +5995,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -6152,10 +6154,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      },
 	      "click": function($event) {
 	        $event.preventDefault();
-	        return _vm.toggle($event)
+	        return _vm.toggle.apply(null, arguments)
 	      }
 	    }
-	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), _c('span', {
+	  }, [_vm._t("button", function() {
+	    return [_vm._v(_vm._s(_vm.text))]
+	  }), _vm._v(" "), _c('span', {
 	    staticClass: "caret"
 	  })], 2) : _c('button', {
 	    class: ['btn btn-' + _vm.type, _vm.buttonSize, 'dropdown-toggle'],
@@ -6170,20 +6174,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	      },
 	      "click": function($event) {
 	        $event.preventDefault();
-	        return _vm.toggle($event)
+	        return _vm.toggle.apply(null, arguments)
 	      }
 	    }
-	  }, [_vm._t("button", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), _c('span', {
+	  }, [_vm._t("button", function() {
+	    return [_vm._v(_vm._s(_vm.text))]
+	  }), _vm._v(" "), _c('span', {
 	    staticClass: "caret"
-	  })], 2), _vm._v(" "), _vm._t("dropdown-menu", [_c('ul', {
-	    staticClass: "dropdown-menu"
-	  }, [_vm._t("default")], 2)])], 2)
+	  })], 2), _vm._v(" "), _vm._t("dropdown-menu", function() {
+	    return [_c('ul', {
+	      staticClass: "dropdown-menu"
+	    }, [_vm._t("default")], 2)]
+	  })], 2)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-b6c60d80", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-b6c60d80", module.exports)
 	  }
 	}
 
@@ -6207,7 +6215,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -6318,7 +6326,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-6ae970fc", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-6ae970fc", module.exports)
 	  }
 	}
 
@@ -6342,7 +6350,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -6438,7 +6446,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-d284ac62", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-d284ac62", module.exports)
 	  }
 	}
 
@@ -6466,7 +6474,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -6968,12 +6976,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    attrs: {
 	      "id": _vm.controlId
 	    }
-	  }, [_vm._t("label", [(_vm.label) ? _c('label', {
-	    staticClass: "control-label",
-	    on: {
-	      "click": _vm.focus
-	    }
-	  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e()]), _vm._v(" "), (_vm.$slots.before || _vm.$slots.after) ? _c('div', {
+	  }, [_vm._t("label", function() {
+	    return [(_vm.label) ? _c('label', {
+	      staticClass: "control-label",
+	      on: {
+	        "click": _vm.focus
+	      }
+	    }, [_vm._v(_vm._s(_vm.label))]) : _vm._e()]
+	  }), _vm._v(" "), (_vm.$slots.before || _vm.$slots.after) ? _c('div', {
 	    staticClass: "input-group"
 	  }, [_vm._t("before"), _vm._v(" "), (_vm.groupAddon) ? _c('span', {
 	    staticClass: "input-group-addon"
@@ -7396,7 +7406,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-67bb51ab", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-67bb51ab", module.exports)
 	  }
 	}
 
@@ -7424,7 +7434,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -7677,51 +7687,59 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_c('div', {
 	    staticClass: "modal-content"
-	  }, [_vm._t("modal-header", [_c('div', {
-	    staticClass: "modal-header"
-	  }, [_c('button', {
-	    staticClass: "close",
-	    attrs: {
-	      "type": "button"
-	    },
-	    on: {
-	      "click": function($event) {
-	        return _vm.action(false, 2)
+	  }, [_vm._t("modal-header", function() {
+	    return [_c('div', {
+	      staticClass: "modal-header"
+	    }, [_c('button', {
+	      staticClass: "close",
+	      attrs: {
+	        "type": "button"
+	      },
+	      on: {
+	        "click": function($event) {
+	          return _vm.action(false, 2)
+	        }
 	      }
-	    }
-	  }, [_c('span', [_vm._v("×")])]), _vm._v(" "), _c('h4', {
-	    staticClass: "modal-title"
-	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], 2)])]), _vm._v(" "), _vm._t("modal-body", [_c('div', {
-	    staticClass: "modal-body"
-	  }, [_vm._t("default")], 2)]), _vm._v(" "), _vm._t("modal-footer", [_c('div', {
-	    staticClass: "modal-footer"
-	  }, [_c('button', {
-	    staticClass: "btn btn-default",
-	    attrs: {
-	      "type": "button"
-	    },
-	    on: {
-	      "click": function($event) {
-	        return _vm.action(false, 3)
+	    }, [_c('span', [_vm._v("×")])]), _vm._v(" "), _c('h4', {
+	      staticClass: "modal-title"
+	    }, [_vm._t("title", function() {
+	      return [_vm._v(_vm._s(_vm.title))]
+	    })], 2)])]
+	  }), _vm._v(" "), _vm._t("modal-body", function() {
+	    return [_c('div', {
+	      staticClass: "modal-body"
+	    }, [_vm._t("default")], 2)]
+	  }), _vm._v(" "), _vm._t("modal-footer", function() {
+	    return [_c('div', {
+	      staticClass: "modal-footer"
+	    }, [_c('button', {
+	      staticClass: "btn btn-default",
+	      attrs: {
+	        "type": "button"
+	      },
+	      on: {
+	        "click": function($event) {
+	          return _vm.action(false, 3)
+	        }
 	      }
-	    }
-	  }, [_vm._v(_vm._s(_vm.cancelText))]), _vm._v(" "), _c('button', {
-	    staticClass: "btn btn-primary",
-	    attrs: {
-	      "type": "button"
-	    },
-	    on: {
-	      "click": function($event) {
-	        return _vm.action(true, 4)
+	    }, [_vm._v(_vm._s(_vm.cancelText))]), _vm._v(" "), _c('button', {
+	      staticClass: "btn btn-primary",
+	      attrs: {
+	        "type": "button"
+	      },
+	      on: {
+	        "click": function($event) {
+	          return _vm.action(true, 4)
+	        }
 	      }
-	    }
-	  }, [_vm._v(_vm._s(_vm.okText))])])])], 2)])])
+	    }, [_vm._v(_vm._s(_vm.okText))])])]
+	  })], 2)])])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-f95c69e4", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-f95c69e4", module.exports)
 	  }
 	}
 
@@ -7749,7 +7767,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -8503,7 +8521,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7a256e0c", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-7a256e0c", module.exports)
 	  }
 	}
 
@@ -8531,7 +8549,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -8805,12 +8823,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    attrs: {
 	      "id": _vm.controlId
 	    }
-	  }, [_vm._t("label", [(_vm.label) ? _c('label', {
-	    staticClass: "control-label",
-	    on: {
-	      "click": _vm.focus
-	    }
-	  }, [_vm._v(_vm._s(_vm.label))]) : _vm._e()]), _vm._v(" "), _c('div', {
+	  }, [_vm._t("label", function() {
+	    return [(_vm.label) ? _c('label', {
+	      staticClass: "control-label",
+	      on: {
+	        "click": _vm.focus
+	      }
+	    }, [_vm._v(_vm._s(_vm.label))]) : _vm._e()]
+	  }), _vm._v(" "), _c('div', {
 	    staticClass: "input-group"
 	  }, [_vm._t("before"), _vm._v(" "), (_vm.groupAddon) ? _c('span', {
 	    staticClass: "input-group-addon"
@@ -8888,7 +8908,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-c84aa0be", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-c84aa0be", module.exports)
 	  }
 	}
 
@@ -8912,7 +8932,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -9091,7 +9111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-3306937f", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-3306937f", module.exports)
 	  }
 	}
 
@@ -9115,7 +9135,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -9172,7 +9192,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-dcf17538", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-dcf17538", module.exports)
 	  }
 	}
 
@@ -9200,7 +9220,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -9356,9 +9376,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.inAccordion && _vm.toggle()
 	      }
 	    }
-	  }, [_vm._t("header", [_c('h4', {
-	    staticClass: "panel-title"
-	  }, [_vm._v(_vm._s(_vm.header))])])], 2), _vm._v(" "), _c('transition', {
+	  }, [_vm._t("header", function() {
+	    return [_c('h4', {
+	      staticClass: "panel-title"
+	    }, [_vm._v(_vm._s(_vm.header))])]
+	  })], 2), _vm._v(" "), _c('transition', {
 	    attrs: {
 	      "name": "collapse"
 	    },
@@ -9377,7 +9399,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-acbf5236", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-acbf5236", module.exports)
 	  }
 	}
 
@@ -9405,7 +9427,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -9623,19 +9645,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "arrow"
 	  }), _vm._v(" "), (_vm.title) ? _c('h3', {
 	    staticClass: "popover-title"
-	  }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], 2) : _vm._e(), _vm._v(" "), _c('div', {
+	  }, [_vm._t("title", function() {
+	    return [_vm._v(_vm._s(_vm.title))]
+	  })], 2) : _vm._e(), _vm._v(" "), _c('div', {
 	    staticClass: "popover-content"
-	  }, [_vm._t("content", [_c('span', {
-	    domProps: {
-	      "innerHTML": _vm._s(_vm.content)
-	    }
-	  })])], 2)]) : _vm._e()])], 2)
+	  }, [_vm._t("content", function() {
+	    return [_c('span', {
+	      domProps: {
+	        "innerHTML": _vm._s(_vm.content)
+	      }
+	    })]
+	  })], 2)]) : _vm._e()])], 2)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7680f674", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-7680f674", module.exports)
 	  }
 	}
 
@@ -9659,7 +9685,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -9731,7 +9757,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-12dfefe7", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-12dfefe7", module.exports)
 	  }
 	}
 
@@ -9759,7 +9785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -9955,7 +9981,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": function($event) {
 	        $event.preventDefault();
-	        return _vm.toggle($event)
+	        return _vm.toggle.apply(null, arguments)
 	      }
 	    }
 	  }, [(_vm.buttonStyle) ? [_c('input', {
@@ -10028,7 +10054,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-6faee548", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-6faee548", module.exports)
 	  }
 	}
 
@@ -10056,7 +10082,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -10483,17 +10509,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
 	        $event.stopPropagation();
 	        $event.preventDefault();
-	        return _vm.close($event)
+	        return _vm.close.apply(null, arguments)
 	      }, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "space", 32, $event.key, [" ", "Spacebar"])) { return null; }
 	        $event.stopPropagation();
 	        $event.preventDefault();
-	        return _vm.toggle($event)
+	        return _vm.toggle.apply(null, arguments)
 	      }, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
 	        $event.stopPropagation();
 	        $event.preventDefault();
-	        return _vm.toggle($event)
+	        return _vm.toggle.apply(null, arguments)
 	      }]
 	    }
 	  }, [_c('span', {
@@ -10569,7 +10595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "keyup": function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
-	        return _vm.close($event)
+	        return _vm.close.apply(null, arguments)
 	      },
 	      "input": function($event) {
 	        if ($event.target.composing) { return; }
@@ -10637,7 +10663,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-4617532a", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-4617532a", module.exports)
 	  }
 	}
 
@@ -10665,7 +10691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -11203,17 +11229,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
 	        $event.stopPropagation();
 	        $event.preventDefault();
-	        return _vm.close($event)
+	        return _vm.close.apply(null, arguments)
 	      }, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "space", 32, $event.key, [" ", "Spacebar"])) { return null; }
 	        $event.stopPropagation();
 	        $event.preventDefault();
-	        return _vm.toggle($event)
+	        return _vm.toggle.apply(null, arguments)
 	      }, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
 	        $event.stopPropagation();
 	        $event.preventDefault();
-	        return _vm.toggle($event)
+	        return _vm.toggle.apply(null, arguments)
 	      }]
 	    }
 	  }, [_c('span', {
@@ -11298,7 +11324,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "keyup": function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
-	        return _vm.close($event)
+	        return _vm.close.apply(null, arguments)
 	      },
 	      "input": function($event) {
 	        if ($event.target.composing) { return; }
@@ -11377,7 +11403,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-f81f5f78", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-f81f5f78", module.exports)
 	  }
 	}
 
@@ -11401,7 +11427,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -11460,7 +11486,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-fcd1c060", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-fcd1c060", module.exports)
 	  }
 	}
 
@@ -11488,7 +11514,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -11685,7 +11711,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-5ac4fe3a", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-5ac4fe3a", module.exports)
 	  }
 	}
 
@@ -11709,7 +11735,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -11834,7 +11860,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-4f275a36", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-4f275a36", module.exports)
 	  }
 	}
 
@@ -11862,7 +11888,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -11975,7 +12001,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7e4c46ce", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-7e4c46ce", module.exports)
 	  }
 	}
 
@@ -12003,7 +12029,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -12160,7 +12186,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_vm._l((_vm.headers), function(header) {
 	    return [(header._isTab) ? _c('li', {
 	      class: {
-	        active: header.active, disabled: header.disabled
+	        active: header.active,
+	        disabled: header.disabled
 	      },
 	      on: {
 	        "click": function($event) {
@@ -12168,14 +12195,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return _vm.select(header)
 	        }
 	      }
-	    }, [_vm._t("header", [_c('a', {
-	      attrs: {
-	        "href": "#"
-	      },
-	      domProps: {
-	        "innerHTML": _vm._s(header.header)
-	      }
-	    })])], 2) : _vm._e(), _vm._v(" "), (header._isTabGroup) ? _c('dropdown', {
+	    }, [_vm._t("header", function() {
+	      return [_c('a', {
+	        attrs: {
+	          "href": "#"
+	        },
+	        domProps: {
+	          "innerHTML": _vm._s(header.header)
+	        }
+	      })]
+	    })], 2) : _vm._e(), _vm._v(" "), (header._isTabGroup) ? _c('dropdown', {
 	      class: {
 	        active: header.active
 	      },
@@ -12208,7 +12237,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-cd20e4a6", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-cd20e4a6", module.exports)
 	  }
 	}
 
@@ -12232,7 +12261,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -12354,7 +12383,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-24677ed5", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-24677ed5", module.exports)
 	  }
 	}
 
@@ -12382,7 +12411,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -12491,17 +12520,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "tooltip-arrow"
 	  }), _vm._v(" "), _c('div', {
 	    staticClass: "tooltip-inner"
-	  }, [_vm._t("content", [_c('div', {
-	    domProps: {
-	      "innerHTML": _vm._s(_vm.content)
-	    }
-	  })])], 2)]) : _vm._e()])], 2)
+	  }, [_vm._t("content", function() {
+	    return [_c('div', {
+	      domProps: {
+	        "innerHTML": _vm._s(_vm.content)
+	      }
+	    })]
+	  })], 2)]) : _vm._e()])], 2)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-2d55d1b8", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-2d55d1b8", module.exports)
 	  }
 	}
 
@@ -12529,7 +12560,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* hot reload */
 	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
@@ -12784,17 +12815,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "keydown": [function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "down", 40, $event.key, ["Down", "ArrowDown"])) { return null; }
 	        $event.preventDefault();
-	        return _vm.down($event)
+	        return _vm.down.apply(null, arguments)
 	      }, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) { return null; }
-	        return _vm.hit($event)
+	        return _vm.hit.apply(null, arguments)
 	      }, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "esc", 27, $event.key, ["Esc", "Escape"])) { return null; }
-	        return _vm.reset($event)
+	        return _vm.reset.apply(null, arguments)
 	      }, function($event) {
 	        if (!$event.type.indexOf('key') && _vm._k($event.keyCode, "up", 38, $event.key, ["Up", "ArrowUp"])) { return null; }
 	        $event.preventDefault();
-	        return _vm.up($event)
+	        return _vm.up.apply(null, arguments)
 	      }],
 	      "input": function($event) {
 	        if ($event.target.composing) { return; }
@@ -12813,7 +12844,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      on: {
 	        "mousedown": function($event) {
 	          $event.preventDefault();
-	          return _vm.hit($event)
+	          return _vm.hit.apply(null, arguments)
 	        },
 	        "mousemove": function($event) {
 	          return _vm.setActive(i)
@@ -12831,7 +12862,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7962fcb0", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-7962fcb0", module.exports)
 	  }
 	}
 
