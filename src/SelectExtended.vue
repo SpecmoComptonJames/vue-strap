@@ -37,6 +37,7 @@
                 <option v-for="option in list" :value="option[optionsValue]">{{ option[optionsLabel] }}</option>
             </select>
             <ul class="dropdown-menu"
+                v-show="!disabled"
                 :style="selectStyle">
                 <template v-if="list.length">
                     <li v-if="canSearch" class="bs-searchbox">
