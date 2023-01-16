@@ -134,7 +134,6 @@
         if (this._parent) this._parent.validate()
       },
       value(val) {
-        debugger;
         if (this.val !== val) {
           val = this.formatMoney(val);
           this.val = val;
