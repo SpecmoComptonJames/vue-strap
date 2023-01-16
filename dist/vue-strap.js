@@ -924,7 +924,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 7 */
 /***/ (function(module, exports) {
 
-	var core = module.exports = { version: '2.6.10' };
+	var core = module.exports = { version: '2.6.12' };
 	if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -1522,7 +1522,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})('versions', []).push({
 	  version: core.version,
 	  mode: __webpack_require__(28) ? 'pure' : 'global',
-	  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+	  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 	});
 
 

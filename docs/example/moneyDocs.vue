@@ -20,6 +20,9 @@
               :required-zero-value-check="check.requiredZeroValueCheck"
             ></bs-money>
           </div>
+          <div>
+            value: {{numberValue}}
+          </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -48,6 +51,9 @@
             <p>
               <checkbox v-model="check.icon">icon</checkbox>
             </p>
+
+            <bs-input v-model="externalText" label="ExternalText" placeholder="Insert a number"></bs-input>
+
             <button type="button" @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
             <button type="button" @click="testSetValid()" class="btn btn-success">Set Valid</button>
             <button type="button" @click="clearValid()" class="btn btn-default">Clear Valid</button>
@@ -67,6 +73,24 @@
           </div>
         </div>
       </form>
+      <pre>
+        &lt;tag&gt;
+            ref="txtMoney"
+            name="money"
+            :group-addon="groupAddon"
+            :disabled="check.disabled"
+            :error="error"
+            :help="help"
+            :hideHelp="check.hideHelp"
+            v-model="numberValue"
+            :align="alignment"
+            :icon="check.icon"
+            :validate-manually="check.validateManually"
+            :required="check.required"
+            :required-zero-value-check="check.requiredZeroValueCheck"
+        &gt;&lt;tag&gt;
+
+      </pre>
     </div>
   </doc-section>
 </template>
@@ -116,10 +140,19 @@ export default {
       },
       groupAddon: 'You like money?',
       groupFaTag: null,
-      numberValue: 12.55,
+      numberValue: 12,
       help: 'I like money.',
       alignment: null,
       error: "We should hang out.",
+      externalText: 0
+    }
+  },
+  watch: {
+    "externalText": function(val, oldVal) {
+      console.log('externalText', val)
+      if (val !== oldVal) {
+        this.numberValue = val;
+      }
     }
   },
   methods: {

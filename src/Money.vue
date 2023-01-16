@@ -71,7 +71,8 @@
       tabIndex: {type: String, default: null}
     },
     data() {
-      var val = this.value
+      var val = this.value;
+      val = this.formatMoney(val);
       return {
         val,
         valid: null
@@ -133,12 +134,34 @@
         if (this._parent) this._parent.validate()
       },
       value(val) {
+        debugger;
         if (this.val !== val) {
-          this.val = val
+          val = this.formatMoney(val);
+          this.val = val;
         }
       }
     },
     methods: {
+      formatMoney: function(input) {
+        let formatVal = 0;
+        if (!input) {
+          formatVal = this.val;
+        } else {
+          formatVal = input;
+        }
+        if (!formatVal) {
+          formatVal = "0.00";
+        } else {
+          let nums = formatVal.toString();
+          let num = parseFloat(nums);
+          formatVal = num.toFixed(2);
+
+        }
+        if (!input) {
+          this.val = formatVal;
+        }
+        return formatVal;
+      },
       validate() {
         if (!this.canValidate) {
           return true
@@ -172,13 +195,7 @@
       },
       blur(e) {
         //make string number
-        if (!this.val) {
-            this.val = "0.00";
-        } else {
-          let nums = this.val.toString();
-          let num = parseFloat(nums);
-          this.val = num.toFixed(2);
-        }
+        this.formatMoney()
         this.emit(e);
       },
       focus() {
