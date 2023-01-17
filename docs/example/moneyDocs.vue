@@ -19,6 +19,21 @@
               :required="check.required"
               :required-zero-value-check="check.requiredZeroValueCheck"
             ></bs-money>
+            <bs-money
+              ref="txtMoney2"
+              name="money"
+              :group-addon="groupAddon"
+              :disabled="check.disabled"
+              :error="error"
+              :help="help"
+              :hideHelp="check.hideHelp"
+              v-model="numberValue2"
+              :align="alignment"
+              :icon="check.icon"
+              :validate-manually="check.validateManually"
+              :required="check.required"
+              :required-zero-value-check="check.requiredZeroValueCheck"
+            ></bs-money>
           </div>
           <div>
             value: {{numberValue}}
@@ -62,6 +77,7 @@
           <div>
             <div>
               Val: {{numberValue}} Type: {{typeof(numberValue)}}
+              Val: {{numberValue2}} Type: {{typeof(numberValue2)}}
             </div>
             <bs-input v-model="groupAddon" label="group-addon:"></bs-input>
             <bs-input v-model="help" label="help:"></bs-input>
@@ -142,6 +158,7 @@ export default {
       groupAddon: 'You like money?',
       groupFaTag: null,
       numberValue: 12,
+      numberValue2: 152.52,
       help: 'I like money.',
       alignment: null,
       error: "We should hang out.",

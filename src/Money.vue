@@ -163,9 +163,9 @@
           formatVal = num.toFixed(2);
 
         }
-        if (!input) {
-          this.val = formatVal;
-        }
+        //if (!input) {
+        this.val = formatVal;
+        //}
         return formatVal;
       },
       validate() {
@@ -201,7 +201,7 @@
       },
       blur(e) {
         //make string number
-        this.formatMoney()
+        this.formatMoney(this.val);
         this.emit(e);
       },
       focus() {
