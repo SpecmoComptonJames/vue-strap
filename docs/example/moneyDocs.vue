@@ -151,7 +151,9 @@ export default {
     "externalText": function(val, oldVal) {
       console.log('externalText', val)
       if (val !== oldVal) {
-        this.numberValue = val;
+        console.log('on ExternalText', val)
+        let num = parseFloat(val);
+        this.numberValue =  num.toFixed(2);;
       }
     }
   },

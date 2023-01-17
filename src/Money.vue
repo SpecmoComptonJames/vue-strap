@@ -136,7 +136,11 @@
       value(val) {
         if (this.val !== val) {
           val = this.formatMoney(val);
-          this.val = val;
+          if (val === 'NaN') {
+            this.val = this.formatMoney(0);;
+          } else {
+            this.val = val;
+          }
         }
       }
     },
@@ -145,7 +149,10 @@
         let formatVal = 0;
         if (!input) {
           formatVal = this.val;
-        } else {
+        } else if (input === 'NaN') {
+          formatVal = 0;
+        }
+        else {
           formatVal = input;
         }
         if (!formatVal) {
