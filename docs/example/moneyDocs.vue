@@ -57,6 +57,7 @@
             <button type="button" @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
             <button type="button" @click="testSetValid()" class="btn btn-success">Set Valid</button>
             <button type="button" @click="clearValid()" class="btn btn-default">Clear Valid</button>
+            <button type="button" @click="sendNull()" class="btn btn-default">Send Null</button>
           </div>
           <div>
             <div>
@@ -158,6 +159,10 @@ export default {
     }
   },
   methods: {
+    sendNull() {
+      //var input = this.$refs['txtMoney'];
+      this.numberValue = null;
+    },
     testSetInvalid() {
       var input = this.$refs['txtMoney'];
       input.setValidState(false);

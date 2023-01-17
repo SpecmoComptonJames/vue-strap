@@ -148,7 +148,7 @@
       formatMoney: function(input) {
         let formatVal = 0;
         if (!input) {
-          formatVal = this.val;
+          formatVal = 0;
         } else if (input === 'NaN') {
           formatVal = 0;
         }
