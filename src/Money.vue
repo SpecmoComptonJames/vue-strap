@@ -68,7 +68,8 @@
       cssClass: {type: String, default: null},
       controlId: {default: true},
       debug: {type: Boolean, default: false},
-      tabIndex: {type: String, default: null}
+      tabIndex: {type: String, default: null},
+      numberOfDigits: {type: Number, default: 2}
     },
     data() {
       var val = this.value;
@@ -160,7 +161,7 @@
         } else {
           let nums = formatVal.toString();
           let num = parseFloat(nums);
-          formatVal = num.toFixed(2);
+          formatVal = num.toFixed(this.numberOfDigits);
 
         }
         //if (!input) {

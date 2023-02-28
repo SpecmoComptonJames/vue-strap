@@ -18,6 +18,7 @@
               :validate-manually="check.validateManually"
               :required="check.required"
               :required-zero-value-check="check.requiredZeroValueCheck"
+              :number-of-digits="numberOfDigits"
             ></bs-money>
             <bs-money
               ref="txtMoney2"
@@ -68,6 +69,7 @@
             </p>
 
             <bs-input v-model="externalText" label="ExternalText" placeholder="Insert a number"></bs-input>
+            <bs-input v-model="numberOfDigits" label="Number of Digits" placeholder="Number Of Digits"></bs-input>
 
             <button type="button" @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
             <button type="button" @click="testSetValid()" class="btn btn-success">Set Valid</button>
@@ -105,6 +107,7 @@
             :validate-manually="check.validateManually"
             :required="check.required"
             :required-zero-value-check="check.requiredZeroValueCheck"
+            :number-of-digits="numberOfDigits"
         &gt;&lt;tag&gt;
 
       </pre>
@@ -162,7 +165,8 @@ export default {
       help: 'I like money.',
       alignment: null,
       error: "We should hang out.",
-      externalText: 0
+      externalText: 0,
+      numberOfDigits: 2
     }
   },
   watch: {
