@@ -12,6 +12,7 @@
                     <pre>Normal select data: {{select.normal}}</pre>
                     </p>
                     <form action="./#select" method="get">
+                      <h4>Example 1</h4>
                         <v-select ref="txtNormalSelectData"
                                   :options="select.options" options-value="val" v-model="select.normal" name="animal"
                                   :search="select.search"
@@ -21,7 +22,7 @@
                                   placeholder="-- SELECT ONE --"
                                   :group-addon="select.groupAddon"
                                   :group-fa-icon="select.groupFaTag"
-                                  cssClass="test1 test2"
+                                  :css-class="select.cssTag"
                                   group-fa-icon="fab fa-vuejs"
                                   control-id="xxx1"
                                   :enable-feedback="select.enableFeedBack"
@@ -47,6 +48,7 @@
                     <pre>Normal select w/label: {{select.normal}}</pre>
                     </p>
                     <form action="./#select" method="get">
+                      <h4>Example 2</h4>
                         <v-select ref="txtNormalSelectData2"
                                   :options="select.options" options-value="val" v-model="select.normal" name="animal"
                                   :search="select.search"
@@ -55,7 +57,7 @@
                                   :readonly="select.readonly"
                                   help="Pick an item from the list (this isn't hard)"
                                   placeholder="-- SELECT ONE --"
-                                  cssClass="test1 test2"
+                                  :css-class="select.cssTag"
                                   group-fa-icon="fab fa-vuejs"
                                   control-id="xxx1"
                                   :error="select.errorText"
@@ -74,9 +76,11 @@
                     <pre>Multiple select data : {{select.multiple.join(',')}}</pre>
                     </p>
                     <form action="./#select" method="get">
+                      <h4>Example 3</h4>
                         <v-select :options="select.options" options-value="val" v-model="select.multiple"
                                   name="animals[]" :search="select.search"
                                   multiple
+                                  :css-class="select.cssTag"
                                   :required="select.required"
                                   :clear-button="select.clearButton"
                                   :placeholder="select.placeholder?'Using placeholder':null"
@@ -97,16 +101,17 @@
             <div>
                 <h3>Slot Test</h3>
                 <form action="./#select" method="get">
+                  <h4>Example 4</h4>
                     <v-select ref="txtNormalSelectData2"
                               :options="select.options" options-value="val" v-model="select.normal" name="animal"
                               :search="select.search"
                               :required="select.required" :clear-button="select.clearButton"
                               :disabled="select.disabled"
+                              :css-class="select.cssTag"
                               help="Pick an item from the list (this isn't hard)"
                               placeholder="-- SELECT ONE --"
                               :group-addon="select.groupAddon"
                               :group-fa-icon="select.groupFaTag"
-                              cssClass="test1 test2"
                               group-fa-icon="fab fa-vuejs"
                               control-id="xxx1"
                               :error="select.errorText"
@@ -136,6 +141,10 @@
                         <p>
                             <label>FA Tag:</label>
                             <input v-model="select.groupFaTag"></input>
+                        </p>
+                        <p>
+                            <label>css-class:</label>
+                            <input v-model="select.cssTag"></input>
                         </p>
                         <p>
                             <checkbox v-model="select.disabled">Disabled</checkbox>
@@ -423,6 +432,7 @@
         data() {
             return {
                 select: {
+                    cssTag: "",
                     enableFeedBack: true,
                     clearButton: false,
                     closeOnSelect: false,
