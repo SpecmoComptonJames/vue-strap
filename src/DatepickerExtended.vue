@@ -124,7 +124,7 @@
             year: {type: String, default: ''},
             validatorCustomFunction: {default: null},
             tabIndex: {type: String, default: null},
-            enableFeedback: {type: Boolean, default: true},
+            enableFeedback: {type: Boolean, default: false},
             readonly: {type: Boolean, default: null},
         },
         data() {

@@ -121,7 +121,7 @@
             enableDropdownAutoAlignment: {type: Boolean, default: false},
             cssClass: {type: String, default: null},
             minWidth: {type: String, default: ''},
-            enableFeedback: {type: Boolean, default: true},
+            enableFeedback: {type: Boolean, default: false},
             tabIndex: {type: String, default: null},
             validationIconMargin: {type: String, default: "28px;"},
         },
