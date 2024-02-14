@@ -16,8 +16,8 @@
                         <v-select ref="txtNormalSelectData"
                                   :options="select.options" options-value="val" v-model="select.normal" name="animal"
                                   :search="select.search"
-                                  :required="select.required" :clear-button="select.clearButton"
-                                  :disabled="select.disabled"
+                                  :required="select.required"
+                                    :disabled="select.disabled"
                                   help="Pick an item from the list (this isn't hard)"
                                   placeholder="-- SELECT ONE --"
                                   :group-addon="select.groupAddon"
@@ -30,18 +30,9 @@
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                                   tab-index="50"
                                   :icon="select.icon"
+                                  :clear-button="select.clearButton"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
-                        <p>
-                            <checkbox v-model="select.enableDropDownAutoAlignment">Enable Dropdown Auto Alignment</checkbox>
-                        </p>
-                        <p>
-                            <checkbox v-model="select.enableFeedBack">Enable Feedback</checkbox>
-                        </p>
-                      <p>
-                        <checkbox v-model="select.icon">icon</checkbox>
-                        {{select.icon}}
-                      </p>
                     </form>
                     <br/>
                     <p>
@@ -52,7 +43,7 @@
                         <v-select ref="txtNormalSelectData2"
                                   :options="select.options" options-value="val" v-model="select.normal" name="animal"
                                   :search="select.search"
-                                  :required="select.required" :clear-button="select.clearButton"
+                                  :required="select.required"
                                   :disabled="select.disabled"
                                   :readonly="select.readonly"
                                   help="Pick an item from the list (this isn't hard)"
@@ -67,6 +58,7 @@
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                                   tab-index="51"
                                   :icon="select.icon"
+                                  :clear-button="select.clearButton"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -82,7 +74,6 @@
                                   multiple
                                   :css-class="select.cssTag"
                                   :required="select.required"
-                                  :clear-button="select.clearButton"
                                   :placeholder="select.placeholder?'Using placeholder':null"
                                   :close-on-select="select.closeOnSelect" :limit="select.limit?3:1024"
                                   :group-addon="select.groupAddon"
@@ -92,6 +83,7 @@
                                   :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                                   tab-index="53"
                                   :icon="select.icon"
+                                  :clear-button="select.clearButton"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -105,7 +97,7 @@
                     <v-select ref="txtNormalSelectData2"
                               :options="select.options" options-value="val" v-model="select.normal" name="animal"
                               :search="select.search"
-                              :required="select.required" :clear-button="select.clearButton"
+                              :required="select.required"
                               :disabled="select.disabled"
                               :css-class="select.cssTag"
                               help="Pick an item from the list (this isn't hard)"
@@ -117,6 +109,8 @@
                               :error="select.errorText"
                               :enable-dropdown-auto-alignment="select.enableDropDownAutoAlignment"
                               tab-index="54"
+                              :clear-button="select.clearButton"
+                              :icon="select.icon"
                     >
                          <span slot="before" class="input-group-btn">
                             B4
@@ -126,9 +120,6 @@
                         </span>
                     </v-select>
                     <button type="submit" class="btn btn-default">Submit</button>
-                    <p>
-                        <checkbox v-model="select.enableDropDownAutoAlignment">Enable Dropdown Auto Alignment</checkbox>
-                    </p>
                 </form>
             </div>
             <button-group type="primary" :buttons="false">
@@ -147,19 +138,15 @@
                             <input v-model="select.cssTag"></input>
                         </p>
                         <p>
-                            <checkbox v-model="select.disabled">Disabled</checkbox>
-                        </p>
-                        <p>
-                            <checkbox v-model="select.readonly">Read Only</checkbox>
-                        </p>
-                        <p>
-                            <checkbox v-model="select.placeholder">Placeholder</checkbox>
-                        </p>
-                        <p>
-                            <checkbox v-model="select.search">Search</checkbox>
-                        </p>
-                        <p>
-                            <checkbox v-model="select.clearButton">Clear Button</checkbox>
+                          <checkbox :value="select.enableDropDownAutoAlignment" @checked="select.enableDropDownAutoAlignment = arguments[0]" type="primary">EnableDropdownAutoAlignment<br/> (:enable-dropdown-auto-alignment="true")</checkbox>
+                          <checkbox :value="select.clearButton" @checked="select.clearButton = arguments[0]" type="primary">Toggle clear button (:clear-button="true")</checkbox>
+                          <checkbox :value="select.disabled" @checked="select.disabled = arguments[0]" type="primary">Disabled (:disabled="true")</checkbox>
+                          <checkbox :value="select.required" @checked="select.required = arguments[0]" type="primary">Required (:required="true")</checkbox>
+                          <checkbox :value="select.icon" @checked="select.icon = arguments[0]" type="primary">Icon (:icon="true")</checkbox>
+                          <checkbox :value="select.canValidate" @checked="select.canValidate = arguments[0]" type="primary">Can Validate (":can-validate")</checkbox>
+                          <checkbox :value="select.enableFeedBack" @checked="select.enableFeedBack = arguments[0]" type="primary">Enable Feedback (":enable-feedback")</checkbox>
+                          <checkbox :value="select.readonly" @checked="select.readonly = arguments[0]" type="primary">Read Only (":readonly")</checkbox>
+
                         </p>
                         <button @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
                         <button @click="testSetValid()" class="btn btn-success">Set Valid</button>
@@ -434,7 +421,7 @@
                 select: {
                     cssTag: "",
                     enableFeedBack: true,
-                    clearButton: false,
+                    clearButton: true,
                     closeOnSelect: false,
                     disabled: false,
                     readonly: false,
