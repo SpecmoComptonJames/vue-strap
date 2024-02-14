@@ -122,7 +122,9 @@
             day: {type: String, default: ''},
             year: {type: String, default: ''},
             validatorCustomFunction: {default: null},
-            tabIndex: {type: String, default: null}
+            tabIndex: {type: String, default: null},
+            enableFeedback: {type: Boolean, default: true},
+            readonly: {type: Boolean, default: null},
         },
         data() {
             return {
@@ -164,7 +166,7 @@
         },
         computed: {
             canValidate() {
-                return true
+              return !this.disabled && !this.readonly && this.enableFeedback;
             },
             text() {
                 return translations(this.lang)

@@ -22,6 +22,7 @@
                                 :openOnFocus="openFocus"
                                 :icon="icon"
                                 :validator-custom-function="validateRoDate"
+                                :enable-feedback="enableFeedBack"
                     ></datepicker>
                     <button @click="checkValidState">call isValid()</button>
                     <p>Control State Check:
@@ -32,18 +33,20 @@
                             ref="dp2"
                             v-model="date"
                             :disabled-days-of-week="disabled"
+                            :disabled="controlDisabled"
                             :format="format"
                             :clear-button="clear"
                             :placeholder="placeholder"
                             label="Here is my Label"
                             :openOnFocus="openFocus"
                             :required="required"
-
+                            :enable-feedback="enableFeedBack"
                     ></datepicker>
                     <h4>Plain Date With DateTime Type</h4>
                     <datepicker ref="dp3"
                                 v-model="date"
                                 :disabled-days-of-week="disabled"
+                                :disabled="controlDisabled"
                                 :format="format"
                                 :clear-button="clear"
                                 :placeholder="placeholder"
@@ -53,6 +56,7 @@
                                 help="Pick a Date"
                                 :openOnFocus="openFocus"
                                 :icon="icon"
+                                :enable-feedback="enableFeedBack"
                     ></datepicker>
                     <p>{{dateValue}}</p>
                     <h4>Disabled days of week</h4>
@@ -63,13 +67,13 @@
                     <v-select v-model="format" :options="formats"></v-select>
 
                     <h4>Reset button</h4>
-                    <checkbox :value="clear" @checked="clear = arguments[0]" type="primary">toggle clear button</checkbox>
-                    <checkbox :value="controlDisabled" @checked="controlDisabled = arguments[0]" type="primary">toggle Disable Control</checkbox>
-                    <checkbox :value="openFocus" @checked="openFocus = arguments[0]" type="primary">toggle focus on enter button</checkbox>
-                    <checkbox :value="required" @checked="required = arguments[0]" type="primary">toggle Required</checkbox>
-                    <checkbox :value="icon" @checked="icon = arguments[0]" type="primary">toggle Icon</checkbox>
-                    <checkbox :value="canValidate" @checked="icon = arguments[0]" type="primary">Can Validate</checkbox>
-
+                    <checkbox :value="clear" @checked="clear = arguments[0]" type="primary">Toggle clear button</checkbox>
+                    <checkbox :value="controlDisabled" @checked="controlDisabled = arguments[0]" type="primary">Disabled</checkbox>
+                    <checkbox :value="openFocus" @checked="openFocus = arguments[0]" type="primary">Focus on enter button</checkbox>
+                    <checkbox :value="required" @checked="required = arguments[0]" type="primary">Required</checkbox>
+                    <checkbox :value="icon" @checked="icon = arguments[0]" type="primary">Icon</checkbox>
+                    <checkbox :value="canValidate" @checked="icon = arguments[0]" type="primary">Can Validate (":can-validate")</checkbox>
+                    <checkbox :value="enableFeedBack" @checked="enableFeedBack = arguments[0]" type="primary">Enable Feedback (":enable-feedback")</checkbox>
                     <p>
                         <label>Group Addon Tag:</label>
                         <input v-model="groupAddon"></input>
@@ -104,6 +108,12 @@
                     Usefull in forms where date entry is optional.</p>
             </div>
             <div>
+              <p>Can Validate <br/>(:can-validate)</p>
+              <p><code>Boolean</code></p>
+              <p><code>true</code></p>
+              <p>Turns off and on the vue-strap validation methods</p>
+            </div>
+            <div>
                 <p>disabled</p>
                 <p><code>Boolean</code></p>
                 <p>false</p>
@@ -117,6 +127,13 @@
                     Multiple values should be comma-separated.</p>
             </div>
             <div>
+                <p>Enable Feedback <br/>(:enable-feedback)</p>
+                <p><code>Boolean</code></p>
+                <p><code>true</code></p>
+                <p>Turns off and on the bootstrap validation stying</p>
+            </div>
+
+            <div>
                 <p>format</p>
                 <p><code>String</code></p>
                 <p><code>MMMM/dd/yyyy</code></p>
@@ -129,7 +146,7 @@
                 <p>Placeholder to put on the input field when no date (null or empty) is set</p>
             </div>
             <div>
-                <p>groupAddon</p>
+                <p>groupAddon <br/>(:group-addon)</p>
                 <p><code>String</code></p>
                 <p></p>
                 <p>Creates a BootStrap 3 Group-add-on tag and places text in it</p>
@@ -165,7 +182,7 @@
                 <p>Trues the gylph icon</p>
             </div>
             <div>
-                <p>validatorCustomFunction</p>
+                <p>validatorCustomFunction <br/> (:validator-custom-function())</p>
                 <p><code>function({month: str, year: str, day: str, valid: bool, date: DateTime}, self) {
                     return {valid: boolean, customerMessage: string}
                     }</code></p>
@@ -225,7 +242,8 @@
                 openFocus: false,
                 icon: true,
                 canValidate: true,
-                stateCheck: null
+                stateCheck: null,
+                enableFeedBack: true,
             }
         },
         computed: {
