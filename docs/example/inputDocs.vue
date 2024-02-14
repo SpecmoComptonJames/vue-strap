@@ -30,6 +30,7 @@
                                   :debug="debug"
                                   :type="type"
                                   tab-index="10"
+                                  :enable-feedback="check.enableFeedback"
                         ></bs-input>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -39,6 +40,7 @@
                                   :match="input"
                                   :icon="check.icon"
                                   :enter-submit="check.enterSubmit" help="Match the User Name"
+                                  :enable-feedback="check.enableFeedback"
                                   tab-index="11">
                             <label slot="label">Match value</label>
                         </bs-input>
@@ -108,6 +110,9 @@
                                 <checkbox v-model="check.validateManually">Validate Manually</checkbox>
                             </p>
                             <p>
+                                <checkbox v-model="check.enableFeedback">enableFeedback (:enable-feedback="true")</checkbox>
+                            </p>
+                            <p>
                                 <label>Group Addon Tag:</label>
                                 <input v-model="groupAddon"></input>
                             </p>
@@ -147,6 +152,7 @@
                           type="textarea"
                           :icon="check.icon"
                           :enter-submit="check.enterSubmit"
+                          :enable-feedback="check.enableFeedback"
                           @focus="event = 'focused'"
                           @blur="event = 'blured'"
                           v-model="textarea"
@@ -474,7 +480,8 @@
                     mask: false,
                     minlength: true,
                     placeholder: true,
-                    required: true
+                    required: true,
+                    enableFeedback: true,
                 },
                 event: null,
                 fruits: ['apple', 'avocado', 'banana', 'cherry', 'coconut', 'grapefruit', 'kiwi', 'lime', 'orange', 'quince', 'strawberry', 'watermelon'],

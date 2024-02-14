@@ -53,11 +53,12 @@
             <div v-if="clearButton && value" :class="{icon:icon}">
                 <span class="close" @click="value = ''">&times;</span>
             </div>
-            <div v-if="icon" class="icon">
-                <span v-if="icon&&valid!==null"
+            <div v-if="icon&&canValidate&&valid!==null" class="icon">
+                <span v-if="icon&&canValidate&&valid!==null"
                       :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]"
                       aria-hidden="true"></span>
             </div>
+
             <slot name="after"></slot>
 
         </div>
@@ -111,7 +112,7 @@
                     :tabindex="tabIndex"
             ></textarea>
             <span v-if="clearButton && val" class="close" @click="val = ''">&times;</span>
-            <span v-if="icon&&valid!==null"
+            <span v-if="icon&&canValidate&&valid!==null"
                   :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]"
                   aria-hidden="true"></span>
             </div>
@@ -169,7 +170,8 @@
             controlId: {default: true},
             method: {type: Function},
             debug: {type: Boolean, default: false},
-            tabIndex: {type: String, default: null}
+            tabIndex: {type: String, default: null},
+            enableFeedback: {type: Boolean, default: true}
         },
         data() {
             var val = this.value
@@ -182,7 +184,10 @@
         },
         computed: {
             canValidate() {
-                return !this.disabled && !this.readonly && (this.required || this.regex || this.nativeValidate || this.validateManually || this.match !== null)
+                if (this.disabled || this.readonly || !this.enableFeedback) {
+                  return false;
+                }
+                return (this.required || this.regex || this.nativeValidate || this.validateManually || this.match !== null)
             },
             errorText() {
                 var value = this.value
