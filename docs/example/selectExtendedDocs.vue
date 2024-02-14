@@ -17,7 +17,7 @@
                                   :options="select.options" options-value="val" v-model="select.normal" name="animal"
                                   :search="select.search"
                                   :required="select.required"
-                                    :disabled="select.disabled"
+                                  :disabled="select.disabled"
                                   help="Pick an item from the list (this isn't hard)"
                                   placeholder="-- SELECT ONE --"
                                   :group-addon="select.groupAddon"
@@ -31,6 +31,8 @@
                                   tab-index="50"
                                   :icon="select.icon"
                                   :clear-button="select.clearButton"
+                                  :validation-icon-margin="select.validationIconMargin"
+                                  :readonly="select.readonly"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -59,6 +61,7 @@
                                   tab-index="51"
                                   :icon="select.icon"
                                   :clear-button="select.clearButton"
+                                  :validation-icon-margin="select.validationIconMargin"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -84,6 +87,8 @@
                                   tab-index="53"
                                   :icon="select.icon"
                                   :clear-button="select.clearButton"
+                                  :validation-icon-margin="select.validationIconMargin"
+                                  :readonly="select.readonly"
                         ></v-select>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
@@ -111,6 +116,8 @@
                               tab-index="54"
                               :clear-button="select.clearButton"
                               :icon="select.icon"
+                              :validation-icon-margin="select.validationIconMargin"
+                              :readonly="select.readonly"
                     >
                          <span slot="before" class="input-group-btn">
                             B4
@@ -136,6 +143,10 @@
                         <p>
                             <label>css-class:</label>
                             <input v-model="select.cssTag"></input>
+                        </p>
+                      <p>
+                            <label>validationIconMargin (:validation-icon-margin="28px"):</label>
+                            <input v-model="select.validationIconMargin"></input>
                         </p>
                         <p>
                           <checkbox :value="select.enableDropDownAutoAlignment" @checked="select.enableDropDownAutoAlignment = arguments[0]" type="primary">EnableDropdownAutoAlignment<br/> (:enable-dropdown-auto-alignment="true")</checkbox>
@@ -358,6 +369,12 @@
                 <p>true</p>
                 <p>Turns on bootstrap validation/feedback options.</p>
             </div>
+            <div>
+                <p>validationIconMargin <br/> (:validation-icon-margin="28px")</p>
+                <p><code>String</code></p>
+                <p>"28px"</p>
+                <p>Sets the margin of the icon so it does not collide over the clear icon.  Defaults to 28px</p>
+            </div>
         </doc-table>
         <doc-table type="Events">
             <div>
@@ -445,7 +462,9 @@
                     groupAddon: 'Field Label',
                     groupFaTag: null,
                     errorText: 'It is broken',
-                    icon: true
+                    icon: true,
+                    validationIconMargin: "28px",
+
                 },
                 ajax: {
                     options: [],

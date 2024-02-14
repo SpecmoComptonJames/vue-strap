@@ -21,7 +21,7 @@
             >
                 <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
                 <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
-                <span v-if="icon" :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true'></span>
+                <span v-if="icon" :class="['form-control-feedback dropdown-glyph glyphicon',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]" aria-hidden='true' :style="validationDynamicStyle"></span>
 
             </div>
             <select ref="sel"
@@ -122,7 +122,8 @@
             cssClass: {type: String, default: null},
             minWidth: {type: String, default: ''},
             enableFeedback: {type: Boolean, default: true},
-            tabIndex: {type: String, default: null}
+            tabIndex: {type: String, default: null},
+            validationIconMargin: {type: String, default: "28px;"},
         },
         data() {
             return {
@@ -133,10 +134,13 @@
                 notify: false,
                 val: null,
                 valid: null,
-                selectStyle: "",
+                selectStyle: ""
             }
         },
         computed: {
+            validationDynamicStyle() {
+              return { "margin-right": this.validationIconMargin }
+            },
             canSearch() {
                 return this.minSearch ? this.list.length >= this.minSearch : this.search;
             },
