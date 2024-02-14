@@ -112,13 +112,19 @@
                     Usefull in forms where date entry is optional.</p>
             </div>
             <div>
-              <p>Can Validate <br/>(:can-validate)</p>
+              <p>Can Validate <br/>(:can-validate="true")</p>
               <p><code>Boolean</code></p>
               <p><code>true</code></p>
               <p>Turns off and on the vue-strap validation methods</p>
             </div>
             <div>
                 <p>disabled</p>
+                <p><code>Boolean</code></p>
+                <p>false</p>
+                <p>Disables Control</p>
+            </div>
+            <div>
+                <p>readonly <br/> (:readonly="true")</p>
                 <p><code>Boolean</code></p>
                 <p>false</p>
                 <p>Disables Control</p>
