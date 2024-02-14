@@ -11,6 +11,7 @@
             <input class="form-control datepicker-input" type="text"
                    v-model="val"
                    :disabled="disabled"
+                   :readonly="readonly"
                    :class="{'with-reset-button': clearButton}"
                    :placeholder="placeholder"
                    :style="{width:width}"
@@ -23,7 +24,7 @@
             />
             <span :class="['form-control-feedback dropdown-glyph glyphicon datepicker-feedback-glyph',{'glyphicon-ok':canValidate&&valid, 'glyphicon-remove': canValidate&&valid ===false}]"
                   aria-hidden='true'></span>
-            <button v-if="clearButton&&val" type="button" class="close" @click="val = ''">
+            <button v-if="clearButton&&val&&!readonly&&!disabled" type="button" class="close" @click="val = ''">
                 <span>&times;</span>
             </button>
             <div class="datepicker-popup" v-show="displayDayView">
@@ -386,6 +387,9 @@
 
             },
             onKeyPress(e) {
+                if (this.readonly) {
+                  return false;
+                }
                 if (
                     (e.keyCode >= 48 && e.keyCode <= 57) ||
                     (e.key === "-") ||
@@ -398,6 +402,9 @@
                 return false;
             },
             onKeyup(e) {
+                if (this.readonly) {
+                  return false;
+                }
                 if (this._timeout.onKeyUp) clearTimeout(this._timeout.onKeyUp);
                 if (e.key == "Escape") {
                     this.val = '';
@@ -470,11 +477,17 @@
                 }
             },
             onFocus() {
+                if (this.readonly) {
+                  return;
+                }
                 if (this.openOnFocus) {
                     this.inputClick();
                 }
             },
             inputClick() {
+                if (this.readonly) {
+                  return;
+                }
                 if (!this.val) {
                     this.val = '';
                     this.currDate = new Date();
@@ -495,6 +508,9 @@
                 }
             },
             preNextDecadeClick(flag) {
+                if (this.readonly) {
+                  return;
+                }
                 const year = this.currDate.getFullYear();
                 const months = this.currDate.getMonth();
                 const date = this.currDate.getDate();
@@ -506,6 +522,9 @@
                 }
             },
             preNextMonthClick(flag) {
+              if (this.readonly) {
+                return;
+              }
                 const year = this.currDate.getFullYear();
                 const month = this.currDate.getMonth();
                 const date = this.currDate.getDate();
@@ -519,6 +538,9 @@
                 }
             },
             preNextYearClick(flag) {
+              if (this.readonly) {
+                return;
+              }
                 const year = this.currDate.getFullYear();
                 const months = this.currDate.getMonth();
                 const date = this.currDate.getDate();

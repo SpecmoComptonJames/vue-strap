@@ -10,6 +10,7 @@
                     <datepicker ref="dp"
                                 v-model="date"
                                 :disabled-days-of-week="disabled"
+                                :readonly="readonly"
                                 :format="format"
                                 :clear-button="clear"
                                 :placeholder="placeholder"
@@ -34,6 +35,7 @@
                             v-model="date"
                             :disabled-days-of-week="disabled"
                             :disabled="controlDisabled"
+                            :readonly="readonly"
                             :format="format"
                             :clear-button="clear"
                             :placeholder="placeholder"
@@ -47,6 +49,7 @@
                                 v-model="date"
                                 :disabled-days-of-week="disabled"
                                 :disabled="controlDisabled"
+                                :readonly="readonly"
                                 :format="format"
                                 :clear-button="clear"
                                 :placeholder="placeholder"
@@ -74,6 +77,7 @@
                     <checkbox :value="icon" @checked="icon = arguments[0]" type="primary">Icon</checkbox>
                     <checkbox :value="canValidate" @checked="icon = arguments[0]" type="primary">Can Validate (":can-validate")</checkbox>
                     <checkbox :value="enableFeedBack" @checked="enableFeedBack = arguments[0]" type="primary">Enable Feedback (":enable-feedback")</checkbox>
+                    <checkbox :value="readonly" @checked="readonly = arguments[0]" type="primary">Read Only (":readonly")</checkbox>
                     <p>
                         <label>Group Addon Tag:</label>
                         <input v-model="groupAddon"></input>
@@ -244,6 +248,7 @@
                 canValidate: true,
                 stateCheck: null,
                 enableFeedBack: true,
+                readonly: false,
             }
         },
         computed: {
