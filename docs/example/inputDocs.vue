@@ -67,19 +67,19 @@
                                 <checkbox v-model="check.label">Label</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.placeholder">placeholder</checkbox>
+                                <checkbox v-model="check.placeholder">placeholder (:placeholder="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.hideHelp">hide help</checkbox>
+                                <checkbox v-model="check.hideHelp">hide help (:hide-help="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.disabled">disabled</checkbox>
+                                <checkbox v-model="check.disabled">disabled :disabled="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.error">error</checkbox>
+                                <checkbox v-model="check.error">error (:error="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.icon">icon</checkbox>
+                                <checkbox v-model="check.icon">icon (:icon="true")</checkbox>
                             </p>
                             <button type="button" @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
                             <button type="button" @click="testSetValid()" class="btn btn-success">Set Valid</button>
@@ -92,42 +92,42 @@
                                 <checkbox v-model="check.mask">mask</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.minlength">minlength=5</checkbox>
+                                <checkbox v-model="check.minlength">minlength=5 (:minlength="5")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.readonly">readonly</checkbox>
+                                <checkbox v-model="check.readonly">readonly (:readonly="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.required">required</checkbox>
+                                <checkbox v-model="check.required">required (:required="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.clearButton">clear button</checkbox>
+                                <checkbox v-model="check.clearButton">clearButton (:clearButton="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.enterSubmit">enter submit</checkbox>
+                                <checkbox v-model="check.enterSubmit">enterSubmit (:enter-submit="true")</checkbox>
                             </p>
                             <p>
-                                <checkbox v-model="check.validateManually">Validate Manually</checkbox>
+                                <checkbox v-model="check.validateManually">validateManually (:validate-manually="true)</checkbox>
                             </p>
                             <p>
                                 <checkbox v-model="check.enableFeedback">enableFeedback (:enable-feedback="true")</checkbox>
                             </p>
                             <p>
-                                <label>Group Addon Tag:</label>
+                                <label>groupAddon(:group-addon="XXXX")</label>
                                 <input v-model="groupAddon"></input>
                             </p>
                             <p>
-                                <label>FA Tag:</label>
+                                <label>groupFaTag (:group-fa-tag="XXX")</label>
                                 <input v-model="groupFaTag"></input>
                             </p>
                             <p>
-                                <label>Value:</label>
+                                <label>Value (v-model="DATA")</label>
                                 <div>{{input}}</div>
                                 <input v-model="input" type="text"></input>
                             </p>
                             <p>
-                                <label>Type:</label>
-                                <input v-model="type"></input>
+                                <label>type (:type="text | textarea)</label>
+                              <div><input v-model="type"></input></div>
                             </p>
                         </div>
                     </button-group>
