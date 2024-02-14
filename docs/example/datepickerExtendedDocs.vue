@@ -24,6 +24,7 @@
                                 :icon="icon"
                                 :validator-custom-function="validateRoDate"
                                 :enable-feedback="enableFeedBack"
+                                :css-class="cssTag"
                     ></datepicker>
                     <button @click="checkValidState">call isValid()</button>
                     <p>Control State Check:
@@ -43,6 +44,7 @@
                             :openOnFocus="openFocus"
                             :required="required"
                             :enable-feedback="enableFeedBack"
+                            :css-class="cssTag"
                     ></datepicker>
                     <h4>Plain Date With DateTime Type</h4>
                     <datepicker ref="dp3"
@@ -60,6 +62,7 @@
                                 :openOnFocus="openFocus"
                                 :icon="icon"
                                 :enable-feedback="enableFeedBack"
+                                :css-class="cssTag"
                     ></datepicker>
                     <p>{{dateValue}}</p>
                     <h4>Disabled days of week</h4>
@@ -90,6 +93,10 @@
                         <label>Date:</label>
                         <input v-model="date"></input>
                     </p>
+                    <p>
+                      <label>css-class:</label>
+                      <input v-model="cssTag"></input>
+                    </p>
 
                     <button @click="testSetInvalid()" class="btn btn-danger">Set Invalid</button>
                     <button @click="testSetValid()" class="btn btn-success">Set Valid</button>
@@ -104,6 +111,12 @@
             :placeholder="placeholder">&lt;/datepicker>
         </doc-code>
         <doc-table>
+            <div>
+              <p>cssClass<br/>(:css-class="CLASS.NAMES")</p>
+              <p>Added cssClass property to take a string of custom css styling class names.</p>
+              <p></p>
+              <p></p>
+            </div>
             <div>
                 <p>clearButton<br/> (:clear-button="true")</p>
                 <p><code>Boolean</code></p>
@@ -237,6 +250,7 @@
         },
         data() {
             return {
+                cssTag: "",
                 clear: true,
                 disabled: [],
                 controlDisabled: false,

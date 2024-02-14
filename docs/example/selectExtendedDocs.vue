@@ -395,8 +395,10 @@
         </doc-table>
         <doc-table  type="Notes" :headers="['Name','Description']">
             <div>
-                <p>cssClass</p>
+                <p>cssClass<br/>(:css-class="CLASS.NAMES")</p>
                 <p>Added cssClass property to take a string of custom css styling class names.</p>
+                <p></p>
+                <p></p>
             </div>
             <div>
                 <p>setValidState</p>
