@@ -105,7 +105,7 @@
         </doc-code>
         <doc-table>
             <div>
-                <p>clear-button</p>
+                <p>clearButton<br/> (:clear-button="true")</p>
                 <p><code>Boolean</code></p>
                 <p>false</p>
                 <p>If <strong>true</strong> shows an &times; shaped button to clear the selected date.
@@ -118,7 +118,7 @@
               <p>Turns off and on the vue-strap validation methods</p>
             </div>
             <div>
-                <p>disabled</p>
+                <p>Disabled <br/>(:disabled="false")</p>
                 <p><code>Boolean</code></p>
                 <p>false</p>
                 <p>Disables Control</p>
@@ -156,7 +156,7 @@
                 <p>Placeholder to put on the input field when no date (null or empty) is set</p>
             </div>
             <div>
-                <p>groupAddon <br/>(:group-addon)</p>
+                <p>groupAddon <br/>(:group-addon="Label Text")</p>
                 <p><code>String</code></p>
                 <p></p>
                 <p>Creates a BootStrap 3 Group-add-on tag and places text in it</p>
@@ -186,7 +186,7 @@
                 <p>The icon font used for arrows. Can be 'glyphicon' or 'fa' (Font Awesome)</p>
             </div>
             <div>
-                <p>icon</p>
+                <p>icon<br/>(:icon="true")</p>
                 <p><code>Boolean</code></p>
                 <p><code></code></p>
                 <p>Trues the gylph icon</p>
