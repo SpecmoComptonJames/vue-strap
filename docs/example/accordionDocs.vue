@@ -91,7 +91,14 @@
         <p>Define the type of color for the tab (single).</p>
       </div>
     </doc-table>
-    <p>If you want to personalice your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>
+    <doc-table type="Events">
+      <div>
+        <p>toggle-panel</p>
+        <p>Object: {"header": string}</p>
+        <p>Called when chosen panel changes</p>
+      </div>
+    </doc-table>
+    <p>If you want to personalize your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>
   </doc-section>
 </template>
 
