@@ -2,10 +2,10 @@
   <div tabs>
     <ul :class="navStyleClass" role="tablist">
       <template v-for="header in headers">
-        <li v-if="header._isTab" :class="{active:header.active, disabled:header.disabled}" @click.prevent="select(header)">
+        <li v-show="header._isTab" :class="{active:header.active, disabled:header.disabled}" @click.prevent="select(header)">
           <slot name="header"><a href="#" v-html="header.header"></a></slot>
         </li>
-        <dropdown v-if="header._isTabGroup" :text="header.header" :class="{active:header.active}" :disabled="header.disabled">
+        <dropdown v-show="header._isTabGroup" :text="header.header" :class="{active:header.active}" :disabled="header.disabled">
           <li v-for="tab in header.tabs" :class="{disabled:tab.disabled}"><a href="#" @click.prevent="select(tab)">{{tab.header}}</a></li>
         </dropdown>
       </template>

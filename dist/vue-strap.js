@@ -12158,7 +12158,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n[tabs] > .tab-content {\n  margin: 15px 0;\n}\n", "", {"version":3,"sources":["/./src/Tabs.vue?1a971f86"],"names":[],"mappings":";AA0EA;EACA,eAAA;CACA","file":"Tabs.vue","sourcesContent":["<template>\n  <div tabs>\n    <ul :class=\"navStyleClass\" role=\"tablist\">\n      <template v-for=\"header in headers\">\n        <li v-if=\"header._isTab\" :class=\"{active:header.active, disabled:header.disabled}\" @click.prevent=\"select(header)\">\n          <slot name=\"header\"><a href=\"#\" v-html=\"header.header\"></a></slot>\n        </li>\n        <dropdown v-if=\"header._isTabGroup\" :text=\"header.header\" :class=\"{active:header.active}\" :disabled=\"header.disabled\">\n          <li v-for=\"tab in header.tabs\" :class=\"{disabled:tab.disabled}\"><a href=\"#\" @click.prevent=\"select(tab)\">{{tab.header}}</a></li>\n        </dropdown>\n      </template>\n    </ul>\n    <div class=\"tab-content\"><slot></slot></div>\n  </div>\n</template>\n\n<script>\nimport {coerce} from './utils/utils.js'\nimport dropdown from './Dropdown.vue'\n\nexport default {\n  components: {\n    dropdown\n  },\n  props: {\n    // effect: {type: String, default: 'fadein'},\n    justified: false,\n    navStyle: {type: String, default: null},\n    value: {type: Number, default: 0}\n  },\n  data () {\n    var index = this.value || 0\n    return {\n      index,\n      headers: [],\n      tabs: []\n    }\n  },\n  watch: {\n    index (val) {\n      this.$emit('active', val)\n      this.$emit('input', val)\n    },\n    value (val) {\n      this.index = val\n    }\n  },\n  computed: {\n    navStyleClass () {\n      return [\n        'nav',\n        ~['pills', 'stacked'].indexOf(this.navStyle) ? 'nav-' + this.navStyle : 'nav-tabs',\n        {\n          'nav-justified': coerce.boolean(this.justified),\n          'nav-pills': this.navStyle === 'stacked'\n        }\n      ]\n    },\n    show () { return this.tabs[this.index] || this.tabs[0] }\n  },\n  methods: {\n    select (tab) {\n      if (!tab.disabled) {\n        this.index = this.tabs.indexOf(tab)\n      }\n    }\n  },\n  created () {\n    this._isTabs = true\n  }\n}\n</script>\n\n<style>\n[tabs] > .tab-content {\n  margin: 15px 0;\n}\n</style>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n[tabs] > .tab-content {\n  margin: 15px 0;\n}\n", "", {"version":3,"sources":["/./src/Tabs.vue?da81a4f4"],"names":[],"mappings":";AA0EA;EACA,eAAA;CACA","file":"Tabs.vue","sourcesContent":["<template>\n  <div tabs>\n    <ul :class=\"navStyleClass\" role=\"tablist\">\n      <template v-for=\"header in headers\">\n        <li v-show=\"header._isTab\" :class=\"{active:header.active, disabled:header.disabled}\" @click.prevent=\"select(header)\">\n          <slot name=\"header\"><a href=\"#\" v-html=\"header.header\"></a></slot>\n        </li>\n        <dropdown v-show=\"header._isTabGroup\" :text=\"header.header\" :class=\"{active:header.active}\" :disabled=\"header.disabled\">\n          <li v-for=\"tab in header.tabs\" :class=\"{disabled:tab.disabled}\"><a href=\"#\" @click.prevent=\"select(tab)\">{{tab.header}}</a></li>\n        </dropdown>\n      </template>\n    </ul>\n    <div class=\"tab-content\"><slot></slot></div>\n  </div>\n</template>\n\n<script>\nimport {coerce} from './utils/utils.js'\nimport dropdown from './Dropdown.vue'\n\nexport default {\n  components: {\n    dropdown\n  },\n  props: {\n    // effect: {type: String, default: 'fadein'},\n    justified: false,\n    navStyle: {type: String, default: null},\n    value: {type: Number, default: 0}\n  },\n  data () {\n    var index = this.value || 0\n    return {\n      index,\n      headers: [],\n      tabs: []\n    }\n  },\n  watch: {\n    index (val) {\n      this.$emit('active', val)\n      this.$emit('input', val)\n    },\n    value (val) {\n      this.index = val\n    }\n  },\n  computed: {\n    navStyleClass () {\n      return [\n        'nav',\n        ~['pills', 'stacked'].indexOf(this.navStyle) ? 'nav-' + this.navStyle : 'nav-tabs',\n        {\n          'nav-justified': coerce.boolean(this.justified),\n          'nav-pills': this.navStyle === 'stacked'\n        }\n      ]\n    },\n    show () { return this.tabs[this.index] || this.tabs[0] }\n  },\n  methods: {\n    select (tab) {\n      if (!tab.disabled) {\n        this.index = this.tabs.indexOf(tab)\n      }\n    }\n  },\n  created () {\n    this._isTabs = true\n  }\n}\n</script>\n\n<style>\n[tabs] > .tab-content {\n  margin: 15px 0;\n}\n</style>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -12264,7 +12264,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "role": "tablist"
 	    }
 	  }, [_vm._l((_vm.headers), function(header) {
-	    return [(header._isTab) ? _c('li', {
+	    return [_c('li', {
+	      directives: [{
+	        name: "show",
+	        rawName: "v-show",
+	        value: (header._isTab),
+	        expression: "header._isTab"
+	      }],
 	      class: {
 	        active: header.active,
 	        disabled: header.disabled
@@ -12284,7 +12290,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          "innerHTML": _vm._s(header.header)
 	        }
 	      })]
-	    })], 2) : _vm._e(), _vm._v(" "), (header._isTabGroup) ? _c('dropdown', {
+	    })], 2), _vm._v(" "), _c('dropdown', {
+	      directives: [{
+	        name: "show",
+	        rawName: "v-show",
+	        value: (header._isTabGroup),
+	        expression: "header._isTabGroup"
+	      }],
 	      class: {
 	        active: header.active
 	      },
@@ -12308,7 +12320,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	        }
 	      }, [_vm._v(_vm._s(tab.header))])])
-	    }), 0) : _vm._e()]
+	    }), 0)]
 	  })], 2), _vm._v(" "), _c('div', {
 	    staticClass: "tab-content"
 	  }, [_vm._t("default")], 2)])
