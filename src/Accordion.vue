@@ -26,6 +26,11 @@ export default {
           }
         })
       }
+    },
+    togglingChildren: function (args) {
+      this.$nextTick(function () {
+        this.$emit('toggle-panel', args);
+      });
     }
   },
   created () {

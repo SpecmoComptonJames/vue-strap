@@ -4,7 +4,7 @@
       <checkbox v-model="checked" type="primary">Open only one at a time.</checkbox>
       <p><v-select :options="types" clear-button v-model="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button v-model="first" placeholder="First element type"></v-select></p>
-      <accordion :one-at-atime="checked" :type="selected">
+      <accordion :one-at-atime="checked" :type="selected" @toggle-panel="onPanelToggled">
         <panel is-open :type="first=='panel'?null:first">
           <strong slot="header"><u>Panel #1</u></strong>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -120,6 +120,11 @@ export default {
       selected: 'info',
       first: 'primary',
       types: ['default', 'primary', 'info', 'success', 'warning', 'danger']
+    }
+  },
+  methods: {
+    onPanelToggled: function(args) {
+      console.log('panelToggled', args);
     }
   }
 }

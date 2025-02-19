@@ -41,10 +41,14 @@ export default {
   },
   methods: {
     toggle () {
-      this.open = !this.open
-      if (this.inAccordion) {
-        this.$parent.openChild(this)
+      let _self = this;
+      _self.open = !_self.open
+      if (_self.inAccordion) {
+        _self.$parent.openChild(_self);
       }
+      _self.$nextTick(() => {
+        _self.$parent.togglingChildren({header: _self.header});
+      })
     },
     enter (el) {
       el.style.height = 'auto'
