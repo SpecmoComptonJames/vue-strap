@@ -9,7 +9,7 @@
       @after-enter="afterEnter"
       @before-leave="beforeLeave"
     >
-      <div class="panel-collapse" v-if="open">
+      <div class="panel-collapse" v-show="open">
         <div class="panel-body">
           <slot></slot>
         </div>
