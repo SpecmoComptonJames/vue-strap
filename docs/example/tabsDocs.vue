@@ -4,7 +4,7 @@
       <p>Style: <v-select v-model="navStyle" :options="['tabs','pills','stacked']"></v-select></p>
       <p v-if="navStyle!='stacked'">Justified: <v-select v-model="justified" :options="[true,false]"></v-select></p>
       <!-- <checkbox v-model="justified">Justified</checkbox> -->
-      <tabs :nav-style="navStyle" :justified="justified">
+      <tabs :nav-style="navStyle" :justified="justified" @active="onActiveEvent">
         <tab header="zero">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -46,7 +46,7 @@
       </tabs>
     </div>
     <doc-code language="markup">
-      &lt;tabs v-model="activeTab" nav-style="tabs" justified>
+      &lt;tabs v-model="activeTab" nav-style="tabs" justified @active="onActiveEvent">
         &lt;tab header="zero">
           ...
         &lt;/tab>
@@ -145,6 +145,11 @@ export default {
   watch: {
     navStyle (val) {
       if (val === 'stacked') { this.justified = false }
+    }
+  },
+  methods: {
+    onActiveEvent: function(args) {
+      console.log('onActiveEvent', args);
     }
   }
 }
