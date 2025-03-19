@@ -1,5 +1,5 @@
 <template>
-  <div ref="panel" role="tabpanel" :class="['tab-pane',{'active fade':active,'in':fadein}]"><slot></slot></div>
+  <div ref="panel" role="tabpanel" :class="['tab-pane',{'active fade':active,'in':fadein}]" ><slot></slot></div>
 </template>
 
 <script>
@@ -15,10 +15,11 @@ export default {
   },
   computed: {
     active () {
-      var active = !this._tabs || this._tabs.show === this
-      this.fadein = false
+      let active = !this._tabs || this._tabs.show === this;
+      this.fadein = false;
       if (active) {
-        setTimeout(() => { this.fadein = true }, 0)
+        setTimeout(() => { this.fadein = true }, 0);
+        this.$emit('tab-activated', {index: this.index, header:this.header});
       }
       return active
     },

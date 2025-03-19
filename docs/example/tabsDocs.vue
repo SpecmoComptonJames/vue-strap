@@ -5,7 +5,7 @@
       <p v-if="navStyle!='stacked'">Justified: <v-select v-model="justified" :options="[true,false]"></v-select></p>
       <!-- <checkbox v-model="justified">Justified</checkbox> -->
       <tabs :nav-style="navStyle" :justified="justified" @active="onActiveEvent">
-        <tab header="zero">
+        <tab header="zero" @tab-activated="onTabActivated">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -15,7 +15,7 @@
             non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </tab>
-        <tab header="one">
+        <tab header="one" @tab-activated="onTabActivated">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -47,10 +47,10 @@
     </div>
     <doc-code language="markup">
       &lt;tabs v-model="activeTab" nav-style="tabs" justified @active="onActiveEvent">
-        &lt;tab header="zero">
+        &lt;tab header="zero" @tab-activated="onTabActivated">
           ...
         &lt;/tab>
-        &lt;tab header="one">
+        &lt;tab header="one" @tab-activated="onTabActivated">
           ...
         &lt;/tab>
         &lt;tab header="two" disabled>
@@ -96,6 +96,11 @@
         <p>active / input</p>
         <p>(<code>index:number</code>)</p>
         <p>Return the Active tab index (0 based).</p>
+      </div>
+      <div>
+        <p>tab-activated </p>
+        <p>(<code>index:number</code>,<code>string: header</code>)</p>
+        <p>Raised when the secified Tab Object is activated.</p>
       </div>
     </doc-table>
     <doc-table name="TabGroup & Tab">
@@ -148,6 +153,9 @@ export default {
     }
   },
   methods: {
+    onTabActivated: function(args) {
+      console.log('onTabActive', args)
+    },
     onActiveEvent: function(args) {
       console.log('onActiveEvent', args);
     }
