@@ -32,7 +32,7 @@ export default {
   },
   watch: {
     isOpen( val ) {
-      this.open = val
+      this.open = val;
     }
   },
   computed: {
@@ -46,6 +46,9 @@ export default {
       if (_self.inAccordion) {
         _self.$parent.openChild(_self);
       }
+
+      this.$emit('opened', {open: _self.open, header: _self.header});
+
       _self.$nextTick(() => {
         _self.$parent.togglingChildren({header: _self.header});
       })

@@ -5,7 +5,7 @@
       <p><v-select :options="types" clear-button v-model="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button v-model="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected" @toggle-panel="onPanelToggled">
-        <panel is-open :type="first=='panel'?null:first">
+        <panel is-open :type="first=='panel'?null:first"  @opened="onPanelOpened">
           <strong slot="header"><u>Panel #1</u></strong>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -14,7 +14,7 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </panel>
-        <panel header="Panel #2">
+        <panel header="Panel #2" @opened="onPanelOpened">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -22,7 +22,7 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </panel>
-        <panel header="Panel #3">
+        <panel header="Panel #3" @opened="onPanelOpened">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -30,7 +30,7 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </panel>
-        <panel header="Panel #4">
+        <panel header="Panel #4" @opened="onPanelOpened">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -42,11 +42,11 @@
     </div>
     <doc-code language="markup">
       &lt;accordion :one-at-atime="checked" type="info">
-        &lt;panel is-open type="primary">
+        &lt;panel is-open type="primary" @opened="onPanelOpened">
           &lt;strong slot="header">&lt;u>Panel #1&lt;/u>&lt;/strong>
           ...
         &lt;/panel>
-        &lt;panel header="Panel #2">
+        &lt;panel header="Panel #2" @opened="onPanelOpened">
           ...
         &lt;/panel>
         &lt;panel header="Panel #3">
@@ -97,6 +97,11 @@
         <p>Object: {"header": string}</p>
         <p>Called when chosen panel changes</p>
       </div>
+      <div>
+        <p>opened</p>
+        <p>Object: {"open": bool, "header": string}</p>
+        <p>emitted when pane is opened or closed.  Event of the panel object.</p>
+      </div>
     </doc-table>
     <p>If you want to personalize your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>
   </doc-section>
@@ -132,6 +137,9 @@ export default {
   methods: {
     onPanelToggled: function(args) {
       console.log('panelToggled', args);
+    },
+    onPanelOpened: function(args) {
+      console.log('onPanelOpened', args);
     }
   }
 }
