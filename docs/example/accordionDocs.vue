@@ -5,7 +5,7 @@
       <p><v-select :options="types" clear-button v-model="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button v-model="first" placeholder="First element type"></v-select></p>
       <accordion :one-at-atime="checked" :type="selected" @toggle-panel="onPanelToggled">
-        <panel is-open :type="first=='panel'?null:first"  @opened="onPanelOpened">
+        <panel is-open :type="first=='panel'?null:first"  @opened="onPanelOpened" @header-clicked="onHeaderClicked">
           <strong slot="header"><u>Panel #1</u></strong>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -14,7 +14,7 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </panel>
-        <panel header="Panel #2" @opened="onPanelOpened">
+        <panel header="Panel #2" @opened="onPanelOpened" @header-clicked="onHeaderClicked">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -22,7 +22,7 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </panel>
-        <panel header="Panel #3" @opened="onPanelOpened">
+        <panel header="Panel #3" @opened="onPanelOpened" @header-clicked="onHeaderClicked">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -30,7 +30,7 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </panel>
-        <panel header="Panel #4" @opened="onPanelOpened">
+        <panel header="Panel #4" @opened="onPanelOpened" @header-clicked="onHeaderClicked">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -102,6 +102,11 @@
         <p>Object: {"open": bool, "header": string}</p>
         <p>emitted when pane is opened or closed.  Event of the panel object.</p>
       </div>
+      <div>
+        <p>header-clicked</p>
+        <p>Object: {"open": bool, "header": string}</p>
+        <p>emitted when header is clicked.  Event of the panel object.</p>
+      </div>
     </doc-table>
     <p>If you want to personalize your header with some html you can use the slot instead of header attribute (panel&nbsp;#1 in the example).</p>
   </doc-section>
@@ -140,6 +145,9 @@ export default {
     },
     onPanelOpened: function(args) {
       console.log('onPanelOpened', args);
+    },
+    onHeaderClicked: function(args) {
+      console.log('onHeaderClicked', args);
     }
   }
 }

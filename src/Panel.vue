@@ -1,7 +1,7 @@
 <template>
-  <div :class="['panel',panelType]">
-    <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
-      <slot name="header"><h4 class="panel-title">{{ header }}</h4></slot>
+  <div :class="['panel',panelType]" >
+    <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()" @click="headerClicked">
+      <slot name="header" ><h4 class="panel-title">{{ header }}</h4></slot>
     </div>
     <transition
       name="collapse"
@@ -40,7 +40,11 @@ export default {
     panelType () { return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default') }
   },
   methods: {
+    headerClicked () {
+      this.$emit('header-clicked', {open: this.open, header: this.header});
+    },
     toggle () {
+
       let _self = this;
       _self.open = !_self.open
       if (_self.inAccordion) {

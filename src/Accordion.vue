@@ -19,6 +19,7 @@ export default {
   },
   methods: {
     openChild (child) {
+      console.log('openChild', child)
       if (this.oneAtAtime) {
         this.$children.forEach(item => {
           if (child !== item) {
