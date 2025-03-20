@@ -4,7 +4,7 @@
       <checkbox v-model="checked" type="primary">Open only one at a time.</checkbox>
       <p><v-select :options="types" clear-button v-model="selected" placeholder="Global type"></v-select></p>
       <p><v-select :options="types" clear-button v-model="first" placeholder="First element type"></v-select></p>
-      <accordion :one-at-atime="checked" :type="selected" @toggle-panel="onPanelToggled">
+      <accordion ref="myAccord" :one-at-atime="checked" :type="selected" @toggle-panel="onPanelToggled">
         <panel is-open :type="first=='panel'?null:first"  @opened="onPanelOpened" @header-clicked="onHeaderClicked">
           <strong slot="header"><u>Panel #1</u></strong>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -39,6 +39,16 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </panel>
       </accordion>
+      <bs-input
+          group-addon="Index To Open"
+                v-model="idxToOpen"
+                required
+                type="number"
+                :enable-feedback="false"
+                tab-index="11">
+      </bs-input>
+      <button @click="openByIndex">Open Index</button>
+      <button @click="toggleByIndex">Toggle Index</button>
     </div>
     <doc-code language="markup">
       &lt;accordion :one-at-atime="checked" type="info">
@@ -120,9 +130,11 @@ import Accordion from 'src/Accordion.vue'
 import Checkbox from 'src/Checkbox.vue'
 import Panel from 'src/Panel.vue'
 import vSelect from 'src/Select.vue'
+import bsInput from "../../src/Input.vue";
 
 export default {
   components: {
+    bsInput,
     docSection,
     docTable,
     docCode,
@@ -133,6 +145,7 @@ export default {
   },
   data () {
     return {
+      idxToOpen: 0,
       checked: true,
       selected: 'info',
       first: 'primary',
@@ -140,6 +153,12 @@ export default {
     }
   },
   methods: {
+    openByIndex: function() {
+      this.$refs.myAccord.openIndex(this.idxToOpen);
+    },
+    toggleByIndex: function() {
+      this.$refs.myAccord.openIndex(this.idxToOpen, true);
+    },
     onPanelToggled: function(args) {
       console.log('panelToggled', args);
     },

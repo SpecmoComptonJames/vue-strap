@@ -18,8 +18,15 @@ export default {
     }
   },
   methods: {
+    openIndex (idx, toggle) {
+      let child = this.$children[idx];
+      this.openChild(child);
+      if (!toggle) {
+        child.open = false;
+      }
+      child.toggle();
+    },
     openChild (child) {
-      console.log('openChild', child)
       if (this.oneAtAtime) {
         this.$children.forEach(item => {
           if (child !== item) {

@@ -2698,8 +2698,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
+	    openIndex: function openIndex(idx, toggle) {
+	      var child = this.$children[idx];
+	      this.openChild(child);
+	      if (!toggle) {
+	        child.open = false;
+	      }
+	      child.toggle();
+	    },
 	    openChild: function openChild(child) {
-	      console.log('openChild', child);
 	      if (this.oneAtAtime) {
 	        this.$children.forEach(function (item) {
 	          if (child !== item) {
